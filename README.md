@@ -1,6 +1,6 @@
 # Спецкурс "Инструменты разработки"
 
-[![Join the chat at https://gitter.im/devtools-course-practice/Lobby](https://badges.gitter.im/devtools-course-practice/Lobby.svg)](https://gitter.im/devtools-course-practice/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat](https://badges.gitter.im/devtools-course-practice-2018/Lobby.svg)](https://gitter.im/devtools-course-practice-2018/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![HTML][html-badge]][html]
 [![Build Status](https://travis-ci.org/UNN-VMK-Software/devtools-course-practice.svg?branch=master)](https://travis-ci.org/UNN-VMK-Software/devtools-course-practice)
 [![Build status](https://ci.appveyor.com/api/projects/status/s8x9j99vew7qttpi/branch/master?svg=true)](https://ci.appveyor.com/project/kirill-kornyakov/devtools-course-practice/branch/master)
