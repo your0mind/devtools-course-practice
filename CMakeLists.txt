@@ -174,8 +174,8 @@ enable_testing()
 # Bugreport support
 #
 
-if(PYTHON_EXECUTABLE)
-    add_test(NAME bugreport
-            COMMAND ${PYTHON_EXECUTABLE}
-            ${CMAKE_SOURCE_DIR}/3rdparty/bugreport.py)
-endif()
+# if(PYTHON_EXECUTABLE)
+#     add_test(NAME bugreport
+#             COMMAND ${PYTHON_EXECUTABLE}
+#             ${CMAKE_SOURCE_DIR}/3rdparty/bugreport.py)
+# endif()
