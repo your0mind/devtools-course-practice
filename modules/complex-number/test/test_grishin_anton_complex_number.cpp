@@ -4,13 +4,14 @@
 
 #include "include/complex_number.h"
 
-TEST(Korniakov_Kirill_ComplexNumberTest, Can_Create_Zero) {
+TEST(Grishin_Anton_ComplexNumberTest, Can_Negative_Number) {
 	// Arrange
-	double re = 0.0;
-	double im = 0.0;
+	double re = 5.0;
+	double im = 5.0;
 
 	// Act
 	ComplexNumber z(re, im);
+	
 
 	// Assert
 	EXPECT_EQ(re, z.getRe());
