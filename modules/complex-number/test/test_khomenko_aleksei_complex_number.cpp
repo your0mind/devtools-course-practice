@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
-//#include <math.h>
+
 
 TEST(Khomenko_Aleksei_ComplexNumberTest, Re_Eql_Re) {
     // Arrange
@@ -38,7 +38,6 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Add_Zero) {
     double re = 20.0;
     double im = 25.0;
     
-  //  double __z__= sqrt(re*re+im*im);
     
     // Act
     ComplexNumber z(re, im);
