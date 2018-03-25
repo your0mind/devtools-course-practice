@@ -18,18 +18,20 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, ReEqlRe) {
  
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Not_Equal) {
+
+TEST(Khomenko_Aleksei_ComplexNumberTest, Not_Equal_Re) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
     
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber z1(re-5,im-7);
+    ComplexNumber z1(re-5,im-5);
     
     // Assert
-    
-    ASSERT_NE(z1, z);
+    ASSERT_NE(z1.getRe(), z.getRe());
+    ASSERT_NE(z1.getIm(), z.getIm());
 }
+
 
 
