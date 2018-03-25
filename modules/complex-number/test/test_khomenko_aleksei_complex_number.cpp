@@ -18,7 +18,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, ReEqlRe) {
  
 }
 
-/*TEST(Khomenko_Aleksei_ComplexNumberTest, Not_Equal) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Not_Equal) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
@@ -30,6 +30,6 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, ReEqlRe) {
     // Assert
     
     ASSERT_NE(z1, z);
-}*/
+}
 
 
