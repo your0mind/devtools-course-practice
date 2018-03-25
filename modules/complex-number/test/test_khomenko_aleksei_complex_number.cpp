@@ -50,4 +50,20 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Add_Zero) {
     ASSERT_EQ(z_res.getIm(), z.getIm());
 }
 
+TEST(Khomenko_Aleksei_ComplexNumberTest, Multiplication_by_Neutral_Element) {
+    // Arrange
+    double re = 20.0;
+    double im = 25.0;
+    
+    // Act
+    ComplexNumber z(re, im);
+    ComplexNumber z1(1.0, 0.0);
+    ComplexNumber z_res = z * z1;
+    
+    // Assert
+    ASSERT_EQ(z_res.getRe(), z.getRe());
+    ASSERT_EQ(z_res.getIm(), z.getIm());
+}
+
+
 
