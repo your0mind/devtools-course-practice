@@ -65,5 +65,23 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Multiplication_by_Neutral_Element) {
     ASSERT_EQ(z_res.getIm(), z.getIm());
 }
 
+TEST(Khomenko_Aleksei_ComplexNumberTest, Distribution) {
+    // Arrange
+    double re = 20.0;
+    double im = 20.0;
+    
+    // Act
+    ComplexNumber z1(re, im), z2(re, im), z3(re, im);
+    ComplexNumber z_res1(0.0, 0.0);
+    ComplexNumber z_res2(0.0, 0.0);
+    z_res1 = z1*(z2+z3);
+    z_res2 = z1*z2+z1*z3;
+    
+    // Assert
+    ASSERT_EQ(z_res1.getRe(), z_res2.getRe());
+    ASSERT_EQ(z_res1.getRe(), z_res2.getRe());
+}
+
+
 
 
