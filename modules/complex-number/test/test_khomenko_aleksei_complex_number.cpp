@@ -15,7 +15,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Re_Eql_Re) {
     
     // Assert
     EXPECT_EQ(re, z1.getRe());
- }
+}
 
 TEST(Khomenko_Aleksei_ComplexNumberTest, RNot_Equal) {
     // Arrange
@@ -24,7 +24,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, RNot_Equal) {
     
     // Act
     ComplexNumber z(re, im);
-    ComplexNumber z1(re-5,im-5);
+    ComplexNumber z1(re-5, im-5);
     
     // Assert
     ASSERT_NE(z1.getRe(), z.getRe());
