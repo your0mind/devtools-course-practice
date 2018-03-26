@@ -73,5 +73,5 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Distribution) {
    
     // Assert
     ASSERT_EQ(z_res1.getRe(), z_res2.getRe());
-    ASSERT_EQ(z_res1.getRe(), z_res2.getRe());
+    ASSERT_EQ(z_res1.getIm(), z_res2.getIm());
 }
