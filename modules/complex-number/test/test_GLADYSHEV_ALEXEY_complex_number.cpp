@@ -4,15 +4,14 @@
 
 #include "include/complex_number.h"
 
-TEST(Gladyshev_Alexey_ComplexNumberTest, Can_Create_Zero) {
+TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Associativity) {
 	// Arrange
-	double re = 0.0;
-	double im = 0.0;
+	ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
 
 	// Act
-	ComplexNumber z(re, im);
+	ComplexNumber firstZ = z1 + z2 * z3;
+	ComplexNumber secondZ = z1 + (z2 * z3);
 
 	// Assert
-	EXPECT_EQ(re, z.getRe());
-	EXPECT_EQ(im, z.getIm());
+	EXPECT_TRUE(firstZ == secondZ);
 }
