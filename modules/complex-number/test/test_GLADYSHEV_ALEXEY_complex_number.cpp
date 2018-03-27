@@ -31,7 +31,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Work_Of_Distributivity) {
     EXPECT_NEAR(firstZ.getIm(), secondZ.getIm(), epsilon);
 }
 
-TEST(Gladyshev_Alexey_ComplexNumberTest, Composition_Of_Conjugate_Numbers_Is_Real_Number) {
+TEST(Gladyshev_Alexey_ComplexNumberTest, Comp_Conjugate_Nums_Is_Real_Num) {
     // Arrange
     ComplexNumber z1(12, -17), z2(12, 17);
 
