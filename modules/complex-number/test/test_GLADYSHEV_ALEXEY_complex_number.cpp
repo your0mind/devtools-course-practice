@@ -6,7 +6,7 @@
 
 double epsilon = 0.00001;
 
-TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Associativity) {
+TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Order_Of_Operations) {
     // Arrange
     ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
 
