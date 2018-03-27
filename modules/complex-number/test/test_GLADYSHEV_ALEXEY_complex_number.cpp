@@ -17,6 +17,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Order_Of_Operations) {
     // Assert
     EXPECT_TRUE(firstZ == secondZ);
 }
+
 TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Work_Of_Distributivity) {
     // Arrange
     ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
@@ -29,6 +30,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Work_Of_Distributivity) {
     EXPECT_NEAR(firstZ.getRe(), secondZ.getRe(), epsilon);
     EXPECT_NEAR(firstZ.getIm(), secondZ.getIm(), epsilon);
 }
+
 TEST(Gladyshev_Alexey_ComplexNumberTest, Composition_Of_Conjugate_Numbers_Is_Real_Number) {
     // Arrange
     ComplexNumber z1(12, -17), z2(12, 17);
@@ -39,6 +41,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Composition_Of_Conjugate_Numbers_Is_Rea
     // Assert
     EXPECT_EQ(resZ.getIm(), 0);
 }
+
 TEST(Gladyshev_Alexey_ComplexNumberTest, Property_Of_One_Of_Multiplying) {
     // Arrange
     ComplexNumber z(12, -17), one(1, 0);
@@ -49,6 +52,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Property_Of_One_Of_Multiplying) {
     // Assert
     EXPECT_EQ(z, resZ);
 }
+
 TEST(Gladyshev_Alexey_ComplexNumberTest, Property_Of_Zero_Of_Multiplying) {
     // Arrange
     ComplexNumber z(12, -17), zero(0, 0);
