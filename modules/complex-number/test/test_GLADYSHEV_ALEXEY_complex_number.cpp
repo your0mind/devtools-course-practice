@@ -1,4 +1,4 @@
-// Copyright 2017 Gladyshev Alexey
+// Copyright 2018 Gladyshev Alexey
 
 #include <gtest/gtest.h>
 
