@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Re_Eql_Re) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Get_Re_from_Im) {
     // Arrange
     double re = -1.0;
     double im = 1.0;
@@ -14,10 +14,10 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Re_Eql_Re) {
     ComplexNumber z1 = z*z;
 
     // Assert
-    EXPECT_EQ(re, z1.getRe());
+    EXPECT_NEAR(re, z1.getRe(), 0.001);
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, RNot_Equal) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Substruct_Const_At_Initialization) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
@@ -27,11 +27,11 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, RNot_Equal) {
     ComplexNumber z1(re-5, im-5);
 
     // Assert
-    ASSERT_NE(z1.getRe(), z.getRe());
-    ASSERT_NE(z1.getIm(), z.getIm());
+    EXPECT_NE(z1.getRe(), z.getRe());
+    EXPECT_NE(z1.getIm(), z.getIm());
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Add_Zero) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Add_Zero) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
@@ -42,11 +42,10 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Add_Zero) {
     ComplexNumber z_res = z + z1;
 
     // Assert
-    ASSERT_EQ(z_res.getRe(), z.getRe());
-    ASSERT_EQ(z_res.getIm(), z.getIm());
+    ASSERT_EQ(z_res, z);
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Multiplication_by_Neutral_Element) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Multiplication_by_Neutral_Element) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
@@ -57,11 +56,10 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Multiplication_by_Neutral_Element) {
     ComplexNumber z_res = z * z1;
 
     // Assert
-    ASSERT_EQ(z_res.getRe(), z.getRe());
-    ASSERT_EQ(z_res.getIm(), z.getIm());
+    ASSERT_EQ(z_res, z);
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Distribution) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_check_the_Distribution) {
     // Arrange
     double re = 20.0;
     double im = 20.0;
@@ -72,6 +70,5 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Distribution) {
     ComplexNumber z_res2 = z1*z2+z1*z3;
 
     // Assert
-    ASSERT_EQ(z_res1.getRe(), z_res2.getRe());
-    ASSERT_EQ(z_res1.getIm(), z_res2.getIm());
+    EXPECT_EQ(z_res1, z_res2);
 }
