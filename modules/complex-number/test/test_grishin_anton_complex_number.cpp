@@ -4,6 +4,7 @@
 
 #include "include/complex_number.h"
 
+double epsilon = 0.001;
 TEST(Grishin_Anton_ComplexNumberTest, Can_get_Re_from_Im) {
 	// Arrange
 	double re = -1.0;
@@ -15,5 +16,21 @@ TEST(Grishin_Anton_ComplexNumberTest, Can_get_Re_from_Im) {
 	ComplexNumber z = z1 * z1;
 
 	// Assert
-	EXPECT_EQ(re, z.getRe());
+	EXPECT_NEAR(re, z.getRe(), epsilon);
 }
+
+TEST(Grishin_Anton_ComplexNumberTest, Mult_commutative) {
+	// Arrange
+	ComplexNumber z1(7.0, 6.0);
+	ComplexNumber z2(5.0, 4.0);
+
+	// Act
+	ComplexNumber z3 = z2 * z1;
+	ComplexNumber z4 = z1 * z2;
+
+	// Assert
+	EXPECT_EQ(z3, z4);
+}
+
+
+
