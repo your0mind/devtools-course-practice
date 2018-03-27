@@ -7,35 +7,35 @@
 double epsilon = 0.00001;
 
 TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Associativity) {
-	// Arrange
-	ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
+    // Arrange
+    ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
 
-	// Act
-	ComplexNumber firstZ = z1 + z2 * z3;
-	ComplexNumber secondZ = z1 + (z2 * z3);
+    // Act
+    ComplexNumber firstZ = z1 + z2 * z3;
+    ComplexNumber secondZ = z1 + (z2 * z3);
 
-	// Assert
-	EXPECT_TRUE(firstZ == secondZ);
+    // Assert
+    EXPECT_TRUE(firstZ == secondZ);
 }
 TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Work_Of_Distributivity) {
-	// Arrange
-	ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
+    // Arrange
+    ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
 
-	// Act
+    // Act
     ComplexNumber firstZ = z1 * (z2 + z3);
-	ComplexNumber secondZ = z1 * z2 + z1 * z3;
+    ComplexNumber secondZ = z1 * z2 + z1 * z3;
 
-	// Assert
-	EXPECT_NEAR(firstZ.getRe(), secondZ.getRe(), epsilon);
-	EXPECT_NEAR(firstZ.getIm(), secondZ.getIm(), epsilon);
+    // Assert
+    EXPECT_NEAR(firstZ.getRe(), secondZ.getRe(), epsilon);
+    EXPECT_NEAR(firstZ.getIm(), secondZ.getIm(), epsilon);
 }
 TEST(Gladyshev_Alexey_ComplexNumberTest, Composition_Of_Conjugate_Numbers_Is_Real_Number) {
-	// Arrange
-	ComplexNumber z1(12, -17), z2(12, 17);
+    // Arrange
+    ComplexNumber z1(12, -17), z2(12, 17);
 
-	// Act
-	ComplexNumber resZ = z1 * z2;
+    // Act
+    ComplexNumber resZ = z1 * z2;
 
-	// Assert
-	EXPECT_EQ(resZ.getIm(), 0);
+    // Assert
+    EXPECT_EQ(resZ.getIm(), 0);
 }
