@@ -39,3 +39,24 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Composition_Of_Conjugate_Numbers_Is_Rea
     // Assert
     EXPECT_EQ(resZ.getIm(), 0);
 }
+TEST(Gladyshev_Alexey_ComplexNumberTest, Property_Of_One_Of_Multiplying) {
+    // Arrange
+    ComplexNumber z(12, -17), one(1, 0);
+
+    // Act
+    ComplexNumber resZ = z * one;
+
+    // Assert
+    EXPECT_EQ(z, resZ);
+}
+TEST(Gladyshev_Alexey_ComplexNumberTest, Property_Of_Zero_Of_Multiplying) {
+    // Arrange
+    ComplexNumber z(12, -17), zero(0, 0);
+
+    // Act
+    ComplexNumber resZ = z * zero;
+
+    // Assert
+    EXPECT_EQ(resZ.getRe(), 0);
+    EXPECT_EQ(resZ.getIm(), 0);
+}
