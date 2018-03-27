@@ -17,7 +17,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Get_Re_from_Im) {
     EXPECT_NEAR(re, z1.getRe(), 0.001);
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Substruct_Const_At_Initialization) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Substruct_Const_At_Init) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
@@ -45,7 +45,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Add_Zero) {
     ASSERT_EQ(z_res, z);
 }
 
-TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Multiplication_by_Neutral_Element) {
+TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Mult_by_Neutral_Ele) {
     // Arrange
     double re = 20.0;
     double im = 25.0;
