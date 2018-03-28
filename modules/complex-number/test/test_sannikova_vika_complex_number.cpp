@@ -65,3 +65,4 @@ TEST(Sannikova_Vika_ComplexNumberTest, Check_The_Prorerty_Of_Distributivity_For_
     // Assert
     EXPECT_EQ(res1, res2);
 }
+
