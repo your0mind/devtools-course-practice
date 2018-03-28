@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
     
 #include "include/complex_number.h"
-   
+    
 TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
      // Arrange
      double re = 2.0;
