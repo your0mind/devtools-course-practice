@@ -1,9 +1,9 @@
 // Copyright 2018 Lalykin Oleg
-
+    
 #include <gtest/gtest.h>
-
+    
 #include "include/complex_number.h"
-
+   
 TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
      // Arrange
      double re = 2.0;
@@ -15,7 +15,6 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
     
     // Assert
     EXPECT_EQ(z, z1);
- 
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Equality_Operator) {
     
@@ -54,7 +53,7 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Set_Operator) {
     EXPECT_EQ(z1, z2);
     
 }
-
+    
 TEST(Lalykin_Oleg_ComplexNumberTest, Math_Operators) {
     
     
@@ -71,4 +70,4 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Math_Operators) {
     EXPECT_EQ(z4.getRe(), -5);
     EXPECT_EQ(z4.getIm(), 11);
     
-} 
+}
