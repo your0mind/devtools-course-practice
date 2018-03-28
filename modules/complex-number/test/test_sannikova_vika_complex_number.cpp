@@ -7,7 +7,7 @@ TEST(Sannikova_Vika_ComplexNumberTest, Can_Add_Two_Complex_Numbers) {
     // Arrange
     ComplexNumber n1(2.0, 4.0);
     ComplexNumber n2(3.0, 5.0);
-    
+
     // Act
     ComplexNumber res = n1 + n2;
 
@@ -52,7 +52,8 @@ TEST(Sannikova_Vika_ComplexNumberTest, Can_NOT_Divide_Complex_Number_By_ZERO) {
     EXPECT_ANY_THROW(n1/zero);
 }
 
-TEST(Sannikova_Vika_ComplexNumberTest, Check_The_Prorerty_Of_Distributivity_For_Complex_Numbers) {
+TEST(Sannikova_Vika_ComplexNumberTest,
+    Check_The_Prorerty_Of_Distributivity_For_Complex_Numbers) {
     // Arrange
     ComplexNumber n1(3.0, 9.0);
     ComplexNumber n2(1.0, 3.0);
