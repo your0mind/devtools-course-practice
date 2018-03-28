@@ -5,7 +5,6 @@
 #include "include/complex_number.h"
 
 TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
-
      // Arrange
      double re = 2.0;
      double im = 1.0;
@@ -16,7 +15,6 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
     EXPECT_EQ(z, z1);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Equality_Operator) {
-
     // Act
     ComplexNumber z1(1.0, 0.0);
     ComplexNumber z2(1.0, 0.0);
@@ -25,7 +23,6 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Equality_Operator) {
     EXPECT_FALSE(z1 != z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Get_Operator) {
-
     // Act
     ComplexNumber z1(1.0, 0.0);
     ComplexNumber z2(z1.getRe(), z1.getIm());
@@ -33,7 +30,6 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Get_Operator) {
     EXPECT_EQ(z1,z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Set_Operator) {
-
     // Act
     ComplexNumber z1(-111.5, 122.1241);
     ComplexNumber z2(322.1, -533.5);
@@ -43,7 +39,6 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Set_Operator) {
     EXPECT_EQ(z1, z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Math_Operators) {
-
     // Act
     ComplexNumber z4;
     ComplexNumber z1(4.0, 2.0);
