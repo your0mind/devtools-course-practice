@@ -27,7 +27,7 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Get_Operator) {
     ComplexNumber z1(1.0, 0.0);
     ComplexNumber z2(z1.getRe(), z1.getIm());
     // Assert
-    EXPECT_EQ(z1,z2);
+    EXPECT_EQ(z1, z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Set_Operator) {
     // Act
