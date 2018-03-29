@@ -20,7 +20,7 @@ TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
 TEST(Nifadyev_Vadim_ComplexNumberTest,
      Can_Add_Complex_Numbers_With_Huge_Real_Part) {
     // Arrange
-    ComplexNumber number1(DBL_MAX, -435.0), number2(DBL_MAX, 8769.7);  
+    ComplexNumber number1(DBL_MAX, -435.0), number2(DBL_MAX, 8769.7);
 
     // Act
     ComplexNumber result = number1 + number2;
@@ -61,7 +61,8 @@ TEST(Nifadyev_Vadim_ComplexNumberTest,
 
 TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Execute_Multiple_Operations) {
     // Arrange
-    ComplexNumber number1(-676.2, 9.0), number2(-2.1, 441.246), number3(10.1, -8.781157);
+    ComplexNumber number1(-676.2, 9.0), number2(-2.1, 441.246);
+    ComplexNumber number3(10.1, -8.781157);
 
     // Act
     ComplexNumber result = number1 * number2 - number3;
