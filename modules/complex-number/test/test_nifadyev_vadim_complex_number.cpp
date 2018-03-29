@@ -7,7 +7,7 @@
 
 TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
-    ComplexNumber number1(-454.9, 35.646), number2(0.0, 0.0);   
+    ComplexNumber number1(-454.9, 35.646), number2(0.0, 0.0);
 
     // Act
     ComplexNumber result = number1 * number2;
@@ -17,7 +17,8 @@ TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
     EXPECT_EQ(result, expectedResult);
 }
 
-TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Add_Complex_Numbers_With_Huge_Real_Part) {
+TEST(Nifadyev_Vadim_ComplexNumberTest,
+     Can_Add_Complex_Numbers_With_Huge_Real_Part) {
     // Arrange
     ComplexNumber number1(DBL_MAX, -435.0), number2(DBL_MAX, 8769.7);  
 
@@ -30,7 +31,8 @@ TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Add_Complex_Numbers_With_Huge_Real_Pa
     EXPECT_DOUBLE_EQ(result.getIm(), expectedResult.getIm());
 }
 
-TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Get_Infinity_By_Adding_Two_Huge_Complex_Numbers) {
+TEST(Nifadyev_Vadim_ComplexNumberTest,
+     Can_Get_Infinity_By_Adding_Two_Huge_Complex_Numbers) {
     // Arrange
     ComplexNumber number1(DBL_MAX, DBL_MAX), number2(DBL_MAX, DBL_MAX);
 
@@ -43,7 +45,8 @@ TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Get_Infinity_By_Adding_Two_Huge_Compl
     EXPECT_DOUBLE_EQ(result.getIm(), expectedResult.getIm());
 }
 
-TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Return_1_If_Complex_Number_Is_Divided_By_Itself) {
+TEST(Nifadyev_Vadim_ComplexNumberTest,
+     Can_Return_1_If_Complex_Number_Is_Divided_By_Itself) {
     // Arrange
     ComplexNumber number(4234.123, -89.125);
 
