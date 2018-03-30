@@ -30,7 +30,7 @@ TEST(Gribov_Pavel_ComplexNumberTest, Can_Diff_Two_Complex) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Gribov_Pavel_ComplexNumberTest, 
+TEST(Gribov_Pavel_ComplexNumberTest,
     Can_Multiplication_Two_Complex_Without_Real) {
     // Arrange
     ComplexNumber z1(0.0, 2.3);
