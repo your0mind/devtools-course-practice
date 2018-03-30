@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
 
-TEST(Tarakanov_Kirill_ComplexNumberTest, Can_SetRe_and_SetIm) { 
+TEST(Tarakanov_Kirill_ComplexNumberTest, Can_SetRe_and_SetIm) {
   // Arrange
   ComplexNumber a(0.0, 0.0);
 
@@ -55,7 +55,7 @@ TEST(Tarakanov_Kirill_ComplexNumberTest, Multi_Two_Complex_Numbers) {
 
   // Assert
   ComplexNumber true_res(-2, 39.0);
-  EXPECT_EQ(true_res, res);	
+  EXPECT_EQ(true_res, res);
 }
 
 TEST(Tarakanov_Kirill_ComplexNumberTest, Property_OF_Associativity) {
