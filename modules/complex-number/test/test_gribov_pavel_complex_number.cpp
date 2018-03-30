@@ -1,3 +1,5 @@
+// Copyright 2017 Gribov Pavel
+
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
 
