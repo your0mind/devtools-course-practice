@@ -4,8 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Fedorova_Olga_ComplexNumberTest, Correct_Multilication)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Correct_Multilication){
     double r = 2.0;
     double i = 1.0;
 
@@ -16,8 +15,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_Multilication)
     EXPECT_EQ(true_res, c_mult);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Correct_Setting)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Correct_Setting){
     double r = 1.01;
     double i = 2.02;
 
@@ -30,8 +28,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_Setting)
     EXPECT_EQ(a, d);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_With_NegativeNumbers_And_MultiplyThem)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_With_NegativeNumbers_And_MultiplyThem{
     double r = -1.01;
     double i = -2.02;
 
@@ -44,8 +41,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_With_NegativeNumbers_And_Multip
     EXPECT_EQ(true_mult, z_mult);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_Copy)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_Copy){
     double r = 1.01;
     double i = 2.02;
 
@@ -55,8 +51,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_Copy)
     EXPECT_EQ(z, z_copy);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Cant_Devide_by_Zero)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Cant_Devide_by_Zero){
     double r = 1.01;
     double i = 2.02;
 
@@ -67,8 +62,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Cant_Devide_by_Zero)
     EXPECT_ANY_THROW(res = z / zero);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual)
-{
+TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual){
     double r = 1.01;
     double i = 2.02;
 
@@ -76,8 +70,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual)
     ComplexNumber b(3, 4);
     ComplexNumber res(-1, -1);
 
-    if (a != b)
-    {
+    if (a != b){
         res.setRe(1);
         res.setIm(1);
     }
