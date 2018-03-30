@@ -71,7 +71,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual) {
     ComplexNumber b(3, 4);
     ComplexNumber res(-1, -1);
 
-    if (a != b){
+    if (a != b) {
         res.setRe(1);
         res.setIm(1);
     }
