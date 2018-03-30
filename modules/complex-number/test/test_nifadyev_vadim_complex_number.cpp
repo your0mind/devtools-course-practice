@@ -1,9 +1,12 @@
 // Copyright 2018 Nifadyev Vadim
 
 #include <gtest/gtest.h>
-#include <cmath>
+//#include <cmath>
 
-#include "include/complex_number.h"
+#include "ComplexNumber.h"
+
+const double DOUBLE_INFINITY = (double)(1e+300 * 1e+300);
+const double DOUBLE_MAX = 1.79769e+308;
 
 TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
@@ -18,35 +21,35 @@ TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
 }
 
 TEST(Nifadyev_Vadim_ComplexNumberTest,
-     Can_Add_Complex_Numbers_With_Huge_Real_Part) {
+    Can_Add_Complex_Numbers_With_Huge_Real_Part) {
     // Arrange
-    ComplexNumber number1(DBL_MAX, -435.0), number2(DBL_MAX, 8769.7);
+    ComplexNumber number1(DOUBLE_MAX, -435.0), number2(DOUBLE_MAX, 8769.7);
 
     // Act
     ComplexNumber result = number1 + number2;
 
     // Assert
-    ComplexNumber expectedResult(INFINITY, 8334.7);
+    ComplexNumber expectedResult(DOUBLE_INFINITY, 8334.7);
     EXPECT_DOUBLE_EQ(result.getRe(), expectedResult.getRe());
     EXPECT_DOUBLE_EQ(result.getIm(), expectedResult.getIm());
 }
 
 TEST(Nifadyev_Vadim_ComplexNumberTest,
-     Can_Get_Infinity_By_Adding_Two_Huge_Complex_Numbers) {
+    Can_Get_Infinity_By_Adding_Two_Huge_Complex_Numbers) {
     // Arrange
-    ComplexNumber number1(DBL_MAX, DBL_MAX), number2(DBL_MAX, DBL_MAX);
+    ComplexNumber number1(DOUBLE_MAX, DOUBLE_MAX), number2(DOUBLE_MAX, DOUBLE_MAX);
 
     // Act
     ComplexNumber result = number1 + number2;
 
     // Assert
-    ComplexNumber expectedResult(INFINITY, INFINITY);
+    ComplexNumber expectedResult(DOUBLE_INFINITY, DOUBLE_INFINITY);
     EXPECT_DOUBLE_EQ(result.getRe(), expectedResult.getRe());
     EXPECT_DOUBLE_EQ(result.getIm(), expectedResult.getIm());
 }
 
 TEST(Nifadyev_Vadim_ComplexNumberTest,
-     Can_Return_1_If_Complex_Number_Is_Divided_By_Itself) {
+    Can_Return_1_If_Complex_Number_Is_Divided_By_Itself) {
     // Arrange
     ComplexNumber number(4234.123, -89.125);
 
