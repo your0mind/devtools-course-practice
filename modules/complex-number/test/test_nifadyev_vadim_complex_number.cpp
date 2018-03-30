@@ -1,11 +1,11 @@
 // Copyright 2018 Nifadyev Vadim
 
 #include <gtest/gtest.h>
-//#include <cmath>
+// #include <cmath>
 
-#include "ComplexNumber.h"
+#include "include/complex_number.h"
 
-const double DOUBLE_INFINITY = (double)(1e+300 * 1e+300);
+const double DOUBLE_INFINITY = static_cast<double>(1e+300 * 1e+300);
 const double DOUBLE_MAX = 1.79769e+308;
 
 TEST(Nifadyev_Vadim_ComplexNumberTest, Can_Multiply_By_Zero) {
@@ -37,8 +37,8 @@ TEST(Nifadyev_Vadim_ComplexNumberTest,
 TEST(Nifadyev_Vadim_ComplexNumberTest,
     Can_Get_Infinity_By_Adding_Two_Huge_Complex_Numbers) {
     // Arrange
-    ComplexNumber number1(DOUBLE_MAX, DOUBLE_MAX), number2(DOUBLE_MAX, DOUBLE_MAX);
-
+    ComplexNumber number1(DOUBLE_MAX, DOUBLE_MAX);
+    ComplexNumber number2(DOUBLE_MAX, DOUBLE_MAX);
     // Act
     ComplexNumber result = number1 + number2;
 
