@@ -28,7 +28,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_Setting){
     EXPECT_EQ(a, d);
 }
 
-TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_With_NegativeNumbers_And_MultiplyThem{
+TEST(Fedorova_Olga_ComplexNumberTest, Can_Create_With_NegativeNumbers_And_MultiplyThem){
     double r = -1.01;
     double i = -2.02;
 
@@ -77,4 +77,4 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual){
 
     EXPECT_EQ(1, res.getRe());
     EXPECT_EQ(1, res.getIm());
-}
+} 
