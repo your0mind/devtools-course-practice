@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
 
-TEST(Tarakanov_Kirill_ComplexNumberTest, Can_SetRe_and_SetIm) {   
+TEST(Tarakanov_Kirill_ComplexNumberTest, Can_SetRe_and_SetIm) { 
   // Arrange
   ComplexNumber a(0.0, 0.0);
 
@@ -23,13 +23,13 @@ TEST(Tarakanov_Kirill_ComplexNumberTest, Plus_Two_Complex_Numbers) {
   // Arrange
   ComplexNumber a(5.0, 3.0);
   ComplexNumber b(2.0, 1.0);
-	
+
   // Act
   ComplexNumber res = a + b;
-	
+
   // Assert
   ComplexNumber true_res(7.0, 4.0);
-  EXPECT_EQ(true_res, res);	
+  EXPECT_EQ(true_res, res);
 }
 
 TEST(Tarakanov_Kirill_ComplexNumberTest, Minus_Two_Complex_Numbers) {
@@ -49,10 +49,10 @@ TEST(Tarakanov_Kirill_ComplexNumberTest, Multi_Two_Complex_Numbers) {
   // Arrange
   ComplexNumber a(3.0, 4.0);
   ComplexNumber b(6.0, 5.0);
-	
+
   // Act
   ComplexNumber res = a * b;
-	
+
   // Assert
   ComplexNumber true_res(-2, 39.0);
   EXPECT_EQ(true_res, res);	
