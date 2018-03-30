@@ -81,7 +81,7 @@ TEST(Fedorova_Olga_ComplexNumberTest, Correct_NotEqual)
         res.setRe(1);
         res.setIm(1);
     }
-	
-    EXPECT_EQ(1, res.getRe());	
+
+    EXPECT_EQ(1, res.getRe());
     EXPECT_EQ(1, res.getIm());
 }
