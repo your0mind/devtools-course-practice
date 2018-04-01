@@ -1,9 +1,6 @@
 // Copyright 2018 Generalov Aleksandr
 
 #include "gtest/gtest.h"
-
-#include <limits>
-
 #include "include/complex_number.h"
 
 TEST(Generalov_Aleksandr_ComplexNumberTest, Can_Create_Zero) {
