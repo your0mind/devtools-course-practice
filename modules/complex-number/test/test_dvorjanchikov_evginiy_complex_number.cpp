@@ -66,7 +66,7 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Negative) {
 }
 TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Inverse_Nmber) {
   // Arrange
-  double a = 6.0;
+  double a = 7.0;
   double b = 4.0;
   double c = a / (a*a + b*b);
   double d = -b/ (a*a + b*b);
