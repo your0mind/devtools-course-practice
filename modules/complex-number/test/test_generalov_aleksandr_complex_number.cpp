@@ -2,6 +2,7 @@
 
 #include "gtest/gtest.h"
 #include "include/complex_number.h"
+#include <limits>
 
 TEST(Generalov_Aleksandr_ComplexNumberTest, Can_Create_Zero) {
     // Arrange
