@@ -49,8 +49,8 @@ TEST(Rodionov_Fedor_ComplexNumberTest, equality_moduls_complex_and_conjugate) {
 ComplexNumber z1(5.0, 5.0);
 ComplexNumber z2(5.0, -5.0);
 // Act
-double z = sqrt(z1.getRe()*z1.getRe() + z1.getIm()*z1.getIm());
-double z_ = sqrt(z2.getRe()*z2.getRe() + z2.getIm()*z2.getIm());
+double z = z1.getRe()*z1.getRe() + z1.getIm()*z1.getIm();
+double z_ = z2.getRe()*z2.getRe() + z2.getIm()*z2.getIm();
 // Assert
 EXPECT_TRUE(z == z_);
 }
