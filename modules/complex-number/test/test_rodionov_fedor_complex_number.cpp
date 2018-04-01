@@ -13,4 +13,3 @@ ComplexNumber z = z1 * z1 * z1 * z1;
 EXPECT_EQ(1, z.getRe());
 }
 
-
