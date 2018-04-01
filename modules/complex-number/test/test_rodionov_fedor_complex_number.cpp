@@ -22,3 +22,35 @@ TEST(Rodionov_Fedor_ComplexNumberTest, find_argument) {
 	// Assert
 	EXPECT_EQ(tg_fi, z);
 }
+
+TEST(Rodionov_Fedor_ComplexNumberTest, both_side_multiplay) {
+	// Arrange
+	ComplexNumber z1(5.0, 5.0);
+	ComplexNumber z2(3.0, 3.0);
+	// Act
+	ComplexNumber z = z1 * z2;
+	ComplexNumber z_ = z2 * z1;
+	// Assert
+	EXPECT_TRUE(z == z_);
+}
+
+TEST(Rodionov_Fedor_ComplexNumberTest, zero_multiplay) {
+	// Arrange
+	ComplexNumber z1(5.0, 5.0);
+	ComplexNumber z2(0.0, 0.0);
+	// Act
+	ComplexNumber z = z1 * z2;
+	// Assert
+	EXPECT_TRUE(z2 == z);
+}
+
+TEST(Rodionov_Fedor_ComplexNumberTest, equality_moduls_complex_and_conjugate) {
+	// Arrange
+	ComplexNumber z1(5.0, 5.0);
+	ComplexNumber z2(5.0, -5.0);
+	// Act
+	double z = sqrt(z1.getRe()*z1.getRe() + z1.getIm()*z1.getIm());
+	double z_ = sqrt(z2.getRe()*z2.getRe() + z2.getIm()*z2.getIm());
+	// Assert
+	EXPECT_TRUE(z == z_);
+}
