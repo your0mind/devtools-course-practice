@@ -50,13 +50,14 @@ TEST(Generalov_Aleksandr_ComplexNumberTest, Multiplication_Test) {
 TEST(Generalov_Aleksandr_ComplexNumberTest, Multiple_Expression_Test) {
     // Arrange
     ComplexNumber z1(4.0, 5.0);
+    ComplexNumber z2(6.0, 7.0);
 
     // Act
-    ComplexNumber z = z1 * z1 / z1 - z1 + z1;
+    ComplexNumber z = z1 + z2 * z1 - z1/z2;
 
     // Assert
-    EXPECT_EQ(z1.getRe(), z.getRe());
-    EXPECT_EQ(z1.getIm(), z.getIm());
+    EXPECT_EQ(z.getRe(), -7.69412);
+    EXPECT_EQ(z.getIm(), 62.9765);
 }
 
 TEST(Generalov_Aleksandr_ComplexNumberTest, Max_Sum_Test) {
