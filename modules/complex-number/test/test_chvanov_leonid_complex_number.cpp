@@ -42,3 +42,15 @@ TEST(Chvanov_Leonid_ComplexNumberTest, ComplexNumber_Divided_By_Itself_Returns_1
 	// Assert
     EXPECT_EQ(expected_res, q);
 }
+
+TEST(Chvanov_Leonid_ComplexNumberTest, 
+    Multiplication_By_Neutral_Element_Does_Not_Change_ComplexNumber) {
+	// Arrange
+    ComplexNumber z(5.0, 6.0);
+    ComplexNumber n(1.0, 0.0);
+
+	// Act
+
+	// Assert
+    EXPECT_EQ(z, z*n);
+}
