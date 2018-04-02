@@ -29,3 +29,16 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Zero_Returns_Original_Number
     // Assert
     EXPECT_EQ(z, z1);
 }
+
+TEST(Kudalin_Roman_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
+    // Arrange
+    ComplexNumber z1(15.0, 23.0);
+    ComplexNumber z2(0.0, 0.0);
+    
+    // Act
+    ComplexNumber z = z1 * z2;
+    
+    // Assert
+    ComplexNumber expected_z(0.0, 0.0);
+    EXPECT_EQ(expected_z, z);
+}
