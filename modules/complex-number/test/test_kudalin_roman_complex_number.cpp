@@ -42,3 +42,17 @@ TEST(Kudalin_Roman_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
     ComplexNumber expected_z(0.0, 0.0);
     EXPECT_EQ(expected_z, z);
 }
+
+TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Complex_Conjugate_Returns_A_Real_Number) {
+    // Assert
+    ComplexNumber z1(15.0, 23.0);
+    ComplexNumber z2(15.0, -23.0);
+    
+    // Act
+    ComplexNumber z = z1 + z2;
+    
+    // Assert
+    double exp_res = 30.0;
+    EXPECT_EQ(z.getRe(), exp_res);
+    EXPECT_EQ(z.getIm(), 0.0);
+}
