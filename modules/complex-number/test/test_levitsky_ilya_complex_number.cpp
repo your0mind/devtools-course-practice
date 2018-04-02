@@ -34,20 +34,21 @@ TEST(Levitsky_Ilya_ComplexNumberTest, Can_Sum_Complex_Numbers) {
 	
   // Assert
   EXPECT_EQ(z_re, z.getRe());
-  EXPECT_EQ(z_im, z.getIm());	
+  EXPECT_EQ(z_im, z.getIm());
 }
 	
 TEST(Levitsky_Ilya_ComplexNumberTest, Compare_Two_Numbers) {
   // Arrange
-  double re = 1.5;
+	double re = 1.5;
   double im = 3.0;
   ComplexNumber z1(re, im);
-	
+
   // Act
   ComplexNumber z2(re, im);
-	
+
   // Assert
-  ASSERT_TRUE(z1 == z2);	
+  ASSERT_TRUE(z1 == z2);
+
 }
 
 TEST(Levitsky_Ilya_ComplexNumberTest, Can_Division_Real) {
@@ -59,7 +60,7 @@ TEST(Levitsky_Ilya_ComplexNumberTest, Can_Division_Real) {
   ComplexNumber res(x_re / y_re, 0.0);
 
   // Assert
-  EXPECT_EQ(a / b, res);	
+  EXPECT_EQ(a / b, res);
 }
 
 TEST(Levitsky_Ilya_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
