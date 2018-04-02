@@ -17,6 +17,7 @@ TEST(Sharov_Ivan_ComplexNumberTest, Multi_Complex_Number) {
     ComplexNumber Z1(ReZ1, ImZ1);
     ComplexNumber Z2(ReZ2, ImZ2);
     ComplexNumber Mult(ReRes, ImRes);
+
     // Assert
     EXPECT_EQ(Mult, Z1 * Z2);
 }
