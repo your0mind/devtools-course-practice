@@ -1,0 +1,54 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_complex_calculator.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Test"
+			]
+		},
+		{
+			"file" : "C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_complex_number.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Test"
+			]
+		},
+		{
+			"file" : "C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_korniakov_kirill_complex_number.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Test"
+			]
+		},
+		{
+			"file" : "C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_levitsky_ilya_complex_number.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Test"
+			]
+		},
+		{
+			"file" : "C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_main.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Test"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"complex-number",
+			"Test"
+		],
+		"name" : "test_complex-number"
+	}
+}

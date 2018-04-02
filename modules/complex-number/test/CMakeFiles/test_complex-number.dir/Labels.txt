@@ -1,0 +1,19 @@
+# Target labels
+ complex-number
+ Test
+# Source files and their labels
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_complex_calculator.cpp
+ complex-number
+ Test
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_complex_number.cpp
+ complex-number
+ Test
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_korniakov_kirill_complex_number.cpp
+ complex-number
+ Test
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_levitsky_ilya_complex_number.cpp
+ complex-number
+ Test
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/test_main.cpp
+ complex-number
+ Test
