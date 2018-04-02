@@ -66,7 +66,7 @@ TEST(Kudalin_Roman_ComplexNumberTest, Division_By_Itself_Returns_1) {
     
     // Assert
     double exp_re = 1.0;
-	double exp_im = 0.0;
+    double exp_im = 0.0;
     EXPECT_NEAR(z.getRe(), exp_re, 0.001);
     EXPECT_NEAR(z.getIm(), exp_im, 0.001);
 }
