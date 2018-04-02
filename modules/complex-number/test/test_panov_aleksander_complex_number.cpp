@@ -1,3 +1,5 @@
+// Copyright 2018 Panov Aleksander
+
 #include <gtest/gtest.h>
 
 #include "include/complex_number.h"
