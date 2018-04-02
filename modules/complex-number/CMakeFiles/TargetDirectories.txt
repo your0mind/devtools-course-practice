@@ -1,0 +1,5 @@
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/CMakeFiles/ALL_BUILD.dir
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/CMakeFiles/ZERO_CHECK.dir
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/src/CMakeFiles/lib_complex-number.dir
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/CMakeFiles/test_complex-number.dir
+C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/application/CMakeFiles/app_complex-number.dir

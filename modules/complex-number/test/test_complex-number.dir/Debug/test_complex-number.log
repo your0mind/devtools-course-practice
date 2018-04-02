@@ -1,0 +1,11 @@
+﻿  test_complex_calculator.cpp
+C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_complex_calculator.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+  test_complex_number.cpp
+C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+  test_korniakov_kirill_complex_number.cpp
+C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_korniakov_kirill_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+  test_levitsky_ilya_complex_number.cpp
+C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_levitsky_ilya_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+  test_main.cpp
+C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_main.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+  Создание кода...

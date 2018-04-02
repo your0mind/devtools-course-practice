@@ -1,0 +1,6 @@
+﻿  Building Custom Rule C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/src/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/src/CMakeFiles/generate.stamp is up-to-date.
+  complex_calculator.cpp
+  complex_number.cpp
+  Создание кода...
+  lib_complex-number.vcxproj -> C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\src\Debug\complex-number.lib
