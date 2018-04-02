@@ -1,4 +1,3 @@
-﻿  Building Custom Rule C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/application/CMakeLists.txt
-  CMake does not need to re-run because C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/application/CMakeFiles/generate.stamp is up-to-date.
-  complex-number.cpp
-  app_complex-number.vcxproj -> C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\application\Debug\complex-number.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: промежуточный каталог (app_complex-number.dir\Debug\) содержит файлы, которые используются совместно с другим проектом (app_complex-number.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: промежуточный каталог (lib_complex-number.dir\Debug\) содержит файлы, которые используются совместно с другим проектом (lib_complex-number.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  app_complex-number.vcxproj -> C:\Users\Trintal\Documents\GitHub\devtools-course-practice\bin\complex-number.exe

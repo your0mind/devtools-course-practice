@@ -1,11 +1,10 @@
-﻿  test_complex_calculator.cpp
-C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_complex_calculator.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(387,5): warning MSB8028: промежуточный каталог (test_complex-number.dir\Debug\) содержит файлы, которые используются совместно с другим проектом (test_complex-number.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Building Custom Rule C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/Trintal/Documents/GitHub/devtools-course-practice/modules/complex-number/test/CMakeFiles/generate.stamp is up-to-date.
+  test_complex_calculator.cpp
   test_complex_number.cpp
-C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
   test_korniakov_kirill_complex_number.cpp
-C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_korniakov_kirill_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
   test_levitsky_ilya_complex_number.cpp
-C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_levitsky_ilya_complex_number.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
   test_main.cpp
-C:\Users\Trintal\Documents\GitHub\devtools-course-practice\modules\complex-number\test\test_main.cpp(3): fatal error C1083: Не удается открыть файл включение: gtest/gtest.h: No such file or directory,
   Создание кода...
+  test_complex-number.vcxproj -> C:\Users\Trintal\Documents\GitHub\devtools-course-practice\bin\test_complex-number.exe
