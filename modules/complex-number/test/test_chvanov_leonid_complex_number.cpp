@@ -17,6 +17,19 @@ TEST(Chvanov_Leonid_ComplexNumberTest, Check_Commutative_Property_Of_Addition) {
     EXPECT_EQ(sum1, sum2);
 }
 
+TEST(Chvanov_Leonid_ComplexNumberTest, Check_Commutative_Property_Of_Multiplication) {
+	// Arrange
+    ComplexNumber z1(5.0, 6.0);
+    ComplexNumber z2(15.0, 16.0);
+
+	// Act
+    ComplexNumber prod1(z1 * z2);
+    ComplexNumber prod2(z2 * z1);
+
+	// Assert
+    EXPECT_EQ(prod1, prod2);
+}
+
 TEST(Chvanov_Leonid_ComplexNumberTest, Check_Distributive_Property_Of_Addition) {
 	// Arrange
     ComplexNumber z1(5.0, 6.0);
