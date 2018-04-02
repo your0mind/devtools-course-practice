@@ -34,7 +34,7 @@ Order_Of_Actions_addition_and_subtraction_Is_Not_Important) {
     ComplexNumber exz2(0, 0);
     exz2 = z1 - z3 + z2;
 
-	EXPECT_EQ(0, 0);
+    EXPECT_EQ(0, 0);
 }
 
 TEST(Chernenko_Valery_ComplexNumberTest,
