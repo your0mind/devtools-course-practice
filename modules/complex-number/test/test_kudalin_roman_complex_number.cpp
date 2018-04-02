@@ -56,3 +56,17 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Complex_Conjugate_Returns_A_
     EXPECT_EQ(z.getRe(), exp_res);
     EXPECT_EQ(z.getIm(), 0.0);
 }
+
+TEST(Kudalin_Roman_ComplexNumberTest, Division_By_Itself_Returns_1) {
+    // Assert
+    ComplexNumber z1(15.0, 23.0);
+    
+    // Act
+    ComplexNumber z = z1 / z1;
+    
+    // Assert
+    double exp_re = 1.0;
+	double exp_im = 0.0;
+    EXPECT_NEAR(z.getRe(), exp_re, 0.001);
+    EXPECT_NEAR(z.getIm(), exp_im, 0.001);
+}
