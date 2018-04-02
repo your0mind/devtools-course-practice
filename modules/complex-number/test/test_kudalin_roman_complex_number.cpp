@@ -17,3 +17,15 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_Is_Associative) {
     // Assert
     EXPECT_EQ(sum1, sum2);
 }
+
+TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Zero_Returns_Original_Number) {
+    // Arrange
+    ComplexNumber z1(15.0, 23.0);
+    ComplexNumber z2(0.0, 0.0);
+    
+    // Act
+    ComplexNumber z = z1 + z2;
+    
+    // Assert
+    EXPECT_EQ(z, z1);
+}
