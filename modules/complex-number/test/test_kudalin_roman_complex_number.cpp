@@ -18,7 +18,9 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_Is_Associative) {
     EXPECT_EQ(sum1, sum2);
 }
 
-TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Zero_Returns_Original_Number) {
+TEST(Kudalin_Roman_ComplexNumberTest, 
+     Addition_With_Zero_Returns_Original_Number) {
+    
     // Arrange
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(0.0, 0.0);
@@ -30,7 +32,9 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Zero_Returns_Original_Number
     EXPECT_EQ(z, z1);
 }
 
-TEST(Kudalin_Roman_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
+TEST(Kudalin_Roman_ComplexNumberTest, 
+     Multiplication_By_Zero_Returns_Zero) {
+    
     // Arrange
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(0.0, 0.0);
@@ -43,7 +47,9 @@ TEST(Kudalin_Roman_ComplexNumberTest, Multiplication_By_Zero_Returns_Zero) {
     EXPECT_EQ(expected_z, z);
 }
 
-TEST(Kudalin_Roman_ComplexNumberTest, Addition_With_Complex_Conjugate_Returns_A_Real_Number) {
+TEST(Kudalin_Roman_ComplexNumberTest, 
+     Addition_With_Complex_Conjugate_Returns_A_Real_Number) {
+    
     // Assert
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(15.0, -23.0);
