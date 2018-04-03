@@ -20,7 +20,6 @@ TEST(Kudalin_Roman_ComplexNumberTest, Addition_Is_Associative) {
 
 TEST(Kudalin_Roman_ComplexNumberTest,
 Addition_With_Zero_Returns_Original_Number) {
-
     // Arrange
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(0.0, 0.0);
@@ -34,7 +33,6 @@ Addition_With_Zero_Returns_Original_Number) {
 
 TEST(Kudalin_Roman_ComplexNumberTest,
 Multiplication_By_Zero_Returns_Zero) {
-
     // Arrange
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(0.0, 0.0);
@@ -49,7 +47,6 @@ Multiplication_By_Zero_Returns_Zero) {
 
 TEST(Kudalin_Roman_ComplexNumberTest,
 Addition_With_Complex_Conjugate_Returns_A_Real_Number) {
-
     // Assert
     ComplexNumber z1(15.0, 23.0);
     ComplexNumber z2(15.0, -23.0);
