@@ -36,7 +36,7 @@ TEST(Test2, Subtraction) {
     ComplexNumber a(re1, im1);
     ComplexNumber b(re2, im2);
     ComplexNumber c = a - b;
-    
+
     // Assert
     EXPECT_EQ(re1, a.getRe());
     EXPECT_EQ(im1, a.getIm());
