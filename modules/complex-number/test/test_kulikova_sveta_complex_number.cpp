@@ -66,3 +66,20 @@ TEST(Test3, Multiplication) {
 	EXPECT_EQ(re1 * re2 - im1 * im2, c.getRe());
 	EXPECT_EQ(re1 * im2 + re2 * im1, c.getIm());
 }
+
+TEST(Test4, Equality) {
+	// Arrange
+	double re = 1.2;
+	double im = 3.4;
+
+	// Act
+	ComplexNumber a(re, im);
+	ComplexNumber b(re, im);
+
+	// Assert
+	EXPECT_EQ(re, a.getRe());
+	EXPECT_EQ(im, a.getIm());
+	EXPECT_EQ(re, b.getRe());
+	EXPECT_EQ(im, b.getIm());
+	EXPECT_TRUE(a == b);
+}
