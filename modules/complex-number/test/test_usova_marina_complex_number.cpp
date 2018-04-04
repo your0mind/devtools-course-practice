@@ -35,7 +35,7 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Get_Im_and_Re) {
   EXPECT_NEAR(z.getIm(), im, epsilon);
 }
 
-TEST(Usova_Marina_ComplexNumberTest, Can_Use_Ñopy_Ñonstructor) {
+TEST(Usova_Marina_ComplexNumberTest, Can_Use_Copy_Constructor) {
   // Arrange
   double re = 5.0;
   double im = 15.0;
