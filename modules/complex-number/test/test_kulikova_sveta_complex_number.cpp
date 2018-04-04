@@ -84,24 +84,22 @@ TEST(Test4, Equality) {
 	EXPECT_TRUE(a == b);
 }
 
-TEST(Test5, Division) {
+TEST(Test5, Copying) {
 	// Arrange
-	double re1 = 1.2;
-	double im1 = 3.4;
-	double re2 = 5.6;
-	double im2 = 7.8;
-	double d = 1.0 / (re2 * re2 + im2 * im2);
+	double re = 1.2;
+	double im = 3.4;
 
 	// Act
-	ComplexNumber a(re1, im1);
-	ComplexNumber b(re2, im2);
-	ComplexNumber c = a / b;
+	ComplexNumber a(re, im);
+	ComplexNumber b(a);
+	ComplexNumber c;
+	c = a;
 
 	// Assert
-	EXPECT_EQ(re1, a.getRe());
-	EXPECT_EQ(im1, a.getIm());
-	EXPECT_EQ(re2, b.getRe());
-	EXPECT_EQ(im2, b.getIm());
-	EXPECT_EQ((re1 * re2 - im1 * im2) * d, c.getRe());
-	EXPECT_EQ((re1 * im2 + re2 * im1) * d, c.getIm());
+	EXPECT_EQ(re, a.getRe());
+	EXPECT_EQ(im, a.getIm());
+	EXPECT_EQ(re, b.getRe());
+	EXPECT_EQ(im, b.getIm());
+	EXPECT_EQ(re, c.getRe());
+	EXPECT_EQ(im, c.getIm());
 }
