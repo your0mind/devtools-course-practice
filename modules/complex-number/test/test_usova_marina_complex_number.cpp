@@ -67,3 +67,90 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Use_Assigment_Constructor) {
   // Assert
   EXPECT_EQ(z2, z1);
 }
+
+TEST(Usova_Marina_ComplexNumberTest, Do_Throw_When_Division_By_Zero) {
+  // Arrange
+  ComplexNumber z1(0.0, 0.0);
+  ComplexNumber z2(5.0, -5.0);
+
+  // Act & Assert
+  EXPECT_ANY_THROW(z2 / z1);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Division_By_Not_Zero) {
+  // Arrange
+  ComplexNumber z1(25.0, 45.0);
+  ComplexNumber z2(35.0, -5.0);
+
+  // Act & Assert
+  EXPECT_NO_THROW(z2 / z1);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_Imaginary_Numbers) {
+  // Arrange
+  ComplexNumber z1(0, 5.0);
+  ComplexNumber z2(0, 5.0);
+  ComplexNumber true_res(-25.0, 0);
+
+  // Act
+  ComplexNumber z;
+  z = z1 * z2;
+
+  // Assert
+  EXPECT_EQ(z, true_res);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Commutative_Property) {
+  // Arrange
+  ComplexNumber z1(5.0, -5.0);
+  ComplexNumber z2(5.0, 25.0);
+
+  // Act
+  ComplexNumber z = z1 * z2;
+  ComplexNumber z_ = z2 * z1;
+
+  // Assert
+  EXPECT_EQ(z_, z);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Distributive_Property) {
+  // Arrange
+  ComplexNumber z1(15.0, 20.0);
+  ComplexNumber z2(-5.0, 45.0);
+  ComplexNumber z3(5.0, -5.0);
+
+  // Act
+  ComplexNumber z = z1 * (z2 + z3);
+  ComplexNumber z_ = z1 * z2 + z1 * z3;
+
+  // Assert
+  EXPECT_EQ(z_, z);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Addition_Imaginary_And_Real_Numbers) {
+  // Arrange
+  ComplexNumber z1(0, 5.0);
+  ComplexNumber z2(5.0, 0);
+  ComplexNumber true_res(5.0, 5.0);
+
+  // Act
+  ComplexNumber z;
+  z = z1 + z2;
+
+  // Assert
+  EXPECT_EQ(z, true_res);
+}
+
+TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Addition_With_Associative_Property) {
+  // Arrange
+  ComplexNumber z1(5.0, 5.0);
+  ComplexNumber z2(25.0, -5.0);
+  ComplexNumber z3(15.0, 0.0);
+
+  // Act
+  ComplexNumber z = (z1 + z2) + z3;
+  ComplexNumber z_ = z1 + (z2 + z3);
+
+  // Assert
+  EXPECT_EQ(z_, z);
+}
