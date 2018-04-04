@@ -24,3 +24,24 @@ TEST(Test1, Addition) {
 	EXPECT_EQ(re1 + re2, c.getRe());
 	EXPECT_EQ(im1 + im2, c.getIm());
 }
+
+TEST(Test2, Subtraction) {
+	// Arrange
+	double re1 = 1.2;
+	double im1 = 3.4;
+	double re2 = 5.6;
+	double im2 = 7.8;
+
+	// Act
+	ComplexNumber a(re1, im1);
+	ComplexNumber b(re2, im2);
+	ComplexNumber c = a - b;
+
+	// Assert
+	EXPECT_EQ(re1, a.getRe());
+	EXPECT_EQ(im1, a.getIm());
+	EXPECT_EQ(re2, b.getRe());
+	EXPECT_EQ(im2, b.getIm());
+	EXPECT_EQ(re1 - re2, c.getRe());
+	EXPECT_EQ(im1 - im2, c.getIm());
+}
