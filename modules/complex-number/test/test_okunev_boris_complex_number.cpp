@@ -30,6 +30,7 @@ TEST(Okunev_Boris_ComplexNumberTest, Two_Different_Complex_Are_Not_Equal) {
 
     // Act
     ComplexNumber z(re, im);
+    ComplexNumber z1(re1, im1);
 
     // Assert
     EXPECT_FALSE(z == z1);
@@ -45,6 +46,7 @@ TEST(Okunev_Boris_ComplexNumberTest, No_Throw_Sum_Two_Complex) {
 
     // Act
     ComplexNumber z(re, im);
+    ComplexNumber z1(re1, im1);
 
     // Assert
     EXPECT_NO_THROW(z + z1);
@@ -60,6 +62,7 @@ TEST(Okunev_Boris_ComplexNumberTest, Sum_Two_Complex_Correct) {
 
     // Act
     ComplexNumber z(re, im);
+    ComplexNumber z1(re1, im1);
     ComplexNumber expect(3, 5);
 
     // Assert
