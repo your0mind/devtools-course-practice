@@ -100,7 +100,7 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_Imaginary_Numbers) {
   EXPECT_EQ(z, true_res);
 }
 
-TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Commutative_Property) {
+TEST(Usova_Marina_ComplexNumberTest, Correctly_Mult_With_CommutativeProperty) {
   // Arrange
   ComplexNumber z1(5.0, -5.0);
   ComplexNumber z2(5.0, 25.0);
@@ -113,7 +113,7 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Commutative_Pro
   EXPECT_EQ(z_, z);
 }
 
-TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Distributive_Property) {
+TEST(Usova_Marina_ComplexNumberTest, Correctly_Mult_With_DistributiveProp) {
   // Arrange
   ComplexNumber z1(15.0, 20.0);
   ComplexNumber z2(-5.0, 45.0);
@@ -127,7 +127,7 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Multiply_With_Distributive_Pr
   EXPECT_EQ(z_, z);
 }
 
-TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Addition_Imaginary_And_Real_Numbers) {
+TEST(Usova_Marina_ComplexNumberTest, Correctly_Add_Imaginary_And_Real_Num) {
   // Arrange
   ComplexNumber z1(0, 5.0);
   ComplexNumber z2(5.0, 0);
@@ -141,7 +141,7 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Addition_Imaginary_And_Real_N
   EXPECT_EQ(z, true_res);
 }
 
-TEST(Usova_Marina_ComplexNumberTest, Can_Correctly_Addition_With_Associative_Property) {
+TEST(Usova_Marina_ComplexNumberTest, Correctly_Addition_With_AssociativeProp) {
   // Arrange
   ComplexNumber z1(5.0, 5.0);
   ComplexNumber z2(25.0, -5.0);
