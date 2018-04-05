@@ -17,7 +17,8 @@ TEST(Chvanov_Leonid_ComplexNumberTest, Check_Commutative_Property_Of_Addition) {
     EXPECT_EQ(sum1, sum2);
 }
 
-TEST(Chvanov_Leonid_ComplexNumberTest, Check_Commutative_Property_Of_Multiplication) {
+TEST(Chvanov_Leonid_ComplexNumberTest,
+Check_Commutative_Property_Of_Multiplication) {
     // Arrange
     ComplexNumber z1(5.0, 6.0);
     ComplexNumber z2(15.0, 16.0);
@@ -30,7 +31,8 @@ TEST(Chvanov_Leonid_ComplexNumberTest, Check_Commutative_Property_Of_Multiplicat
     EXPECT_EQ(prod1, prod2);
 }
 
-TEST(Chvanov_Leonid_ComplexNumberTest, Check_Distributive_Property_Of_Addition) {
+TEST(Chvanov_Leonid_ComplexNumberTest,
+Check_Distributive_Property_Of_Addition) {
     // Arrange
     ComplexNumber z1(5.0, 6.0);
     ComplexNumber z2(15.0, 16.0);
@@ -44,7 +46,8 @@ TEST(Chvanov_Leonid_ComplexNumberTest, Check_Distributive_Property_Of_Addition) 
     EXPECT_EQ(sum1, sum2);
 }
 
-TEST(Chvanov_Leonid_ComplexNumberTest, ComplexNumber_Divided_By_Itself_Returns_1) {
+TEST(Chvanov_Leonid_ComplexNumberTest,
+ComplexNumber_Divided_By_Itself_Returns_1) {
     // Arrange
     ComplexNumber z(5.0, 6.0);
     ComplexNumber expected_res(1.0, 0.0);
@@ -56,8 +59,8 @@ TEST(Chvanov_Leonid_ComplexNumberTest, ComplexNumber_Divided_By_Itself_Returns_1
     EXPECT_EQ(expected_res, q);
 }
 
-TEST(Chvanov_Leonid_ComplexNumberTest, 
-     Multiplication_By_Neutral_Element_Does_Not_Change_ComplexNumber) {
+TEST(Chvanov_Leonid_ComplexNumberTest,
+Multiplication_By_Neutral_Element_Does_Not_Change_ComplexNumber) {
     // Arrange
     ComplexNumber z(5.0, 6.0);
     ComplexNumber n(1.0, 0.0);
