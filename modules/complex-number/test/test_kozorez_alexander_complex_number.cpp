@@ -1,7 +1,8 @@
 // Copyright 2018 Kozorez Alexander
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
-TEST(Kozorez_Alex_ComplexNumberTest, complex_plus_zero_is_equal_to_this_complex){
+TEST(Kozorez_Alex_ComplexNumberTest, 
+     complex_plus_zero_is_equal_to_this_complex){
  ComplexNumber z(666.0, 22.0), z1(0.0,0.0);
  ComplexNumber sum = z + z1;
  EXPECT_EQ(z, sum);
