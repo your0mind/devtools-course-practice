@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 
-TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Addition_Is_Associative) {  
+TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Addition_Is_Associative) {
     // ARRANGE
     ComplexNumber z1(1.0, 2.0);
     ComplexNumber z2(3.4, 5.6);
@@ -46,13 +46,13 @@ TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Multiple_Is_Commutative) {
 }
 
 TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest,
-	Multiple_Not_Equal_Number_Equal_Null) {
+    Multiple_Not_Equal_Number_Equal_Null) {
     // ARRANGE
     ComplexNumber z1(1.0, 2.0);
     ComplexNumber z2(-1.0, -2.0);
     ComplexNumber z3(0.0, 0.0);
 
-	// ACT
+    // ACT
     ComplexNumber sum1 = z1 + z2;
 
     // ASSERT
