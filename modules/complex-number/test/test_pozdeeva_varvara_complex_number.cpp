@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Pozdeeva_Varvara_ComplexNumberTest, comparison_not_equal_return_false) {   
+TEST(Pozdeeva_Varvara_ComplexNumberTest, comparison_not_equal_return_false) {
     // Arrange
     ComplexNumber z1(26.0, 14.0);
     ComplexNumber z2(26.1, 14.1);
