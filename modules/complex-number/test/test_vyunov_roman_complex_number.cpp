@@ -30,3 +30,34 @@ TEST(Vyunov_Roman_ComplexNumberTest, Complex_Division) {
 
   EXPECT_NO_THROW(t1/(t2-t3));
 }
+
+TEST(Vyunov_Roman_ComplexNumberTest, Multiply_Commutatively) {
+  double re1=32.111;
+  double im1=11.212;
+  double re2=13.1111;
+  double im2=11.2121;
+
+  ComplexNumber t1(re1, im1);
+  ComplexNumber t2(re2, im2);
+
+  EXPECT_EQ(t1*t2,t2*t1);
+}
+
+TEST(Vyunov_Roman_ComplexNumberTest, Multiply_Associatively) {
+  double re1=32.1;
+  double im1=11.2;
+  double re2=13.1;
+  double im2=11.2;
+  double re3=13.1;
+  double im3=11.2;
+
+  ComplexNumber t1(re1, im1);
+  ComplexNumber t2(re2, im2);
+  ComplexNumber t3(re3, im3);
+
+  ComplexNumber res1=(t1*t2)*t3;
+  ComplexNumber res2=t1*(t2*t3);
+
+  EXPECT_EQ(res1.getIm(), res2.getIm());
+  EXPECT_EQ(res1.getRe(), res2.getRe());
+}
