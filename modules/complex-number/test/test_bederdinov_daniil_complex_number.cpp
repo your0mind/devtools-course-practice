@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "complex_number.h"
+#include "include/complex_number.h"
 
 TEST(Bederdinov_Daniil_ComplexNumberTest, Can_Multiply_By_Zero) {
     // Arrange
