@@ -80,3 +80,15 @@ TEST(Vyunov_Roman_ComplexNumberTest, Multiply_Distributively) {
   EXPECT_EQ(res1.getIm(), res2.getIm());
   EXPECT_EQ(res1.getRe(), res2.getRe());
 }
+
+TEST(Vyunov_Roman_ComplexNumberTest, Imagine_One_where_exp_eq_two) {
+  double re1=0;
+  double im1=1;
+
+  ComplexNumber t1(re1, im1);
+
+  ComplexNumber res1=t1*t1;
+
+  EXPECT_EQ(res1.getIm(), 0);
+  EXPECT_EQ(res1.getRe(), -1);
+}
