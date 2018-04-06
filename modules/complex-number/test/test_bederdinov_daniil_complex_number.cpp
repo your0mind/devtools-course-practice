@@ -13,7 +13,7 @@ TEST(Bederdinov_Daniil_ComplexNumberTest, Can_Multiply_By_Zero) {
     ComplexNumber z = z1 * z2;
 
     // Assert
-    EXPECT_EQ(z2,z);
+    EXPECT_EQ(z2, z);
 }
 
 TEST(Bederdinov_Daniil_ComplexNumberTest,
@@ -33,7 +33,7 @@ TEST(Bederdinov_Daniil_ComplexNumberTest,
     Multiplification_By_One_Changes_Nothing) {
     // Arrange
     ComplexNumber z1(7.1483, 13.32);
-    ComplexNumber z2(1,0);
+    ComplexNumber z2(1, 0);
 
     // Act
     ComplexNumber z = z1 * z2;
