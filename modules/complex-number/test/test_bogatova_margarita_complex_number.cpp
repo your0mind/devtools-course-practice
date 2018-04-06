@@ -38,12 +38,12 @@ TEST(Bogatova_Margarita_ComplexNumberTest, multiple_equating) {
 }
 
 TEST(Bogatova_Margarita_ComplexNumberTest, addition_is_commutative) {
-	ComplexNumber c1(6.0, 8.0), c2(6.0, 8.0);
-	ComplexNumber res1, res2;
-	res1 = c1 + c2;
-	res2 = c2 + c1;
+    ComplexNumber c1(6.0, 8.0), c2(6.0, 8.0);
+    ComplexNumber res1, res2;
+    res1 = c1 + c2;
+    res2 = c2 + c1;
 
-	EXPECT_EQ(res1, res2);
+    EXPECT_EQ(res1, res2);
 }
 
 TEST(Bogatova_Margarita_ComplexNumberTest, subtraction_is_not_commutative) {
