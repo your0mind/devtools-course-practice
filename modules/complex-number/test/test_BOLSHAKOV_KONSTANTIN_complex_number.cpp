@@ -46,7 +46,8 @@ TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Multiple_Is_Commutative) {
 	EXPECT_EQ(mult1, mult2);
 }
 
-TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Multiple_Not_Equal_Number_equal_null)
+TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest,
+ Multiple_Not_Equal_Number_Equal_Null)
 {
 	//ARRANGE
 	ComplexNumber z1(1.0, 2.0);
@@ -67,5 +68,5 @@ TEST(BOLSHAKOV_KONSTANTIN_ComplexNumberTest, Devide_To_Null) {
 	ComplexNumber null(0, 0);
 	
 	//ASSERT
-	ASSERT_ANY_THROW(z1/null);
+	ASSERT_ANY_THROW(z1 / null);
 }
