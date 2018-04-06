@@ -62,7 +62,7 @@ TEST(Vyunov_Roman_ComplexNumberTest, DISABLED_Multiply_Associatively) {
   EXPECT_EQ(res1.getRe(), res2.getRe());
 }
 
-TEST(Vyunov_Roman_ComplexNumberTest, Distributively_Associatively) {
+TEST(Vyunov_Roman_ComplexNumberTest, Multiply_Distributively) {
   double re1=32.1;
   double im1=11.2;
   double re2=13.1;
