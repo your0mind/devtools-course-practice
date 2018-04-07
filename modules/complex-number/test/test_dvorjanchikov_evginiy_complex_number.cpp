@@ -8,7 +8,7 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Zero_Property) {
   // Arrange
   double re = 0.0;
   double im = 0.0;
-  ComplexNumber z(10, 10);
+  ComplexNumber z(50, 10);
   ComplexNumber k(re, im);
 
   // Act
