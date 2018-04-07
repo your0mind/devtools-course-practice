@@ -64,29 +64,20 @@ TEST(Batanina_Lubov_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
     EXPECT_EQ(z_im, z.getIm());
 }
 
-TEST(Batanina_Lubov_ComplexNumberTest, Compare_Equal_Complex_Numbers) {
-    // Arrange 
-    double re = 6.0;
-    double im = -5.0;
-    ComplexNumber x(re, im);
-    ComplexNumber y(re, im);
+TEST(Batanina_Lubov_ComplexNumberTest, Compare_Equal_Complex_Numbers){
+  // Arrange
+  ComplexNumber x(5.0, 6.0);
+  ComplexNumber y(5.0, 6.0);
 
-    // Act & Assert
-    EXPECT_EQ(x, y);
+  // Act & Assert
+  EXPECT_TRUE(x == y);
 }
 
 TEST(Batanina_Lubov_ComplexNumberTest, Compare_Not_Equal_Complex_Numbers) {
     // Arrange
-    double x_re = 6.0;
-    double x_im = -5.0;
+    ComplexNumber x(1.0, 2.0);
+    ComplexNumber y(3.0, 4.0);
 
-    double y_re = 5.0;
-    double y_im = -6.0;
-
-    // Act
-    ComplexNumber x(x_re, x_im);
-    ComplexNumber y(y_re, y_im);
-
-    // Assert
-    ASSERT_FALSE(x == y);
+    // Act & Assert
+    EXPECT_FALSE(x == y);
 }
