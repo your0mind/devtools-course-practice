@@ -5,9 +5,9 @@
 #include "include/complex_number.h"
 
 TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
-     // Arrange
-     double re = 2.0;
-     double im = 1.0;
+    // Arrange
+    double re = 2.0;
+    double im = 1.0;
     // Act
     ComplexNumber z(re, im);
     ComplexNumber z1(z);
