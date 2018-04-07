@@ -13,6 +13,7 @@ TEST(Okunev_Boris_ComplexNumberTest, Two_Same_Complex_Are_Equal) {
     ComplexNumber z(re, im);
     ComplexNumber z1(re, im);
 
+
     // Assert
     EXPECT_TRUE(z == z1);
 }
