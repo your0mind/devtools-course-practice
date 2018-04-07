@@ -19,7 +19,7 @@ TEST(Gusev_Alexandr_ComplexNumberTest, Can_Create_Zero) {
 
 TEST(Gusev_Alexandr_ComplexNumberTest, Create_Object_Class) {
 	// Arrange
-	double re = 3.1;
+	double re = 3.0;
 	double im = 6.3;
 	ComplexNumber* c = new ComplexNumber();
 
