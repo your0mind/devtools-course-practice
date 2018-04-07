@@ -40,19 +40,19 @@ TEST(Gorelova_Ksenia_Complex_Number_Test, Can_set_re_and_im) {
 }
 
 TEST(Gorelova_Ksenia_Complex_Number_Test, Can_mult_numbers) {
-	// Arrange
-	double re1 = 2.0;
-	double im1 = 0.0;
-	double re2 = 1.5;
-	double im2 = 5.6;
-	// Act
-	ComplexNumber z1(re1, im1);
-	ComplexNumber z2(re2, im2);
-	ComplexNumber z3;
-	z3 = z1*z2;
-	// Assert
-	EXPECT_EQ(re1*re2, z3.getRe());
-	EXPECT_EQ(re1*im2, z3.getIm());
+    // Arrange
+    double re1 = 2.0;
+    double im1 = 0.0;
+    double re2 = 1.5;
+    double im2 = 5.6;
+    // Act
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber z3;
+    z3 = z1*z2;
+    // Assert
+    EXPECT_EQ(re1*re2, z3.getRe());
+    EXPECT_EQ(re1*im2, z3.getIm());
 }
 
 TEST(Gorelova_Ksenia_Complex_Number_Test, Doesnt_change_real) {
