@@ -62,7 +62,7 @@ TEST(Generalov_Aleksandr_ComplexNumberTest, Difference_Test) {
     // Arrange
     double max = std::numeric_limits<double>::max();
     double min = std::numeric_limits<double>::lowest();
-    double ub = std::numeric_limits<double>::infinity();    
+    double ub = std::numeric_limits<double>::infinity();
     ComplexNumber z1(max, max);
     ComplexNumber z2(min, min);
 
