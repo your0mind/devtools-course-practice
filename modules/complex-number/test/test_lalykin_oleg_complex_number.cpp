@@ -15,7 +15,7 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Can_Create_Diff_Constr) {
     EXPECT_EQ(z, z1);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Equality_Operator) {
-    // Act
+    // Arrange
     ComplexNumber z1(1.0, 0.0);
     ComplexNumber z2(1.0, 0.0);
     // Assert
@@ -23,8 +23,9 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Equality_Operator) {
     EXPECT_FALSE(z1 != z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Get_Operator) {
-    // Act
+    // Arrange
     ComplexNumber z1(1.0, 0.0);
+    // Act
     ComplexNumber z2(z1.getRe(), z1.getIm());
     // Assert
     EXPECT_EQ(z1, z2);
