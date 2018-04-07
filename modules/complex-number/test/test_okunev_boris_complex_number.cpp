@@ -91,7 +91,7 @@ TEST(Okunev_Boris_ComplexNumberTest, Can_Get_Im) {
 
     ComplexNumber z(re, im);
 
-    //Act
+    // Act
     double im1 = z.getIm();
 
     // Assert
