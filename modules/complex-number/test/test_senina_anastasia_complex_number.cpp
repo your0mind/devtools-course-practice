@@ -24,7 +24,8 @@ TEST(senina_anastasia_ComplexNumberTest, Check_a_property_of_distributivity) {
 
 }
 
-TEST(senina_anastasia_ComplexNumberTest, The_quotient_of_an_imaginary_number_is_a_real_number) {
+TEST(senina_anastasia_ComplexNumberTest,
+    The_quotient_of_an_imaginary_number_is_a_real_number) {
     ComplexNumber z0(0.0, 4.0);
     ComplexNumber z1(0.0, 2.0);
     ComplexNumber res(2.0, 0.0);
@@ -32,15 +33,17 @@ TEST(senina_anastasia_ComplexNumberTest, The_quotient_of_an_imaginary_number_is_
     EXPECT_EQ(res, z0/z1);
 }
 
-TEST(senina_anastasia_ComplexNumberTest, Correct_mult_imaginary_numbers_of_identical_signs) {
+TEST(senina_anastasia_ComplexNumberTest,
+    Correct_mult_imaginary_numbers_of_identical_signs) {
     ComplexNumber z0(0.0, 4.0);
     ComplexNumber z1(0.0, 2.0);
     ComplexNumber res(-8.0, 0.0);
 
-    EXPECT_EQ(res, z0 * z1 );
+    EXPECT_EQ(res, z0 * z1);
 }
 
-TEST(senina_anastasia_ComplexNumberTest, Correct_mult_three_imaginary_numbers_of_different_signs) {
+TEST(senina_anastasia_ComplexNumberTest,
+    Correct_mult_three_imaginary_numbers_of_different_signs) {
     ComplexNumber z0(0.0, 4.0);
     ComplexNumber z1(0.0, -2.0);
     ComplexNumber z2(0.0, 1.0);
