@@ -57,3 +57,30 @@ TEST(Kiseled_Denis_ComplexNumberTest, Can_Double_Difference_Complex) {
     ComplexNumber expected_z(-22.8, -20.1);
     EXPECT_EQ(expected_z, z);
 }
+
+TEST(Kiseled_Denis_ComplexNumberTest, Do_Not_Throw_When_Division_By_Not_Zero) {
+    // Arrange
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(26.0, 14.0);
+
+    // Act & Assert
+    EXPECT_NO_THROW(z2 / z1);
+}
+
+TEST(Kiseled_Denis_ComplexNumberTest, If_Different_Real_And_Equal_Imaginary_Not_Equal) {
+    // Arrange
+    ComplexNumber z1(26.0, 14.0);
+    ComplexNumber z2(26.1, 14.0);
+
+    // Act & Assert
+    EXPECT_TRUE(z1 != z2);
+}
+
+TEST(Kiseled_Denis_ComplexNumberTest, If_Equal_Real_And_Different_Imaginary_Not_Equal) {
+    // Arrange
+    ComplexNumber z1(26.0, 14.0);
+    ComplexNumber z2(26.0, 14.1);
+
+    // Act & Assert
+    EXPECT_TRUE(z1 != z2);
+}
