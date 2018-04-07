@@ -16,3 +16,44 @@ TEST(Kiseled_Denis_ComplexNumberTest, Can_Create_Not_Zero) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
+
+TEST(Kiseled_Denis_ComplexNumberTest, Can_Create_Complex_In_Default_Construct) {
+    // Arrange
+    double re = 0.0;
+    double im = 0.0;
+
+    // Act
+    ComplexNumber z(re, im);
+
+    // Assert
+    EXPECT_NEAR(re, z.getRe(), 0.001);
+    EXPECT_NEAR(im, z.getIm(), 0.001);
+}
+
+TEST(Kiseled_Denis_ComplexNumberTest, Can_Double_Add_Complex) {
+    // Arrange
+    ComplexNumber z1(26.0, 14.0);
+    ComplexNumber z2(1.0, 7.0);
+    ComplexNumber z3(4.2, 0.9);
+
+    // Act
+    ComplexNumber z = z1 + z2 + z3;
+
+    // Assert
+    ComplexNumber expected_z(31.2, 21.9);
+    EXPECT_EQ(expected_z, z);
+}
+
+TEST(Kiseled_Denis_ComplexNumberTest, Can_Double_Difference_Complex) {
+    // Arrange
+    ComplexNumber z1(26.0, 14.0);
+    ComplexNumber z2(1.0, 7.0);
+    ComplexNumber z3(4.2, 0.9);
+
+    // Act
+    ComplexNumber z = z3 - z2 - z1;
+
+    // Assert
+    ComplexNumber expected_z(-22.8, -20.1);
+    EXPECT_EQ(expected_z, z);
+}
