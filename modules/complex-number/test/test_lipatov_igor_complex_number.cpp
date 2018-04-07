@@ -49,8 +49,9 @@ TEST(Lipatov_Igor_ComplexNumberTest, Equality_test) {
     bool eq;
 
     // Act
-    if (z1 != z2) eq = false;
-    else {
+    if (z1 != z2) {
+        eq = false;
+    } else {
         eq = true;
     }
 
