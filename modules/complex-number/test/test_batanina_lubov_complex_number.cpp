@@ -64,7 +64,7 @@ TEST(Batanina_Lubov_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
     EXPECT_EQ(z_im, z.getIm());
 }
 
-TEST(Batanina_Lubov_ComplexNumberTest, Compare_Equal_Complex_Numbers){
+TEST(Batanina_Lubov_ComplexNumberTest, Compare_Equal_Complex_Numbers) {
   // Arrange
   ComplexNumber x(5.0, 6.0);
   ComplexNumber y(5.0, 6.0);
