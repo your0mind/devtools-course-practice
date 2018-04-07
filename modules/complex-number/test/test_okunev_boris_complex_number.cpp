@@ -9,10 +9,8 @@ TEST(Okunev_Boris_ComplexNumberTest, Two_Same_Complex_Are_Equal) {
     double re = 1.0;
     double im = 2.0;
 
-    // Act
     ComplexNumber z(re, im);
     ComplexNumber z1(re, im);
-
 
     // Assert
     EXPECT_TRUE(z == z1);
@@ -26,7 +24,6 @@ TEST(Okunev_Boris_ComplexNumberTest, Two_Different_Complex_Are_Not_Equal) {
     double re1 = 2.0;
     double im1 = 3.0;
 
-    // Act
     ComplexNumber z(re, im);
     ComplexNumber z1(re1, im1);
 
