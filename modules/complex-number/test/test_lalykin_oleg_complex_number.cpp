@@ -30,20 +30,22 @@ TEST(Lalykin_Oleg_ComplexNumberTest, Get_Operator) {
     EXPECT_EQ(z1, z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Set_Operator) {
-    // Act
+    // Arrange
     ComplexNumber z1(-111.5, 122.1241);
     ComplexNumber z2(322.1, -533.5);
+    // Act
     z1.setRe(z2.getRe());
     z2.setIm(z1.getIm());
     // Assert
     EXPECT_EQ(z1, z2);
 }
 TEST(Lalykin_Oleg_ComplexNumberTest, Math_Operators) {
-    // Act
+    // Arrange
     ComplexNumber z4;
     ComplexNumber z1(4.0, 2.0);
     ComplexNumber z2(1.0, 1.0);
     ComplexNumber z3(2.0, 10.0);
+    // Act
     z4 = z1 / z2 + z2 * z3;
     // Assert
     EXPECT_EQ(z4.getRe(), -5);
