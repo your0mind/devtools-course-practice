@@ -42,11 +42,9 @@ TEST(Levitsky_Ilya_ComplexNumberTest, Compare_Two_Numbers) {
   double re = 1.5;
   double im = 3.0;
   ComplexNumber z1(re, im);
-
-  // Act
   ComplexNumber z2(re, im);
 
-  // Assert
+  // Act & Assert
   ASSERT_TRUE(z1 == z2);
 }
 
