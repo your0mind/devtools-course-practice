@@ -41,7 +41,6 @@ TEST(Okunev_Boris_ComplexNumberTest, No_Throw_Sum_Two_Complex) {
     double re1 = 2.0;
     double im1 = 3.0;
 
-    // Act
     ComplexNumber z(re, im);
     ComplexNumber z1(re1, im1);
 
@@ -57,13 +56,15 @@ TEST(Okunev_Boris_ComplexNumberTest, Sum_Two_Complex_Correct) {
     double re1 = 2.0;
     double im1 = 3.0;
 
-    // Act
     ComplexNumber z(re, im);
     ComplexNumber z1(re1, im1);
-    ComplexNumber expect(3, 5);
+    ComplexNumber expect(re + re1, im + im1);
+
+    // Act
+    ComplexNumber z2 = z + z1;
 
     // Assert
-    EXPECT_EQ(expect, z + z1);
+    EXPECT_EQ(expect, z2);
 }
 
 TEST(Okunev_Boris_ComplexNumberTest, Can_Set_Re) {
@@ -73,10 +74,11 @@ TEST(Okunev_Boris_ComplexNumberTest, Can_Set_Re) {
 
     double re1 = 5;
 
-    // Act
     ComplexNumber z(re, im);
-    z.setRe(re1);
     ComplexNumber expect(re1, im);
+
+    // Act
+    z.setRe(re1);
 
     // Assert
     EXPECT_EQ(expect, z);
@@ -87,9 +89,11 @@ TEST(Okunev_Boris_ComplexNumberTest, Can_Get_Im) {
     double re = 1.0;
     double im = 2.0;
 
-    // Act
     ComplexNumber z(re, im);
 
+    //Act
+    double im1 = z.getIm();
+
     // Assert
-    EXPECT_EQ(im, z.getIm());
+    EXPECT_EQ(im, im1);
 }
