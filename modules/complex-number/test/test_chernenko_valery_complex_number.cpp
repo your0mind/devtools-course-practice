@@ -1,4 +1,4 @@
-// Copyright 2017 Chernenko Valery
+// Copyright 2018 Chernenko Valery
 
 #include <gtest/gtest.h>
 
@@ -29,12 +29,12 @@ Order_Of_Actions_addition_and_subtraction_Is_Not_Important) {
     ComplexNumber z3(re3, im3);
 
     ComplexNumber exz1(0, 0);
-    exz1 = z1 + z2 - z3;
-
     ComplexNumber exz2(0, 0);
+
+    exz1 = z1 + z2 - z3;
     exz2 = z1 - z3 + z2;
 
-    EXPECT_EQ(0, 0);
+    EXPECT_EQ(exz1, exz2);
 }
 
 TEST(Chernenko_Valery_ComplexNumberTest,
@@ -51,9 +51,9 @@ Order_Of_Actions_multiplication_and_division_Is_Not_Important) {
     ComplexNumber z3(re3, im3);
 
     ComplexNumber exz1(0, 0);
-    exz1 = z1 * z2 / z3;
-
     ComplexNumber exz2(0, 0);
+
+    exz1 = z1 * z2 / z3;
     exz2 = (z1 / z3) * z2;
 
     EXPECT_EQ(exz1, exz2);
@@ -89,4 +89,17 @@ The_Operation_division_Is_Not_Commutative) {
     ComplexNumber exz2 = z2 / z1;
 
     EXPECT_NE(exz1, exz2);
+}
+
+TEST(Chernenko_Valery_ComplexNumberTest,
+The_Operation_Comparison_of_equal_numbers_return_true) {
+    double re1 = 1.5;
+    double im1 = -125.96;
+    double re2 = re1;
+    double im2 = im1;
+
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+
+    EXPECT_TRUE(z1==z2);    
 }
