@@ -1,4 +1,4 @@
-//Copyright 2018 Lipatov Igor
+// Copyright 2018 Lipatov Igor
 
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
@@ -49,8 +49,10 @@ TEST(Lipatov_Igor_ComplexNumberTest, Equality_test) {
     bool eq;
 
     // Act
-    if(z1 != z2) eq = false;
-    else eq = true;
+    if (z1 != z2) eq = false;
+    else {
+        eq = true;
+    }
 
     // Assert
     EXPECT_EQ(eq, false);
