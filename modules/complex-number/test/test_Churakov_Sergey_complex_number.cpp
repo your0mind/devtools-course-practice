@@ -8,8 +8,9 @@
 TEST(Churakov_Sergey_ComplexNumberTest, Can_Divide_By_One) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber one(1.0, 0);
+    ComplexNumber div;
 
-    ComplexNumber div = z / one;
+    div = z / one;
 
 
     EXPECT_EQ(z, div);
@@ -18,8 +19,9 @@ TEST(Churakov_Sergey_ComplexNumberTest, Can_Divide_By_One) {
 TEST(Churakov_Sergey_ComplexNumberTest, Can_Mult_By_One) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber one(1.0, 0);
+    ComplexNumber mult;
 
-    ComplexNumber mult = z * one;
+    mult = z * one;
 
     EXPECT_EQ(z, mult);
 }
@@ -27,8 +29,9 @@ TEST(Churakov_Sergey_ComplexNumberTest, Can_Mult_By_One) {
 TEST(Churakov_Sergey_ComplexNumberTest, Can_Add_Zero) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber zero(0, 0);
+    ComplexNumber sum;
 
-    ComplexNumber sum = z + zero;
+    sum = z + zero;
 
     EXPECT_EQ(z, sum);
 }
@@ -36,8 +39,9 @@ TEST(Churakov_Sergey_ComplexNumberTest, Can_Add_Zero) {
 TEST(Churakov_Sergey_ComplexNumberTest, Can_Substract_Zero) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber zero(0, 0);
+    ComplexNumber sub;
 
-    ComplexNumber sub = z - zero;
+    sub = z - zero;
 
     EXPECT_EQ(z, sub);
 }
@@ -45,8 +49,9 @@ TEST(Churakov_Sergey_ComplexNumberTest, Can_Substract_Zero) {
 TEST(Churakov_Sergey_ComplexNumberTest, Can_Mult_By_Zero) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber zero(0, 0);
+    ComplexNumber mult;
 
-    ComplexNumber mult = z * zero;
+    mult = z * zero;
 
     EXPECT_EQ(mult, zero);
 }
