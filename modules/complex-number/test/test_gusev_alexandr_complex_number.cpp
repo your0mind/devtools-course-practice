@@ -26,7 +26,6 @@ TEST(Gusev_Aleksandr_ComplexNumberTest, Sum_Test) {
   ComplexNumber c1(re1, im1);
   ComplexNumber c2(re2, im2);
   // Act
-  
   ComplexNumber c = c1 + c2;
   // Assert
   EXPECT_EQ(c.getRe(), 8.1);
@@ -41,9 +40,7 @@ TEST(Gusev_Aleksandr_ComplexNumberTest, Substruction) {
   ComplexNumber c1(re1, im1);
   ComplexNumber c2(re2, im2);
   // Act
-  
   ComplexNumber c = c1 - c2;
-  
   // Assert
   EXPECT_EQ(c.getRe(), -1.0);
   EXPECT_EQ(c.getIm(), 0.0);
@@ -54,7 +51,6 @@ TEST(Gusev_Aleksandr_ComplexNumberTest, Multiplication) {
   double im1 = 5.0;
   double re2 = 2.0;
   double im2 = 3.0;
-
   // Act
   ComplexNumber c1(re1, im1);
   ComplexNumber c2(re2, im2);
@@ -69,7 +65,6 @@ TEST(Gusev_Aleksandr_ComplexNumberTest, Commutativity_Sum_Property) {
   double im1 = 5.2;
   double re2 = 2.3;
   double im2 = 3.3;
-
   // Act
   ComplexNumber c1(re1, im1);
   ComplexNumber c2(re2, im2);
