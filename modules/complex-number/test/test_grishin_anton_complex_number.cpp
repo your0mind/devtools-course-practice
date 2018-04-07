@@ -4,12 +4,13 @@
 
 #include "include/complex_number.h"
 
-double epsilon = 0.001;
+
 TEST(Grishin_Anton_ComplexNumberTest, Can_get_Re_from_Im) {
     // Arrange
     double re = -1.0;
     double im = 1;
     ComplexNumber z1(0.0, im);
+    double epsilon = 0.001;
 
     // Act
     ComplexNumber z = z1 * z1;
