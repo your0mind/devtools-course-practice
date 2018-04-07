@@ -46,7 +46,7 @@ TEST(Gusev_Aleksandr_ComplexNumberTest, Substruction) {
   EXPECT_EQ(c.getIm(), 0.0);
 }
 TEST(Gusev_Aleksandr_ComplexNumberTest, Multiplication) {
-// Arrange 
+// Arrange
   double re1 = 4.0;
   double im1 = 5.0;
   double re2 = 2.0;
