@@ -13,12 +13,11 @@ TEST(Sharov_Ivan_ComplexNumberTest, Multi_Complex_Number) {
     double ImZ2 = -5.0;
     double ReRes = 74.0;
     double ImRes = 0.0;
-    // Act
     ComplexNumber Z1(ReZ1, ImZ1);
     ComplexNumber Z2(ReZ2, ImZ2);
     ComplexNumber Mult(ReRes, ImRes);
 
-    // Assert
+    // Act & assert 
     EXPECT_EQ(Mult, Z1 * Z2);
 }
 
@@ -46,8 +45,9 @@ TEST(Sharov_Ivan_ComplexNumberTest, Sum_Complex_and_Conjugate_Two_Real_Part) {
 TEST(Sharov_Ivan_ComplexNumberTest, Copy_is_equal_orig) {
     // Arrange
     ComplexNumber Z1(7.0, 5.0);
+    //Act
     ComplexNumber Z2(Z1);
-    // Act & assert
+    // Assert
     EXPECT_TRUE(Z2.getRe() == Z1.getRe());
     EXPECT_TRUE(Z2.getIm() == Z1.getIm());
 }
