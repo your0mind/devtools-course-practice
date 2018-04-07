@@ -65,16 +65,14 @@ TEST(Batanina_Lubov_ComplexNumberTest, Can_Multiply_Complex_Numbers) {
 }
 
 TEST(Batanina_Lubov_ComplexNumberTest, Compare_Equal_Complex_Numbers) {
-    // Arrange
-    double x_re = 6.0;
-    double x_im = -5.0;
-    ComplexNumber x(x_re, x_im);
+    // Arrange 
+    double re = 6.0;
+    double im = -5.0;
+    ComplexNumber x(re, im);
+    ComplexNumber y(re, im);
 
-    // Act
-    ComplexNumber y(x);
-
-    // Assert
-    ASSERT_TRUE(x == y);
+    // Act & Assert
+    EXPECT_EQ(x, y);
 }
 
 TEST(Batanina_Lubov_ComplexNumberTest, Compare_Not_Equal_Complex_Numbers) {
