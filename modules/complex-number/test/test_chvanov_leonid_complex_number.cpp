@@ -65,8 +65,6 @@ Multiplication_By_Neutral_Element_Does_Not_Change_ComplexNumber) {
     ComplexNumber z(5.0, 6.0);
     ComplexNumber n(1.0, 0.0);
 
-    // Act
-
-    // Assert
+    // Act and assert
     EXPECT_EQ(z, z*n);
 }
