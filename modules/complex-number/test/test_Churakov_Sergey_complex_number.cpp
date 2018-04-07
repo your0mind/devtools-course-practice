@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 
-TEST(Churakov_Sergey_ComplexNumberTest, Can_Divide_By_One) {  
+TEST(Churakov_Sergey_ComplexNumberTest, Can_Divide_By_One) {
     ComplexNumber z(5.5, 10.5);
     ComplexNumber one(1.0, 0);
 
