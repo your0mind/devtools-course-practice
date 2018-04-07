@@ -4,100 +4,87 @@
 
 #include "include/complex_number.h"
 
-TEST(Test1, Addition) {
+TEST(Kulikova_Sveta_ComplexNumberTest, Addition) {
     // Arrange
     double re1 = 1.2;
     double im1 = 3.4;
     double re2 = 5.6;
     double im2 = 7.8;
-
-    // Act
     ComplexNumber a(re1, im1);
     ComplexNumber b(re2, im2);
-    ComplexNumber c = a + b;
+    ComplexNumber c;
+
+    // Act
+    c = a + b;
 
     // Assert
-    EXPECT_EQ(re1, a.getRe());
-    EXPECT_EQ(im1, a.getIm());
-    EXPECT_EQ(re2, b.getRe());
-    EXPECT_EQ(im2, b.getIm());
     EXPECT_EQ(re1 + re2, c.getRe());
     EXPECT_EQ(im1 + im2, c.getIm());
 }
 
-TEST(Test2, Subtraction) {
+TEST(Kulikova_Sveta_ComplexNumberTest, Subtraction) {
     // Arrange
     double re1 = 1.2;
     double im1 = 3.4;
     double re2 = 5.6;
     double im2 = 7.8;
-
-    // Act
     ComplexNumber a(re1, im1);
     ComplexNumber b(re2, im2);
-    ComplexNumber c = a - b;
+    ComplexNumber c;
+
+    // Act
+    c = a - b;
 
     // Assert
-    EXPECT_EQ(re1, a.getRe());
-    EXPECT_EQ(im1, a.getIm());
-    EXPECT_EQ(re2, b.getRe());
-    EXPECT_EQ(im2, b.getIm());
     EXPECT_EQ(re1 - re2, c.getRe());
     EXPECT_EQ(im1 - im2, c.getIm());
 }
 
-TEST(Test3, Multiplication) {
+TEST(Kulikova_Sveta_ComplexNumberTest, Multiplication) {
     // Arrange
     double re1 = 1.2;
     double im1 = 3.4;
     double re2 = 5.6;
     double im2 = 7.8;
-
-    // Act
     ComplexNumber a(re1, im1);
     ComplexNumber b(re2, im2);
-    ComplexNumber c = a * b;
+    ComplexNumber c;
+
+    // Act
+    c = a * b;
 
     // Assert
-    EXPECT_EQ(re1, a.getRe());
-    EXPECT_EQ(im1, a.getIm());
-    EXPECT_EQ(re2, b.getRe());
-    EXPECT_EQ(im2, b.getIm());
     EXPECT_EQ(re1 * re2 - im1 * im2, c.getRe());
     EXPECT_EQ(re1 * im2 + re2 * im1, c.getIm());
 }
 
-TEST(Test4, Equality) {
+TEST(Kulikova_Sveta_ComplexNumberTest, Equality) {
     // Arrange
     double re = 1.2;
     double im = 3.4;
-
-    // Act
     ComplexNumber a(re, im);
     ComplexNumber b(re, im);
+    bool res;
+
+    // Act
+    res = (a == b);
 
     // Assert
-    EXPECT_EQ(re, a.getRe());
-    EXPECT_EQ(im, a.getIm());
-    EXPECT_EQ(re, b.getRe());
-    EXPECT_EQ(im, b.getIm());
-    EXPECT_TRUE(a == b);
+    EXPECT_TRUE(res);
 }
 
-TEST(Test5, Copying) {
+TEST(Kulikova_Sveta_ComplexNumberTest, Copying) {
     // Arrange
     double re = 1.2;
     double im = 3.4;
+    ComplexNumber a(re, im);
+    ComplexNumber c;
 
     // Act
-    ComplexNumber a(re, im);
     ComplexNumber b(a);
-    ComplexNumber c;
     c = a;
 
     // Assert
-    EXPECT_EQ(re, a.getRe());
-    EXPECT_EQ(im, a.getIm());
     EXPECT_EQ(re, b.getRe());
     EXPECT_EQ(im, b.getIm());
     EXPECT_EQ(re, c.getRe());
