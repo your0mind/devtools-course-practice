@@ -10,7 +10,7 @@ if(MSVC)
     add_definitions(/D _VARIADIC_MAX=10)
 endif()
 
-add_executable(${target} ${srcs} ${hdrs})
+add_executable(${target} ${srcs} ${hdrs} test_osyagin_maksim_complex_number.cpp)
 set_target_properties(${target} PROPERTIES
     LABELS "${MODULE};Test")
 
