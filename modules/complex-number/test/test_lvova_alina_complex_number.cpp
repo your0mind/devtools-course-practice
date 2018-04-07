@@ -67,7 +67,7 @@ TEST(Lvova_Alina_ComplexNumberTest, SetRe) {
     ComplexNumber a(re1, im1);
 
     // Act
-    a.setRe (re2);
+    a.setRe(re2);
 
     // Assert
     EXPECT_EQ(re2, a.getRe());
