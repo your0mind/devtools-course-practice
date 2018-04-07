@@ -1,7 +1,8 @@
-// Copyright 2018 Шкенёв Пётр
+// Copyright 2018 Shkenev Petr
 
 #include <gtest/gtest.h>
 #include <limits>
+#include <string>
 
 #include "include/complex_number.h"
 
