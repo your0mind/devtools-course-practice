@@ -4,7 +4,6 @@
 
 #include "include/complex_number.h"
 
-double epsilon = 0.00001;
 
 TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Order_Of_Operations) {
     // Arrange
@@ -21,6 +20,7 @@ TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Order_Of_Operations) {
 TEST(Gladyshev_Alexey_ComplexNumberTest, Correct_Work_Of_Distributivity) {
     // Arrange
     ComplexNumber z1(0.2, -0.3), z2(12, 17), z3(78.897, -47);
+    double epsilon = 0.00001;
 
     // Act
     ComplexNumber firstZ = z1 * (z2 + z3);
