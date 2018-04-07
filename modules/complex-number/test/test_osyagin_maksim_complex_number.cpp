@@ -66,9 +66,9 @@ TEST(Osyagin_Maksim_ComplexNumberTest, Can_Multiply_By_Zero) {
     EXPECT_EQ(z2, res);
 }
 
-TEST(Osyagin_Maksim_ComplexNumberTest, Can_Create_Zero) {
+TEST(Osyagin_Maksim_ComplexNumberTest, Can_Create_With_Zero_In_Imaginary) {
     // Arrange
-    double re = 0.0;
+    double re = 10.0;
     double im = 0.0;
 
     // Act
