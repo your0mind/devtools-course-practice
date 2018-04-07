@@ -14,7 +14,6 @@ TEST(Gorelova_Ksenia_ComplexNumberTest, Can_Create_Not_Zero) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
-
 TEST(Gorelova_Ksenia_ComplexNumberTest, Can_Create_With_Negative_Imaginary) {
     // Arrange
     double re = 20.0;
@@ -25,7 +24,6 @@ TEST(Gorelova_Ksenia_ComplexNumberTest, Can_Create_With_Negative_Imaginary) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
-
 TEST(Gorelova_Ksenia_Complex_Number_Test, Can_set_re_and_im) {
     // Arrange
     double re = 13.5;
@@ -38,7 +36,6 @@ TEST(Gorelova_Ksenia_Complex_Number_Test, Can_set_re_and_im) {
     EXPECT_EQ(re, z.getRe());
     EXPECT_EQ(im, z.getIm());
 }
-
 TEST(Gorelova_Ksenia_Complex_Number_Test, Can_mult_numbers) {
     // Arrange
     double re1 = 2.0;
@@ -54,7 +51,6 @@ TEST(Gorelova_Ksenia_Complex_Number_Test, Can_mult_numbers) {
     EXPECT_EQ(re1*re2, z3.getRe());
     EXPECT_EQ(re1*im2, z3.getIm());
 }
-
 TEST(Gorelova_Ksenia_Complex_Number_Test, Doesnt_change_real) {
     // Arrange
     double Re = 13.3;
