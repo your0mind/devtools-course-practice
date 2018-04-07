@@ -56,7 +56,8 @@ TEST(Zinoviev_Vladimir_ComplexNumberTest, Divide_Of_Equal_Numbers_Is_1) {
   EXPECT_EQ(0.0, z.getIm());
 }
 
-TEST(Zinoviev_Vladimir_ComplexNumberTest, Multiple_Of_Conjugate_Number_Is_Sqr_Of_Mod) {
+TEST(Zinoviev_Vladimir_ComplexNumberTest, 
+  Multiple_Of_Conjugate_Number_Is_Sqr_Of_Mod) {
   // Arrange
   ComplexNumber z1(2.0, 2.0);
   ComplexNumber z2(2.0, -2.0);
