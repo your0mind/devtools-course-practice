@@ -21,7 +21,6 @@ TEST(senina_anastasia_ComplexNumberTest, Check_a_property_of_distributivity) {
 
     EXPECT_NEAR(res.getRe(), z3.getRe(), 0.001);
     EXPECT_NEAR(res.getIm(), z3.getIm(), 0.001);
-
 }
 
 TEST(senina_anastasia_ComplexNumberTest,
