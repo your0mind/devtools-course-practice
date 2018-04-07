@@ -95,4 +95,3 @@ TEST(Mezina_Margarita_ComplexNumber, i_in_square_is_minus_one) {
     // Assert
     EXPECT_EQ(cn2, cn1 * cn1);
 }
-
