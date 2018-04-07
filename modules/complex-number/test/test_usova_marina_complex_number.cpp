@@ -27,10 +27,9 @@ TEST(Usova_Marina_ComplexNumberTest, Can_Get_Im_and_Re) {
   double re = 15.5;
   double im = -5.5;
 
-  // Act
   ComplexNumber z(re, im);
 
-  // Assert
+  // Act & Assert
   EXPECT_NEAR(z.getRe(), re, epsilon);
   EXPECT_NEAR(z.getIm(), im, epsilon);
 }
