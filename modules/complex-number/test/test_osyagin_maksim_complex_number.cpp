@@ -56,8 +56,8 @@ TEST(Osyagin_Maksim_ComplexNumberTest, Can_Multiply_By_Zero) {
     double re2 = 0.0;
     double im2 = 0.0;
 
-    ComplexNumber z1(re1,im1);
-    ComplexNumber z2(re2,im2);
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
 
     // Act
     ComplexNumber res = z1 * z2;
