@@ -101,6 +101,5 @@ The_Operation_Comparison_of_equal_numbers_return_true) {
     ComplexNumber z1(re1, im1);
     ComplexNumber z2(re2, im2);
 
-    EXPECT_TRUE(z1 == z2);    
+    EXPECT_TRUE(z1 == z2);
 }
-
