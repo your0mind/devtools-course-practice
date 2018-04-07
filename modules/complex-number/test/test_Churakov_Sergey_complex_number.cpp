@@ -12,7 +12,6 @@ TEST(Churakov_Sergey_ComplexNumberTest, Can_Divide_By_One) {
 
     div = z / one;
 
-
     EXPECT_EQ(z, div);
 }
 
