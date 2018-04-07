@@ -8,10 +8,10 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Zero_Property) {
   // Arrange
   double re = 0.0;
   double im = 0.0;
-
-  // Act
   ComplexNumber z(10, 10);
   ComplexNumber k(re, im);
+
+  // Act
   z = z * k;
 
   // Assert
@@ -22,10 +22,10 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, One_Property) {
   // Arrange
   double re = 10.0;
   double im = 10.0;
-
-  // Act
   ComplexNumber z(re, im);
   ComplexNumber k(1, 0);
+
+  // Act
   z = z * k;
 
   // Assert
@@ -38,11 +38,11 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Commutative_Property) {
   double first_im = 10.0;
   double second_re = 10.0;
   double second_im = 10.0;
-
-  // Act
   ComplexNumber z(first_re, first_im);
   ComplexNumber k(second_re, second_im);
   ComplexNumber tmp(0, 0);
+
+  // Act
   tmp = z * k;
   z = k * z;
 
@@ -54,10 +54,10 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Negative) {
   // Arrange
   double re = 5.0;
   double im = 10.0;
-
-  // Act
   ComplexNumber z(re, im);
   ComplexNumber k(-re, -im);
+
+  // Act
   z = z + k;
 
   // Assert
@@ -70,10 +70,10 @@ TEST(Dvorjancikov_Evginiy_ComplexNumberTest, Inverse_Nmber) {
   double b = 4.0;
   double c = a / (a*a + b*b);
   double d = -b/ (a*a + b*b);
-
-  // Act
   ComplexNumber z(a, b);
   ComplexNumber k(c, d);
+
+  // Act
   z = z * k;
 
   // Assert
