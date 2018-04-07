@@ -55,7 +55,7 @@ TEST(Gorelova_Ksenia_Complex_Number_Test, Can_multiplication_numbers) {
     EXPECT_EQ(re1*im2, z3.getIm());
 }
 
-TEST(Gorelova_Ksenia_Complex_Number_Test, Setting_imaginary_doesnt_change_real) {
+TEST(Gorelova_Ksenia_Complex_Number_Test, Doesnt_change_real) {
     // Arrange
     double Re = 13.3;
     double Im = -17.8;
