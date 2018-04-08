@@ -27,7 +27,7 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Can_Get_Im) {
     double re = 3;
     double im = -1.23;
 
-	ComplexNumber z(re, im);
+    ComplexNumber z(re, im);
     EXPECT_EQ(im, z.getIm());
     EXPECT_EQ(re, z.getRe());
 }
