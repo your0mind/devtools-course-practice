@@ -15,7 +15,8 @@ TEST(Aglikov_Ilya_ComplexNumberTest, Test_Constructors) {
     ComplexNumber z3(z2);
 
     // Assert
-    EXPECT_EQ(z1, z2, z3);
+    EXPECT_EQ(z1, z2);
+    EXPECT_EQ(z2, z3);
 }
 
 TEST(Aglikov_Ilya_ComplexNumberTest, Test_Equality_Operator) {
