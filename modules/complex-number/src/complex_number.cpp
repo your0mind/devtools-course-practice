@@ -1,6 +1,6 @@
 // Copyright 2017 Korniakov Kirill
 
-#include "include/complex_number.h"
+#include "C:/Users/Norik/Documents/GitHub/devtools-course-practice/modules/complex-number/include/complex_number.h"
 
 #include <stdbool.h>
 #include <string>
