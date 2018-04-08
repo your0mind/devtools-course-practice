@@ -66,3 +66,17 @@ TEST(Bederdinov_Daniil_ComplexNumberTest, Can_Add_Zero) {
     // Assert
     EXPECT_EQ(z1, z);
 }
+
+TEST(Bederdinov_Daniil_ComplexNumberTest, Addition_Is_Associative) {
+    //ARRANGE
+    ComplexNumber z1(1.0, 2.0);
+    ComplexNumber z2(3.4, 5.6);
+    ComplexNumber z3(7.8, 9.9);
+
+    // ACT
+    ComplexNumber sum1 = z1 + (z2 + z3);
+    ComplexNumber sum2 = (z1 + z2) + z3;
+
+    // ASSERT
+    EXPECT_EQ(sum1, sum2);
+}
