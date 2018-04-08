@@ -11,7 +11,7 @@ TEST(Khomenko_Aleksei_ComplexNumberTest, Can_Get_Re_from_Im) {
     ComplexNumber z(0.0, im);
 
     // Act
-   ComplexNumber z1 = z*z;
+    ComplexNumber z1 = z*z;
 
     // Assert
     EXPECT_NEAR(re, z1.getRe(), 0.001);
