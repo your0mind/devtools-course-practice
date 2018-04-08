@@ -35,17 +35,17 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Can_Get_Im_and_Re) {
 TEST(Shurygin_Dmitriy_ComplexNumberTest, Can_Copy) {
     double re = 3;
     double im = -1.23;
-    
+
     ComplexNumber z(re, im);
     ComplexNumber copy_z(z);
-    
+
     EXPECT_EQ(z, copy_z);
 }
 
 TEST(Shurygin_Dmitriy_ComplexNumberTest, Division_by_himself) {
     double re = 3;
     double im = -1.23;
-    
+
     ComplexNumber z(re, im);
     ComplexNumber z1(1.0, 0);
     ComplexNumber res = z / z;
@@ -55,6 +55,6 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Division_by_himself) {
 TEST(Shurygin_Dmitiy_ComplexNumberTest, cant_divide_zero) {
     ComplexNumber z1(1.0, 1.0);
     ComplexNumber z2;
-     
+
     ASSERT_ANY_THROW(z1 / z2);
 }
