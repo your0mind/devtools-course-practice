@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "C:/Users/Norik/Documents/GitHub/devtools-course-practice/modules/complex-number/include/complex_number.h"
+#include "include/complex_number.h"
 
 TEST(Epremyan_Norik_ComplexNumberTest, difference) {
     // Arrange
