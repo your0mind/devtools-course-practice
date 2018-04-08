@@ -68,7 +68,7 @@ TEST(Bederdinov_Daniil_ComplexNumberTest, Can_Add_Zero) {
 }
 
 TEST(Bederdinov_Daniil_ComplexNumberTest, Addition_Is_Associative) {
-    //ARRANGE
+    // ARRANGE
     ComplexNumber z1(1.0, 2.0);
     ComplexNumber z2(3.4, 5.6);
     ComplexNumber z3(7.8, 9.9);
