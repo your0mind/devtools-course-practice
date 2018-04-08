@@ -47,7 +47,7 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Division_by_himself) {
     double im = -1.23;
     
     ComplexNumber z(re, im);
-	ComplexNumber z1(1.0, 0);
+    ComplexNumber z1(1.0, 0);
 	ComplexNumber res = z / z;
     EXPECT_EQ(res, z1);
 }
