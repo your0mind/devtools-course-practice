@@ -57,7 +57,7 @@ TEST(Tipanov_Daniil_ComplexNumberTest, Divide_Same_Numbers) {
 }
 
 TEST(Tipanov_Daniil_ComplexNumberTest, Create_Negative_Real_Number) {
-   // Arrange
+    // Arrange
     double re = -5.0;
     double im = 2.0;
 
