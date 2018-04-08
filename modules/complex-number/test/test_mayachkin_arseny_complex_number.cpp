@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Mayachkin_Arseny_ComplexNumberTest, The_existanse_of_zero) {
+TEST(Mayachkin_Arseny_ComplexNumberTest, The_existance_of_zero) {
     // Arrange
     double z_re = 1.0;
     double z_im = 1.0;
