@@ -31,6 +31,6 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Can_Get_Im) {
     ComplexNumber z(re, im);
 
     EXPECT_EQ(im, z.getIm());
-	EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(re, z.getRe());
 }
 
