@@ -67,7 +67,7 @@ TEST(Kiseled_Denis_ComplexNumberTest, Do_Not_Throw_When_Division_By_Not_Zero) {
     EXPECT_NO_THROW(z2 / z1);
 }
 
-TEST(Kiseled_Denis_ComplexNumberTest, If_Different_Real_And_Equal_Imaginary_Not_Equal) {
+TEST(Kiseled_Denis_ComplexNumberTest, Different_Real_Are_Not_Equal) {
     // Arrange
     ComplexNumber z1(26.0, 14.0);
     ComplexNumber z2(26.1, 14.0);
@@ -76,7 +76,7 @@ TEST(Kiseled_Denis_ComplexNumberTest, If_Different_Real_And_Equal_Imaginary_Not_
     EXPECT_TRUE(z1 != z2);
 }
 
-TEST(Kiseled_Denis_ComplexNumberTest, If_Equal_Real_And_Different_Imaginary_Not_Equal) {
+TEST(Kiseled_Denis_ComplexNumberTest, Different_Imaginary_Are_Not_Equal) {
     // Arrange
     ComplexNumber z1(26.0, 14.0);
     ComplexNumber z2(26.0, 14.1);
