@@ -48,13 +48,13 @@ TEST(Shurygin_Dmitriy_ComplexNumberTest, Division_by_himself) {
     
     ComplexNumber z(re, im);
     ComplexNumber z1(1.0, 0);
-	ComplexNumber res = z / z;
+    ComplexNumber res = z / z;
     EXPECT_EQ(res, z1);
 }
 
 TEST(Shurygin_Dmitiy_ComplexNumberTest, cant_divide_zero) {
     ComplexNumber z1(1.0, 1.0);
     ComplexNumber z2;
-    
+     
     ASSERT_ANY_THROW(z1 / z2);
 }
