@@ -3,7 +3,7 @@
 #include <limits>
 #include "include/complex_number.h"
 
-const double epsilon = std::numeric_limits<double>::epsilon();
+static const double epsilon = std::numeric_limits<double>::epsilon();
 
 TEST(Konakov_Alexandr_ComplexNumberTest, Mult_Of_Pure_Im_Gives_Re) {
   // Arrange
