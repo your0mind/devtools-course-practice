@@ -5,16 +5,16 @@
 #include "include/complex_number.h"
 
 TEST(Novikova_Alisa_ComplexNumberTest, Can_Create_Not_Zero){
-    // Arrange
-    double re = 3.14;
-    double im = 15.9;
-
-    // Act
-    ComplexNumber z(re, im);
-
-    // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+	// Arrange
+	double re = 3.14;
+	double im = 15.9;
+	
+	// Act
+	ComplexNumber z(re, im);
+	
+	// Assert
+	EXPECT_EQ(re, z.getRe());
+	EXPECT_EQ(im, z.getIm());
 }
 TEST(Novikova_Alisa_ComplexNumberTest, Can_Division_Equal_Complex_Numbers){
 	// Arrange
