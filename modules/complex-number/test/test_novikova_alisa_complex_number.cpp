@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Novikova_Alisa_ComplexNumberTest, Can_Create_Not_Zero) {
+TEST(Novikova_Alisa_ComplexNumberTest, Can_Create_Not_Zero){
     // Arrange
     double re = 3.14;
     double im = 15.9;
