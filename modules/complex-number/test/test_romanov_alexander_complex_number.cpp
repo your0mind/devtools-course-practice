@@ -16,7 +16,7 @@ TEST(Romanov_Alexander_ComplexNumberTest, Can_init_complex_number) {
 TEST(Romanov_Alexander_ComplexNumberTest, cant_divide_zero) {
     ComplexNumber z1(1.0, 1.0);
     ComplexNumber z2;
-    
+
     EXPECT_ANY_THROW(z1 / z2);
 }
 TEST(Romanov_Alexander_ComplexNumberTest, able_equal_copying) {
