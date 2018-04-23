@@ -19,7 +19,7 @@ TEST(MatrixCalculatorTest, can_create_copy) {
 }
 
 TEST(MatrixCalculatorTest, cant_create_with_negativ_sizes) {
-	EXPECT_ANY_THROW(MatrixCalculator matrix(-1, -1));
+    EXPECT_ANY_THROW(MatrixCalculator matrix(-1, -1));
 }
 
 TEST(MatrixCalculatorTest, correct_set) {
