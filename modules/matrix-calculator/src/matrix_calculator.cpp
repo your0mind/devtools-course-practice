@@ -77,7 +77,7 @@ MatrixCalculator MatrixCalculator::operator +
 
 MatrixCalculator MatrixCalculator::operator -
     (const MatrixCalculator& _matrix) const {
-	MatrixCalculator result(*this);
+    MatrixCalculator result(*this);
 
     if (!AreSizesEqual(_matrix)) {
         throw "Sizes are not equal";
@@ -92,17 +92,18 @@ MatrixCalculator MatrixCalculator::operator -
     return result;
 }
 
-MatrixCalculator MatrixCalculator::operator *(const MatrixCalculator& _matrix) const {
+MatrixCalculator MatrixCalculator::operator *
+           (const MatrixCalculator& _matrix) const {
     if (matrix[0].size() != _matrix.matrix.size()) {
         throw "Size of rows should be equal to size of columns";
-    }
-    else {
+    } else {
         MatrixCalculator result(matrix.size(), _matrix.matrix[0].size());
 
         for (size_t i = 0; i < result.matrix.size(); i++) {
             for (size_t j = 0; j < result.matrix[i].size(); j++) {
                 for (size_t k = 0; k < _matrix.matrix.size(); k++) {
-                    result.matrix[i][j] += this->matrix[i][k] * _matrix.matrix[k][j];
+                    result.matrix[i][j] += this->matrix[i][k]
+                        * _matrix.matrix[k][j];
                 }
             }
         }
@@ -155,7 +156,7 @@ MatrixCalculator MatrixCalculator::InverseMatrix() const {
         for (size_t j = 0; j < matrix.size(); j++) {
             int m = matrix.size() - 1;
             MatrixCalculator temp(m, m);
-            temp = temp.Prepare_for_minores(m,matrix, i, j);
+            temp = temp.Prepare_for_minores(m, matrix, i, j);
             inverse_matrix.matrix[i][j] = pow(-1.0, i + j + 2)
                   * temp.determinant() / det;
         }
@@ -167,8 +168,7 @@ MatrixCalculator MatrixCalculator::InverseMatrix() const {
 }
 
 MatrixCalculator MatrixCalculator::Prepare_for_minores(int n,
-    std::vector<std::vector<double > > _matr, int indRow, int indCol) const
-{
+    std::vector<std::vector<double > > _matr, int indRow, int indCol) const {
     MatrixCalculator temp(n, n);
     int ki = 0;
     for (size_t i = 0; i < (size_t)n+1; i++) {
