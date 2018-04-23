@@ -10,7 +10,7 @@
 #define MODULES_FRACTIONAL_NUMBERS_INCLUDE_FRACTIONAL_NUMBERS_H_
 
 class Rational {
-public:
+ public:
 Rational();
 Rational(const int chislit, const int znamenat);
 Rational(const Rational& r);
