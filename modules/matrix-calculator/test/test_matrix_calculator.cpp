@@ -8,11 +8,11 @@ TEST(MatrixCalculatorTest, can_create_default_and_with_sizes) {
     MatrixCalculator a;
     MatrixCalculator b(1, 1);
 
-	EXPECT_EQ(a, b);
+    EXPECT_EQ(a, b);
 }
 
 TEST(MatrixCalculatorTest, can_create_copy) {
-    MatrixCalculator a(2,2);
+    MatrixCalculator a(2, 2);
     MatrixCalculator b(a);
 
     EXPECT_EQ(a, b);
@@ -25,7 +25,7 @@ TEST(MatrixCalculatorTest, cant_create_with_negativ_sizes) {
 TEST(MatrixCalculatorTest, correct_set) {
     std::vector<std::vector<double>> vect(3, std::vector<double>(3, 0.0));
     for (size_t i = 0; i < vect.size(); i++) {
-		vect[i][i] = 3;
+        vect[i][i] = 3;
     }
     MatrixCalculator a(1, 2);
     MatrixCalculator b(a);
@@ -164,7 +164,7 @@ TEST(MatrixCalculatorTest, correct_determinant) {
 TEST(MatrixCalculatorTest, determinant_error_with_not_square_matrix) {
     std::vector<std::vector<double>> vect = {
     { 1, 2 },
-	{ 1, 3 },
+    { 1, 3 },
     { 3, 4 } };
 
     MatrixCalculator a;
