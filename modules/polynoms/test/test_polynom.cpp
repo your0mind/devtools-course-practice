@@ -132,6 +132,14 @@ TEST_F(PolynomTest, Devision_On_Contrary) {
     EXPECT_EQ(p1, p2);
 }
 
+TEST_F(PolynomTest, Simple_Monom_Qual_Test) {
+    // Arrange
+    Monom m2("1x^100");
+    Monom m1("0.1x^100");
+
+    // Act & Assert
+    EXPECT_TRUE(m1 != m2);
+}
 
 TEST_F(PolynomTest, Empty_String_Init) {
     // Arrange
@@ -189,9 +197,10 @@ TEST_F(PolynomTest, Copy_Operator_Test) {
 TEST_F(PolynomTest, Not_Equal_Test) {
     // Arrange
     Polynom p1("3x^2");
+    Polynom p;
 
     // Act
-    Polynom p = Polynom(2) * p1;
+    p = p1 * p1;
 
     // Assert
     EXPECT_TRUE(p != p1);

@@ -56,21 +56,19 @@ bool Monom::operator!=(const Monom & rhs) const {
 }
 
 Monom Monom::operator+(const Monom & rhs) {
+    Monom tmp(*this);
     if (equals_variabels(rhs)) {
-        Monom tmp(*this);
         tmp.m_coff += rhs.m_coff;
-        return tmp;
     }
-    return Monom();
+    return tmp;
 }
 
 Monom Monom::operator-(const Monom & rhs) {
+    Monom tmp(*this);
     if (equals_variabels(rhs)) {
-        Monom tmp(*this);
         tmp.m_coff -= rhs.m_coff;
-        return tmp;
     }
-    return Monom();
+    return tmp;
 }
 
 Monom Monom::operator*(const Monom & rhs) {
