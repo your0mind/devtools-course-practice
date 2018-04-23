@@ -7,9 +7,10 @@
 //
 
 #include "include/fractional_numbers.h"
+
+#include <stdbool.h>
 #include <iostream>
 #include <string>
-#include <stdbool.h>
 
 Rational::Rational(): a(0), b(1) {}
 Rational::Rational(const int chislit, const int znamenat) {
@@ -103,8 +104,7 @@ bool Rational::operator == (const Rational& r) const {
     Rational tmp  = (*this - r);
     if ((tmp.a == 0) && (tmp.b == 1)) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
