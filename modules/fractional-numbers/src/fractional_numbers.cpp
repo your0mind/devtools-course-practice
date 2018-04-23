@@ -15,13 +15,12 @@ Rational::Rational(): a(0), b(1) {}
 Rational::Rational(const int chislit, const int znamenat) {
     a = chislit;
     b = znamenat;
-    if (b == 0)
-    {
+    if (b == 0) {
         throw std::string("Can't divide by zero");
     }
 }
 Rational::Rational(const Rational& r):
-                   a(r.getChislitel()),b(r.getZnamenatel()) {}
+                   a(r.getChislitel()), b(r.getZnamenatel()) {}
 
     Rational& Rational::operator=(const Rational& s) {
     a = s.getChislitel();
@@ -102,8 +101,9 @@ void Rational::setZnamenatel(const int _b) {
 }
 bool Rational::operator == (const Rational& r) const {
     Rational tmp  = (*this - r);
-    if ((tmp.a == 0) && (tmp.b == 1))
+    if ((tmp.a == 0) && (tmp.b == 1)) {
         return true;
+    }
     else {
         return false;
     }
