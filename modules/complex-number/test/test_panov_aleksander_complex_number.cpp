@@ -48,7 +48,7 @@ TEST(Panov_Aleksander_ComplexNumberTest, Can_Division_Real) {
 
     // Act
     ComplexNumber res = a / b;
-	
+    
     // Assert
     EXPECT_EQ(res, correct_res);
 }
