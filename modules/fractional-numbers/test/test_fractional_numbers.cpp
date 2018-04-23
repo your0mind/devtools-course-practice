@@ -35,7 +35,7 @@ TEST(FractionNumbersTest, Can_Create_Via_Assignment) {
     Rational expected_r;
 
     // Act
-    r=expected_r;
+    r = expected_r;
 
     // Assert
     EXPECT_EQ(expected_r, r);
@@ -45,7 +45,7 @@ TEST(FractionNumbersTest, Can_Create_const) {
     // Arrange
     Rational r1(1, 2);
     Rational r2(1, 2);
-    Rational res_r (1, 1);
+    Rational res_r(1, 1);
 
     // Act
     Rational r = r1 + r2;
@@ -174,5 +174,5 @@ TEST(FractionNumbersTest, Not_Equal_Numbers_Are_Not_Equal) {
 
 TEST(FractionNumbersTest, Do_Create_Throw) {
     // Arrange & Act & Assert
-     EXPECT_THROW(Rational r1(1, 0);, std::string);
+    EXPECT_THROW(Rational r1(1, 0);, std::string);
 }
