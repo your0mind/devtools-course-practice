@@ -9,8 +9,8 @@
 #include "include/fractional_numbers.h"
 
 #include <stdbool.h>
-#include <iostream>
 #include <string>
+#include <iostream>
 
 Rational::Rational(): a(0), b(1) {}
 Rational::Rational(const int chislit, const int znamenat) {
