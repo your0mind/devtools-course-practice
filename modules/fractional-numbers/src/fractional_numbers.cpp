@@ -11,8 +11,7 @@
 #include <string>
 #include <stdbool.h>
 
-
-Rational::Rational() : a(0), b(1) {}
+Rational::Rational(): a(0), b(1) {}
 Rational::Rational (const int chislit, const int znamenat) {
     a=chislit;
     b=znamenat;
@@ -23,21 +22,20 @@ Rational::Rational (const int chislit, const int znamenat) {
 }
 Rational::Rational(const Rational& r): a(r.getChislitel()), b(r.getZnamenatel()) {}
 
-Rational& Rational::operator=(const Rational& s) {
+    Rational& Rational::operator=(const Rational& s) {
     a = s.getChislitel();
     b = s.getZnamenatel();
-    
     return *this;
 }
 
 Rational Rational::operator+(const Rational&s) const {
     int c;
     Rational Sum;
-    Sum.a=a*s.b+b*s.a;
-    Sum.b=b*s.b;
-    c=Nod (Sum.b, Sum.a);
-    Sum.a=(Sum.a)/c;
-    Sum.b=(Sum.b)/c;
+    Sum.a = a * s.b + b * s.a;
+    Sum.b = b * s.b;
+    c = Nod(Sum.b, Sum.a);
+    Sum.a = (Sum.a)/c;
+    Sum.b = (Sum.b)/c;
     return Sum;
 }
 
@@ -46,51 +44,47 @@ Rational Rational::operator- (const Rational&s) const {
     Rational Sum;
     Sum.a = a * s.b - b * s.a;
     Sum.b = b * s.b;
-    c = Nod (Sum.b, Sum.a);
-    Sum.a = Sum.a/c;
-    Sum.b = Sum.b/c;
+    c = Nod(Sum.b, Sum.a);
+    Sum.a = (Sum.a)/c;
+    Sum.b = (Sum.b)/c;
     return Sum;
 }
 
 Rational Rational::operator* (const Rational&s) const {
     int c;
     Rational Sum;
-    Sum.a=a*s.a;
-    Sum.b=b*s.b;
-    c=Nod (Sum.b, Sum.a);
-    Sum.a=Sum.a/c;
-    Sum.b=Sum.b/c;
+    Sum.a = a * s.a;
+    Sum.b = b * s.b;
+    c = Nod(Sum.b, Sum.a);
+    Sum.a = (Sum.a)/c;
+    Sum.b = (Sum.b)/c;
     return Sum;
 }
 
 Rational Rational::operator/ (const Rational&s) const {
     int c;
     Rational Sum;
-    Sum.a=a*s.b;
-    Sum.b=b*s.a;
-    if  (s.a==0) {
-        throw std::string("Can't divide by zero");
+    Sum.a = a * s.b;
+    Sum.b = b * s.a;
+    if  (s.a == 0) {
+    throw std::string("Can't divide by zero");
     }
-    c=Nod (Sum.b, Sum.a);
-    Sum.a=Sum.a/c;
-    Sum.b=Sum.b/c;
+    c = Nod(Sum.b, Sum.a);
+    Sum.a = (Sum.a)/c;
+    Sum.b = (Sum.b)/c;
     return Sum;
 }
 
-
 int Rational::Nod (int c, int d) const {
     
-    if (c==d)
+    if (c == d)
         return c;
-    if (d==0)
+    if (d == 0)
         return c;
-    if (c%d==0)
+    if (c % d == 0)
         return 1;
-    return Nod (d, c%d);
+    return Nod (d, c % d);
 }
-
-
-
 int Rational::getChislitel() const {
     return a;
 }
