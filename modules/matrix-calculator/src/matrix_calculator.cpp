@@ -1,6 +1,9 @@
 // Copyright 2018 Fedorova Olga
 
 #include "include/matrix_calculator.h"
+#include <iostream>
+#include <cmath>
+#include <cstddef>
 
 MatrixCalculator::MatrixCalculator() {
     matrix = std::vector<std::vector<double > >(1,std::vector<double>(1, 0.0));
