@@ -12,15 +12,16 @@
 #include <stdbool.h>
 
 Rational::Rational(): a(0), b(1) {}
-Rational::Rational (const int chislit, const int znamenat) {
-    a=chislit;
-    b=znamenat;
-    if (b==0)
+Rational::Rational(const int chislit, const int znamenat) {
+    a = chislit;
+    b = znamenat;
+    if (b == 0)
     {
         throw std::string("Can't divide by zero");
     }
 }
-Rational::Rational(const Rational& r): a(r.getChislitel()), b(r.getZnamenatel()) {}
+Rational::Rational(const Rational& r):
+                   a(r.getChislitel()),b(r.getZnamenatel()) {}
 
     Rational& Rational::operator=(const Rational& s) {
     a = s.getChislitel();
@@ -75,8 +76,7 @@ Rational Rational::operator/ (const Rational&s) const {
     return Sum;
 }
 
-int Rational::Nod (int c, int d) const {
-    
+int Rational::Nod(int c, int d) const {
     if (c == d)
         return c;
     if (d == 0)
@@ -102,7 +102,7 @@ void Rational::setZnamenatel(const int _b) {
 }
 bool Rational::operator == (const Rational& r) const {
     Rational tmp  = (*this - r);
-    if ((tmp.a == 0)&&(tmp.b == 1))
+    if ((tmp.a == 0) && (tmp.b == 1))
         return true;
     else {
         return false;

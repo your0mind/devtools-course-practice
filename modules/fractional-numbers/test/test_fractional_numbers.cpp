@@ -9,10 +9,10 @@ TEST(FractionNumbersTest, Can_Create_With_Chislitel_And_Znamenatel) {
     // Arrange
     int chislitel = 5;
     int znamenatel = 6;
-    
+
     // Act
     Rational r(chislitel, znamenatel);
-    
+
     // Assert
     EXPECT_EQ(chislitel, r.getChislitel());
     EXPECT_EQ(znamenatel, r.getZnamenatel());
@@ -32,7 +32,7 @@ TEST(FractionNumbersTest, Can_Create_Via_Copying) {
 TEST(FractionNumbersTest, Number_Is_Equal) {
     // Arrange
     Rational r1;
-    Rational r2(0,1);
+    Rational r2(0, 1);
 
     // Act & Assert
     EXPECT_TRUE(r1 == r2);
@@ -40,7 +40,7 @@ TEST(FractionNumbersTest, Number_Is_Equal) {
 
 TEST(FractionNumbersTest, Can_Add_Rational) {
     // Arrange
-    Rational r1(1,5), r2(12,43);
+    Rational r1(1, 5), r2(12, 43);
 
     // Act
     Rational r = r1 + r2;
