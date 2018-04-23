@@ -174,5 +174,5 @@ TEST(FractionNumbersTest, Not_Equal_Numbers_Are_Not_Equal) {
 
 TEST(FractionNumbersTest, Do_Create_Throw) {
     // Arrange & Act & Assert
-    EXPECT_THROW(Rational r1(1, 0);, std::string);
+    EXPECT_THROW(Rational r1(1, 0), std::string);
 }
