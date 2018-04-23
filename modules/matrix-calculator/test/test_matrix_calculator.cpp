@@ -161,6 +161,19 @@ TEST(MatrixCalculatorTest, correct_determinant) {
     EXPECT_EQ(a.determinant(), real_res);
 }
 
+TEST(MatrixCalculatorTest, correct_determinant_with_zero_row) {
+    std::vector<std::vector<double>> vect = {
+    { 1, 2, 5 },
+    { 0, 0, 0 },
+    { 5, 3, 1 } };
+    double real_res = 0.0;
+
+    MatrixCalculator a;
+    a.SetMatrix(vect);
+
+    EXPECT_EQ(a.determinant(), real_res);
+}
+
 TEST(MatrixCalculatorTest, determinant_error_with_not_square_matrix) {
     std::vector<std::vector<double>> vect = {
     { 1, 2 },

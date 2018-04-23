@@ -37,10 +37,6 @@ bool MatrixCalculator::operator ==(const MatrixCalculator& _matrix) const {
     return matrix == _matrix.matrix;
 }
 
-bool MatrixCalculator::operator !=(const MatrixCalculator& _matrix) const {
-    return matrix != _matrix.matrix;
-}
-
 bool MatrixCalculator::AreSizesEqual(const MatrixCalculator& _matrix) const {
     bool result = false;
 

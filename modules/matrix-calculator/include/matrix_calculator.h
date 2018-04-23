@@ -22,7 +22,6 @@ class MatrixCalculator {
     MatrixCalculator InverseMatrix() const;
 
     bool operator ==(const MatrixCalculator&) const;
-    bool operator !=(const MatrixCalculator&) const;
     bool AreSizesEqual(const MatrixCalculator&) const;
 
  private:
