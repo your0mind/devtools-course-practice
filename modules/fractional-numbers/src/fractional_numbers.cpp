@@ -13,15 +13,13 @@
 
 
 Rational::Rational() : a(0), b(1) {}
-Rational::Rational (const int chislit, const int znamenat)
-{
+Rational::Rational (const int chislit, const int znamenat) {
     a=chislit;
     b=znamenat;
     if (b==0)
     {
         throw std::string("Can't divide by zero");
     }
-    
 }
 Rational::Rational(const Rational& r): a(r.getChislitel()), b(r.getZnamenatel()) {}
 
@@ -46,11 +44,11 @@ Rational Rational::operator+(const Rational&s) const {
 Rational Rational::operator- (const Rational&s) const {
     int c;
     Rational Sum;
-    Sum.a=a*s.b-b*s.a;
-    Sum.b=b*s.b;
-    c=Nod (Sum.b, Sum.a);
-    Sum.a=Sum.a/c;
-    Sum.b=Sum.b/c;
+    Sum.a = a * s.b - b * s.a;
+    Sum.b = b * s.b;
+    c = Nod (Sum.b, Sum.a);
+    Sum.a = Sum.a/c;
+    Sum.b = Sum.b/c;
     return Sum;
 }
 
