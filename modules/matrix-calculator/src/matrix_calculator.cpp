@@ -116,7 +116,7 @@ double MatrixCalculator::determinant() const {
 	MatrixCalculator temp(*this);
 	int matrixsize = temp.matrix.size();
 
-	for (size_t i = 0; i < matrixsize; i++) {
+	for (size_t i = 0; i < (size_t)matrixsize; i++) {
 		int t = i + 1;
 		while ((temp.matrix[i][i] == 0) && (t < matrixsize)) {
 			if (temp.matrix[t][i] != 0) {
@@ -129,7 +129,7 @@ double MatrixCalculator::determinant() const {
 			det = 0;
 			break;
 		}
-		for (size_t j = i + 1; j < matrixsize; ++j) {
+		for (size_t j = i + 1; j < (size_t)matrixsize; ++j) {
 			tmp = temp.matrix[j][i] / temp.matrix[i][i];
 			for (size_t k = i; k < temp.matrix.size(); k++) {
 				temp.matrix[j][k] -= temp.matrix[i][k] * tmp;
@@ -166,10 +166,10 @@ MatrixCalculator MatrixCalculator::Prepare_for_minores(int n, std::vector<std::v
 {
 	MatrixCalculator temp(n,n);
 	int ki = 0;
-	for (size_t i = 0; i < n+1; i++) {
-		if (i != indRow) {
-			for (size_t j = 0, kj = 0; j < n+1; j++) {
-				if (j != indCol) {
+	for (size_t i = 0; i < (size_t)n+1; i++) {
+		if (i != (size_t)indRow) {
+			for (size_t j = 0, kj = 0; j < (size_t)n+1; j++) {
+				if (j != (size_t)indCol) {
 					temp.matrix[ki][kj] = _matr[i][j];
 					kj++;
 				}
@@ -183,8 +183,8 @@ MatrixCalculator MatrixCalculator::Prepare_for_minores(int n, std::vector<std::v
 MatrixCalculator MatrixCalculator::Transpon(int n) const {
 	MatrixCalculator temp(*this);;
 
-	for (size_t i = 0; i < n; i++)
-		for (size_t j = 0; j < n; j++)
+	for (size_t i = 0; i < (size_t)n; i++)
+		for (size_t j = 0; j < (size_t)n; j++)
 			temp.matrix[j][i] = matrix[i][j];
 
 	return temp;
