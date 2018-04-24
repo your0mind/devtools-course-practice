@@ -90,7 +90,7 @@ TEST(Gladyshev_Alexey_StackTest, Can_Create_Full_Stack) {
     
     // Act
     for (int i = 0; i < 5; i++)
-    	stack.Push(i);
+        stack.Push(i);
     
     // Assert
     EXPECT_TRUE(stack.IsFull() == true);

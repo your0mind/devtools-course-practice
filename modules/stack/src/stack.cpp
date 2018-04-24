@@ -1,4 +1,5 @@
 // Copyright 2018 Gladyshev Alexey
+
 #ifndef MODULES_STACK_INCLUDE_STACK_CPP_
 #define MODULES_STACK_INCLUDE_STACK_CPP_
 
