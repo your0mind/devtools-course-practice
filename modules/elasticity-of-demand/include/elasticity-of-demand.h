@@ -29,13 +29,6 @@ public:
     void SetP2(const double _P2);
 private:
     
-    
-    
-    
-    
-    
-    
-    
      double Q1; 
      double Q2; 
      double P1; 

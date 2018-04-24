@@ -39,7 +39,7 @@ std::string Elasticity::PriceAnswer()
 {
    if (coeff > 1) return ("demand is elastic");//спрос эластичен
    if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
-   if (coeff = 1) return ("unit elasticity");//единичная эластичность
+   if (coeff == 1) return ("unit elasticity");//единичная эластичность
 }
 
 std::string Elasticity::IncomeAnswer()
