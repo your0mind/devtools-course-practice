@@ -18,36 +18,40 @@ void Elasticity::SetP2(const double _P2) { P2 = _P2; }
 
 double Elasticity::PriceElasticity(double Q1, double Q2, double P1, double P2)
 {
+	//Q1 и Q2 Ч первоначальный и текущий объем спроса; P1 и –2 Ч первоначальна€ и текуща€ цена
 	coeff = fabs(((Q2 - Q1)/ (Q2 + Q1) ) * ((P2 + P1)/(P2 - P1)));
 	return coeff;
 };
 double Elasticity::IncomeElasticity(double Q1, double Q2, double Y1, double Y2)
 {
-	coeff = ((Q2 - Q1) / (Q2 + Q1)) * ((Y2 + Y1) / (Y2 - Y1));
-	return coeff;
+   //Q1 и Q2 Ч первоначальный и новый объемы спроса; Y1и Y2 Ч первоначальный и новый уровни дохода
+   coeff = ((Q2 - Q1) / (Q2 + Q1)) * ((Y2 + Y1) / (Y2 - Y1));
+   return coeff;
 };
-double Elasticity::CrossElasticity(double Q1, double Q2, double P1, double P2)
+double Elasticity::CrossElasticity(double Q1X, double Q2X, double P1Y, double P2Y)
 {
-	return coeff;
+   //Q1X и Q2X Ч первоначальный и новый объемы спроса на то≠вар ’; –2Y и –1Y Ч первоначальна€ и нова€ цена товара Y
+   coeff = ((Q2X - Q1X) / (Q2X + Q1X)) * ((P2Y + P1Y) / (P2Y - P1Y));
+   return coeff;
 };
 
 std::string Elasticity::PriceAnswer()
 {
-	if (coeff > 1) return ("demand is elastic");
-	if (coeff < 1) return ("demand is inelastic");
-	if (coeff = 1) return ("unit elasticity");
+   if (coeff > 1) return ("demand is elastic");//спрос эластичен
+   if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
+   if (coeff = 1) return ("unit elasticity");//единична€ эластичность
 }
 
 std::string Elasticity::IncomeAnswer()
 {
-	if (coeff > 0) return ("normal goods");
-	if (coeff <= 0) return ("inferior goods");
-	
+   if (coeff > 0) return ("normal goods");//нормальные товары
+   if (coeff <= 0) return ("inferior goods");//товары низ≠шей категории
+   
 }
 
 std::string Elasticity::CrossAnswer()
 {
-	if (coeff > 1) return ("demand is elastic");
-	if (coeff < 1) return ("demand is inelastic");
-	if (coeff = 1) return ("unit elasticity");
+   if (coeff > 0) return ("goods are interchangeable");//товары взаимозамен€емы
+   if (coeff < 0) return ("mutually complementary goods");//взаимодополн€ющие друг друга товары
+   if (coeff == 0) return ("goods independent of each other");//независимыми друг от друга товары
 }
