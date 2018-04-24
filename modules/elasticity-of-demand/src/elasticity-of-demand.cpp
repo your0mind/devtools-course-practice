@@ -18,11 +18,12 @@ void Elasticity::SetP2(const double _P2) { P2 = _P2; }
 
 double Elasticity::PriceElasticity(double Q1, double Q2, double P1, double P2)
 {
-	coeff = fabs(((Q2 - Q1)/ (Q2 + Q1) ) / ((P2 - P1)/(P2 + P1)));
+	coeff = fabs(((Q2 - Q1)/ (Q2 + Q1) ) * ((P2 + P1)/(P2 - P1)));
 	return coeff;
 };
-double Elasticity::IncomeElasticity(double Q1, double Q2, double P1, double P2)
+double Elasticity::IncomeElasticity(double Q1, double Q2, double Y1, double Y2)
 {
+	coeff = ((Q2 - Q1) / (Q2 + Q1)) * ((Y2 + Y1) / (Y2 - Y1));
 	return coeff;
 };
 double Elasticity::CrossElasticity(double Q1, double Q2, double P1, double P2)
@@ -30,7 +31,21 @@ double Elasticity::CrossElasticity(double Q1, double Q2, double P1, double P2)
 	return coeff;
 };
 
-std::string Elasticity::answer()
+std::string Elasticity::PriceAnswer()
+{
+	if (coeff > 1) return ("demand is elastic");
+	if (coeff < 1) return ("demand is inelastic");
+	if (coeff = 1) return ("unit elasticity");
+}
+
+std::string Elasticity::IncomeAnswer()
+{
+	if (coeff > 0) return ("normal goods");
+	if (coeff <= 0) return ("inferior goods");
+	
+}
+
+std::string Elasticity::CrossAnswer()
 {
 	if (coeff > 1) return ("demand is elastic");
 	if (coeff < 1) return ("demand is inelastic");

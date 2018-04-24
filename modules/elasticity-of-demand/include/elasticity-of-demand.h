@@ -10,10 +10,13 @@ public:
 
 
 	double PriceElasticity(double Q1,double Q2,double P1,double P2);
-	double IncomeElasticity(double Q1, double Q2, double P1, double P2);
+	double IncomeElasticity(double Q1, double Q2, double Y1, double Y2);
 	double CrossElasticity(double Q1, double Q2, double P1, double P2);
 	double coeff;
-	std::string answer();
+
+	std::string PriceAnswer();
+	std::string IncomeAnswer();
+	std::string CrossAnswer();
 
 	double GetQ1();
 	double GetQ2();
