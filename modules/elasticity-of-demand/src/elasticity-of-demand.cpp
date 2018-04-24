@@ -2,8 +2,8 @@
 
 #include "include/elasticity-of-demand.h"
 #include <math.h>
-
-Elasticity::Elasticity(const double Q1, const double Q2, const double P1, const double P2): Q1(Q1), Q2(Q2) , P1(P1) , P2(P2) {}
+Elasticity::Elasticity():Q1(0), Q2(0), P1(0), P2(0), coeff(0) {}
+Elasticity::Elasticity(const double Q1, const double Q2, const double P1, const double P2): Q1(Q1), Q2(Q2) , P1(P1) , P2(P2),coeff(0) {}
 
 double Elasticity::GetQ1() { return Q1; }
 double Elasticity::GetQ2() { return Q2; }
@@ -34,11 +34,14 @@ double Elasticity::CrossElasticity(double Q1X, double Q2X, double P1Y, double P2
    coeff = ((Q2X - Q1X) / (Q2X + Q1X)) * ((P2Y + P1Y) / (P2Y - P1Y));
    return coeff;
 };
-std::string Elasticity::PriceAnswer()
+void Elasticity::PriceAnswer()
 {
-   if (coeff > 1) return ("demand is elastic");//спрос эластичен
-   if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
-   if (coeff == 1) return ("unit elasticity");//единичная эластичность
+	if (coeff > 1) ans = "demand is elastic";//спрос эластичен
+	if (coeff < 1) ans = "demand is inelastic";//спрос неэластичен
+	if (coeff == 1) ans = "unit elasticity";//единичная эластичность
+//if (coeff > 1)  return ("demand is elastic");//спрос эластиченans = "demand is elastic";
+ //  if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
+ //  if (coeff == 1) return ("unit elasticity");//единичная эластичность
 }
 std::string Elasticity::IncomeAnswer()
 {

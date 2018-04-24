@@ -6,15 +6,17 @@
 #include <string>
 class Elasticity {
 public:
+    Elasticity();
     Elasticity(double Q1, double Q2, double P1, double P2);
     
     
     double PriceElasticity(double Q1,double Q2,double P1,double P2);//коэффициент ценовой эластичности спро­са
     double IncomeElasticity(double Q1, double Q2, double Y1, double Y2);//коэффициент эластичности спроса по доходу
     double CrossElasticity(double Q1X, double Q2X, double P1Y, double P2Y);//коэффициент перекрестной эластичности
+
     double coeff;
-    
-    std::string PriceAnswer();
+    std::string ans;
+    void PriceAnswer();
     std::string IncomeAnswer();
     std::string CrossAnswer();
     

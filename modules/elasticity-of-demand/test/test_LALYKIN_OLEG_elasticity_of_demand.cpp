@@ -60,8 +60,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.PriceElasticity(Q1, Q2, P1, P2);
+    E.PriceAnswer();
     // Assert
-    EXPECT_EQ("demand is elastic", E.PriceAnswer());
+    EXPECT_EQ("demand is elastic", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_inelastic) 
@@ -75,8 +76,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_inelastic)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.PriceElasticity(Q1, Q2, P1, P2);
+    E.PriceAnswer();
     // Assert
-    EXPECT_EQ("demand is inelastic", E.PriceAnswer());
+    EXPECT_EQ("demand is inelastic", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_unit) 
@@ -90,8 +92,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_unit)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.PriceElasticity(Q1, Q2, P1, P2);
+    E.PriceAnswer();
     // Assert
-    EXPECT_EQ("unit elasticity", E.PriceAnswer());
+    EXPECT_EQ("unit elasticity", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_normal_goods) 
