@@ -34,21 +34,17 @@ double Elasticity::CrossElasticity(double Q1X, double Q2X, double P1Y, double P2
    coeff = ((Q2X - Q1X) / (Q2X + Q1X)) * ((P2Y + P1Y) / (P2Y - P1Y));
    return coeff;
 };
-
 std::string Elasticity::PriceAnswer()
 {
    if (coeff > 1) return ("demand is elastic");//спрос эластичен
    if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
    if (coeff == 1) return ("unit elasticity");//единичная эластичность
 }
-
 std::string Elasticity::IncomeAnswer()
 {
    if (coeff > 0) return ("normal goods");//нормальные товары
-   if (coeff <= 0) return ("inferior goods");//товары низ­шей категории
-   
+   if (coeff <= 0) return ("inferior goods");//товары низ­шей категории  
 }
-
 std::string Elasticity::CrossAnswer()
 {
    if (coeff > 0) return ("goods are interchangeable");//товары взаимозаменяемы
