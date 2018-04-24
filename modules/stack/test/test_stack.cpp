@@ -18,3 +18,15 @@ TEST(Gladyshev_Alexey_StackTest, Always_Correct_Test) {
 	// Assert
 	EXPECT_EQ(assert, 2);
 }
+
+TEST(Gladyshev_Alexey_StackTest, Can_CreateStack_With_My_Size) {
+	// Arrange
+	TStack<int> stack(10);
+	int size = 0;
+
+	// Act
+	size = stack.GetSize();
+
+	// Assert
+	EXPECT_EQ(size, 10);
+}
