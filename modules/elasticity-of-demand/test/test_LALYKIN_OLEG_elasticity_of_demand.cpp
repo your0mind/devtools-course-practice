@@ -49,7 +49,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, calculate_coeff)
     EXPECT_EQ(3, E.PriceElasticity(Q1, Q2, P1, P2));
 }
 
-
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) 
 {
     // Arrange
