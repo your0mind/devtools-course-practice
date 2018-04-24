@@ -19,14 +19,25 @@ TEST(Gladyshev_Alexey_StackTest, Always_Correct_Test) {
 	EXPECT_EQ(assert, 2);
 }
 
-TEST(Gladyshev_Alexey_StackTest, Can_CreateStack_With_My_Size) {
+TEST(Gladyshev_Alexey_StackTest, Can_Create_Stack_With_My_Size) {
 	// Arrange
-	TStack<int> stack(10);
+	TStack<int> stack(47);
 	int size = 0;
 
 	// Act
 	size = stack.GetSize();
 
 	// Assert
-	EXPECT_EQ(size, 10);
+	EXPECT_EQ(size, 47);
+}
+
+TEST(Gladyshev_Alexey_StackTest, Can_Create_Copy_Stack) {
+	// Arrange
+	TStack<int> stack(47);
+
+	// Act
+	TStack<int> copyStack(stack);
+
+	// Assert
+	EXPECT_EQ(stack.GetSize(), copyStack.GetSize());
 }

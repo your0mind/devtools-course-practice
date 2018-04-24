@@ -24,4 +24,20 @@ TStack<ValType>::~TStack(void)
     Arr = NULL;
 }
 
+//Конструктор копирования
+template <class ValType>
+TStack<ValType>::TStack(const TStack<ValType> &S)
+{
+    size = S.size;
+    sp = S.sp;
+    
+    Arr = new ValType[size];
+    if (Arr == NULL)
+        throw(Arr);
+    
+    //Копирование элементов стэка
+    for (int i = 0; i < S.sp; i++)
+        Arr[i] = S.Arr[i];
+}
+
 #endif
