@@ -7,7 +7,8 @@
 #include <vector>
 
 MatrixCalculator::MatrixCalculator() {
-    matrix = std::vector<std::vector<double > >(1, std::vector<double>(1, 0.0));
+    matrix = std::vector<std::vector<double > >
+        (1, std::vector<double>(1, 0.0));
 }
 
 MatrixCalculator::MatrixCalculator(const int rows, const int columns) {
