@@ -1,3 +1,5 @@
+// Copyright 2018 Gladyshev Alexey
+
 #ifndef MODULES_STACK_INCLUDE_STACK_H_
 #define MODULES_STACK_INCLUDE_STACK_H_
 
