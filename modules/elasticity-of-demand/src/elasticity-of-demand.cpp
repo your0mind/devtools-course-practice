@@ -39,18 +39,15 @@ void Elasticity::PriceAnswer()
 	if (coeff > 1) ans = "demand is elastic";//спрос эластичен
 	if (coeff < 1) ans = "demand is inelastic";//спрос неэластичен
 	if (coeff == 1) ans = "unit elasticity";//единична€ эластичность
-//if (coeff > 1)  return ("demand is elastic");//спрос эластиченans = "demand is elastic";
- //  if (coeff < 1) return ("demand is inelastic");//спрос неэластичен
- //  if (coeff == 1) return ("unit elasticity");//единична€ эластичность
 }
-std::string Elasticity::IncomeAnswer()
+void Elasticity::IncomeAnswer()
 {
-   if (coeff > 0) return ("normal goods");//нормальные товары
-   if (coeff <= 0) return ("inferior goods");//товары низ≠шей категории  
+   if (coeff > 0) ans = "normal goods";//нормальные товары
+   if (coeff <= 0)ans = "inferior goods";//товары низ≠шей категории  
 }
-std::string Elasticity::CrossAnswer()
+void Elasticity::CrossAnswer()
 {
-   if (coeff > 0) return ("goods are interchangeable");//товары взаимозамен€емы
-   if (coeff < 0) return ("mutually complementary goods");//взаимодополн€ющие друг друга товары
-   if (coeff == 0) return ("goods independent of each other");//независимыми друг от друга товары
+   if (coeff > 0)ans = "goods are interchangeable";//товары взаимозамен€емы
+   if (coeff < 0)ans = "mutually complementary goods";//взаимодополн€ющие друг друга товары
+   if (coeff == 0) ans = "goods independent of each other";//независимыми друг от друга товары
 }

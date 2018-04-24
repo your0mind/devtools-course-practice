@@ -108,8 +108,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_normal_goods)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.IncomeElasticity(Q1, Q2, P1, P2);
+    E.IncomeAnswer();
     // Assert
-    EXPECT_EQ("normal goods", E.IncomeAnswer());
+    EXPECT_EQ("normal goods", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_inferior_goods) 
@@ -123,8 +124,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_inferior_goods)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.IncomeElasticity(Q1, Q2, P1, P2);
+    E.IncomeAnswer();
     // Assert
-    EXPECT_EQ("inferior goods", E.IncomeAnswer());
+    EXPECT_EQ("inferior goods", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods) 
@@ -138,8 +140,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods)
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.CrossElasticity(Q1, Q2, P1, P2);
+    E.CrossAnswer();
     // Assert
-    EXPECT_EQ("goods are interchangeable", E.CrossAnswer());
+    EXPECT_EQ("goods are interchangeable", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_mutually_complementary_goods) 
@@ -153,8 +156,9 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_mutually_complementary_good
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.CrossElasticity(Q1, Q2, P1, P2);
+    E.CrossAnswer();
     // Assert
-    EXPECT_EQ("mutually complementary goods", E.CrossAnswer());
+    EXPECT_EQ("mutually complementary goods", E.ans);
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_independent_of_each_other_goods) 
@@ -168,6 +172,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_independent_of_each_other_g
     // Act
     Elasticity E(Q1, Q2, P1, P2);
     E.CrossElasticity(Q1, Q2, P1, P2);
+    E.CrossAnswer();
     // Assert
-    EXPECT_EQ("goods independent of each other", E.CrossAnswer());
+    EXPECT_EQ("goods independent of each other", E.ans);
 }

@@ -16,9 +16,10 @@ public:
 
     double coeff;
     std::string ans;
+
     void PriceAnswer();
-    std::string IncomeAnswer();
-    std::string CrossAnswer();
+    void IncomeAnswer();
+    void CrossAnswer();
     
     double GetQ1();
     double GetQ2();
@@ -31,9 +32,9 @@ public:
     void SetP2(const double _P2);
 private:
     
-     double Q1; 
-     double Q2; 
-     double P1; 
+     double Q1;
+     double Q2;
+     double P1;
      double P2;
 };
 
