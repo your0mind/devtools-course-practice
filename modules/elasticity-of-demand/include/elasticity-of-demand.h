@@ -6,7 +6,7 @@
 #include <string>
 
 class Elasticity {
-public:
+ public:
     Elasticity();
 
     double PriceElasticity(double Q1, double Q2, double P1, double P2);
@@ -18,7 +18,7 @@ public:
     double GetCoeff();
     std::string GetAns();
 
-private:
+ private:
     double coeff;
     std::string ans;
 };
