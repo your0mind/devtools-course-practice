@@ -5,16 +5,11 @@
 
 #include <string>
 
-class Elasticity 
-{
+class Elasticity {
 public:
-
     Elasticity();
-    
     double PriceElasticity(double Q1, double Q2, double P1, double P2);
-    
     double IncomeElasticity(double Q1, double Q2, double Y1, double Y2);
-    
     double CrossElasticity(double Q1X, double Q2X, double P1Y, double P2Y);
     void PriceAnswer();
     void IncomeAnswer();
@@ -23,7 +18,6 @@ public:
     std::string GetAns();
 
 private:
-
     double coeff;
     std::string ans;
 };
