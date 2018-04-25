@@ -4,21 +4,6 @@
 
 #include "include/elasticity-of-demand.h"
 
-//TEST(Lalykin_Oleg_Elasticity_Of_Demand, constructor) 
-//{
-//   // Arrange
-//   double Q1 = 4000.0;
-//   double  Q2 = 2000.0;
-//   double P1 = 4.0;
-//   double  P2 = 5.0;
-//   
-//   // Act
-//   Elasticity E;
-//   
-//   // Assert
-//   EXPECT_EQ(E.GetQ1(), Q1);
-//}
-
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, get_coeff_method) {
     // Arrange
     double Q1 = 4000.0;
@@ -42,7 +27,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, calculate_coeff) {
 
     // Act
     Elasticity E;
-    
+
     // Assert
     EXPECT_EQ(3, E.PriceElasticity(Q1, Q2, P1, P2));
 }
@@ -137,7 +122,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods) {
     EXPECT_EQ("goods are interchangeable", E.GetAns());
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_mutually_complementary_goods) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_mul_comp_goods) {
     // Arrange
     double Q1 = 1000.0;
     double  Q2 = 4000.0;
@@ -152,7 +137,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_mutually_complementary_good
     EXPECT_EQ("mutually complementary goods", E.GetAns());
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_independent_of_each_other_goods) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_indep_goods) {
     // Arrange
     double Q1 = 2.0;
     double  Q2 = 2.0;
