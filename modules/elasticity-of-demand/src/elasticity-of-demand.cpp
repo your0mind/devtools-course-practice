@@ -8,18 +8,21 @@ Elasticity::Elasticity(): coeff(0),ans("") {}
 double Elasticity::GetCoeff() { return coeff; }
 std::string Elasticity::GetAns() { return ans; }
 
+// коэффициент ценовой эластичности спро≠са
 double Elasticity::PriceElasticity(double Q1, double Q2, double P1, double P2)
 {
-	//Q1 и Q2 Ч первоначальный и текущий объем спроса; P1 и –2 Ч первоначальна€ и текуща€ цена
-	coeff = fabs(((Q2 - Q1)/ (Q2 + Q1) ) * ((P2 + P1)/(P2 - P1)));
-	return coeff;
+    //Q1 и Q2 Ч первоначальный и текущий объем спроса; P1 и –2 Ч первоначальна€ и текуща€ цена
+    coeff = fabs(((Q2 - Q1)/ (Q2 + Q1) ) * ((P2 + P1)/(P2 - P1)));
+    return coeff;
 };
+// коэффициент эластичности спроса по доходу
 double Elasticity::IncomeElasticity(double Q1, double Q2, double Y1, double Y2)
 {
    //Q1 и Q2 Ч первоначальный и новый объемы спроса; Y1и Y2 Ч первоначальный и новый уровни дохода
    coeff = ((Q2 - Q1) / (Q2 + Q1)) * ((Y2 + Y1) / (Y2 - Y1));
    return coeff;
 };
+// коэффициент перекрестной эластичности
 double Elasticity::CrossElasticity(double Q1X, double Q2X, double P1Y, double P2Y)
 {
    //Q1X и Q2X Ч первоначальный и новый объемы спроса на то≠вар ’; –2Y и –1Y Ч первоначальна€ и нова€ цена товара Y
