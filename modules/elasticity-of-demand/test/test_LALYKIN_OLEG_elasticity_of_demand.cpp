@@ -19,20 +19,20 @@
 //   EXPECT_EQ(E.GetQ1(), Q1);
 //}
 
-//TEST(Lalykin_Oleg_Elasticity_Of_Demand, set_method) 
-//{
-//    // Arrange
-//    double Q1 = 4000.0;
-//    double  Q2 = 2000.0;
-//    double P1 = 4.0;
-//    double  P2 = 5.0;
-//    
-//    // Act
-//    Elasticity E;
-//    E.SetQ1(0.22516);
-//    // Assert
-//    EXPECT_EQ(E.GetQ1(), 0.22516);
-//}
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, get_coeff_method) 
+{
+    // Arrange
+    double Q1 = 4000.0;
+    double  Q2 = 2000.0;
+    double P1 = 4.0;
+    double  P2 = 5.0;
+    
+    // Act
+    Elasticity E;
+    E.PriceElasticity(Q1, Q2, P1, P2);
+    // Assert
+    EXPECT_EQ(E.GetCoeff(), 3);
+}
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, calculate_coeff) 
 {
