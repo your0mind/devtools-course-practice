@@ -77,14 +77,13 @@ Rational Rational::operator/ (const Rational&s) const {
 }
 
 int Rational::Nod(int c, int d) const {
-    if (c == d)
-        return c;
-    if (d == 0)
-        return c;
-    if (c % d == 0)
-        return 1;
+    if (d == 0) {
+    return c;
+    } else {
     return Nod (d, c % d);
+    }
 }
+
 int Rational::getChislitel() const {
     return a;
 }
@@ -100,6 +99,7 @@ void Rational::setChislitel(const int _a) {
 void Rational::setZnamenatel(const int _b) {
     b = _b;
 }
+
 bool Rational::operator == (const Rational& r) const {
     Rational tmp  = (*this - r);
     if ((tmp.a == 0) && (tmp.b == 1)) {
@@ -108,6 +108,7 @@ bool Rational::operator == (const Rational& r) const {
         return false;
     }
 }
+
 bool Rational::operator != (const Rational& r) const {
     return !(*this == r);
 }
