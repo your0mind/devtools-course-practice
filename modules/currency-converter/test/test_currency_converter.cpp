@@ -162,3 +162,43 @@ TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Usd) {
     double expected_usd = eur * currency.getEurPrice() / currency.getUsdPrice();
     EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
 }
+
+TEST_F(CurrencyConverterTest, 
+    Do_Throw_When_Convert_Rub_To_Eur_By_Zero) {
+    // Arrange
+    CurrencyConverter currency(0.0, 0.0);
+    double rub = 10.0;
+
+    // Act & Assert
+    EXPECT_THROW(currency.roubleToEuro(rub), std::string);
+}
+
+TEST_F(CurrencyConverterTest,
+    Do_Throw_When_Convert_Rub_To_Usd_By_Zero) {
+    // Arrange
+    CurrencyConverter currency(0.0, 0.0);
+    double rub = 10.0;
+
+    // Act & Assert
+    EXPECT_THROW(currency.roubleToDollar(rub), std::string);
+}
+
+TEST_F(CurrencyConverterTest,
+    Do_Throw_When_Convert_Eur_To_Usd_By_Zero) {
+    // Arrange
+    CurrencyConverter currency(0.0, 3.0);
+    double eur = 10.0;
+
+    // Act & Assert
+    EXPECT_THROW(currency.euroToDollar(eur), std::string);
+}
+
+TEST_F(CurrencyConverterTest,
+    Do_Throw_When_Convert_Usd_To_Eur_By_Zero) {
+    // Arrange
+    CurrencyConverter currency(3.0, 0.0);
+    double usd = 10.0;
+
+    // Act & Assert
+    EXPECT_THROW(currency.dollarToEuro(usd), std::string);
+}
