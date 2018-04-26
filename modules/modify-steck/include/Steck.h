@@ -17,7 +17,7 @@ friend Steck<T>;
     Node<T> *next;
 
  public:
-	explicit Node(T _val = 0, Node<T> *_next = 0);
+    explicit Node(T _val = 0, Node<T> *_next = 0);
 };
 
 template <typename T>
@@ -86,4 +86,4 @@ T Steck<T>::LookTop() {
     return currentTop->val;
 }
 
-#endif // MODULES_MODIFY_STECK_INCLUDE_STECK_H_
+#endif  // MODULES_MODIFY_STECK_INCLUDE_STECK_H_
