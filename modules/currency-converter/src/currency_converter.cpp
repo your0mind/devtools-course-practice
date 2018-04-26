@@ -11,13 +11,13 @@ CurrencyConverter::CurrencyConverter() : usd_price(60), eur_price(75) {}
 CurrencyConverter::CurrencyConverter(const double usd, const double eur)
                       : usd_price(usd), eur_price(eur) {}
 
-CurrencyConverter::CurrencyConverter(const CurrencyConverter& z)
-                      : usd_price(z.getUsdPrice()),
-                        eur_price(z.getEurPrice()) {}
+CurrencyConverter::CurrencyConverter(const CurrencyConverter& currency)
+                      : usd_price(currency.getUsdPrice()),
+                        eur_price(currency.getEurPrice()) {}
 
-CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& z) {
-    usd_price = z.getUsdPrice();
-    eur_price = z.getEurPrice();
+CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& currency) {
+    usd_price = currency.getUsdPrice();
+    eur_price = currency.getEurPrice();
 
     return *this;
 }

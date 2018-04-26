@@ -8,9 +8,9 @@ class CurrencyConverter {
  public:
     CurrencyConverter();
     CurrencyConverter(const double usd, const double eur);
-    CurrencyConverter(const CurrencyConverter& z);
+    CurrencyConverter(const CurrencyConverter& currency);
 
-    CurrencyConverter& operator=(const CurrencyConverter& z);
+    CurrencyConverter& operator=(const CurrencyConverter& currency);
 
     double getUsdPrice() const;
     double getEurPrice() const;
