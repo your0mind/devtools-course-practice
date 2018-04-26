@@ -4,61 +4,55 @@ template <typename T>
 class Steck;
 
 template <typename T>
-class Node
-{
-friend Steck<T>; // делаем Steck дружественным к Node
+class Node {
+friend Steck<T>; // пїЅпїЅпїЅпїЅпїЅпїЅ Steck пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ Node
 
 private:
-	T val; // Значение в ячейке стека
-	Node<T> *next; // Указатель на следующий элемент стека
+	T val; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	Node<T> *next; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 public:
 	Node(T _val = 0, Node<T> *_next = 0);
 };
 
-// К-р
+// пїЅ-пїЅ
 template <typename T>
-Node<T>::Node(T _val, Node<T> *_next)
-{
+Node<T>::Node(T _val, Node<T> *_next) {
 	val = _val;
 	next = _next;
 }
 
 template <typename T>
-class Steck 
-{
+class Steck {
 private:
-	Node<T> * currentTop; // Указатель на вершину стека
-	int sizeOfStack; // высота стека
+	Node<T> * currentTop; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	int sizeOfStack; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 public:
 	Steck();
 	~Steck();
 
-	// Методы
-	bool IsEmpty(); // Пустой ли стек
+	// пїЅпїЅпїЅпїЅпїЅпїЅ
+	bool IsEmpty(); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ
 	int Size();
-	void Push(T val); // Добвить элемент в стек
-	void Pop(); // Получить значение ячейки 1 стека и удалить ее
-	T LookTop(); // Посмотреть на 1 елемент стека
+	void Push(T val); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
+	void Pop(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ
+	T LookTop(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 };
 
 template <typename T>
-Steck<T>::Steck()
-{
+Steck<T>::Steck() {
 	sizeOfStack = 0;
 	currentTop = 0;
 }
 
 template <typename T>
-Steck<T>::~Steck()
-{
+Steck<T>::~Steck() {
 	while (Size())
 		Pop();
 }
 
 template <typename T>
-bool Steck<T>::IsEmpty()
-{
+bool Steck<T>::IsEmpty() {
 	if (sizeOfStack == 0)
 		return 1;
 	else
@@ -66,30 +60,26 @@ bool Steck<T>::IsEmpty()
 }
 
 template <typename T>
-int Steck<T>::Size()
-{
+int Steck<T>::Size() {
 	return sizeOfStack;
 }
 
 template <typename T>
-void Steck<T>::Push(T val)
-{
+void Steck<T>::Push(T val) {
 	Node<T> *new_node = new Node<T>(val, currentTop);
 	sizeOfStack++;
 	currentTop = new_node;
 }
 
 template <typename T>
-void Steck<T>::Pop()
-{
+void Steck<T>::Pop() {
 	Node<T> *node = currentTop;
 	currentTop = currentTop->next;
 	delete node;
 }
 
 template <typename T>
-T Steck<T>::LookTop()
-{
+T Steck<T>::LookTop() {
 	return currentTop->val;
 }
 

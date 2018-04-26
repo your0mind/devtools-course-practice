@@ -3,33 +3,30 @@
 #include <math.h>
 
 template <typename T>
-class ModifySteck
-{
+class ModifySteck {
 private:
 	Steck<T>* steck1;
 	Steck<T>* steck2;
 public:
 	ModifySteck();
 
-	// Методы
+	// пїЅпїЅпїЅпїЅпїЅпїЅ
 	bool IsEmpty();
 	int Size();
 	void Push(T val);
 	void Pop();
-	T LookTop(); // Посмотреть на 1 елемент стека
-	T FindMin(); // Поиск минимального элемента
+	T LookTop(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	T FindMin(); // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 };
 
 template <typename T>
-ModifySteck<T>::ModifySteck()
-{
+ModifySteck<T>::ModifySteck() {
 	steck1 = new Steck<T>();
 	steck2 = new Steck<T>();
 }
 
 template <typename T>
-bool ModifySteck<T>::IsEmpty()
-{
+bool ModifySteck<T>::IsEmpty() {
 	if (steck1->IsEmpty())
 		return 1;
 	else
@@ -37,16 +34,13 @@ bool ModifySteck<T>::IsEmpty()
 }
 
 template <typename T>
-int ModifySteck<T>::Size()
-{
+int ModifySteck<T>::Size() {
 	return steck1->Size();
 }
 
 template <typename T>
-void ModifySteck<T>::Push(T val)
-{
-	if (steck1->IsEmpty())
-	{
+void ModifySteck<T>::Push(T val) {
+	if (steck1->IsEmpty()) {
 		steck1->Push(val);
 		steck2->Push(val);
 	}
@@ -61,20 +55,17 @@ void ModifySteck<T>::Push(T val)
 }
 
 template <typename T>
-void ModifySteck<T>::Pop()
-{
+void ModifySteck<T>::Pop() {
 	steck1->Pop();
 	steck2->Pop();
 }
 
 template <typename T>
-T ModifySteck<T>::LookTop()
-{
+T ModifySteck<T>::LookTop() {
 	return steck1->LookTop();
 }
 
 template <typename T>
-T ModifySteck<T>::FindMin()
-{
+T ModifySteck<T>::FindMin() {
 	return steck2->LookTop();
 }
