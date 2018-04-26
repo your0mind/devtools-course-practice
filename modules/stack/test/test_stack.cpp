@@ -102,8 +102,7 @@ TEST(Gladyshev_Alexey_StackTest, Compare_Identical_Stacks) {
     TStack<int> stack2(5);
 
     // Act
-    for (int i = 0; i < 5; i++)
-    {
+    for (int i = 0; i < 5; i++) {
         stack1.Push(i);
         stack2.Push(i);
     }
