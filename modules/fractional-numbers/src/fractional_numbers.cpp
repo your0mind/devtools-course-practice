@@ -108,3 +108,6 @@ bool Rational::operator == (const Rational& r) const {
         return false;
     }
 }
+bool Rational::operator != (const Rational& r) const {
+    return !(*this == r);
+}

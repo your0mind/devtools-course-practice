@@ -1,9 +1,10 @@
 // Copyright 2017 Khomenko Aleksei
 
 #include <gtest/gtest.h>
-#include <string>
-#include "include/fractional_numbers.h"
 
+#include <string>
+
+#include "include/fractional_numbers.h"
 
 TEST(FractionNumbersTest, Can_Create_With_Chislitel_And_Znamenatel) {
     // Arrange
@@ -175,4 +176,13 @@ TEST(FractionNumbersTest, Not_Equal_Numbers_Are_Not_Equal) {
 TEST(FractionNumbersTest, Do_Create_Throw) {
     // Arrange & Act & Assert
     EXPECT_THROW(Rational r1(1, 0), std::string);
+}
+
+TEST(FractionNumbersTest, Different_Numbers_Not_Equal) {
+    // Arrange
+    Rational r1(1, 2);
+    Rational r2(1, 4);
+
+    // Act & Assert
+    EXPECT_TRUE(r1 != r2);
 }

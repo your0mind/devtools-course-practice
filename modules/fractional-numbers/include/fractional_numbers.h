@@ -22,6 +22,7 @@ Rational operator / (const Rational& s) const;
 
 Rational& operator= (const Rational& s);
 bool operator == (const Rational& r) const;
+bool operator != (const Rational& r) const;
 int getChislitel() const;
 int getZnamenatel() const;
 void setChislitel(const int chislitel);
