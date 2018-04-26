@@ -47,9 +47,7 @@ void ModifySteck<T>::Push(T val) {
     if (steck1->IsEmpty()) {
         steck1->Push(val);
         steck2->Push(val);
-    }
-    else 
-	{
+    } else {
         steck1->Push(val);
         T curVal = steck2->LookTop();
         if (val < curVal)
@@ -74,4 +72,4 @@ T ModifySteck<T>::FindMin() {
     return steck2->LookTop();
 }
 
-#endif // MODULES_MODIFY_STECK_INCLUDE_STECK_H_
+#endif  // MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
