@@ -123,4 +123,4 @@ TStack<ValType>& TStack<ValType>::operator = (const TStack &S)
     return *this;
 }
 
-#endif
+#endif  // MODULES_STACK_INCLUDE_STACK_CPP_
