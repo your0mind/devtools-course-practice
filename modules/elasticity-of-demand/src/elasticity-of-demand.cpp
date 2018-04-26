@@ -23,7 +23,10 @@ double Elasticity::PriceElasticity(double Q1,
     double P2) {
     // Q1 and Q2 - initial and current volume of demand;
     // P1 and P2 - initial and current price
-    if (IsZero((P2 - P1)|| IsZero((Q2 + Q1)))) throw std::string("Can't divide by zero");
+    if (IsZero(P2 - P1) || IsZero(Q2 + Q1))
+    {
+    throw std::string("Can't divide by zero");
+    }
     coeff =
     fabs(((Q2 - Q1) / (Q2 + Q1)) *
     ((P2 + P1) / (P2 - P1)));
@@ -35,7 +38,10 @@ double Elasticity::IncomeElasticity(double Q1,
     double Y2) {
      // Q1 and Q2 - initial and new volumes of demand;
      // Y1 and Y2 - initial and new income levels
-    if (IsZero((Y2 - Y1) || IsZero((Q2 + Q1)))) throw std::string("Can't divide by zero");
+    if (IsZero(Y2 - Y1) || IsZero(Q2 + Q1))
+    {
+    throw std::string("Can't divide by zero");
+    }
      coeff =
     ((Q2 - Q1) / (Q2 + Q1)) *
     ((Y2 + Y1) / (Y2 - Y1));
@@ -47,7 +53,10 @@ double Elasticity::CrossElasticity(double Q1X,
     double P2Y) {
     // Q1X and Q2X - initial and new volumes of demand for goods X;
     // P2Y and P1Y - initial and new price of goods Y
-    if (IsZero((P2Y - P1Y) || IsZero((Q2X + Q1X)))) throw std::string("Can't divide by zero");
+    if (IsZero(P2Y - P1Y) || IsZero(Q2X + Q1X)) 
+    {
+    throw std::string("Can't divide by zero");
+    }
     coeff =
     ((Q2X - Q1X) / (Q2X + Q1X)) *
     ((P2Y + P1Y) / (P2Y - P1Y));

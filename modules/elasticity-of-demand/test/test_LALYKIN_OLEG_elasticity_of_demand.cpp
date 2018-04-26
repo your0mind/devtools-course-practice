@@ -40,7 +40,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero) {
     Elasticity E;
     // Assert
     EXPECT_THROW(E.PriceElasticity(Q1, Q2, P1, P2), std::string);
-
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) {
