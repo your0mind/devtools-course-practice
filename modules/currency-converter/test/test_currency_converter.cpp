@@ -19,8 +19,8 @@ TEST_F(CurrencyConverterTest, Can_Create_With_Dollar_And_Euro) {
     CurrencyConverter currency(usd, eur);
 
     // Assert
-    EXPECT_NEAR(usd, currency.getUsdPrice(), CurrencyConverterTest::epsilon);
-    EXPECT_NEAR(eur, currency.getEurPrice(), CurrencyConverterTest::epsilon);
+    EXPECT_NEAR(usd, currency.getUsdRate(), CurrencyConverterTest::epsilon);
+    EXPECT_NEAR(eur, currency.getEurRate(), CurrencyConverterTest::epsilon);
 }
 
 TEST_F(CurrencyConverterTest, Can_Create_Via_Copying) {
@@ -52,10 +52,10 @@ TEST_F(CurrencyConverterTest, Can_Set_Usd) {
     double usd = 20.0;
 
     // Act
-    currency.setUsdPrice(usd);
+    currency.setUsdRate(usd);
 
     // Assert
-    EXPECT_NEAR(usd, currency.getUsdPrice(), CurrencyConverterTest::epsilon);
+    EXPECT_NEAR(usd, currency.getUsdRate(), CurrencyConverterTest::epsilon);
 }
 
 TEST_F(CurrencyConverterTest, Can_Set_Eur) {
@@ -64,10 +64,10 @@ TEST_F(CurrencyConverterTest, Can_Set_Eur) {
     double eur = 26.0;
 
     // Act
-    currency.setEurPrice(eur);
+    currency.setEurRate(eur);
 
     // Assert
-    EXPECT_NEAR(eur, currency.getEurPrice(), CurrencyConverterTest::epsilon);
+    EXPECT_NEAR(eur, currency.getEurRate(), CurrencyConverterTest::epsilon);
 }
 
 TEST_F(CurrencyConverterTest, Currency_Is_Equal_To_Itself) {
@@ -106,7 +106,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Rub_To_Usd) {
      double usd = currency.roubleToDollar(rub);
 
     // Assert
-    double expected_usd = rub / currency.getUsdPrice();
+    double expected_usd = rub / currency.getUsdRate();
     EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
 }
 
@@ -119,7 +119,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Rub_To_Eur) {
     double eur = currency.roubleToEuro(rub);
 
     // Assert
-    double expected_eur = rub / currency.getEurPrice();
+    double expected_eur = rub / currency.getEurRate();
     EXPECT_NEAR(eur, expected_eur, CurrencyConverterTest::epsilon);
 }
 
@@ -132,7 +132,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Rub) {
     double rub = currency.euroToRouble(eur);
 
     // Assert
-    double expected_rub = eur * currency.getEurPrice();
+    double expected_rub = eur * currency.getEurRate();
     EXPECT_NEAR(rub, expected_rub, CurrencyConverterTest::epsilon);
 }
 
@@ -145,7 +145,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Usd_To_Rub) {
     double rub = currency.dollarToRouble(usd);
 
     // Assert
-    double expected_rub = usd * currency.getUsdPrice();
+    double expected_rub = usd * currency.getUsdRate();
     EXPECT_NEAR(rub, expected_rub, CurrencyConverterTest::epsilon);
 }
 
@@ -158,7 +158,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Usd_To_Eur) {
     double eur = currency.dollarToEuro(usd);
 
     // Assert
-    double expected_eur = usd * currency.getUsdPrice() / currency.getEurPrice();
+    double expected_eur = usd * currency.getUsdRate() / currency.getEurRate();
     EXPECT_NEAR(eur, expected_eur, CurrencyConverterTest::epsilon);
 }
 
@@ -171,7 +171,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Usd) {
     double usd = currency.euroToDollar(eur);
 
     // Assert
-    double expected_usd = eur * currency.getEurPrice() / currency.getUsdPrice();
+    double expected_usd = eur * currency.getEurRate() / currency.getUsdRate();
     EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
 }
 

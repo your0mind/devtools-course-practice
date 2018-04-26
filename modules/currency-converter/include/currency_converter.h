@@ -12,11 +12,11 @@ class CurrencyConverter {
 
     CurrencyConverter& operator=(const CurrencyConverter& currency);
 
-    double getUsdPrice() const;
-    double getEurPrice() const;
+    double getUsdRate() const;
+    double getEurRate() const;
 
-    void setUsdPrice(const double usd);
-    void setEurPrice(const double eur);
+    void setUsdRate(const double usd);
+    void setEurRate(const double eur);
 
     double roubleToDollar(double rub);
     double dollarToRouble(double usd);
@@ -32,8 +32,8 @@ class CurrencyConverter {
 
  private:
     bool equalsZero(const double& value) const;
-    double usd_price;
-    double eur_price;
+    double UsdToRub_rate;
+    double EurToRub_rate;
 };
 
 #endif  // MODULES_CURRENCY_CONVERTER_INCLUDE_CURRENCY_CONVERTER_H_

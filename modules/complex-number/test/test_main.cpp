@@ -1,4 +1,4 @@
-// Copyright 2018 Grishin Anton
+// Copyright 2017 Korniakov Kirill
 
 #include <gtest/gtest.h>
 
