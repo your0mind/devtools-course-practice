@@ -12,7 +12,7 @@ CurrencyConverter::CurrencyConverter(const double usd, const double eur)
                       : usd_price(usd), eur_price(eur) {}
 
 CurrencyConverter::CurrencyConverter(const CurrencyConverter& z)
-                      : usd_price(z.getUsdPrice()), 
+                      : usd_price(z.getUsdPrice()),
                         eur_price(z.getEurPrice()) {}
 
 CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& z) {
