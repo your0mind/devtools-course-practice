@@ -18,8 +18,10 @@ class Elasticity {
     double GetCoeff();
     std::string GetAns();
 
+
  private:
     double coeff;
     std::string answer;
+    bool IsZero(const double& value) const;
 };
 #endif  //  MODULES_ELASTICITY_OF_DEMAND_INCLUDE_ELASTICITY_OF_DEMAND_H_

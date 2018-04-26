@@ -24,12 +24,23 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, calculate_coeff) {
     double  Q2 = 2000.0;
     double P1 = 4.0;
     double  P2 = 5.0;
-
     // Act
     Elasticity E;
-
     // Assert
     EXPECT_EQ(3, E.PriceElasticity(Q1, Q2, P1, P2));
+}
+
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero) {
+    // Arrange
+    double Q1 = 4000.0;
+    double  Q2 = 2000.0;
+    double P1 = 5.0;
+    double  P2 = 5.0;
+    // Act
+    Elasticity E;
+    // Assert
+    EXPECT_THROW(E.PriceElasticity(Q1, Q2, P1, P2), std::string);
+ 
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) {
@@ -38,7 +49,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) {
     double  Q2 = 2000.0;
     double P1 = 4.0;
     double  P2 = 5.0;
-
     // Act
     Elasticity E;
     E.PriceElasticity(Q1, Q2, P1, P2);
@@ -53,7 +63,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_inelastic) {
     double  Q2 = 4000.0;
     double P1 = 6.0;
     double  P2 = 5.0;
-
     // Act
     Elasticity E;
     E.PriceElasticity(Q1, Q2, P1, P2);
@@ -68,7 +77,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_unit) {
     double  Q2 = 2000.0;
     double P1 = 4.0;
     double  P2 = 2.0;
-
     // Act
     Elasticity E;
     E.PriceElasticity(Q1, Q2, P1, P2);
@@ -83,7 +91,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_normal_goods) {
     double  Q2 = 2000.0;
     double P1 = 4.0;
     double  P2 = 2.0;
-
     // Act
     Elasticity E;
     E.IncomeElasticity(Q1, Q2, P1, P2);
@@ -98,7 +105,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_inferior_goods) {
     double  Q2 = 2000.0;
     double P1 = 2.0;
     double  P2 = 4.0;
-
     // Act
     Elasticity E;
     E.IncomeElasticity(Q1, Q2, P1, P2);
@@ -113,7 +119,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods) {
     double  Q2 = 6000.0;
     double P1 = 2.0;
     double  P2 = 4.0;
-
     // Act
     Elasticity E;
     E.CrossElasticity(Q1, Q2, P1, P2);
@@ -128,7 +133,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_mul_comp_goods) {
     double  Q2 = 4000.0;
     double P1 = 2.0;
     double  P2 = 1.0;
-
     // Act
     Elasticity E;
     E.CrossElasticity(Q1, Q2, P1, P2);
@@ -143,7 +147,6 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_indep_goods) {
     double  Q2 = 2.0;
     double P1 = 2.0;
     double  P2 = 4.0;
-
     // Act
     Elasticity E;
     E.CrossElasticity(Q1, Q2, P1, P2);
