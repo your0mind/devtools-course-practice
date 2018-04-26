@@ -30,7 +30,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, calculate_coeff) {
     EXPECT_EQ(3, E.PriceElasticity(Q1, Q2, P1, P2));
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero_price) {
     // Arrange
     double Q1 = 4000.0;
     double  Q2 = 2000.0;
@@ -42,6 +42,29 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero) {
     EXPECT_THROW(E.PriceElasticity(Q1, Q2, P1, P2), std::string);
 }
 
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero_income) {
+    // Arrange
+    double Q1 = 4000.0;
+    double  Q2 = 3000.0;
+    double P1 = 2.0;
+    double  P2 = 2.0;
+    // Act
+    Elasticity E;
+    // Assert
+    EXPECT_THROW(E.IncomeElasticity(Q1, Q2, P1, P2), std::string);
+}
+
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero_cross) {
+    // Arrange
+    double Q1 = 2000.0;
+    double  Q2 = 2000.0;
+    double P1 = 15.0;
+    double  P2 = 15.0;
+    // Act
+    Elasticity E;
+    // Assert
+    EXPECT_THROW(E.CrossElasticity(Q1, Q2, P1, P2), std::string);
+}
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) {
     // Arrange
     double Q1 = 4000.0;
@@ -112,7 +135,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, income_answer_inferior_goods) {
     EXPECT_EQ("inferior goods", E.GetAns());
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, cross_answer_interchangeable_goods) {
     // Arrange
     double Q1 = 4000.0;
     double  Q2 = 6000.0;
@@ -126,7 +149,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_answer_interchangeable_goods) {
     EXPECT_EQ("goods are interchangeable", E.GetAns());
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_mul_comp_goods) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, cross_ans_mul_comp_goods) {
     // Arrange
     double Q1 = 1000.0;
     double  Q2 = 4000.0;
@@ -140,7 +163,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_mul_comp_goods) {
     EXPECT_EQ("mutually complementary goods", E.GetAns());
 }
 
-TEST(Lalykin_Oleg_Elasticity_Of_Demand, Cross_ans_indep_goods) {
+TEST(Lalykin_Oleg_Elasticity_Of_Demand, cross_ans_indep_goods) {
     // Arrange
     double Q1 = 2.0;
     double  Q2 = 2.0;
