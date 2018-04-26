@@ -46,7 +46,7 @@ TEST(Tarakanov_Kirill_SteckTest, Steck_Can_Push_Val) {
     Steck<int> *steck = new Steck<int>();
 
     // Act
-		
+	
     // Assert
     ASSERT_NO_THROW(steck->Push(10));
 }
