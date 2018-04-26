@@ -10,13 +10,12 @@ class ModifySteck {
  public:
     ModifySteck();
 
-    // ������
     bool IsEmpty();
     int Size();
     void Push(T val);
     void Pop();
-    T LookTop(); // ���������� �� 1 ������� �����
-    T FindMin(); // ����� ������������ ��������
+    T LookTop();
+    T FindMin();
 };
 
 template <typename T>
