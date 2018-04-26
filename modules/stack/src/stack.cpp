@@ -23,16 +23,16 @@ TStack<ValType>::TStack(int _size) {
     if (_size > 0)    size = _size;
     else              size = 1;
 
-    Arr = new ValType[size];
+    pMem = new ValType[size];
 
-    if (Arr == NULL)
+    if (pMem == NULL)
         throw std::string("Out of memory");
 }
 
 template <class ValType>
 TStack<ValType>::~TStack(void) {
-    delete[]Arr;
-    Arr = NULL;
+    delete[]pMem;
+    pMem = NULL;
 }
 
 template <class ValType>
@@ -40,28 +40,28 @@ TStack<ValType>::TStack(const TStack<ValType> &S) {
     size = S.size;
     sp = S.sp;
 
-    Arr = new ValType[size];
-    if (Arr == NULL) {
+    pMem = new ValType[size];
+    if (pMem == NULL) {
         throw std::string("Out of memory");
     } else {
         for (int i = 0; i < S.sp; i++)
-            Arr[i] = S.Arr[i];
+            pMem[i] = S.pMem[i];
     }
 }
 
 template <class ValType>
 void TStack<ValType>::Push(ValType var) {
-    Arr[sp++] = var;
+    pMem[sp++] = var;
 }
 
 template <class ValType>
 ValType TStack<ValType>::Pop(void) {
-    return Arr[--sp];
+    return pMem[--sp];
 }
 
 template <class ValType>
 ValType TStack<ValType>::Top(void) {
-    return Arr[sp - 1];
+    return pMem[sp - 1];
 }
 
 template <class ValType>
@@ -79,7 +79,7 @@ int TStack<ValType>::operator == (const TStack& S) {
     int res = 0, counter = 0;
 
     if ((size == S.size) && (sp == S.sp)) {
-        for (; (counter < sp) && (Arr[counter] == S.Arr[counter]); counter++) {}
+        for (; (counter < sp) && (pMem[counter] == S.pMem[counter]); counter++) {}
 
         if (counter == sp)
             res = 1;
@@ -92,17 +92,17 @@ template <class ValType>
 TStack<ValType>& TStack<ValType>::operator = (const TStack &S) {
     if (this != &S) {
         if (size != S.size) {
-            delete[]Arr;
-            Arr = new ValType[S.size];
+            delete[]pMem;
+            pMem = new ValType[S.size];
         }
         size = S.size;
         sp = S.sp;
 
-        if (Arr == NULL) {
+        if (pMem == NULL) {
             std::string("Out of memory");
         } else {
             for (int i = 0; i < S.sp; i++)
-                Arr[i] = S.Arr[i];
+                pMem[i] = S.pMem[i];
         }
     }
 
