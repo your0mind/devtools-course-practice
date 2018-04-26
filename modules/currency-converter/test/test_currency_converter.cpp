@@ -34,6 +34,18 @@ TEST_F(CurrencyConverterTest, Can_Create_Via_Copying) {
     EXPECT_EQ(expected_currency, currency);
 }
 
+TEST_F(CurrencyConverterTest, Can_Assigment) {
+    // Arrange
+    CurrencyConverter currency1(0.0, 0.0);
+    CurrencyConverter currency2(26.0, 20.0);
+
+    // Act
+    currency1 = currency2;
+
+    // Assert
+    EXPECT_EQ(currency1, currency2);
+}
+
 TEST_F(CurrencyConverterTest, Can_Set_Usd) {
     // Arrange
     CurrencyConverter currency;
