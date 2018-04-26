@@ -163,7 +163,7 @@ TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Usd) {
     EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
 }
 
-TEST_F(CurrencyConverterTest, 
+TEST_F(CurrencyConverterTest,
     Do_Throw_When_Convert_Rub_To_Eur_By_Zero) {
     // Arrange
     CurrencyConverter currency(0.0, 0.0);

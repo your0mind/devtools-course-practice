@@ -12,7 +12,8 @@ CurrencyConverter::CurrencyConverter(const double usd, const double eur)
                       : usd_price(usd), eur_price(eur) {}
 
 CurrencyConverter::CurrencyConverter(const CurrencyConverter& z)
-                      : usd_price(z.getUsdPrice()), eur_price(z.getEurPrice()) {}
+                      : usd_price(z.getUsdPrice()), 
+                        eur_price(z.getEurPrice()) {}
 
 CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& z) {
     usd_price = z.getUsdPrice();
@@ -59,7 +60,7 @@ double CurrencyConverter::euroToRouble(double eur) {
 }
 
 double CurrencyConverter::dollarToEuro(double usd) {
-    if(equalsZero(
+    if (equalsZero(
         (this->getEurPrice()))) throw std::string("Can't divide by zero");
     return usd * (this->getUsdPrice()) / (this->getEurPrice());
 }
@@ -75,7 +76,7 @@ bool CurrencyConverter::equalsZero(const double& value) const {
 }
 
 bool CurrencyConverter::operator == (const CurrencyConverter& currency) const {
-    if(((this->getUsdPrice() - currency.getUsdPrice()) == 0) &&
+    if (((this->getUsdPrice() - currency.getUsdPrice()) == 0) &&
       ((this->getEurPrice() - currency.getEurPrice()) == 0)) return true;
     return false;
 }
