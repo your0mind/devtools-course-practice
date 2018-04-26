@@ -3,6 +3,8 @@
 #ifndef MODULES_STACK_INCLUDE_STACK_H_
 #define MODULES_STACK_INCLUDE_STACK_H_
 
+#include <string>
+
 template <class ValType>
 class TStack {
  private:
@@ -28,7 +30,7 @@ class TStack {
     TStack& operator = (const TStack& S);
 };
 
-//#include "src/stack.cpp"
+//  #include "src/stack.cpp"
 
 template <class ValType>
 TStack<ValType>::TStack(int _size) {
@@ -56,8 +58,7 @@ TStack<ValType>::TStack(const TStack<ValType> &S) {
     Arr = new ValType[size];
     if (Arr == NULL) {
         throw std::string("Out of memory");
-    }
-    else {
+    } else {
         for (int i = 0; i < S.sp; i++)
             Arr[i] = S.Arr[i];
     }
@@ -114,8 +115,7 @@ TStack<ValType>& TStack<ValType>::operator = (const TStack &S) {
 
         if (Arr == NULL) {
             std::string("Out of memory");
-        }
-        else {
+        } else {
             for (int i = 0; i < S.sp; i++)
                 Arr[i] = S.Arr[i];
         }
