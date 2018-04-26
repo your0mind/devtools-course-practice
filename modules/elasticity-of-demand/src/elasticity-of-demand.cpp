@@ -5,11 +5,11 @@
 #include <string>
 #include "include/elasticity-of-demand.h"
 
-Elasticity::Elasticity(): coeff(0), ans("") {}
+Elasticity::Elasticity(): coeff(0), answer("") {}
 
 
 double Elasticity::GetCoeff() { return coeff; }
-std::string Elasticity::GetAns() { return ans; }
+std::string Elasticity::GetAns() { return answer; }
 
 double Elasticity::PriceElasticity(double Q1,
     double Q2,
@@ -45,16 +45,16 @@ double Elasticity::CrossElasticity(double Q1X,
     return coeff;
 }
 void Elasticity::PriceAnswer() {
-    if (coeff > 1) ans = "demand is elastic";
-    if (coeff < 1) ans = "demand is inelastic";
-    if (coeff == 1) ans = "unit elasticity";
+    if (coeff > 1) answer = "demand is elastic";
+    if (coeff < 1) answer = "demand is inelastic";
+    if (coeff == 1) answer = "unit elasticity";
 }
 void Elasticity::IncomeAnswer() {
-    if (coeff > 0) ans = "normal goods";
-    if (coeff <= 0) ans = "inferior goods";
+    if (coeff > 0) answer = "normal goods";
+    if (coeff <= 0) answer = "inferior goods";
 }
 void Elasticity::CrossAnswer() {
-    if (coeff > 0) ans = "goods are interchangeable";
-    if (coeff < 0) ans = "mutually complementary goods";
-    if (coeff == 0) ans = "goods independent of each other";
+    if (coeff > 0) answer = "goods are interchangeable";
+    if (coeff < 0) answer = "mutually complementary goods";
+    if (coeff == 0) answer = "goods independent of each other";
 }

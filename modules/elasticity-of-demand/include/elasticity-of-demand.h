@@ -20,6 +20,6 @@ class Elasticity {
 
  private:
     double coeff;
-    std::string ans;
+    std::string answer;
 };
 #endif  //  MODULES_ELASTICITY_OF_DEMAND_INCLUDE_ELASTICITY_OF_DEMAND_H_
