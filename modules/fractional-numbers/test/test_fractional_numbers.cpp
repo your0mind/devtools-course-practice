@@ -1,4 +1,10 @@
-// Copyright 2017 Khomenko Aleksei
+//
+//  test_fractional_numbers.cpp
+//  fractional_numbers
+//
+//  Created by Aleksei Khomenko.
+//  Copyright © 2018 Aleksei Khomenko. All rights reserved.
+//
 
 #include <gtest/gtest.h>
 

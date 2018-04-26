@@ -2,8 +2,8 @@
 //  fractional_numbers.h
 //  fractional_numbers
 //
-//  Created by Alexey Khomenko on 23.04.18.
-//  Copyright © 2018 Alexey Khomenko. All rights reserved.
+//  Created by Aleksei Khomenko.
+//  Copyright © 2018 Aleksei Khomenko. All rights reserved.
 //
 
 #ifndef MODULES_FRACTIONAL_NUMBERS_INCLUDE_FRACTIONAL_NUMBERS_H_
