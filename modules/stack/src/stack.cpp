@@ -1,5 +1,5 @@
 // Copyright 2018 Gladyshev Alexey
-
+/*
 #ifndef MODULES_STACK_INCLUDE_STACK_CPP_
 #define MODULES_STACK_INCLUDE_STACK_CPP_
 
@@ -100,3 +100,4 @@ TStack<ValType>& TStack<ValType>::operator = (const TStack &S) {
 }
 
 #endif  // MODULES_STACK_INCLUDE_STACK_CPP_
+*/
