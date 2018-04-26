@@ -1,7 +1,7 @@
 // Copyright 2018 Lalykin Oleg
 
 #include <gtest/gtest.h>
-
+#include <string>
 #include "include/elasticity-of-demand.h"
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, get_coeff_method) {
@@ -40,7 +40,7 @@ TEST(Lalykin_Oleg_Elasticity_Of_Demand, catch_divide_by_zero) {
     Elasticity E;
     // Assert
     EXPECT_THROW(E.PriceElasticity(Q1, Q2, P1, P2), std::string);
- 
+
 }
 
 TEST(Lalykin_Oleg_Elasticity_Of_Demand, price_answer_is_elastic) {
