@@ -30,8 +30,6 @@ class TStack {
     TStack& operator = (const TStack& S);
 };
 
-//  #include "src/stack.cpp"
-
 template <class ValType>
 TStack<ValType>::TStack(int _size) {
     sp = 0;
