@@ -8,11 +8,11 @@
 template <class ValType>
 class TStack {
  private:
-    ValType* pMem;
-    int size;
-    int sp;
+    ValType* pMem;  // Array for data
+    int size;       // Size of stack
+    int sp;         // Pointer to the top of the stack
  public:
-    explicit TStack(int _size = 1);
+    explicit TStack(int _size = 1);  // Initializer constructor
     TStack(const TStack& S);
     ~TStack(void);
 
@@ -92,7 +92,8 @@ int TStack<ValType>::operator == (const TStack& S) {
     int res = 0, counter = 0;
 
     if ((size == S.size) && (sp == S.sp)) {
-        for (; (counter < sp) && (pMem[counter] == S.pMem[counter]); counter++) {}
+        for (; (counter < sp) && (pMem[counter] == S.pMem[counter]);
+                counter++) {}
 
         if (counter == sp)
             res = 1;
