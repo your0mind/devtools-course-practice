@@ -4,7 +4,7 @@
 
 CurrencyConverter::CurrencyConverter() : usd_price(60), eur_price(75) {}
 
-CurrencyConverter::CurrencyConverter(const double usd, const double eur, const double azn, const double gbp)
+CurrencyConverter::CurrencyConverter(const double usd, const double eur)
                       : usd_price(usd), eur_price(eur) {}
 
 CurrencyConverter::CurrencyConverter(const CurrencyConverter& z)
@@ -34,26 +34,36 @@ void CurrencyConverter::setEurPrice(const double eur) {
     eur_price = eur;
 }
 
-double CurrencyConverter::roubleToDollar(double rouble) {
-    return rouble / getUsdPrice();
+double CurrencyConverter::roubleToDollar(double rub) {
+    return rub / getUsdPrice();
 }
 
-double CurrencyConverter::dollarToRouble(double dollar) {
-    return dollar * getUsdPrice();
+double CurrencyConverter::dollarToRouble(double usd) {
+    return usd * getUsdPrice();
 }
 
-double CurrencyConverter::roubleToEuro(double rouble) {
-    return rouble / getEurPrice();
+double CurrencyConverter::roubleToEuro(double rub) {
+    return rub / getEurPrice();
 }
 
-double CurrencyConverter::euroToRouble(double euro) {
-    return euro * getEurPrice();
+double CurrencyConverter::euroToRouble(double eur) {
+    return eur * getEurPrice();
 }
 
-double CurrencyConverter::dollarToEuro(double dollar) {
-    return dollar * getUsdPrice() / getEurPrice();
+double CurrencyConverter::dollarToEuro(double usd) {
+    return usd * getUsdPrice() / getEurPrice();
 }
 
-double CurrencyConverter::euroToDollar(double euro) {
-    return euro * getEurPrice() / getUsdPrice();
+double CurrencyConverter::euroToDollar(double eur) {
+    return eur * getEurPrice() / getUsdPrice();
+}
+
+bool CurrencyConverter::operator == (const CurrencyConverter& z) const {
+    if(((this->getUsdPrice() - z.getUsdPrice()) == 0) &&
+      ((this->getEurPrice() - z.getEurPrice()) == 0)) return true;
+    return false;
+}
+
+bool CurrencyConverter::operator != (const CurrencyConverter& z) const {
+    return !(*this == z);
 }

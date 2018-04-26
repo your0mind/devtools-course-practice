@@ -1,147 +1,84 @@
 // Copyright 2018 Grishin Anton
 
 #include <gtest/gtest.h>
-
-#include <string>
-
 #include "include/currency_converter.h"
 
-class ComplexNumberTest : public ::testing::Test {
+class CurrencyConverterTest : public ::testing::Test {
  protected:
     double epsilon = 0.001;
 };
 
-TEST_F(ComplexNumberTest, Can_Create_With_Real_And_Imaginary) {
+TEST_F(CurrencyConverterTest, Can_Create_With_Dollar_And_Euro) {
     // Arrange
-    double re = 26.0;
-    double im = 20.0;
+    double usd = 26.0;
+    double eur = 20.0;
 
     // Act
-    ComplexNumber z(re, im);
+    CurrencyConverter currency(usd, eur);
 
     // Assert
-    EXPECT_NEAR(re, z.getRe(), ComplexNumberTest::epsilon);
-    EXPECT_NEAR(im, z.getIm(), ComplexNumberTest::epsilon);
+    EXPECT_NEAR(usd, currency.getUsdPrice(), CurrencyConverterTest::epsilon);
+    EXPECT_NEAR(eur, currency.getEurPrice(), CurrencyConverterTest::epsilon);
 }
 
-TEST_F(ComplexNumberTest, Can_Create_Via_Copying) {
+TEST_F(CurrencyConverterTest, Can_Create_Via_Copying) {
     // Arrange
-    ComplexNumber z(26.0, 20.0);
+    CurrencyConverter currency(26.0, 20.0);
 
     // Act
-    ComplexNumber expected_z = z;
+    CurrencyConverter expected_currency = currency;
 
     // Assert
-    EXPECT_EQ(expected_z, z);
+    EXPECT_EQ(expected_currency, currency);
 }
 
-TEST_F(ComplexNumberTest, Can_Set_Real) {
+TEST_F(CurrencyConverterTest, Can_Set_Usd) {
     // Arrange
-    ComplexNumber z;
-    double re = 20.0;
+    CurrencyConverter currency;
+    double usd = 20.0;
 
     // Act
-    z.setRe(re);
+    currency.setUsdPrice(usd);
 
     // Assert
-    EXPECT_NEAR(re, z.getRe(), ComplexNumberTest::epsilon);
+    EXPECT_NEAR(usd, currency.getUsdPrice(), CurrencyConverterTest::epsilon);
 }
 
-TEST_F(ComplexNumberTest, Can_Set_Imaginary) {
+TEST_F(CurrencyConverterTest, Can_Set_Eur) {
     // Arrange
-    ComplexNumber z;
-    double im = 26.0;
+    CurrencyConverter currency;
+    double eur = 26.0;
 
     // Act
-    z.setIm(im);
+    currency.setEurPrice(eur);
 
     // Assert
-    EXPECT_NEAR(im, z.getIm(), ComplexNumberTest::epsilon);
+    EXPECT_NEAR(eur, currency.getEurPrice(), CurrencyConverterTest::epsilon);
 }
 
-TEST_F(ComplexNumberTest, Can_Add_Complex) {
+TEST_F(CurrencyConverterTest, Currency_Is_Equal_To_Itself) {
     // Arrange
-    ComplexNumber z1(26.0, 14.0);
-    ComplexNumber z2(1.0, 7.0);
-
-    // Act
-    ComplexNumber z = z1 + z2;
-
-    // Assert
-    ComplexNumber expected_z(27.0, 21.0);
-    EXPECT_EQ(expected_z, z);
-}
-
-TEST_F(ComplexNumberTest, Can_Difference_Complex) {
-    // Arrange
-    ComplexNumber z1(26.0, 14.0);
-    ComplexNumber z2(1.0, 1.0);
-
-    // Act
-    ComplexNumber z = z2 - z1;
-
-    // Assert
-    ComplexNumber expected_z(-25.0, -13.0);
-    EXPECT_EQ(expected_z, z);
-}
-
-TEST_F(ComplexNumberTest, Can_Multiplication_Complex) {
-    // Arrange
-    ComplexNumber z1(5.0, 3.0);
-    ComplexNumber z2(4.0, 6.0);
-
-    // Act
-    ComplexNumber z = z1 * z2;
-
-    // Assert
-    ComplexNumber expected_z(2.0, 42.0);
-    EXPECT_EQ(expected_z, z);
-}
-
-TEST_F(ComplexNumberTest, Can_Division_Complex) {
-    // Arrange
-    ComplexNumber z1(15.0, 20.0);
-    ComplexNumber z2(27.0, 30.0);
-
-    // Act
-    ComplexNumber z = z2 / z1;
-
-    // Assert
-    ComplexNumber expected_z(1.608, -0.144);
-    EXPECT_EQ(expected_z, z);
-}
-
-TEST_F(ComplexNumberTest, Do_Throw_When_Division_By_Zero) {
-    // Arrange
-    ComplexNumber z1(0.0, 0.0);
-    ComplexNumber z2(26.0, 14.0);
+    CurrencyConverter currency(26.0, 14.0);
 
     // Act & Assert
-    EXPECT_THROW(z2 / z1, std::string);
+    EXPECT_TRUE(currency == currency);
 }
 
-TEST_F(ComplexNumberTest, Number_Is_Equal_To_Itself) {
+TEST_F(CurrencyConverterTest, Equal_Currency_Are_Equal) {
     // Arrange
-    ComplexNumber z(26.0, 14.0);
+    CurrencyConverter currency1(26.0, 14.0);
+    CurrencyConverter currency2(26.0, 14.0);
 
     // Act & Assert
-    EXPECT_TRUE(z == z);
+    EXPECT_EQ(currency1, currency2);
 }
 
-TEST_F(ComplexNumberTest, Equal_Numbers_Are_Equal) {
+
+TEST_F(CurrencyConverterTest, Different_Currency_Not_Equal) {
     // Arrange
-    ComplexNumber z1(26.0, 14.0);
-    ComplexNumber z2(26.0, 14.0);
+    CurrencyConverter currency1(26.0, 14.0);
+    CurrencyConverter currency2(26.1, 14.1);
 
     // Act & Assert
-    EXPECT_EQ(z1, z2);
-}
-
-TEST_F(ComplexNumberTest, Different_Numbers_Not_Equal) {
-    // Arrange
-    ComplexNumber z1(26.0, 14.0);
-    ComplexNumber z2(26.1, 14.1);
-
-    // Act & Assert
-    EXPECT_TRUE(z1 != z2);
+    EXPECT_TRUE(currency1 != currency2);
 }

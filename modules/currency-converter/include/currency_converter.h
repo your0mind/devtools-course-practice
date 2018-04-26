@@ -7,7 +7,7 @@
 class CurrencyConverter {
  public:
     CurrencyConverter();
-    CurrencyConverter(const double usd, const double eur, const double azn, const double gbp);
+    CurrencyConverter(const double usd, const double eur);
     CurrencyConverter(const CurrencyConverter& z);
 
     CurrencyConverter& operator=(const CurrencyConverter& z);
@@ -18,14 +18,17 @@ class CurrencyConverter {
     void setUsdPrice(const double usd);
     void setEurPrice(const double eur);
 
-    double roubleToDollar(double rouble);
-    double dollarToRouble(double dollar);
+    double roubleToDollar(double rub);
+    double dollarToRouble(double usd);
 
-    double roubleToEuro(double rouble);
-    double euroToRouble(double euro);
+    double roubleToEuro(double rub);
+    double euroToRouble(double eur);
 
-    double dollarToEuro(double dollar);
-    double euroToDollar(double euro);
+    double dollarToEuro(double usd);
+    double euroToDollar(double eur);
+
+    bool operator == (const CurrencyConverter& z) const;
+    bool operator != (const CurrencyConverter& z) const;
 
  private:
     double usd_price;
