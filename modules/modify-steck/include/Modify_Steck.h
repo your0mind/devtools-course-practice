@@ -1,3 +1,8 @@
+// Copyright 2018 Tarakanov Kirill
+
+#ifndef MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
+#define MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
+
 #pragma once
 #include "Steck.h"
 #include <math.h>
@@ -43,10 +48,11 @@ void ModifySteck<T>::Push(T val) {
         steck1->Push(val);
         steck2->Push(val);
     }
-    else {
+    else 
+	{
         steck1->Push(val);
         T curVal = steck2->LookTop();
-        if (val < curVal) 
+        if (val < curVal)
             curVal = val;
         steck2->Push(curVal);
     }
@@ -54,7 +60,7 @@ void ModifySteck<T>::Push(T val) {
 
 template <typename T>
 void ModifySteck<T>::Pop() {
-	steck1->Pop();
+    steck1->Pop();
     steck2->Pop();
 }
 
@@ -65,5 +71,7 @@ T ModifySteck<T>::LookTop() {
 
 template <typename T>
 T ModifySteck<T>::FindMin() {
-	return steck2->LookTop();
+    return steck2->LookTop();
 }
+
+#endif // MODULES_MODIFY_STECK_INCLUDE_STECK_H_
