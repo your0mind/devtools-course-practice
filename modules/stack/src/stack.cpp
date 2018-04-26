@@ -87,7 +87,7 @@ int TStack<ValType>::operator == (const TStack& S)
 
     if ((size == S.size) && (sp == S.sp))
     {
-        for (counter; (counter < sp) && (Arr[counter] == S.Arr[counter]); counter++);
+        for (; (counter < sp) && (Arr[counter] == S.Arr[counter]); counter++);
         
         if (counter == sp)
             res = 1;
