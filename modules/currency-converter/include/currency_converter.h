@@ -34,7 +34,6 @@ class CurrencyConverter {
     bool equalsZero(const double& value) const;
     double usd_price;
     double eur_price;
-
 };
 
 #endif  // MODULES_CURRENCY_CONVERTER_INCLUDE_CURRENCY_CONVERTER_H_
