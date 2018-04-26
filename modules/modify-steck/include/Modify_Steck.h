@@ -46,7 +46,7 @@ void ModifySteck<T>::Push(T val) {
     else {
         steck1->Push(val);
         T curVal = steck2->LookTop();
-        if (val < curVal)
+        if (val < curVal) 
             curVal = val;
         steck2->Push(curVal);
     }
@@ -60,7 +60,7 @@ void ModifySteck<T>::Pop() {
 
 template <typename T>
 T ModifySteck<T>::LookTop() {
-	return steck1->LookTop();
+    return steck1->LookTop();
 }
 
 template <typename T>

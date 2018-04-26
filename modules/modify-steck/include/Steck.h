@@ -1,3 +1,8 @@
+// Copyright 2018 Tarakanov Kirill
+
+#ifndef MODULES_MODIFY_STECK_INCLUDE_STECK_H_
+#define MODULES_MODIFY_STECK_INCLUDE_STECK_H_
+
 #pragma once
 
 template <typename T>
@@ -81,3 +86,4 @@ T Steck<T>::LookTop() {
 	return currentTop->val;
 }
 
+#endif // MODULES_MODIFY_STECK_INCLUDE_STECK_H_
