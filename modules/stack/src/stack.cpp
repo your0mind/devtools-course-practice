@@ -3,7 +3,7 @@
 #ifndef MODULES_STACK_INCLUDE_STACK_CPP_
 #define MODULES_STACK_INCLUDE_STACK_CPP_
 
-#include "include\stack.h"
+#include "include/stack.h"
 
 #include <string>
 

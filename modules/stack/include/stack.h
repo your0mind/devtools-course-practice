@@ -29,6 +29,6 @@ class TStack {
 };
 
 //Нужно, чтобы можно было вынести реализацию методов шаблонного класса в отдельный файл
-#include "src\stack.cpp"
+#include "src/stack.cpp"
 
 #endif  // MODULES_STACK_INCLUDE_STACK_H_
