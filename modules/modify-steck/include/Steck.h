@@ -5,17 +5,16 @@ class Steck;
 
 template <typename T>
 class Node {
-friend Steck<T>; // ������ Steck ������������� � Node
+friend Steck<T>;
 
-private:
-	T val; // �������� � ������ �����
-	Node<T> *next; // ��������� �� ��������� ������� �����
+ private:
+	T val;
+	Node<T> *next;
 
-public:
+ public:
 	Node(T _val = 0, Node<T> *_next = 0);
 };
 
-// �-�
 template <typename T>
 Node<T>::Node(T _val, Node<T> *_next) {
 	val = _val;
@@ -24,19 +23,18 @@ Node<T>::Node(T _val, Node<T> *_next) {
 
 template <typename T>
 class Steck {
-private:
-	Node<T> * currentTop; // ��������� �� ������� �����
-	int sizeOfStack; // ������ �����
-public:
+ private:
+	Node<T> * currentTop;
+	int sizeOfStack;
+ public:
 	Steck();
 	~Steck();
 
-	// ������
-	bool IsEmpty(); // ������ �� ����
+	bool IsEmpty();
 	int Size();
-	void Push(T val); // ������� ������� � ����
-	void Pop(); // �������� �������� ������ 1 ����� � ������� ��
-	T LookTop(); // ���������� �� 1 ������� �����
+	void Push(T val);
+	void Pop();
+	T LookTop();
 };
 
 template <typename T>
