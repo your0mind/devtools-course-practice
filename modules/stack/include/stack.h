@@ -5,11 +5,11 @@
 
 template <class ValType>
 class TStack {
-private:
+ private:
     ValType* Arr;                           //Массив для хранения данных
     int size;                               //Размер стэка
     int sp;                                 //Указатель на вершину стэка
-public:
+ public:
     TStack(int _size = 1);                  //Конструктор-инициализатор
     TStack(const TStack& S);                //Конструктор копирования
     ~TStack(void);                          //Деструктор
