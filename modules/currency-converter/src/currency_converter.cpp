@@ -15,7 +15,8 @@ CurrencyConverter::CurrencyConverter(const CurrencyConverter& currency)
                       : usd_price(currency.getUsdPrice()),
                         eur_price(currency.getEurPrice()) {}
 
-CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& currency) {
+CurrencyConverter& CurrencyConverter::operator=(
+                  const CurrencyConverter& currency) {
     usd_price = currency.getUsdPrice();
     eur_price = currency.getEurPrice();
 
