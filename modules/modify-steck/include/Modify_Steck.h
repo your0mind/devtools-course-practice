@@ -4,60 +4,59 @@
 
 template <typename T>
 class ModifySteck {
-private:
-	Steck<T>* steck1;
-	Steck<T>* steck2;
-public:
-	ModifySteck();
+ private:
+    Steck<T>* steck1;
+    Steck<T>* steck2;
+ public:
+    ModifySteck();
 
-	// ������
-	bool IsEmpty();
-	int Size();
-	void Push(T val);
-	void Pop();
-	T LookTop(); // ���������� �� 1 ������� �����
-	T FindMin(); // ����� ������������ ��������
+    // ������
+    bool IsEmpty();
+    int Size();
+    void Push(T val);
+    void Pop();
+    T LookTop(); // ���������� �� 1 ������� �����
+    T FindMin(); // ����� ������������ ��������
 };
 
 template <typename T>
 ModifySteck<T>::ModifySteck() {
-	steck1 = new Steck<T>();
-	steck2 = new Steck<T>();
+    steck1 = new Steck<T>();
+    steck2 = new Steck<T>();
 }
 
 template <typename T>
 bool ModifySteck<T>::IsEmpty() {
-	if (steck1->IsEmpty())
-		return 1;
-	else
-		return 0;
+    if (steck1->IsEmpty())
+        return 1;
+    else
+        return 0;
 }
 
 template <typename T>
 int ModifySteck<T>::Size() {
-	return steck1->Size();
+    return steck1->Size();
 }
 
 template <typename T>
 void ModifySteck<T>::Push(T val) {
-	if (steck1->IsEmpty()) {
-		steck1->Push(val);
-		steck2->Push(val);
-	}
-	else
-	{
-		steck1->Push(val);
-		T curVal = steck2->LookTop();
-		if (val < curVal)
-			curVal = val;
-		steck2->Push(curVal);
-	}
+    if (steck1->IsEmpty()) {
+        steck1->Push(val);
+        steck2->Push(val);
+    }
+    else {
+        steck1->Push(val);
+        T curVal = steck2->LookTop();
+        if (val < curVal)
+            curVal = val;
+        steck2->Push(curVal);
+    }
 }
 
 template <typename T>
 void ModifySteck<T>::Pop() {
 	steck1->Pop();
-	steck2->Pop();
+    steck2->Pop();
 }
 
 template <typename T>
