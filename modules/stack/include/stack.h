@@ -8,27 +8,30 @@
 template <class ValType>
 class TStack {
  private:
-    ValType* pMem;  // Array for data
-    int size;       // Size of stack
-    int sp;         // Pointer to the top of the stack
+    ValType* pMem;                      // Array for data
+    int size;                           // Size of stack
+    int sp;                             // Pointer to the top of the stack
  public:
-    explicit TStack(int _size = 1);  // Initializer constructor
-    TStack(const TStack& S);
-    ~TStack(void);
+    explicit TStack(int _size = 1);     // Initializer constructor
+    TStack(const TStack& S);            // Copy Constructor
+    ~TStack(void);                      // Destructor
 
+    // Access Methods
     int GetSize() { return size; }
     int GetSP() { return sp; }
 
-    void Push(ValType var);
-    ValType Pop(void);
-    ValType Top(void);
+    void Push(ValType var);             // Put the value on the stack
+    ValType Pop(void);                  // Extract value from stack
+    ValType Top(void);                  // Look at value from top of stack
 
-    int IsEmpty(void);
-    int IsFull(void);
+    int IsEmpty(void);                  // Control of emptiness
+    int IsFull(void);                   // Overflow control
 
     int operator == (const TStack& S);
     TStack& operator = (const TStack& S);
 };
+
+// Description of class methods
 
 template <class ValType>
 TStack<ValType>::TStack(int _size) {
