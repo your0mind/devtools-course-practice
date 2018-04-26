@@ -5,7 +5,7 @@
 
 TEST(Tarakanov_Kirill_SteckTest, Can_Create_Node_withINT) {
     // Arrange
-	
+
     // Act
 
     // Assert
@@ -34,7 +34,7 @@ TEST(Tarakanov_Kirill_SteckTest, Can_Create_Node_withParametrs) {
 
 TEST(Tarakanov_Kirill_SteckTest, Can_Create_Steck) {
     // Arrange
-	
+
     // Act
 
     // Assert
