@@ -1,10 +1,8 @@
 // Copyright 2018 Grishin Anton
 
-#ifndef MODULES_CURRENCY_CONVERTER_INCLUDE_COMPLEX_NUMBER_H_
-#define MODULES_CURRENCY_CONVERTER_INCLUDE_COMPLEX_NUMBER_H_
+#ifndef MODULES_CURRENCY_CONVERTER_INCLUDE_CURRENCY_CONVERTER_H_
+#define MODULES_CURRENCY_CONVERTER_INCLUDE_CURRENCY_CONVERTER_H_
 
-
-class ComplexNumber;
 
 class CurrencyConverter {
  public:
@@ -16,19 +14,23 @@ class CurrencyConverter {
 
     double getUsdPrice() const;
     double getEurPrice() const;
-    double getAznPrice() const;
-    double getGbpPrice() const;
+
     void setUsdPrice(const double usd);
     void setEurPrice(const double eur);
-    void setAznPrice(const double azn);
-    void setGbpPrice(const double gbp);
 
+    double roubleToDollar(double rouble);
+    double dollarToRouble(double dollar);
+
+    double roubleToEuro(double rouble);
+    double euroToRouble(double euro);
+
+    double dollarToEuro(double dollar);
+    double euroToDollar(double euro);
 
  private:
     double usd_price;
     double eur_price;
-    double azn_price;
-    double gbp_price;
+
 };
 
-#endif  // MODULES_CURRENCY_CONVERTER_INCLUDE_COMPLEX_NUMBER_H_
+#endif  // MODULES_CURRENCY_CONVERTER_INCLUDE_CURRENCY_CONVERTER_H_

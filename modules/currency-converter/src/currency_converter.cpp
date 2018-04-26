@@ -2,26 +2,17 @@
 
 #include "include/currency_converter.h"
 
-#include <stdbool.h>
-#include <string>
-#include <limits>
-
-const double eps = std::numeric_limits<double>::epsilon();
-
-CurrencyConverter::CurrencyConverter() : usd_price(60), eur_price(75), azn_price(35), gbp_price(86) {}
+CurrencyConverter::CurrencyConverter() : usd_price(60), eur_price(75) {}
 
 CurrencyConverter::CurrencyConverter(const double usd, const double eur, const double azn, const double gbp)
-                      : usd_price(usd), eur_price(eur), azn_price(azn), gbp_price(gbp) {}
+                      : usd_price(usd), eur_price(eur) {}
 
 CurrencyConverter::CurrencyConverter(const CurrencyConverter& z)
-                             : usd_price(z.getUsdPrice()), eur_price(z.getEurPrice()),
-                               azn_price(z.getAznPrice()), gbp_price(z.getGbpPrice()) {}
+                             : usd_price(z.getUsdPrice()), eur_price(z.getEurPrice()) {}
 
 CurrencyConverter& CurrencyConverter::operator=(const CurrencyConverter& z) {
     usd_price = z.getUsdPrice();
     eur_price = z.getEurPrice();
-    azn_price = z.getAznPrice();
-    gbp_price = z.getGbpPrice();
 
     return *this;
 }
@@ -34,13 +25,6 @@ double CurrencyConverter::getEurPrice() const {
     return eur_price;
 }
 
-double CurrencyConverter::getAznPrice() const {
-    return azn_price;
-}
-
-double CurrencyConverter::getGbpPrice() const {
-    return gbp_price;
-}
 
 void CurrencyConverter::setUsdPrice(const double usd) {
     usd_price = usd;
@@ -50,10 +34,26 @@ void CurrencyConverter::setEurPrice(const double eur) {
     eur_price = eur;
 }
 
-void CurrencyConverter::setAznPrice(const double azn) {
-	azn_price = azn;
+double CurrencyConverter::roubleToDollar(double rouble) {
+    return rouble / getUsdPrice();
 }
 
-void CurrencyConverter::setGbpPrice(const double gbp) {
-	gbp_price = gbp;
+double CurrencyConverter::dollarToRouble(double dollar) {
+    return dollar * getUsdPrice();
+}
+
+double CurrencyConverter::roubleToEuro(double rouble) {
+    return rouble / getEurPrice();
+}
+
+double CurrencyConverter::euroToRouble(double euro) {
+    return euro * getEurPrice();
+}
+
+double CurrencyConverter::dollarToEuro(double dollar) {
+    return dollar * getUsdPrice() / getEurPrice();
+}
+
+double CurrencyConverter::euroToDollar(double euro) {
+    return euro * getEurPrice() / getUsdPrice();
 }
