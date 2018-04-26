@@ -1,6 +1,8 @@
 // Copyright 2018 Grishin Anton
 
 #include <gtest/gtest.h>
+#include <string>
+
 #include "include/currency_converter.h"
 
 class CurrencyConverterTest : public ::testing::Test {
@@ -81,4 +83,82 @@ TEST_F(CurrencyConverterTest, Different_Currency_Not_Equal) {
 
     // Act & Assert
     EXPECT_TRUE(currency1 != currency2);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Rub_To_Usd) {
+    // Arrange
+    CurrencyConverter currency;
+    double rub = 26.0;
+
+    // Act
+     double usd = currency.roubleToDollar(rub);
+
+    // Assert
+    double expected_usd = rub / currency.getUsdPrice();
+    EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Rub_To_Eur) {
+    // Arrange
+    CurrencyConverter currency;
+    double rub = 26.0;
+
+    // Act
+    double eur = currency.roubleToEuro(rub);
+
+    // Assert
+    double expected_eur = rub / currency.getEurPrice();
+    EXPECT_NEAR(eur, expected_eur, CurrencyConverterTest::epsilon);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Rub) {
+    // Arrange
+    CurrencyConverter currency;
+    double eur = 26.0;
+
+    // Act
+    double rub = currency.euroToRouble(eur);
+
+    // Assert
+    double expected_rub = eur * currency.getEurPrice();
+    EXPECT_NEAR(rub, expected_rub, CurrencyConverterTest::epsilon);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Usd_To_Rub) {
+    // Arrange
+    CurrencyConverter currency;
+    double usd = 26.0;
+
+    // Act
+    double rub = currency.dollarToRouble(usd);
+
+    // Assert
+    double expected_rub = usd * currency.getUsdPrice();
+    EXPECT_NEAR(rub, expected_rub, CurrencyConverterTest::epsilon);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Usd_To_Eur) {
+    // Arrange
+    CurrencyConverter currency;
+    double usd = 26.0;
+
+    // Act
+    double eur = currency.dollarToEuro(usd);
+
+    // Assert
+    double expected_eur = usd * currency.getUsdPrice() / currency.getEurPrice();
+    EXPECT_NEAR(eur, expected_eur, CurrencyConverterTest::epsilon);
+}
+
+TEST_F(CurrencyConverterTest, Can_Convert_Eur_To_Usd) {
+    // Arrange
+    CurrencyConverter currency;
+    double eur = 26.0;
+
+    // Act
+    double usd = currency.euroToDollar(eur);
+
+    // Assert
+    double expected_usd = eur * currency.getEurPrice() / currency.getUsdPrice();
+    EXPECT_NEAR(usd, expected_usd, CurrencyConverterTest::epsilon);
 }

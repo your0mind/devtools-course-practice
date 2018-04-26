@@ -27,10 +27,11 @@ class CurrencyConverter {
     double dollarToEuro(double usd);
     double euroToDollar(double eur);
 
-    bool operator == (const CurrencyConverter& z) const;
-    bool operator != (const CurrencyConverter& z) const;
+    bool operator == (const CurrencyConverter& currency) const;
+    bool operator != (const CurrencyConverter& currency) const;
 
  private:
+    bool equalsZero(const double& value) const;
     double usd_price;
     double eur_price;
 
