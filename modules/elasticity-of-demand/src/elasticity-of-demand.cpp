@@ -1,9 +1,9 @@
 // Copyright 2018 Lalykin Oleg
 
-
-#include <math.h>
-#include <string>
 #include "include/elasticity-of-demand.h"
+#include <math.h>
+#include <limits>
+#include <string>
 
 const double eps = std::numeric_limits<double>::epsilon();
 
@@ -15,8 +15,7 @@ double Elasticity::GetCoeff() { return coeff; }
 std::string Elasticity::GetAns() { return answer; }
 
 bool Elasticity::IsZero(const double& value) const {
-return (value < eps && value > -eps);
-
+    return (value < eps && value > -eps);
 }
 double Elasticity::PriceElasticity(double Q1,
     double Q2,
