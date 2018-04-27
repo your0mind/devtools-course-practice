@@ -15,7 +15,7 @@ TEST(Pozdeeva_Varvaral_BinarySearchTest, can_create) {
 }
 TEST(Pozdeeva_Varvaral_BinarySearchTest, can_search) {
      // Arrange
-     int mas[] = { 1 ,2, 3};
+     int mas[] = { 1, 2, 3};
      BinarySearch search(mas, 3);
      // Act
      int resalt = search.Search(3);
