@@ -12,13 +12,12 @@ BinarySearch::BinarySearch(int mas[], int size) {
          this->size = size;
     }
 }
-BinarySearch::~BinarySearch()
-{
-     if(masiv!= nullptr)
+BinarySearch::~BinarySearch() {
+     if (masiv!= nullptr)
           delete[] masiv;
 }
 int BinarySearch::Search(int num) {
-     std::sort (masiv, masiv + size);
+     std::sort(masiv, masiv + size);
      int resalt = -1;
      int right = size;
      int left = 0;
