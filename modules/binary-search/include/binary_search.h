@@ -1,19 +1,19 @@
 // Copyright 2018 Pozdeeva Varvara
 
-#ifndef MODULES_BINARY_SEARCH
-#define MODULES_BINARY_SEARCH
+#ifndef MODULES_BINARY_SEARCH_INCLUDE_COMPLEX_CALCULATOR_H_
+#define MODULES_BINARY_SEARCH_INCLUDE_COMPLEX_CALCULATOR_H_
 
 #include <iostream>
 
 class BinarySearch {
-private:
-	int* masiv;
-	int size;
-	int center;
-public:
-	BinarySearch(int mas[], int );
-	~BinarySearch();
-	int Search(int);
+ private:
+     int* masiv;
+     int size;
+     int center;
+ public:
+     BinarySearch(int mas[], int size);
+     ~BinarySearch();
+     int Search(int num);
 };
 
-#endif
+#endif //MODULES_BINARY_SEARCH_INCLUDE_COMPLEX_CALCULATOR_H_
