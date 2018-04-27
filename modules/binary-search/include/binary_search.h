@@ -16,4 +16,4 @@ class BinarySearch {
      int Search(int num);
 };
 
-#endif // MODULES_BINARY_SEARCH_INCLUDE_BINARY_SEARCH_H_
+#endif  // MODULES_BINARY_SEARCH_INCLUDE_BINARY_SEARCH_H_
