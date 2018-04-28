@@ -27,7 +27,7 @@ public:
     void push(const Ty& data);
     void push(Ty&& data);
     void pop();
-    void swap(Queue<Ty>& second);
+    void swap(Queue<Ty>& other);
 
     Queue<Ty>& operator=(Queue<Ty> rhs);
     bool operator==(const Queue<Ty>& rhs) const;
