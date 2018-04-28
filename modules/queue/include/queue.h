@@ -5,7 +5,6 @@
 
 #include <cstddef>
 #include <algorithm>
-#include <utility>
 #include <stdexcept>
 
 template <typename Ty>
@@ -14,7 +13,6 @@ class Queue {
     Queue();
     explicit Queue(std::size_t size);
     Queue(const Queue<Ty>& rhs);
-    Queue(Queue<Ty>&& rhs);
     ~Queue();
 
     Ty& front();
@@ -24,7 +22,6 @@ class Queue {
     bool empty() const;
     std::size_t size() const;
     void push(const Ty& data);
-    void push(Ty&& data);
     void pop();
     void swap(Queue<Ty>& other);
 
@@ -63,9 +60,6 @@ capacity(rhs.capacity), head(rhs.head), tail(rhs.tail) {
     capacity ? mem = new Ty[capacity]() : mem = nullptr;
     std::copy(rhs.mem, rhs.mem + rhs.dataCount, mem);
 }
-
-template <typename Ty>
-Queue<Ty>::Queue(Queue<Ty>&& rhs) : Queue() { swap(rhs); }
 
 template <typename Ty>
 Queue<Ty>::~Queue() {
@@ -113,15 +107,6 @@ void Queue<Ty>::push(const Ty& data) {
         resize();
     tail = nextIndex(tail);
     mem[tail] = data;
-    dataCount++;
-}
-
-template <typename Ty>
-void Queue<Ty>::push(Ty&& data) {
-    if (dataCount == capacity)
-        resize();
-    tail = nextIndex(tail);
-    mem[tail] = std::move(data);
     dataCount++;
 }
 
