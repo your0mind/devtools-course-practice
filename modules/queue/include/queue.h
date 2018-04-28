@@ -68,4 +68,11 @@ capacity(rhs.capacity), head(rhs.head), tail(rhs.tail)
 template <typename Ty>
 Queue<Ty>::Queue(Queue<Ty>&& rhs) : Queue() { swap(rhs); }
 
+template <typename Ty>
+Queue<Ty>::~Queue()
+{
+    if (mem != nullptr)
+        delete[] mem;
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
