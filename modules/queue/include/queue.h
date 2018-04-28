@@ -135,5 +135,15 @@ void Queue<Ty>::push(Ty&& data)
     dataCount++;
 }
 
+template <typename Ty>
+void Queue<Ty>::pop()
+{
+    if (empty())
+        throw std::runtime_error("Queue is empty");
+    mem[head].~Ty();
+    dataCount--;
+    head = nextIndex(head);
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
