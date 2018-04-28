@@ -13,7 +13,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Celsius) {
     // Arrange
     double kelvin = 10;
     TemperatureConverter temp;
-    
+
     // Act
     double result = temp.kelToCel(kelvin);
 
