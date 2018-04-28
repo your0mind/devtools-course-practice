@@ -156,5 +156,12 @@ void Queue<Ty>::swap(Queue<Ty>& other)
     swap(mem, other.mem);
 }
 
+template <typename Ty>
+Queue<Ty>& Queue<Ty>::operator=(Queue<Ty> rhs)
+{
+    swap(rhs);
+    return *this;
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
