@@ -91,6 +91,20 @@ const Ty& Queue<Ty>::front() const
     return mem[head];
 }
 
+template <typename Ty>
+Ty& Queue<Ty>::back()
+{
+    if (empty())
+        throw std::runtime_error("Queue is empty");
+    return mem[tail];
+}
 
+template <typename Ty>
+const Ty& Queue<Ty>::back() const
+{
+    if (empty())
+        throw std::runtime_error("Queue is empty");
+    return mem[tail];
+}
 
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
