@@ -43,4 +43,29 @@ private:
     void resize();
 };
 
+
+//----------IMPLEMENTATION----------
+
+template <typename Ty>
+Queue<Ty>::Queue() : mem(nullptr), dataCount(0), capacity(0),
+head(0), tail(-1) {}
+
+template <typename Ty>
+Queue<Ty>::Queue(std::size_t size) : dataCount(0), capacity(size),
+head(0), tail(-1)
+{
+    capacity ? mem = new Ty[capacity]() : mem = nullptr;
+}
+
+template <typename Ty>
+Queue<Ty>::Queue(const Queue<Ty>& rhs) : dataCount(rhs.dataCount),
+capacity(rhs.capacity), head(rhs.head), tail(rhs.tail)
+{
+    capacity ? mem = new Ty[capacity]() : mem = nullptr;
+    std::copy(rhs.mem, rhs.mem + rhs.dataCount, mem);
+}
+
+template <typename Ty>
+Queue<Ty>::Queue(Queue<Ty>&& rhs) : Queue() { swap(rhs); }
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
