@@ -75,4 +75,22 @@ Queue<Ty>::~Queue()
         delete[] mem;
 }
 
+template <typename Ty>
+Ty& Queue<Ty>::front()
+{
+    if (empty())
+        throw std::runtime_error("Queue is empty");
+    return mem[head];
+}
+
+template <typename Ty>
+const Ty& Queue<Ty>::front() const
+{
+    if (empty())
+        throw std::runtime_error("Queue is empty");
+    return mem[head];
+}
+
+
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
