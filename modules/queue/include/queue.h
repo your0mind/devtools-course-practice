@@ -145,5 +145,16 @@ void Queue<Ty>::pop()
     head = nextIndex(head);
 }
 
+template <typename Ty>
+void Queue<Ty>::swap(Queue<Ty>& other)
+{
+    using std::swap;
+    swap(dataCount, other.dataCount);
+    swap(capacity, other.capacity);
+    swap(head, other.head);
+    swap(tail, other.tail);
+    swap(mem, other.mem);
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
