@@ -163,5 +163,30 @@ Queue<Ty>& Queue<Ty>::operator=(Queue<Ty> rhs)
     return *this;
 }
 
+template <typename Ty>
+bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const
+{
+    if (size() != rhs.size() || empty() || rhs.empty())
+        return false;
+    int lhsCurPos = head;
+    int rhsCurPos = rhs.head;
+    while (true)
+    {
+        if (lhsCurPos == this->tail || rhsCurPos == rhs.tail)
+            break;
+        if (mem[lhsCurPos] != rhs.mem[rhsCurPos])
+            return false;
+        lhsCurPos = (lhsCurPos + 1) % capacity;
+        rhsCurPos = (rhsCurPos + 1) % capacity;
+    }
+    return back() == rhs.back();
+}
+
+template <typename Ty>
+bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const
+{
+    return !(*this == rhs);
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
