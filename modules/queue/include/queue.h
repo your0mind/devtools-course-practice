@@ -9,9 +9,8 @@
 #include <stdexcept>
 
 template <typename Ty>
-class Queue
-{
-public:
+class Queue {
+ public:
     Queue();
     explicit Queue(std::size_t size);
     Queue(const Queue<Ty>& rhs);
@@ -33,7 +32,7 @@ public:
     bool operator==(const Queue<Ty>& rhs) const;
     bool operator!=(const Queue<Ty>& rhs) const;
 
-private:
+ private:
     Ty* mem;
     std::size_t dataCount;
     std::size_t capacity;
@@ -44,9 +43,9 @@ private:
 };
 
 
-//----------IMPLEMENTATION----------
+// ----------IMPLEMENTATION----------
 
-//----------PUBLIC METHODS----------
+// ----------PUBLIC METHODS----------
 
 template <typename Ty>
 Queue<Ty>::Queue() : mem(nullptr), dataCount(0), capacity(0),
@@ -54,15 +53,13 @@ head(0), tail(-1) {}
 
 template <typename Ty>
 Queue<Ty>::Queue(std::size_t size) : dataCount(0), capacity(size),
-head(0), tail(-1)
-{
+head(0), tail(-1) {
     capacity ? mem = new Ty[capacity]() : mem = nullptr;
 }
 
 template <typename Ty>
 Queue<Ty>::Queue(const Queue<Ty>& rhs) : dataCount(rhs.dataCount),
-capacity(rhs.capacity), head(rhs.head), tail(rhs.tail)
-{
+capacity(rhs.capacity), head(rhs.head), tail(rhs.tail) {
     capacity ? mem = new Ty[capacity]() : mem = nullptr;
     std::copy(rhs.mem, rhs.mem + rhs.dataCount, mem);
 }
@@ -71,39 +68,34 @@ template <typename Ty>
 Queue<Ty>::Queue(Queue<Ty>&& rhs) : Queue() { swap(rhs); }
 
 template <typename Ty>
-Queue<Ty>::~Queue()
-{
+Queue<Ty>::~Queue() {
     if (mem != nullptr)
         delete[] mem;
 }
 
 template <typename Ty>
-Ty& Queue<Ty>::front()
-{
+Ty& Queue<Ty>::front() {
     if (empty())
         throw std::runtime_error("Queue is empty");
     return mem[head];
 }
 
 template <typename Ty>
-const Ty& Queue<Ty>::front() const
-{
+const Ty& Queue<Ty>::front() const {
     if (empty())
         throw std::runtime_error("Queue is empty");
     return mem[head];
 }
 
 template <typename Ty>
-Ty& Queue<Ty>::back()
-{
+Ty& Queue<Ty>::back() {
     if (empty())
         throw std::runtime_error("Queue is empty");
     return mem[tail];
 }
 
 template <typename Ty>
-const Ty& Queue<Ty>::back() const
-{
+const Ty& Queue<Ty>::back() const {
     if (empty())
         throw std::runtime_error("Queue is empty");
     return mem[tail];
@@ -116,8 +108,7 @@ template <typename Ty>
 std::size_t Queue<Ty>::size() const { return dataCount; }
 
 template <typename Ty>
-void Queue<Ty>::push(const Ty& data)
-{
+void Queue<Ty>::push(const Ty& data) {
     if (dataCount == capacity)
         resize();
     tail = nextIndex(tail);
@@ -126,8 +117,7 @@ void Queue<Ty>::push(const Ty& data)
 }
 
 template <typename Ty>
-void Queue<Ty>::push(Ty&& data)
-{
+void Queue<Ty>::push(Ty&& data) {
     if (dataCount == capacity)
         resize();
     tail = nextIndex(tail);
@@ -136,8 +126,7 @@ void Queue<Ty>::push(Ty&& data)
 }
 
 template <typename Ty>
-void Queue<Ty>::pop()
-{
+void Queue<Ty>::pop() {
     if (empty())
         throw std::runtime_error("Queue is empty");
     mem[head].~Ty();
@@ -146,8 +135,7 @@ void Queue<Ty>::pop()
 }
 
 template <typename Ty>
-void Queue<Ty>::swap(Queue<Ty>& other)
-{
+void Queue<Ty>::swap(Queue<Ty>& other) {
     using std::swap;
     swap(dataCount, other.dataCount);
     swap(capacity, other.capacity);
@@ -157,21 +145,18 @@ void Queue<Ty>::swap(Queue<Ty>& other)
 }
 
 template <typename Ty>
-Queue<Ty>& Queue<Ty>::operator=(Queue<Ty> rhs)
-{
+Queue<Ty>& Queue<Ty>::operator=(Queue<Ty> rhs) {
     swap(rhs);
     return *this;
 }
 
 template <typename Ty>
-bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const
-{
+bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const {
     if (size() != rhs.size() || empty() || rhs.empty())
         return false;
     int lhsCurPos = head;
     int rhsCurPos = rhs.head;
-    while (true)
-    {
+    while (true) {
         if (lhsCurPos == this->tail || rhsCurPos == rhs.tail)
             break;
         if (mem[lhsCurPos] != rhs.mem[rhsCurPos])
@@ -183,24 +168,21 @@ bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const
 }
 
 template <typename Ty>
-bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const
-{
+bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const {
     return !(*this == rhs);
 }
 
-//----------------------------------
+// ----------------------------------
 
-//----------PRIVATE METHODS----------
+// ----------PRIVATE METHODS----------
 
 template <typename Ty>
-int Queue<Ty>::nextIndex(int oldIndex)
-{
+int Queue<Ty>::nextIndex(int oldIndex) {
     return (oldIndex + 1) % capacity;
 }
 
 template <typename Ty>
-void Queue<Ty>::resize()
-{
+void Queue<Ty>::resize() {
     auto newCap = capacity > 0 ? capacity * 2 : 2;
     Ty* tmp = new Ty[newCap]();
     std::copy(mem + head, mem + dataCount, tmp);
@@ -214,5 +196,5 @@ void Queue<Ty>::resize()
     capacity = newCap;
 }
 
-#endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
+#endif  // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
