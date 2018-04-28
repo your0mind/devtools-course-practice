@@ -199,6 +199,25 @@ TEST(QueueTest, Can_Determine_Not_Equal_Queues) {
     EXPECT_FALSE(q1 == q2);
 }
 
+TEST(QueueTest, Empty_Queue_Is_Not_Equal_To_Any_Other) {
+    // Arrange
+    Queue<int> q1, q2;
+    q2.push(1); q2.push(2);
+
+    // Act & Assert
+    EXPECT_FALSE(q1 == q2);
+}
+
+TEST(QueueTest, Queues_With_Different_Sizes_Are_Not_Equal) {
+    // Arrange
+    Queue<int> q1, q2;
+    q1.push(1);
+    q2.push(1); q2.push(2);
+
+    // Act & Assert
+    EXPECT_FALSE(q1 == q2);
+}
+
 TEST(QueueTest, Queue_Copied_Via_Copy_Ctor_Is_Equal_To_Original) {
     // Arrange
     Queue<int> q1;
