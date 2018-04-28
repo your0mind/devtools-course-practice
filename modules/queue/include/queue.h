@@ -115,5 +115,25 @@ bool Queue<Ty>::empty() const { return dataCount == 0; }
 template <typename Ty>
 std::size_t Queue<Ty>::size() const { return dataCount; }
 
+template <typename Ty>
+void Queue<Ty>::push(const Ty& data)
+{
+    if (dataCount == capacity)
+        resize();
+    tail = nextIndex(tail);
+    mem[tail] = data;
+    dataCount++;
+}
+
+template <typename Ty>
+void Queue<Ty>::push(Ty&& data)
+{
+    if (dataCount == capacity)
+        resize();
+    tail = nextIndex(tail);
+    mem[tail] = std::move(data);
+    dataCount++;
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
