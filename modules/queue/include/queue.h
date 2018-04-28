@@ -46,6 +46,8 @@ private:
 
 //----------IMPLEMENTATION----------
 
+//----------PUBLIC METHODS----------
+
 template <typename Ty>
 Queue<Ty>::Queue() : mem(nullptr), dataCount(0), capacity(0),
 head(0), tail(-1) {}
@@ -107,4 +109,11 @@ const Ty& Queue<Ty>::back() const
     return mem[tail];
 }
 
+template <typename Ty>
+bool Queue<Ty>::empty() const { return dataCount == 0; }
+
+template <typename Ty>
+std::size_t Queue<Ty>::size() const { return dataCount; }
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
+
