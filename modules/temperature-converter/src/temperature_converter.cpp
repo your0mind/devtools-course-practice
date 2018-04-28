@@ -1,51 +1,51 @@
 // Copyright 2018 Bederdinov Daniil
 
-#include "include/temperature_converter.h"
+#include "temperature_converter.h"
 
-double TemperatureConverter::kelToCel(double kel) {
+double TemperatureConverter::kelvinToCelsius(double kel) {
     return kel - 273.15;
 }
 
-double TemperatureConverter::kelToFahr(double kel) {
+double TemperatureConverter::kelvinToFahrenheit(double kel) {
     return (9.0 / 5) * (kel - 273.15) + 32;
 }
 
-double TemperatureConverter::kelToNewt(double kel) {
+double TemperatureConverter::kelvinToNewton(double kel) {
     return (kel - 273.15) * 0.33;
 }
 
-double TemperatureConverter::celToKel(double cel) {
+double TemperatureConverter::celsiusToKelvin(double cel) {
     return cel + 273.15;
 }
 
-double TemperatureConverter::celToFahr(double cel) {
+double TemperatureConverter::celsiusToFahrenheit(double cel) {
     return cel * (9.0 / 5) + 32;
 }
 
-double TemperatureConverter::celToNewt(double cel) {
+double TemperatureConverter::celsiusToNewton(double cel) {
     return cel * 0.33;
 }
 
-double TemperatureConverter::fahrToCel(double fahr) {
+double TemperatureConverter::fahrenheitToCelsius(double fahr) {
     return (5.0 / 9) * (fahr - 32);
 }
 
-double TemperatureConverter::fahrToKel(double fahr) {
+double TemperatureConverter::fahrenheitToKelvin(double fahr) {
     return  (5.0 / 9) * (fahr - 32) + 273.15;
 }
 
-double TemperatureConverter::fahrToNewt(double fahr) {
+double TemperatureConverter::fahrenheitToNewton(double fahr) {
     return (fahr - 32) * 0.183333;
 }
 
-double TemperatureConverter::newtToCel(double newt) {
+double TemperatureConverter::newtonToCelsius(double newt) {
     return newt * 3.030303;
 }
 
-double TemperatureConverter::newtToKel(double newt) {
+double TemperatureConverter::newtonToKelvin(double newt) {
     return newt * 3.030303 + 273.15;
 }
 
-double TemperatureConverter::newtToFahr(double newt) {
+double TemperatureConverter::newtonToFahrenheit(double newt) {
     return newt * 5.454545 + 32;
 }

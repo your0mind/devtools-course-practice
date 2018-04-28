@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/temperature_converter.h"
+#include "temperature_converter.h"
 
 TEST(Temperature_Converter_Test, Can_Create_Object) {
     // Assert
@@ -15,7 +15,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Celsius) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.kelToCel(kelvin);
+    double result = temp.kelvinToCelsius(kelvin);
 
     // Assert
     EXPECT_EQ(-263.15, result);
@@ -27,7 +27,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Fahrenheit) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.kelToFahr(kelvin);
+    double result = temp.kelvinToFahrenheit(kelvin);
 
     // Assert
     EXPECT_EQ((int)31.73, (int)result);
@@ -39,7 +39,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Newton) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.kelToNewt(kelvin);
+    double result = temp.kelvinToNewton(kelvin);
 
     // Assert
     EXPECT_EQ((int)41.8605, (int)result);
@@ -51,7 +51,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Kelvin) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.celToKel(celsius);
+    double result = temp.celsiusToKelvin(celsius);
 
     // Assert
     EXPECT_EQ(0, result);
@@ -63,7 +63,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Fahrenheit) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.celToFahr(celsius);
+    double result = temp.celsiusToFahrenheit(celsius);
 
     // Assert
     EXPECT_EQ(-40, result);
@@ -75,7 +75,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Newton) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.celToNewt(celsius);
+    double result = temp.celsiusToNewton(celsius);
 
     // Assert
     EXPECT_EQ(0.99, result);
@@ -87,7 +87,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Celsius) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.fahrToCel(fahrenheit);
+    double result = temp.fahrenheitToCelsius(fahrenheit);
 
     // Assert
     EXPECT_EQ(-15, result);
@@ -99,7 +99,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Kelvin) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.fahrToKel(fahrenheit);
+    double result = temp.fahrenheitToKelvin(fahrenheit);
 
     // Assert
     EXPECT_EQ((int)138.15, (int)result);
@@ -111,7 +111,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Newton) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.fahrToNewt(fahrenheit);
+    double result = temp.fahrenheitToNewton(fahrenheit);
 
     // Assert
     EXPECT_EQ((int)-5.49, (int)result);
@@ -123,7 +123,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Celsius) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.newtToCel(newton);
+    double result = temp.newtonToCelsius(newton);
 
     // Assert
     EXPECT_EQ(9.090909, result);
@@ -135,7 +135,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Kelvin) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.newtToKel(newton);
+    double result = temp.newtonToKelvin(newton);
 
     // Assert
     EXPECT_EQ((int)-29.8803, (int)result);
@@ -147,7 +147,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Fahrenheit) {
     TemperatureConverter temp;
 
     // Act
-    double result = temp.newtToFahr(newton);
+    double result = temp.newtonToFahrenheit(newton);
 
     // Assert
     EXPECT_EQ(42.90909, result);
