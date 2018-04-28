@@ -188,5 +188,31 @@ bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const
     return !(*this == rhs);
 }
 
+//----------------------------------
+
+//----------PRIVATE METHODS----------
+
+template <typename Ty>
+int Queue<Ty>::nextIndex(int oldIndex)
+{
+    return (oldIndex + 1) % capacity;
+}
+
+template <typename Ty>
+void Queue<Ty>::resize()
+{
+    auto newCap = capacity > 0 ? capacity * 2 : 2;
+    Ty* tmp = new Ty[newCap]();
+    std::copy(mem + head, mem + dataCount, tmp);
+    if (tail < head)
+        std::copy(mem, mem + (tail + 1), tmp + (dataCount - head));
+    head = 0;
+    tail = dataCount - 1;
+
+    delete[] mem;
+    mem = tmp;
+    capacity = newCap;
+}
+
 #endif // MODULES_QUEUE_INCLUDE_QUEUE_H_
 
