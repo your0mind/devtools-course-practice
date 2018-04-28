@@ -14,11 +14,6 @@ TEST(QueueTest, Can_Create_Queue_With_Specified_Size) {
     ASSERT_NO_THROW(Queue<int> q(5));
 }
 
-TEST(QueueTest, Throws_While_Creating_Queue_With_Negative_Size) {
-    // AAA
-    ASSERT_ANY_THROW(Queue<int> q(-5));
-}
-
 TEST(QueueTest, Can_Create_Queue_Via_Copy_Ctor) {
     // Arrange
     Queue<int> src;
