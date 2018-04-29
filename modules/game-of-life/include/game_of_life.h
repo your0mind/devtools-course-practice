@@ -1,4 +1,4 @@
-// Copyright 2017 Zinoviev Vladimir
+// Copyright 2018 Zinoviev Vladimir
 
 #ifndef MODULES_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_H_
 #define MODULES_GAME_OF_LIFE_INCLUDE_GAME_OF_LIFE_H_

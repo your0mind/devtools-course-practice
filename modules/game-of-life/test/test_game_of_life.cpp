@@ -1,8 +1,7 @@
-// Copyright 2017 Zinoviev Vladimir
+// Copyright 2018 Zinoviev Vladimir
 
 #include <gtest/gtest.h>
 
-#include <cmath>
 #include "include/game_of_life.h"
 
 TEST(Game_Of_Life_Tests, Can_Create) {

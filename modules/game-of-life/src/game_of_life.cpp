@@ -1,4 +1,4 @@
-// Copyright 2017 Zinoviev Vladimir
+// Copyright 2018 Zinoviev Vladimir
 
 #include "include/game_of_life.h"
 #include <stdexcept>
