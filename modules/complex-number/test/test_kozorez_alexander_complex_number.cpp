@@ -34,7 +34,7 @@ TEST(Kozorez_Alex_ComplexNumberTest, Sum_Commutication) {
         ComplexNumber sum1 = z1 + z;
         ComplexNumber sum2 = z + z1;
         // Assert
-        EXPECT_EQ(sum1,sum2);
+        EXPECT_EQ(sum1, sum2);
 }
 
 TEST(Kozorez_Alex_ComplexNumberTest, Sum_Of_Equal_By_Abs_Is_Zero) {
