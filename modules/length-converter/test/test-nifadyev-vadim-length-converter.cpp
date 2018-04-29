@@ -15,9 +15,10 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Meters) {
 
     // Act
     LengthConverter converter;
-    
+
     // Assert
-    EXPECT_DOUBLE_EQ(converter.centimetersToMeters(centimeters), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.centimetersToMeters(centimeters),
+                     expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Meters_To_Centimeters) {
@@ -105,7 +106,7 @@ TEST(LengthConverter, Can_Convert_Miles_To_Kilometers) {
 TEST(LengthConverter, Can_Convert_Foot_To_Yards) {
     // Arrange
     double foot = 8769123.055;
-    double expectedResult = 2'923'041.0183333331;
+    double expectedResult = 2923041.0183333331;
 
     // Act
     LengthConverter converter;
@@ -159,7 +160,8 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Inches) {
     LengthConverter converter;
 
     // Assert
-    EXPECT_DOUBLE_EQ(converter.centimetersToInches(centimeters), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.centimetersToInches(centimeters),
+                     expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Inches_To_Centimeters) {
@@ -195,7 +197,8 @@ TEST(LengthConverter, Can_Convert_Nautical_Miles_To_Meters) {
     LengthConverter converter;
 
     // Assert
-    EXPECT_DOUBLE_EQ(converter.nauiticalMilesToMeters(nauticalMiles), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.nauiticalMilesToMeters(nauticalMiles),
+                     expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
@@ -207,7 +210,8 @@ TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
     LengthConverter converter;
 
     // Assert
-    EXPECT_DOUBLE_EQ(converter.kilometersToAstronomicalUnits(kilometers), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.kilometersToAstronomicalUnits(kilometers),
+                     expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
@@ -219,7 +223,8 @@ TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
     LengthConverter converter;
 
     // Assert
-    EXPECT_DOUBLE_EQ(converter.astronomicalUnitsToKilometers(astronomicalUnits), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.astronomicalUnitsToKilometers(astronomicalUnits)
+                     ,expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
@@ -231,7 +236,8 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
     LengthConverter converter;
 
     // Assert
-    EXPECT_DOUBLE_EQ(converter.centimetersToSpans(centimeters), expectedResult);
+    EXPECT_DOUBLE_EQ(converter.centimetersToSpans(centimeters),
+                     expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Spans_To_Centimeters) {
