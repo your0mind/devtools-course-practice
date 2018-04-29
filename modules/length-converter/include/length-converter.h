@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 
-#ifndef LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
-#define LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
+#ifndef MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
+#define MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
 
 class LengthConverter {
  public:
@@ -45,4 +45,4 @@ class LengthConverter {
      bool isCorrect(double value);
 };
 
-#endif  // LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
+#endif  // MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_

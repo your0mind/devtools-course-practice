@@ -1,6 +1,6 @@
 // Copyright 2018 Nifadyev Vadim
 
-#include "include\length-converter.h"
+#include "include/length-converter.h"
 
 LengthConverter::LengthConverter() { }
 
@@ -80,25 +80,25 @@ double LengthConverter::inchesToCentimeters(double inches) {
 
 double LengthConverter::metersToNauticalMiles(double meters) {
     if (isCorrect(meters)) {
-        return meters / 1'852;
+        return meters / 1852;
     }
 }
 
 double LengthConverter::nauiticalMilesToMeters(double nauticalMiles) {
     if (isCorrect(nauticalMiles)) {
-        return nauticalMiles * 1'852;
+        return nauticalMiles * 1852;
     };
 }
 
 double LengthConverter::kilometersToAstronomicalUnits(double kilometers) {
     if (isCorrect(kilometers)) {
-        return kilometers / 149'597'870.7;
+        return kilometers / 149597870.7;
     };
 }
 
 double LengthConverter::astronomicalUnitsToKilometers(double astronomicalUnits) {
     if (isCorrect(astronomicalUnits)) {
-        return astronomicalUnits * 149'597'870.7;
+        return astronomicalUnits * 149597870.7;
     };
 }
 
@@ -116,13 +116,13 @@ double LengthConverter::spansToCentimeters(double spans) {
 
 double LengthConverter::spansToVersts(double spans) {
     if (isCorrect(spans)) {
-        return spans / 6'000;
+        return spans / 6000;
     };
 }
 
 double LengthConverter::verstsToSpans(double versts) {
     if (isCorrect(versts)) {
-        return versts * 6'000;
+        return versts * 6000;
     };
 }
 

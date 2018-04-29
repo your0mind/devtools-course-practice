@@ -1,7 +1,7 @@
 // Copyright 2018 Nifadyev Vadim
 
 #include <gtest/gtest.h>
-#include "include\length-converter.h"
+#include "include/length-converter.h"
 
 TEST(LengthConverter, Can_Create_Length_Converter) {
     // Act & Assert
@@ -56,7 +56,7 @@ TEST(LengthConverter, Throw_When_Trying_To_Convert_Zero_Measure_Unit) {
 
 TEST(LengthConverter, Can_Convert_Meters_To_Kilometers) {
     // Arrange
-    double meters = 678'901;
+    double meters = 678901;
     double expectedResult = 678.901;
 
     // Act
@@ -104,7 +104,7 @@ TEST(LengthConverter, Can_Convert_Miles_To_Kilometers) {
 
 TEST(LengthConverter, Can_Convert_Foot_To_Yards) {
     // Arrange
-    double foot = 8'769'123.055;
+    double foot = 8769123.055;
     double expectedResult = 2'923'041.0183333331;
 
     // Act
@@ -128,8 +128,8 @@ TEST(LengthConverter, Can_Convert_Yards_To_Foot) {
 
 TEST(LengthConverter, Can_Convert_Foot_To_Meters) {
     // Arrange
-    double foot = 4'011.001;
-    double expectedResult = 13'159.452099737533;
+    double foot = 4011.001;
+    double expectedResult = 13159.452099737533;
 
     // Act
     LengthConverter converter;
@@ -152,8 +152,8 @@ TEST(LengthConverter, Can_Convert_Meters_To_Foot) {
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Inches) {
     // Arrange
-    double centimeters = 11'902.34;
-    double expectedResult = 4'685.9606299212601;
+    double centimeters = 11902.34;
+    double expectedResult = 4685.9606299212601;
 
     // Act
     LengthConverter converter;
@@ -165,7 +165,7 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Inches) {
 TEST(LengthConverter, Can_Convert_Inches_To_Centimeters) {
     // Arrange
     double inches = 674.53;
-    double expectedResult = 1'713.3062;
+    double expectedResult = 1713.3062;
 
     // Act
     LengthConverter converter;
@@ -176,7 +176,7 @@ TEST(LengthConverter, Can_Convert_Inches_To_Centimeters) {
 
 TEST(LengthConverter, Can_Convert_Meters_To_Nautical_Miles) {
     // Arrange
-    double meters = 32'875.1211;
+    double meters = 32875.1211;
     double expectedResult = 17.751145302375807;
 
     // Act
@@ -189,7 +189,7 @@ TEST(LengthConverter, Can_Convert_Meters_To_Nautical_Miles) {
 TEST(LengthConverter, Can_Convert_Nautical_Miles_To_Meters) {
     // Arrange
     double nauticalMiles = 3.00061;
-    double expectedResult = 5'557.12972;
+    double expectedResult = 5557.12972;
 
     // Act
     LengthConverter converter;
@@ -200,8 +200,8 @@ TEST(LengthConverter, Can_Convert_Nautical_Miles_To_Meters) {
 
 TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
     // Arrange
-    double kilometers = 8'754'875'672'001;
-    double expectedResult = 58'522.729174119195;
+    double kilometers = 8754875672001;
+    double expectedResult = 58522.729174119195;
 
     // Act
     LengthConverter converter;
@@ -213,7 +213,7 @@ TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
 TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
     // Arrange
     double astronomicalUnits = 2.1046;
-    double expectedResult = 314'843'678.67522;
+    double expectedResult = 314843678.67522;
 
     // Act
     LengthConverter converter;
@@ -224,7 +224,7 @@ TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
     // Arrange
-    double centimeters = 5'901.9;
+    double centimeters = 5901.9;
     double expectedResult = 331.94038245219343;
 
     // Act
@@ -237,7 +237,7 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
 TEST(LengthConverter, Can_Convert_Spans_To_Centimeters) {
     // Arrange
     double spans = 712.014;
-    double expectedResult = 12'659.60892;
+    double expectedResult = 12659.60892;
 
     // Act
     LengthConverter converter;
@@ -248,7 +248,7 @@ TEST(LengthConverter, Can_Convert_Spans_To_Centimeters) {
 
 TEST(LengthConverter, Can_Convert_Spans_To_Versts) {
     // Arrange
-    double spans = 38'001.7125;
+    double spans = 38001.7125;
     double expectedResult = 6.33361875;
 
     // Act
@@ -261,7 +261,7 @@ TEST(LengthConverter, Can_Convert_Spans_To_Versts) {
 TEST(LengthConverter, Can_Convert_Versts_To_Spans) {
     // Arrange
     double versts = 14.077;
-    double expectedResult = 84'462;
+    double expectedResult = 84462;
 
     // Act
     LengthConverter converter;
