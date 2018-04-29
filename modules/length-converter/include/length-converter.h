@@ -11,42 +11,38 @@ class LengthConverter {
     LengthConverter();
     ~LengthConverter();
 
-    void input();
-    void menu();
+    double centimetersToMeters(double centimeters);
+    double metersToCentimeters(double meters);
 
-    double centimetersToMeters(const double &centimeters);
-    double metersToCentimeters(const double &meters);
+    double metersToKilometers(double meters);
+    double kilometersToMeters(double kilometers);
 
-    double metersToKilometers(const double &meters);
-    double kilometersTometers(const double &kilometers);
+    double kilometersToMiles(double kilometers);
+    double milesToKilometers(double miles);
 
-    double kilometersToMiles(const double &kilometers);
-    double milesToKilometers(const double &miles);
+    double footToYards(double foot);
+    double yardsToFoot(double yards);
 
-    double milesToYards(const double &miles);
-    double yardsToMiles(const double &yards);
+    double metersToFoot(double meters);
+    double footToMeters(double foot);
 
-    double milesToFoot(const double &miles);
-    double footToMiles(const double &foot);
+    double centimetersToInches(double centimeters);
+    double inchesToCentimeters(double inches);
 
-    double milesToInches(const double &miles);
-    double inchesToMiles(const double &inches);
+    double metersToNauticalMiles(double meters);
+    double nauiticalMilesToMeters(double nauticalMiles);
 
-    double metersToNauticalMiles(const double &meters);
-    double nauiticalMilesToMeters(const double &nauticalMiles);
+    double kilometersToAstronomicalUnits(double kilometers);
+    double astronomicalUnitsToKilometers(double astronomicalUnits);
 
-    double metersToAstronomicalUnits(const double &meters);
-    double astronomicalUnitsToMeters(const double &astronomicalUnits);
+    double centimetersToSpans(double centimeters);
+    double spansToCentimeters(double spans);
 
-    double metersToSpans(const double &meters);
-    double spansToMeters(const double &spans);  // Span - old russian metric
-
-    double spansToVersts(const double &spans);
-    double verstsToSpans(const double &versts);
+    double spansToVersts(double spans);
+    double verstsToSpans(double versts);
 
  private:
-    std::string input;
+     bool isCorrect(double value);
 };
-
 
 #endif  // LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_
