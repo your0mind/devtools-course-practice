@@ -15,6 +15,7 @@ TEST(Kozorez_Alex_ComplexNumberTest, Plus_Zero_Is_Equal) {
         // Assert
         EXPECT_EQ(z, sum);
 }
+
 TEST(Kozorez_Alex_ComplexNumberTest, Multi_By_Zero_Is_Zero) {
         // Arrange
         ComplexNumber z(666.0, 22.0);
@@ -24,6 +25,7 @@ TEST(Kozorez_Alex_ComplexNumberTest, Multi_By_Zero_Is_Zero) {
         // Assert
         EXPECT_EQ(z1, multi);
 }
+
 TEST(Kozorez_Alex_ComplexNumberTest, Sum_Commutication) {
         // Arrange
         ComplexNumber z1(66.0, 22.0);
@@ -34,6 +36,7 @@ TEST(Kozorez_Alex_ComplexNumberTest, Sum_Commutication) {
         // Assert
         EXPECT_EQ(sum1,sum2);
 }
+
 TEST(Kozorez_Alex_ComplexNumberTest, Sum_Of_Equal_By_Abs_Is_Zero) {
         // Arrange
         ComplexNumber z1(-666.0, -22.0);
@@ -44,6 +47,7 @@ TEST(Kozorez_Alex_ComplexNumberTest, Sum_Of_Equal_By_Abs_Is_Zero) {
         // Assert
         EXPECT_EQ(sum, zero);
 }
+
 TEST(Kozorez_Alex_ComplexNumberTest, Multiply_Commutication) {
         // Arrange
         ComplexNumber z1(66.0, 22.0);
