@@ -126,7 +126,8 @@ double LengthConverter::kilometersToAstronomicalUnits(double kilometers) {
     }
 }
 
-double LengthConverter::astronomicalUnitsToKilometers(double astronomicalUnits) {
+double LengthConverter::astronomicalUnitsToKilometers
+       (double astronomicalUnits) {
     if (isCorrect(astronomicalUnits)) {
         return astronomicalUnits * 149597870.7;
     } else {

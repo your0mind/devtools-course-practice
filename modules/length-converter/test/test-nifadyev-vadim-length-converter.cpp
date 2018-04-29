@@ -224,7 +224,7 @@ TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.astronomicalUnitsToKilometers(astronomicalUnits)
-                     ,expectedResult);
+                     , expectedResult);
 }
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
