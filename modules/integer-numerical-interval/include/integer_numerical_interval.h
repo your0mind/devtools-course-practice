@@ -23,8 +23,8 @@ public:
     vector<int> getAllPoints() const;
     vector<int> getEndPoints() const;
 
-    bool operator == (const IntegerNumericalInterval& ni);
-    bool operator != (const IntegerNumericalInterval& ni);
+    bool operator == (const IntegerNumericalInterval& ni) const;
+    bool operator != (const IntegerNumericalInterval& ni) const;
     operator std::string();
 
 private:

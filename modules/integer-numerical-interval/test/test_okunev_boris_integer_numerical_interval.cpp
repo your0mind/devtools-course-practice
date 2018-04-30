@@ -72,6 +72,17 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Differents_Intervals_Not_Equ
     EXPECT_TRUE(ni != ni1);
 }
 
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Copy_Of_Intervals_Equal) {
+    // Arrange
+    IntegerNumericalInterval ni(1, 5, true, true);
+
+    // Act
+    IntegerNumericalInterval ni1(ni);
+
+    // Assert
+    EXPECT_EQ(ni, ni1);
+}
+
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Convert_Interval_To_String) {
     // Arrange
     std::string interval = "[11,18)";

@@ -115,7 +115,7 @@ vector<int> IntegerNumericalInterval::getEndPoints() const
     return points;
 }
 
-bool IntegerNumericalInterval::operator==(const IntegerNumericalInterval & ni)
+bool IntegerNumericalInterval::operator==(const IntegerNumericalInterval & ni) const
 {
     if (leftBorder_ == ni.leftBorder_ && rightBorder_ == ni.rightBorder_ &&
         isIncludeLeft_ == ni.isIncludeLeft_ && isIncludeRight_ == ni.isIncludeRight_)
@@ -124,7 +124,7 @@ bool IntegerNumericalInterval::operator==(const IntegerNumericalInterval & ni)
         return false;
 }
 
-bool IntegerNumericalInterval::operator!=(const IntegerNumericalInterval & ni)
+bool IntegerNumericalInterval::operator!=(const IntegerNumericalInterval & ni) const
 {
     return !(*this == ni);
 }
