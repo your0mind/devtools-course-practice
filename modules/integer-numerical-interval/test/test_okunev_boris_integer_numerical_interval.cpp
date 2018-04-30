@@ -171,19 +171,46 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Open_Interval
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Points_Contain) {
-	// Arrange
-	IntegerNumericalInterval ni("[2,6)");
-	vector<int> points = { 2,4 };
+    // Arrange
+    IntegerNumericalInterval ni("[2,6)");
+    vector<int> points = { 2,4 };
 
-	// Assert
-	EXPECT_TRUE(ni.isContainPoints(points));
+    // Assert
+    EXPECT_TRUE(ni.isContainPoints(points));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Points_Not_Contain) {
-	// Arrange
-	IntegerNumericalInterval ni("[2,6)");
-	vector<int> points = { -1, 1, 6, 10 };
+    // Arrange
+    IntegerNumericalInterval ni("[2,6)");
+    vector<int> points = { -1, 1, 6, 10 };
 
-	// Assert
-	EXPECT_FALSE(ni.isContainPoints(points));
+    // Assert
+    EXPECT_FALSE(ni.isContainPoints(points));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Range_Contain) {
+    // Arrange
+    IntegerNumericalInterval ni("[2,10)");
+    IntegerNumericalInterval ni1("[3,5]");
+
+    // Assert
+    EXPECT_TRUE(ni.isContainsRange(ni1));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Range_Not_Contain) {
+    // Arrange
+    IntegerNumericalInterval ni("[2,6)");
+    IntegerNumericalInterval ni1("[7,10)");
+
+    // Assert
+    EXPECT_FALSE(ni.isContainsRange(ni1));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Equal_Range_Contain) {
+    // Arrange
+    IntegerNumericalInterval ni("[3,5]");
+    IntegerNumericalInterval ni1("[3,5]");
+
+    // Assert
+    EXPECT_TRUE(ni.isContainsRange(ni1));
 }
