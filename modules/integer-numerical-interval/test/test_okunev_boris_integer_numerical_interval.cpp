@@ -158,7 +158,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval_Poin
     EXPECT_EQ(allPointsR, allPoints);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval_Point) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,5)");
     vector<int> allPointsR = { 2,3,4 };
@@ -168,4 +168,22 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval_Poin
 
     // Assert
     EXPECT_EQ(allPointsR, allPoints);
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Points_Contain) {
+	// Arrange
+	IntegerNumericalInterval ni("[2,6)");
+	vector<int> points = { 2,4 };
+
+	// Assert
+	EXPECT_TRUE(ni.isContainPoints(points));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Points_Not_Contain) {
+	// Arrange
+	IntegerNumericalInterval ni("[2,6)");
+	vector<int> points = { -1, 1, 6, 10 };
+
+	// Assert
+	EXPECT_FALSE(ni.isContainPoints(points));
 }
