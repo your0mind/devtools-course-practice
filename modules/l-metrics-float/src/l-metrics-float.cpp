@@ -5,6 +5,7 @@
 #include <cmath>
 #include <algorithm>
 #include <numeric>
+#include <vector>
 
 std::vector<float> LMetricsFloat::vec_substract_mod(std::vector<float> vec1,
                                                     std::vector<float> vec2) {
