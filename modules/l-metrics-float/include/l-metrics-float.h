@@ -6,7 +6,7 @@
 #include <vector>
 
 class LMetricsFloat {
- public:
+public:
     static float linf_vec_distance(const std::vector<float>& vec1, const std::vector<float>& vec2);
     static float l1_vec_distance(const std::vector<float>& vec1, const std::vector<float>& vec2);
     static float l2_vec_distance(const std::vector<float>& vec1, const std::vector<float>& vec2);
