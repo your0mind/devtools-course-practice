@@ -10,14 +10,14 @@ double LengthConverter::centimetersToMeters(double centimeters) {
     if (!isCorrect(centimeters)) {
         throw "Error! Invalid argument";
     }
-    return centimeters / 100
+    return centimeters / 100;
 }
 
 double LengthConverter::metersToCentimeters(double meters) {
     if (!isCorrect(meters)) {
         throw "Error! Invalid argument";
     }
-    return meters * 100
+    return meters * 100;
 }
 
 double LengthConverter::metersToKilometers(double meters) {
