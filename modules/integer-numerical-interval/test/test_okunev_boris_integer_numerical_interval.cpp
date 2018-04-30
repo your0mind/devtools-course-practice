@@ -16,7 +16,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Interval) {
     EXPECT_NO_THROW(IntegerNumericalInterval(1,5, true, true));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Interval_From_String) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, 
+    Can_Create_Interval_From_String) {
     // Arrange
     std::string interval = "[11,15]";
 
@@ -24,22 +25,26 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Interval_From_String)
     EXPECT_NO_THROW(IntegerNumericalInterval(interval));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_not_Create_Wrong_Interval_Position) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_not_Create_Wrong_Interval_Position) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(7, 5, true, true));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_not_Create_Wrong_Interval_Point) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_not_Create_Wrong_Interval_Point) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(5, 5, false, false));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_not_Create_Wrong_Interval_Empty) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_not_Create_Wrong_Interval_Empty) {
     // Assert
     EXPECT_ANY_THROW(IntegerNumericalInterval(4, 5, false, false));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_not_Create_Wrong_Interval_From_String) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_not_Create_Wrong_Interval_From_String) {
     // Arrange
     std::string interval = "[15,11]";
 
@@ -47,7 +52,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_not_Create_Wrong_Interval_Fr
     EXPECT_ANY_THROW(IntegerNumericalInterval test(interval));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Same_Intervals_Are_Equal) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Two_Same_Intervals_Are_Equal) {
     // Arrange
     int left = 1;
     int right = 5;
@@ -60,7 +66,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Same_Intervals_Are_Equal) {
     EXPECT_TRUE(ni == ni1);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Differents_Intervals_Not_Equal) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Two_Differents_Intervals_Not_Equal) {
     // Arrange
     int left = 1;
     int right = 5;
@@ -74,7 +81,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Differents_Intervals_Not_Equ
     EXPECT_TRUE(ni != ni1);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Copy_Of_Intervals_Equal) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Copy_Of_Intervals_Equal) {
     // Arrange
     IntegerNumericalInterval ni(1, 5, true, true);
 
@@ -85,7 +93,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Copy_Of_Intervals_Equal) {
     EXPECT_EQ(ni, ni1);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Convert_Interval_To_String) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Convert_Interval_To_String) {
     // Arrange
     std::string interval = "[11,18)";
     std::string str;
@@ -93,7 +102,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Convert_Interval_To_String) 
     IntegerNumericalInterval ni(interval);
 
     // Act
-    str = ni;
+    str = std::string(ni);
 
     // Assert
     EXPECT_EQ(interval, str);
@@ -123,7 +132,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Point) {
     EXPECT_EQ(endPoints, endPointsR);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Open_Interval) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Get_End_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,6)");
     vector<int> endPointsR = { 2, 5 };
@@ -135,7 +145,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Open_Interval
     EXPECT_EQ(endPoints, endPointsR);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_End_Points_Open_Interval_With_One_Point) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Get_End_Points_Open_Interval_With_One_Point) {
     // Arrange
     IntegerNumericalInterval ni("(1,3)");
     vector<int> endPointsR = { 2, 2 };
@@ -159,7 +170,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval) {
     EXPECT_EQ(allPointsR, allPoints);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval_Point) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Get_All_Points_Interval_Point) {
     // Arrange
     IntegerNumericalInterval ni("[1,1]");
     vector<int> allPointsR = { 1 };
@@ -171,7 +183,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval_Poin
     EXPECT_EQ(allPointsR, allPoints);
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Open_Interval) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Get_All_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,5)");
     vector<int> allPointsR = { 2,3,4 };
@@ -219,7 +232,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Range_Not_Contain) {
     EXPECT_FALSE(ni.isContainsRange(ni1));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Equal_Range_Contain) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Can_Check_Equal_Range_Contain) {
     // Arrange
     IntegerNumericalInterval ni("[3,5]");
     IntegerNumericalInterval ni1("[3,5]");
@@ -228,7 +242,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Equal_Range_Contain) {
     EXPECT_TRUE(ni.isContainsRange(ni1));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Not_Overlaps) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Two_Intervals_Has_Not_Overlaps) {
     // Arrange
     IntegerNumericalInterval ni("[2,5)");
     IntegerNumericalInterval ni1("[7,10)");
@@ -246,7 +261,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps) {
     EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps_Left_Contains_Right) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Two_Intervals_Has_Overlaps_Left_Contains_Right) {
     // Arrange
     IntegerNumericalInterval ni("[2,10)");
     IntegerNumericalInterval ni1("[3,5)");
@@ -255,7 +271,8 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps_Left_
     EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps_Right_Contains_Left) {
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
+    Two_Intervals_Has_Overlaps_Right_Contains_Left) {
     // Arrange
     IntegerNumericalInterval ni("[3,5)");
     IntegerNumericalInterval ni1("[2,10)");
