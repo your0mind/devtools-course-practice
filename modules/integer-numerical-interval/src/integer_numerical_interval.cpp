@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <sstream>
 
-#include "include/numerical_interval.h"
+#include "include/integer_numerical_interval.h"
 
 IntegerNumericalInterval::IntegerNumericalInterval()
 {

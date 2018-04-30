@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/numerical_interval.h"
+#include "include/integer_numerical_interval.h"
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Empty_Interval) {
 	// Assert
