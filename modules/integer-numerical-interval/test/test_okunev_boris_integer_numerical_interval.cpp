@@ -225,3 +225,39 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Equal_Range_Contain) {
     // Assert
     EXPECT_TRUE(ni.isContainsRange(ni1));
 }
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Not_Overlaps) {
+    // Arrange
+    IntegerNumericalInterval ni("[2,5)");
+    IntegerNumericalInterval ni1("[7,10)");
+
+    // Assert
+    EXPECT_FALSE(ni.isHaveOverlapsRange(ni1));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps) {
+    // Arrange
+    IntegerNumericalInterval ni("[2,5)");
+    IntegerNumericalInterval ni1("[3,10)");
+
+    // Assert
+    EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps_Left_Contains_Right) {
+    // Arrange
+    IntegerNumericalInterval ni("[2,10)");
+    IntegerNumericalInterval ni1("[3,5)");
+
+    // Assert
+    EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
+}
+
+TEST(Okunev_Boris_IntegerNumericalIntervalTest, Two_Intervals_Has_Overlaps_Right_Contains_Left) {
+    // Arrange
+    IntegerNumericalInterval ni("[3,5)");
+    IntegerNumericalInterval ni1("[2,10)");
+
+    // Assert
+    EXPECT_TRUE(ni.isHaveOverlapsRange(ni1));
+}
