@@ -36,4 +36,4 @@ class AVL {
     AVLNode* search(AVLNode* r, int key);
 };
 
-#endif // MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
+#endif  // MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
