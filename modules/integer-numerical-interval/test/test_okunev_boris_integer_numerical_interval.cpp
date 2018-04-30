@@ -26,30 +26,30 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-	Can_Not_Create_Interval_From_String_Comma) {
-	// Arrange
-	std::string interval = "[11|15]";
+    Can_Not_Create_Interval_From_String_Comma) {
+    // Arrange
+    std::string interval = "[11|15]";
 
-	// Assert
-	EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-	Can_Not_Create_Interval_From_String_leftBorder) {
-	// Arrange
-	std::string interval = ":11,15]";
+    Can_Not_Create_Interval_From_String_leftBorder) {
+    // Arrange
+    std::string interval = ":11,15]";
 
-	// Assert
-	EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
-	Can_Not_Create_Interval_From_String_rightBorder) {
-	// Arrange
-	std::string interval = "[11,15:";
+    Can_Not_Create_Interval_From_String_rightBorder) {
+    // Arrange
+    std::string interval = "[11,15:";
 
-	// Assert
-	EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
+    // Assert
+    EXPECT_ANY_THROW(IntegerNumericalInterval ni(interval));
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
