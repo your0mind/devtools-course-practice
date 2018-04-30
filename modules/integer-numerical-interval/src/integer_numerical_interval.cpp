@@ -34,9 +34,9 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
     char chS;
     ss >> chF >> leftBorder_ >> comma >> rightBorder_ >> chS;
 
-    if (chF == '[')
+    if (chF == '[') {
         isIncludeLeft_ = true;
-    else {
+    } else {
         if (chF == '(')
             isIncludeLeft_ = false;
         else
@@ -46,9 +46,9 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
     if (comma != ',')
         throw("Wrong interval");
 
-    if (chS == ']')
+    if (chS == ']') {
         isIncludeRight_ = true;
-    else {
+    } else {
         if (chS == ')')
             isIncludeRight_ = false;
         else
