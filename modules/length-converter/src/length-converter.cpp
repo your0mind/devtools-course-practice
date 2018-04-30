@@ -150,7 +150,7 @@ double LengthConverter::verstsToSpans(double versts) {
 bool LengthConverter::isCorrect(double value) {
     const double eps = 0.01;
 
-    if (value < 0 || value < eps && value > -eps) {
+    if ((value < 0) || (value < eps && value > -eps)) {
         return false;
     }
     return true;
