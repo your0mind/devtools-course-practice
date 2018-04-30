@@ -1,12 +1,11 @@
 // Copyright 2017 Gribov Pavel
 
-#include "include/complex_number.h"
+#include "include/l-metrics-float.h"
 
-#include <vector>
 #include <algorithm>
 #include <numeric>
 
-std::vector<float> LMetricsFloat::vec_substract_mod(const std::vector<float> vec1, const std::vector<float> vec2) {
+std::vector<float> LMetricsFloat::vec_substract_mod(std::vector<float> vec1, std::vector<float> vec2) {
     size_t size = std::max(vec1.size(), vec2.size());
     std::vector<float> vec3(size);
 
@@ -27,7 +26,7 @@ float LMetricsFloat::linf_vec_distance(const std::vector<float>& vec1, const std
 
     vec3 = std::move(vec_substract_mod(vec1, vec2));
 
-    linf_vec_dist = std::max_element(vec3.cbegin(), vec3.cend());
+    linf_vec_dist = *std::max_element(vec3.cbegin(), vec3.cend());
 
     return linf_vec_dist;
 }
@@ -49,7 +48,7 @@ float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1, const std::
 
     vec3 = std::move(vec_substract_mod(vec1, vec2));
 
-    l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem) { return elem * elem; }));
+    l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem1, const float& elem2) { return elem1 + elem2 * elem2; }));
 
     return l2_vec_dist;
 }
@@ -60,7 +59,7 @@ float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1, const std::
 
     vec3 = std::move(vec_substract_mod(vec1, vec2));
 
-    l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem) { return powf(elem, 3.0f); }), 1.0f / 3.0f);
+    l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem1, const float& elem2) { return elem1 + powf(elem2, 3.0f); }), 1.0f / 3.0f);
 
     return l3_vec_dist;
 }
@@ -71,7 +70,7 @@ float LMetricsFloat::l4_vec_distance(const std::vector<float>& vec1, const std::
 
     vec3 = std::move(vec_substract_mod(vec1, vec2));
 
-    l4_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem) { return powf(elem, 4.0f); }), 1.0f / 4.0f);
+    l4_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem1, const float& elem2) { return elem1 + powf(elem2, 4.0f); }), 1.0f / 4.0f);
 
     return l4_vec_dist;
 }
