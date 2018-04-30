@@ -17,9 +17,9 @@ class IntegerNumericalInterval {
     IntegerNumericalInterval(const IntegerNumericalInterval& ni);
 
 
-    bool isContainPoints(const vector<int>& points);
-    bool isHaveOverlapsRange(const IntegerNumericalInterval& ni);
-    bool isContainsRange(const IntegerNumericalInterval& ni);
+    bool isContainPoints(const vector<int>& points) const;
+    bool isHaveOverlapsRange(const IntegerNumericalInterval& ni) const;
+    bool isContainsRange(const IntegerNumericalInterval& ni) const;
 
     vector<int> getAllPoints() const;
     vector<int> getEndPoints() const;
@@ -30,7 +30,7 @@ class IntegerNumericalInterval {
 
  private:
     bool isInitializationCorrect(const int leftBorder, const int rightBorder,
-        const bool isIncludeLeft, const bool isIncludeRight);
+        const bool isIncludeLeft, const bool isIncludeRight) const;
 
  private:
     int leftBorder_;

@@ -69,7 +69,8 @@ IntegerNumericalInterval::IntegerNumericalInterval(const
     isIncludeRight_ = ni.isIncludeRight_;
 }
 
-bool IntegerNumericalInterval::isContainPoints(const vector<int>& points) {
+bool IntegerNumericalInterval::isContainPoints(const vector<int>& points)
+    const {
     vector<int> endPoints = getEndPoints();
     int begin = endPoints[0];
     int end = endPoints[1];
@@ -83,7 +84,7 @@ bool IntegerNumericalInterval::isContainPoints(const vector<int>& points) {
 }
 
 bool IntegerNumericalInterval::isHaveOverlapsRange(
-    const IntegerNumericalInterval & ni) {
+    const IntegerNumericalInterval & ni) const {
 
     vector<int> endPoints = getEndPoints();
     vector<int> endPointsNI = ni.getEndPoints();
@@ -95,7 +96,7 @@ bool IntegerNumericalInterval::isHaveOverlapsRange(
 }
 
 bool IntegerNumericalInterval::isContainsRange(
-    const IntegerNumericalInterval & ni) {
+    const IntegerNumericalInterval & ni) const {
     vector<int> endPoints = getEndPoints();
     vector<int> endPointsNI = ni.getEndPoints();
     if (endPointsNI[0] >= endPoints[0] && endPointsNI[1] <= endPoints[1])
@@ -149,7 +150,7 @@ IntegerNumericalInterval::operator std::string() {
 
 bool IntegerNumericalInterval::isInitializationCorrect(const int leftBorder,
     const int rightBorder, const bool isIncludeLeft,
-    const bool isIncludeRight) {
+    const bool isIncludeRight) const {
 
     if (rightBorder < leftBorder)
         return false;
