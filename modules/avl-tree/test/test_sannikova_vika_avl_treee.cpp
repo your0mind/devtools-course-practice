@@ -6,8 +6,8 @@
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91, 6};
-    for (int i = 0; i < 10; i++) {
+    int numbers[11] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91, 6};
+    for (int i = 0; i < 11; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
@@ -22,8 +22,8 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {6, 5, 4, 2, 0, 91, 90, 82, 42, 15, 6};
-    for (int i = 0; i < 10; i++) {
+    int numbers[11] = {6, 5, 4, 2, 0, 91, 90, 82, 42, 15, 6};
+    for (int i = 0; i < 11; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
@@ -38,8 +38,8 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Val_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {91, 90, 82, 42, 15, 6, 5, 4, 2, 0, 6};
-    for (int i = 0; i < 10; i++) {
+    int numbers[11] = {91, 90, 82, 42, 15, 6, 5, 4, 2, 0, 6};
+    for (int i = 0; i < 11; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
@@ -54,8 +54,8 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Val_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_NOT_Find_Val_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {91, 90, 82, 42, 15, 0, 2, 4, 5, 6, 6};
-    for (int i = 0; i < 10; i++) {
+    int numbers[11] = {91, 90, 82, 42, 15, 0, 2, 4, 5, 6, 6};
+    for (int i = 0; i < 11; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
@@ -70,8 +70,8 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_NOT_Find_Val_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_From_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {90, 91, 82, 42, 15, 6, 5, 4, 2, 0 , 6};
-    for (int i = 0; i < 10; i++) {
+    int numbers[11] = {90, 91, 82, 42, 15, 6, 5, 4, 2, 0 , 6};
+    for (int i = 0; i < 11; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
