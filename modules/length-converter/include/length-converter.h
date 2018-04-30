@@ -11,38 +11,38 @@ class LengthConverter {
     LengthConverter();
     ~LengthConverter();
 
-    double centimetersToMeters(double centimeters);
-    double metersToCentimeters(double meters);
+    double centimetersToMeters(const double& centimeters) const;
+    double metersToCentimeters(const double& meters) const;
 
-    double metersToKilometers(double meters);
-    double kilometersToMeters(double kilometers);
+    double metersToKilometers(const double& meters) const;
+    double kilometersToMeters(const double& kilometers) const;
 
-    double kilometersToMiles(double kilometers);
-    double milesToKilometers(double miles);
+    double kilometersToMiles(const double& kilometers) const;
+    double milesToKilometers(const double& miles) const;
 
-    double footToYards(double foot);
-    double yardsToFoot(double yards);
+    double footToYards(const double& foot) const;
+    double yardsToFoot(const double& yards) const;
 
-    double metersToFoot(double meters);
-    double footToMeters(double foot);
+    double metersToFoot(const double& meters) const;
+    double footToMeters(const double& foot) const;
 
-    double centimetersToInches(double centimeters);
-    double inchesToCentimeters(double inches);
+    double centimetersToInches(const double& centimeters) const;
+    double inchesToCentimeters(const double& inches) const;
 
-    double metersToNauticalMiles(double meters);
-    double nauiticalMilesToMeters(double nauticalMiles);
+    double metersToNauticalMiles(const double& meters) const;
+    double nauiticalMilesToMeters(const double& nauticalMiles) const;
 
-    double kilometersToAstronomicalUnits(double kilometers);
-    double astronomicalUnitsToKilometers(double astronomicalUnits);
+    double kilometersToAstronomicalUnits(const double& kilometers) const;
+    double astronomicalUnitsToKilometers(const double& astronomicalUnit) const;
 
-    double centimetersToSpans(double centimeters);
-    double spansToCentimeters(double spans);
+    double centimetersToSpans(const double& centimeters) const;
+    double spansToCentimeters(const double& spans) const;
 
-    double spansToVersts(double spans);
-    double verstsToSpans(double versts);
+    double spansToVersts(const double& spans) const;
+    double verstsToSpans(const double& versts) const;
 
  private:
-     bool isCorrect(double value);
+     bool isCorrect(const double& value) const;
 };
 
 #endif  // MODULES_LENGTH_CONVERTER_INCLUDE_LENGTH_CONVERTER_H_

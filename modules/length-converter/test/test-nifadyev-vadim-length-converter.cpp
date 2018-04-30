@@ -10,8 +10,8 @@ TEST(LengthConverter, Can_Create_Length_Converter) {
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Meters) {
     // Arrange
-    double centimeters = 1524;
-    double expectedResult = 15.24;
+    /*const */double centimeters = 1524;
+    /*const */double expectedResult = 15.24;
 
     // Act
     LengthConverter converter;

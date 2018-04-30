@@ -6,105 +6,107 @@ LengthConverter::LengthConverter() { }
 
 LengthConverter::~LengthConverter() { }
 
-double LengthConverter::centimetersToMeters(double centimeters) {
+double LengthConverter::centimetersToMeters(const double& centimeters) const {
     if (!isCorrect(centimeters)) {
         throw "Error! Invalid argument";
     }
     return centimeters / 100;
 }
 
-double LengthConverter::metersToCentimeters(double meters) {
+double LengthConverter::metersToCentimeters(const double& meters) const {
     if (!isCorrect(meters)) {
         throw "Error! Invalid argument";
     }
     return meters * 100;
 }
 
-double LengthConverter::metersToKilometers(double meters) {
+double LengthConverter::metersToKilometers(const double& meters) const {
     if (!isCorrect(meters)) {
         throw "Error! Invalid argument";
     }
     return meters / 1000;
 }
 
-double LengthConverter::kilometersToMeters(double kilometers) {
+double LengthConverter::kilometersToMeters(const double& kilometers) const {
     if (!isCorrect(kilometers)) {
         throw "Error! Invalid argument";
     }
     return kilometers * 1000;
 }
 
-double LengthConverter::kilometersToMiles(double kilometers) {
+double LengthConverter::kilometersToMiles(const double& kilometers) const {
     if (!isCorrect(kilometers)) {
         throw "Error! Invalid argument";
     }
     return kilometers / 1.609344;
 }
 
-double LengthConverter::milesToKilometers(double miles) {
+double LengthConverter::milesToKilometers(const double& miles) const {
     if (!isCorrect(miles)) {
         throw "Error! Invalid argument";
     }
     return miles * 1.609344;
 }
 
-double LengthConverter::footToYards(double foot) {
+double LengthConverter::footToYards(const double& foot) const {
     if (!isCorrect(foot)) {
         throw "Error! Invalid argument";
     }
     return foot / 3;
 }
 
-double LengthConverter::yardsToFoot(double yards) {
+double LengthConverter::yardsToFoot(const double& yards) const {
     if (!isCorrect(yards)) {
         throw "Error! Invalid argument";
     }
     return yards * 3;
 }
 
-double LengthConverter::footToMeters(double foot) {
+double LengthConverter::footToMeters(const double& foot) const {
     if (!isCorrect(foot)) {
         throw "Error! Invalid argument";
     }
     return foot / 0.3048;
 }
 
-double LengthConverter::metersToFoot(double meters) {
+double LengthConverter::metersToFoot(const double& meters) const {
     if (!isCorrect(meters)) {
         throw "Error! Invalid argument";
     }
     return meters * 0.3048;
 }
 
-double LengthConverter::centimetersToInches(double centimeters) {
+double LengthConverter::centimetersToInches(const double& centimeters) const {
     if (!isCorrect(centimeters)) {
         throw "Error! Invalid argument";
     }
     return centimeters / 2.54;
 }
 
-double LengthConverter::inchesToCentimeters(double inches) {
+double LengthConverter::inchesToCentimeters(const double& inches) const {
     if (!isCorrect(inches)) {
         throw "Error! Invalid argument";
     }
     return inches * 2.54;
 }
 
-double LengthConverter::metersToNauticalMiles(double meters) {
+double LengthConverter::metersToNauticalMiles(const double& meters) const {
     if (!isCorrect(meters)) {
         throw "Error! Invalid argument";
     }
     return meters / 1852;
 }
 
-double LengthConverter::nauiticalMilesToMeters(double nauticalMiles) {
+double LengthConverter::nauiticalMilesToMeters
+       (const double& nauticalMiles) const {
     if (!isCorrect(nauticalMiles)) {
         throw "Error! Invalid argument";
     }
     return nauticalMiles * 1852;
 }
 
-double LengthConverter::kilometersToAstronomicalUnits(double kilometers) {
+double LengthConverter::kilometersToAstronomicalUnits
+       (const double& kilometers) const {
     if (!isCorrect(kilometers)) {
         throw "Error! Invalid argument";
     }
@@ -112,42 +114,42 @@ double LengthConverter::kilometersToAstronomicalUnits(double kilometers) {
 }
 
 double LengthConverter::astronomicalUnitsToKilometers
-       (double astronomicalUnits) {
+       (const double& astronomicalUnits) const {
     if (!isCorrect(astronomicalUnits)) {
         throw "Error! Invalid argument";
     }
     return astronomicalUnits * 149597870.7;
 }
 
-double LengthConverter::centimetersToSpans(double centimeters) {
+double LengthConverter::centimetersToSpans(const double& centimeters) const {
     if (!isCorrect(centimeters)) {
         throw "Error! Invalid argument";
     }
     return centimeters / 17.78;
 }
 
-double LengthConverter::spansToCentimeters(double spans) {
+double LengthConverter::spansToCentimeters(const double& spans) const {
     if (!isCorrect(spans)) {
         throw "Error! Invalid argument";
     }
     return spans * 17.78;
 }
 
-double LengthConverter::spansToVersts(double spans) {
+double LengthConverter::spansToVersts(const double& spans) const {
     if (!isCorrect(spans)) {
         throw "Error! Invalid argument";
     }
     return spans / 6000;
 }
 
-double LengthConverter::verstsToSpans(double versts) {
+double LengthConverter::verstsToSpans(const double& versts) const {
     if (!isCorrect(versts)) {
         throw "Error! Invalid argument";
     }
     return versts * 6000;
 }
 
-bool LengthConverter::isCorrect(double value) {
+bool LengthConverter::isCorrect(const double& value) const {
     const double eps = 0.01;
 
     if ((value < 0) || (value < eps && value > -eps)) {
