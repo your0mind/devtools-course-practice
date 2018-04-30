@@ -3,7 +3,6 @@
 #include "include/complex_number.h"
 
 #include <vector>
-#include <limits>
 #include <algorithm>
 #include <numeric>
 
@@ -53,17 +52,6 @@ float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1, const std::
     l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem) { return elem * elem; }));
 
     return l2_vec_dist;
-}
-
-float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
-    float l3_vec_dist;
-    std::vector<float> vec3;
-
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
-
-    l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f, [](const float& elem) { return powf(elem, 3.0f); }), 1.0f / 3.0f);
-
-    return l3_vec_dist;
 }
 
 float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1, const std::vector<float>& vec2) {
