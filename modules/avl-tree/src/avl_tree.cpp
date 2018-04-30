@@ -74,13 +74,15 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
         r = new AVLNode(w);
         return r;
     } else {
-        if (w <= r->key) {
+        if (w < r->key) {
             r->left = insert(r->left, w);
             r = balance(r);
         } else {
             if (w > r->key) {
                 r->right = insert(r->right, w);
                 r = balance(r);
+            } else {
+                r->key++;
             }
         }
     }
