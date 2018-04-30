@@ -78,9 +78,9 @@ bool IntegerNumericalInterval::isHaveOverlapsRange(const IntegerNumericalInterva
 {
     vector<int> endPoints = getEndPoints();
     vector<int> endPointsNI = ni.getEndPoints();
-    if (endPointsNI[0] >= endPoints[0] && endPointsNI[0] <= endPoints[1] ||
-        endPointsNI[1] >= endPoints[0] && endPointsNI[1] <= endPoints[1] ||
-        endPointsNI[0] <= endPoints[0] && endPointsNI[1] >= endPoints[1])
+    if ((endPointsNI[0] >= endPoints[0] && endPointsNI[0] <= endPoints[1]) ||
+        (endPointsNI[1] >= endPoints[0] && endPointsNI[1] <= endPoints[1]) ||
+        (endPointsNI[0] <= endPoints[0] && endPointsNI[1] >= endPoints[1]))
         return true;
     return false;
 }
@@ -146,7 +146,7 @@ bool IntegerNumericalInterval::isInitializationCorrect(const int leftBorder, con
         return false;
     if (rightBorder == leftBorder && (!isIncludeLeft || !isIncludeRight))
         return false;
-    if (rightBorder - leftBorder == 1 && !isIncludeLeft && !isIncludeRight)
+    if ((rightBorder - leftBorder == 1) && !isIncludeLeft && !isIncludeRight)
         return false;
     return true;
 }
