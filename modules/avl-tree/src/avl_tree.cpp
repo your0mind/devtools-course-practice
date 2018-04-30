@@ -73,21 +73,24 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
     if (root == NULL) {
         root = new AVLNode(w);
         return root;
-    }
+        }
     if (r == NULL) {
         r = new AVLNode(w);
         return r;
-    } else
+    } else {
         if (w < r->key) {
             r->left = insert(r->left, w);
             r = balance(r);
-        } else
+        } else {
             if (w > r->key) {
                 r->right = insert(r->right, w);
                 r = balance(r);
-            } else
-		r->key++;
-   return r;
+            } else {
+                r->key++;
+            }
+        }
+    }
+    return r;
 }
 
 AVLNode* AVL::findMin(AVLNode* p) {
