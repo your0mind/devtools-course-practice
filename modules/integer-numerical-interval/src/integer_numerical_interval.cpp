@@ -1,6 +1,9 @@
+// Copyright 2018 Okunev Boris
+
 #include <algorithm>
 #include <sstream>
 #include <vector>
+#include <string>
 
 #include "include/integer_numerical_interval.h"
 
@@ -34,10 +37,12 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
     if (chF == '[')
         isIncludeLeft_ = true;
     else
+    {
         if (chF == '(')
             isIncludeLeft_ = false;
         else
             throw("Wrong interval");
+    }
 
     if (comma != ',')
         throw("Wrong interval");
@@ -45,10 +50,12 @@ IntegerNumericalInterval::IntegerNumericalInterval(const std::string &
     if (chS == ']')
         isIncludeRight_ = true;
     else
+    {
         if (chS == ')')
             isIncludeRight_ = false;
         else
             throw("Wrong interval");
+    }
 
     if (!isInitializationCorrect(leftBorder_, rightBorder_,
         isIncludeLeft_, isIncludeRight_))
@@ -77,8 +84,8 @@ bool IntegerNumericalInterval::isContainPoints(const vector<int>& points) {
     return true;
 }
 
-bool IntegerNumericalInterval::isHaveOverlapsRange(const
-    IntegerNumericalInterval & ni) {
+bool IntegerNumericalInterval::isHaveOverlapsRange(
+    const IntegerNumericalInterval & ni) {
 
     vector<int> endPoints = getEndPoints();
     vector<int> endPointsNI = ni.getEndPoints();
@@ -99,8 +106,7 @@ bool IntegerNumericalInterval::isContainsRange(
         return false;
 }
 
-vector<int> IntegerNumericalInterval::getAllPoints() const
-{
+vector<int> IntegerNumericalInterval::getAllPoints() const {
     vector<int> endPoints = getEndPoints();
     int size = endPoints[1] - endPoints[0] + 1;
     vector<int> points(size);
@@ -120,16 +126,16 @@ vector<int> IntegerNumericalInterval::getEndPoints() const {
 
 bool IntegerNumericalInterval::operator==(const
     IntegerNumericalInterval & ni)const {
-    if (leftBorder_ == ni.leftBorder_ && rightBorder_ == ni.rightBorder_ &&
-        isIncludeLeft_ == ni.isIncludeLeft_
-        && isIncludeRight_ == ni.isIncludeRight_)
+    if ((leftBorder_ == ni.leftBorder_) && (rightBorder_ == ni.rightBorder_)
+        && (isIncludeLeft_ == ni.isIncludeLeft_)
+        && (isIncludeRight_ == ni.isIncludeRight_))
         return true;
     else
         return false;
 }
 
-bool IntegerNumericalInterval::operator!=(const 
-    IntegerNumericalInterval & ni) const {
+bool IntegerNumericalInterval::operator!=(
+    const IntegerNumericalInterval & ni) const {
     return !(*this == ni);
 }
 
