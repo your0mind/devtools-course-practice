@@ -11,9 +11,9 @@ using std::vector;
 class IntegerNumericalInterval {
  public:
     IntegerNumericalInterval();
-    IntegerNumericalInterval(const int leftBorder,const int rightBorder,
-        const bool isIncludeLeft,const bool isIncludeRight);
-    IntegerNumericalInterval(const std::string& interval);
+    IntegerNumericalInterval(const int leftBorder, const int rightBorder,
+        const bool isIncludeLeft, const bool isIncludeRight);
+    explicit IntegerNumericalInterval(const std::string& interval);
     IntegerNumericalInterval(const IntegerNumericalInterval& ni);
 
 

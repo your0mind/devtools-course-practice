@@ -13,10 +13,10 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Empty_Interval) {
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Create_Interval) {
     // Assert
-    EXPECT_NO_THROW(IntegerNumericalInterval(1,5, true, true));
+    EXPECT_NO_THROW(IntegerNumericalInterval(1, 5, true, true));
 }
 
-TEST(Okunev_Boris_IntegerNumericalIntervalTest, 
+TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Create_Interval_From_String) {
     // Arrange
     std::string interval = "[11,15]";
@@ -187,7 +187,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
     Can_Get_All_Points_Open_Interval) {
     // Arrange
     IntegerNumericalInterval ni("(1,5)");
-    vector<int> allPointsR = { 2,3,4 };
+    vector<int> allPointsR = { 2, 3, 4 };
 
     // Act
     vector<int> allPoints = ni.getAllPoints();
@@ -199,7 +199,7 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest,
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Check_Points_Contain) {
     // Arrange
     IntegerNumericalInterval ni("[2,6)");
-    vector<int> points = { 2,4 };
+    vector<int> points = { 2, 4 };
 
     // Assert
     EXPECT_TRUE(ni.isContainPoints(points));
