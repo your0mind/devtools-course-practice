@@ -18,7 +18,7 @@ struct AVLNode {
 };
 
 class AVL {
-private:
+ private:
     AVLNode *root;
     int bFactor(AVLNode* p);
     unsigned char height(AVLNode* p);
@@ -26,7 +26,7 @@ private:
     AVLNode* rightRotate(AVLNode* p);
     AVLNode* leftRotate(AVLNode* q);
     AVLNode* balance(AVLNode* p);
-public:
+ public:
     AVL();
     AVLNode* getRoot();
     AVLNode* insert(AVLNode* r, int w);
@@ -36,4 +36,4 @@ public:
     AVLNode* search(AVLNode* r, int key);
 };
 
-#endif //MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
+#endif // MODULES_AVL_TREE_INCLUDE_AVL_TREE_H_
