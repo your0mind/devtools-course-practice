@@ -105,22 +105,24 @@ AVLNode* AVL::removeMin(AVLNode* p) {
 }
 
 AVLNode* AVL::remove(AVLNode* p, int k) {
-    if (!p) return 0;
-    if (k < p->key)
-    p->left = remove(p->left, k);
-    else
-        if (k > p->key)
+    if (!p)
+        return 0;
+    if (k < p->key) {
+        p->left = remove(p->left, k);
+    } else {
+        if (k > p->key) {
             p->right = remove(p->right, k);
-        else {
-            AVLNode* q = p->left;
-            AVLNode* r = p->right;
-            delete p;
-            if (!r)
-                return q;
-            AVLNode* min = findMin(r);
-            min->right = removeMin(r);
-            min->left = q;
-            return balance(min);
+            } else {
+                AVLNode* q = p->left;
+                AVLNode* r = p->right;
+                delete p;
+                if (!r)
+                    return q;
+                AVLNode* min = findMin(r);
+                min->right = removeMin(r);
+                min->left = q;
+                return balance(min);
+            }
         }
     return balance(p);
 }
