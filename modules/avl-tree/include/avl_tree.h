@@ -1,3 +1,5 @@
+// Copyright 2018 Sannikova Vika
+
 #ifndef MODULES_AVL_TREE_INCLUDE_LENGTH_CONVERTER_H_
 #define MODULES_AVL_TREE_INCLUDE_LENGTH_CONVERTER_H_
 #include <iostream>

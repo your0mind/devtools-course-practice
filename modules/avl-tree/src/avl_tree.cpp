@@ -1,3 +1,5 @@
+// Copyright 2018 Sannikova Vika
+
 #include "include/avl_tree.h"
 #include <iostream>
 

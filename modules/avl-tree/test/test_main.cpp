@@ -1,3 +1,5 @@
+// Copyright 2018 Sannikova Vika
+
 #include <gtest/gtest.h>
 
 int main(int argc, char **argv) {
