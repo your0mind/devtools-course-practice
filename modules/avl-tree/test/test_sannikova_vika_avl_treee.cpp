@@ -6,7 +6,7 @@
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 6, 4, 82, 0, 5, 42, 91, 2, 15, 90 };
+    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
@@ -22,7 +22,7 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 6, 4, 82, 0, 5, 42, 91, 2, 15, 90 };
+    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
@@ -38,7 +38,7 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Val_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 6, 4, 82, 0, 5, 42, 91, 2, 15, 90 };
+    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
@@ -54,7 +54,7 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Val_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_NOT_Find_Val_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 6, 4, 82, 0, 5, 42, 91, 2, 15, 90 };
+    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
@@ -70,7 +70,7 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_NOT_Find_Val_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_From_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 6, 4, 82, 0, 5, 42, 91, 2, 15, 90 };
+    int numbers[10] = {0, 2, 4, 5, 6, 15, 42, 82, 90, 91};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
