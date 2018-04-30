@@ -25,10 +25,11 @@ int AVL::bFactor(AVLNode* p) {
 void AVL::fixheight(AVLNode* p) {
     unsigned int hl = height(p->left);
     unsigned int hr = height(p->right);
-    if (hl > hr)
+    if (hl > hr) {
         p->height = hl + 1;
-	else
+    } else {
         p->height = hr + 1;
+    }
 }
 
 AVLNode* AVL::rightRotate(AVLNode* p) {
@@ -85,7 +86,7 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
                 r->right = insert(r->right, w);
                 r = balance(r);
             } else
-			r->key++;
+		r->key++;
    return r;
 }
 
