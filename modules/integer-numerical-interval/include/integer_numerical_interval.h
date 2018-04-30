@@ -29,7 +29,7 @@ class IntegerNumericalInterval {
     operator std::string();
 
  private:
-    bool isInitializationCorrect(const int leftBorder, const int rightBorder, 
+    bool isInitializationCorrect(const int leftBorder, const int rightBorder,
         const bool isIncludeLeft, const bool isIncludeRight);
 
  private:

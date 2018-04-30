@@ -1,6 +1,8 @@
 // Copyright 2018 Okunev Boris
 
 #include <gtest/gtest.h>
+#include <vector>
+#include <string>
 
 #include "include/integer_numerical_interval.h"
 

@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <sstream>
+#include <vector>
 
 #include "include/integer_numerical_interval.h"
 
