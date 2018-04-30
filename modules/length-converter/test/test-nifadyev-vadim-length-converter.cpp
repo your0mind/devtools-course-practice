@@ -21,6 +21,30 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Meters) {
                      expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Centimeters_To_Meters) {
+    // Arrange
+    double centimeters = -1524;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToMeters(centimeters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Centimeters_To_Meters) {
+    // Arrange
+    double centimeters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToMeters(centimeters));
+}
+
 TEST(LengthConverter, Can_Convert_Meters_To_Centimeters) {
     // Arrange
     double meters = 21.56;
@@ -33,18 +57,20 @@ TEST(LengthConverter, Can_Convert_Meters_To_Centimeters) {
     EXPECT_DOUBLE_EQ(converter.metersToCentimeters(meters), expectedResult);
 }
 
-TEST(LengthConverter, Throw_When_Trying_To_Convert_Negative_Measure_Unit) {
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Centimeters) {
     // Arrange
-    double centimeters = -1524;
+    double meters = -24141;
 
     // Act
     LengthConverter converter;
 
     // Assert
-    ASSERT_ANY_THROW(converter.centimetersToMeters(centimeters));
+    ASSERT_ANY_THROW(converter.metersToCentimeters(meters));
 }
 
-TEST(LengthConverter, Throw_When_Trying_To_Convert_Zero_Measure_Unit) {
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Centimeters) {
     // Arrange
     double meters = 0;
 
@@ -67,6 +93,30 @@ TEST(LengthConverter, Can_Convert_Meters_To_Kilometers) {
     EXPECT_DOUBLE_EQ(converter.metersToKilometers(meters), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Kilometers) {
+    // Arrange
+    double meters = -9003;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToKilometers(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Kilometers) {
+    // Arrange
+    double meters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToKilometers(meters));
+}
+
 TEST(LengthConverter, Can_Convert_Kilometers_To_Meters) {
     // Arrange
     double kilometers = 0.48122;
@@ -77,6 +127,30 @@ TEST(LengthConverter, Can_Convert_Kilometers_To_Meters) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.kilometersToMeters(kilometers), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Kilometers_To_Meters) {
+    // Arrange
+    double kilometers = -3;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToMeters(kilometers));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Kilometers_To_Meters) {
+    // Arrange
+    double kilometers = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToMeters(kilometers));
 }
 
 TEST(LengthConverter, Can_Convert_Kilometers_To_Miles) {
@@ -91,6 +165,30 @@ TEST(LengthConverter, Can_Convert_Kilometers_To_Miles) {
     EXPECT_DOUBLE_EQ(converter.kilometersToMiles(kilometers), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Kilometers_To_Miles) {
+    // Arrange
+    double kilometers = -12;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToMiles(kilometers));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Kilometers_To_Miles) {
+    // Arrange
+    double kilometers = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToMiles(kilometers));
+}
+
 TEST(LengthConverter, Can_Convert_Miles_To_Kilometers) {
     // Arrange
     double miles = 190.12;
@@ -101,6 +199,30 @@ TEST(LengthConverter, Can_Convert_Miles_To_Kilometers) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.milesToKilometers(miles), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Miles_To_Kilometers) {
+    // Arrange
+    double miles = -6753;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.milesToKilometers(miles));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Miles_To_Kilometers) {
+    // Arrange
+    double miles = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.milesToKilometers(miles));
 }
 
 TEST(LengthConverter, Can_Convert_Foot_To_Yards) {
@@ -115,6 +237,30 @@ TEST(LengthConverter, Can_Convert_Foot_To_Yards) {
     EXPECT_DOUBLE_EQ(converter.footToYards(foot), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Foot_To_Yards) {
+    // Arrange
+    double foot = -31;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.footToYards(foot));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Foot_To_Yards) {
+    // Arrange
+    double foot = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.footToYards(foot));
+}
+
 TEST(LengthConverter, Can_Convert_Yards_To_Foot) {
     // Arrange
     double yards = 34.99124;
@@ -125,6 +271,30 @@ TEST(LengthConverter, Can_Convert_Yards_To_Foot) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.yardsToFoot(yards), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Yards_To_Foot) {
+    // Arrange
+    double yards = -3330123.04124;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.yardsToFoot(yards));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Yards_To_Foot) {
+    // Arrange
+    double yards = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.yardsToFoot(yards));
 }
 
 TEST(LengthConverter, Can_Convert_Foot_To_Meters) {
@@ -139,6 +309,30 @@ TEST(LengthConverter, Can_Convert_Foot_To_Meters) {
     EXPECT_DOUBLE_EQ(converter.footToMeters(foot), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Foot_To_Meters) {
+    // Arrange
+    double foot = -1.9914;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.footToMeters(foot));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Foot_To_Meters) {
+    // Arrange
+    double foot = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.footToMeters(foot));
+}
+
 TEST(LengthConverter, Can_Convert_Meters_To_Foot) {
     // Arrange
     double meters = 12.333167;
@@ -149,6 +343,30 @@ TEST(LengthConverter, Can_Convert_Meters_To_Foot) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.metersToFoot(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Foot) {
+    // Arrange
+    double meters = -99.003;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToFoot(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Foot) {
+    // Arrange
+    double meters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToFoot(meters));
 }
 
 TEST(LengthConverter, Can_Convert_Centimeters_To_Inches) {
@@ -164,6 +382,30 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Inches) {
                      expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Centimeters_To_Inches) {
+    // Arrange
+    double centimeters = -408.2146;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToInches(centimeters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Centimeters_To_Inches) {
+    // Arrange
+    double centimeters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToInches(centimeters));
+}
+
 TEST(LengthConverter, Can_Convert_Inches_To_Centimeters) {
     // Arrange
     double inches = 674.53;
@@ -176,6 +418,30 @@ TEST(LengthConverter, Can_Convert_Inches_To_Centimeters) {
     EXPECT_DOUBLE_EQ(converter.inchesToCentimeters(inches), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Inches_To_Centimeters) {
+    // Arrange
+    double inches = -1.77904124;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.inchesToCentimeters(inches));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Inches_To_Centimeters) {
+    // Arrange
+    double inches = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.inchesToCentimeters(inches));
+}
+
 TEST(LengthConverter, Can_Convert_Meters_To_Nautical_Miles) {
     // Arrange
     double meters = 32875.1211;
@@ -186,6 +452,30 @@ TEST(LengthConverter, Can_Convert_Meters_To_Nautical_Miles) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.metersToNauticalMiles(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Try_To_Convert_Negative_Value_From_Meters_To_Nautical_Miles) {
+    // Arrange
+    double meters = -789.135;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToNauticalMiles(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Nautical_Miles) {
+    // Arrange
+    double meters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.metersToNauticalMiles(meters));
 }
 
 TEST(LengthConverter, Can_Convert_Nautical_Miles_To_Meters) {
@@ -201,6 +491,30 @@ TEST(LengthConverter, Can_Convert_Nautical_Miles_To_Meters) {
                      expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Try_To_Convert_Negative_Value_From_Nautical_Miles_To_Meters) {
+    // Arrange
+    double nauticalMiles = -202;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.nauiticalMilesToMeters(nauticalMiles));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Nautical_Miles_To_Meters) {
+    // Arrange
+    double nauticalMiles = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.nauiticalMilesToMeters(nauticalMiles));
+}
+
 TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
     // Arrange
     double kilometers = 8754875672001;
@@ -212,6 +526,30 @@ TEST(LengthConverter, Can_Convert_Kilometers_To_Astronomical_Units) {
     // Assert
     EXPECT_DOUBLE_EQ(converter.kilometersToAstronomicalUnits(kilometers),
                      expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Convert_Negative_Value_From_Kilometers_To_Astronomical_Units) {
+    // Arrange
+    double kilometers = -5.2441;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToAstronomicalUnits(kilometers));
+}
+
+TEST(LengthConverter,
+    Throw_When_Convert_Zero_Value_From_Kilometers_To_Astronomical_Units) {
+    // Arrange
+    double kilometers = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.kilometersToAstronomicalUnits(kilometers));
 }
 
 TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
@@ -227,6 +565,30 @@ TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Kilometers) {
                      , expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Convert_Negative_Value_From_Astronomical_Units_To_Kilometers) {
+    // Arrange
+    double astroUnits = -1.0012441;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.astronomicalUnitsToKilometers(astroUnits));
+}
+
+TEST(LengthConverter,
+    Throw_When_Convert_Zero_Value_From_Astronomical_Units_To_Kilometers) {
+    // Arrange
+    double astroUnits = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.astronomicalUnitsToKilometers(astroUnits));
+}
+
 TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
     // Arrange
     double centimeters = 5901.9;
@@ -238,6 +600,30 @@ TEST(LengthConverter, Can_Convert_Centimeters_To_Spans) {
     // Assert
     EXPECT_DOUBLE_EQ(converter.centimetersToSpans(centimeters),
                      expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Centimeters_To_Spans) {
+    // Arrange
+    double centimeters = -76585.12125;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToSpans(centimeters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Centimeters_To_Spans) {
+    // Arrange
+    double centimeters = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.centimetersToSpans(centimeters));
 }
 
 TEST(LengthConverter, Can_Convert_Spans_To_Centimeters) {
@@ -252,6 +638,30 @@ TEST(LengthConverter, Can_Convert_Spans_To_Centimeters) {
     EXPECT_DOUBLE_EQ(converter.spansToCentimeters(spans), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Spans_To_Centimeters) {
+    // Arrange
+    double spans = -9805235.124;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.spansToCentimeters(spans));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Spans_To_Centimeters) {
+    // Arrange
+    double spans = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.spansToCentimeters(spans));
+}
+
 TEST(LengthConverter, Can_Convert_Spans_To_Versts) {
     // Arrange
     double spans = 38001.7125;
@@ -264,6 +674,30 @@ TEST(LengthConverter, Can_Convert_Spans_To_Versts) {
     EXPECT_DOUBLE_EQ(converter.spansToVersts(spans), expectedResult);
 }
 
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Spans_To_Versts) {
+    // Arrange
+    double spans = -64.1;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.spansToVersts(spans));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Spans_To_Versts) {
+    // Arrange
+    double spans = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.spansToVersts(spans));
+}
+
 TEST(LengthConverter, Can_Convert_Versts_To_Spans) {
     // Arrange
     double versts = 14.077;
@@ -274,4 +708,28 @@ TEST(LengthConverter, Can_Convert_Versts_To_Spans) {
 
     // Assert
     EXPECT_DOUBLE_EQ(converter.verstsToSpans(versts), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Versts_To_Spans) {
+    // Arrange
+    double versts = -879873.12;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.verstsToSpans(versts));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Versts_To_Spans) {
+    // Arrange
+    double versts = 0;
+
+    // Act
+    LengthConverter converter;
+
+    // Assert
+    ASSERT_ANY_THROW(converter.verstsToSpans(versts));
 }

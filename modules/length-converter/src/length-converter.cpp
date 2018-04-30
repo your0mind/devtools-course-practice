@@ -149,11 +149,9 @@ double LengthConverter::verstsToSpans(double versts) {
 
 bool LengthConverter::isCorrect(double value) {
     const double eps = 0.01;
-    if (value < eps && value > -eps) {
-        throw "Error! Measure unit cannot be 0";
-    }
-    if (value < 0) {
-        throw "Error! Measure unit must be positive";
+
+    if (value < 0 || value < eps && value > -eps) {
+        return false;
     }
     return true;
 }
