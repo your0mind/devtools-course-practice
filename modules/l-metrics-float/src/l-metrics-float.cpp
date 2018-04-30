@@ -55,7 +55,7 @@ float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1,
 
     l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
-            return elem1 + elem2 * elem2; 
+            return elem1 + elem2 * elem2;
         }));
 
     return l2_vec_dist;
@@ -70,7 +70,7 @@ float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1,
 
     l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
-            return elem1 + powf(elem2, 3.0f); 
+            return elem1 + powf(elem2, 3.0f);
         }), 1.0f / 3.0f);
 
     return l3_vec_dist;
@@ -85,7 +85,7 @@ float LMetricsFloat::l4_vec_distance(const std::vector<float>& vec1,
 
     l4_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
-            return elem1 + powf(elem2, 4.0f); 
+            return elem1 + powf(elem2, 4.0f);
             }), 1.0f / 4.0f);
 
     return l4_vec_dist;
