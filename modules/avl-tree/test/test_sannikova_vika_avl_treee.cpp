@@ -6,7 +6,7 @@
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = {0, 2, 4, 5, 6, 91, 90, 82, 42, 15};
+    int numbers[10] = {2, 0, 4, 5, 6, 91, 90, 82, 42, 15};
     for (int i = 0; i < 10; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
