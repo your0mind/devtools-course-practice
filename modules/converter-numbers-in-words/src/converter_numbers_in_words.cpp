@@ -229,8 +229,5 @@ std::string ConverterNumbersInWords::GetWorldForElementaryNumber(int number) {
   case 900:
     return "nine hundred";
     break;
-  default:
-    return "";
-    break;
   }
 }
