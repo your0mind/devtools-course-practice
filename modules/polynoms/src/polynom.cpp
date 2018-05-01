@@ -1,13 +1,15 @@
 // Copyright 2018 Galochkin Boris
+
 #include <string>
 #include <sstream>
-#include <algorithm>
 #include <cmath>
-#include <vector>
-#include "include/polynom.h"
-#include "include/monom.h"
 
-Polynom::Polynom() {
+#include "include/monom.h"
+#include "include/polynom.h"
+
+using std::stringstream;
+
+Polynom::Polynom() : m_monoms() {
 }
 
 Polynom::Polynom(double coff) {
@@ -17,8 +19,8 @@ Polynom::Polynom(double coff) {
 Polynom::Polynom(const Polynom & rhs) : m_monoms(rhs.m_monoms) {
 }
 
-Polynom::Polynom(const std::string & str_poly) {
-    std::string s;
+Polynom::Polynom(const string & str_poly) {
+    string s;
     for (size_t i = 0; i < str_poly.size(); ++i) {
         s += str_poly[i];
         if (str_poly[i] == '+' || str_poly[i] == '-' || str_poly[i] == '*') {
@@ -27,8 +29,8 @@ Polynom::Polynom(const std::string & str_poly) {
     }
 
     if (s.empty()) return;
-    std::stringstream ss(s);
-    std::string temp;
+    stringstream ss(s);
+    string temp;
     while (!ss.eof()) {
         ss >> temp;
         Monom t(temp);
@@ -42,8 +44,8 @@ Polynom & Polynom::operator=(const Polynom & z) {
     return *this;
 }
 
-std::string Polynom::toString() {
-    std::stringstream ss;
+string Polynom::toString() {
+    stringstream ss;
     for (size_t i = 0; i < m_monoms.size() - 1; ++i)
         ss << "(" << m_monoms[i].toString() << ") + ";
     if (m_monoms.size() > 0)
@@ -122,7 +124,7 @@ Polynom Polynom::operator/(const Monom & m) {
     return tmp;
 }
 
-int Polynom::contains(const std::vector<Monom>& vec, const Monom & m) const {
+int Polynom::contains(const monom_vec& vec, const Monom & m) const {
     for (size_t i = 0; i < vec.size(); i++)
         if (vec[i].m_variabels == m.m_variabels) return i;
     return -1;

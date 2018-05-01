@@ -4,42 +4,43 @@
 #define MODULES_POLYNOMS_INCLUDE_MONOM_H_
 
 #include <string>
-#include <sstream>
 #include <map>
-#include <algorithm>
-#include <vector>
-#include <set>
-using POW_TYPE = double;
-using VAR_NAME = char;
+using std::string;
+using std::map;
 
 class Monom {
+    using POW_TYPE = double;
+    using VAR_NAME = char;
+    using var_map = map<VAR_NAME, POW_TYPE>;
+
  public:
-    explicit Monom(double c = 1.0);
+    Monom();
+    explicit Monom(double c);
+
     Monom(const Monom& rhs);
-    explicit Monom(const std::string& str_monom);
+    explicit Monom(const string& str_monom);
 
     Monom& operator=(const Monom& z);
 
-    std::string toString();
+    string toString();
 
     bool operator==(const Monom& rhs) const;
     bool operator!=(const Monom& rhs) const;
 
+ private:
+    // That is unsafe methods, can be called only from Polynom
     Monom operator+(const Monom& rhs);
     Monom operator-(const Monom& rhs);
     Monom operator*(const Monom& rhs);
     Monom operator/(const Monom& rhs);
 
- private:
-    std::string str_emplace_spaces(const std::string& s);
-    void str_parse_symbols(const std::string& s);
+    string str_emplace_spaces(const string& s);
+    void str_parse_symbols(const string& s);
     bool equals_variabels(const Monom& r) const;
 
  private:
-    std::map<VAR_NAME, POW_TYPE> m_variabels;
+    var_map m_variabels;
     double m_coff;
-
-    std::set<char> ok_symbols = { '^', '.', ',', '+', '-' };
 
     friend class Polynom;
 };

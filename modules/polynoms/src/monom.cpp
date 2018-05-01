@@ -1,12 +1,17 @@
 // Copyright 2018 Galochkin Boris
-#include <string>
+
 #include <sstream>
-#include <map>
-#include <algorithm>
-#include <vector>
 #include <set>
 #include <cmath>
+#include <string>
+
 #include "include/monom.h"
+
+using std::set;
+using std::stringstream;
+
+Monom::Monom() : m_coff(1.0) {
+}
 
 Monom::Monom(double c) : m_coff(c) {
 }
@@ -16,9 +21,10 @@ Monom::Monom(const Monom & rhs) :
     m_coff(rhs.m_coff) {
 }
 
-Monom::Monom(const std::string & str_monom) {
+Monom::Monom(const string & str_monom) {
+    static set<char> ok_symbols = { '^', '.', ',', '+', '-' };
     m_coff = 1.0;
-    std::string s;
+    string s;
     for (auto&c : str_monom) {
         if (!(isspace(c) || !(isalpha(c) || isdigit(c) || ok_symbols.count(c))))
             s += c;
@@ -33,8 +39,8 @@ Monom & Monom::operator=(const Monom & z) {
     return *this;
 }
 
-std::string Monom::toString() {
-    std::stringstream ss;
+string Monom::toString() {
+    stringstream ss;
     ss << m_coff;
     for (auto& v : m_variabels) {
         if (v.second != 0.0) {
@@ -87,7 +93,7 @@ Monom Monom::operator*(const Monom & rhs) {
 
 Monom Monom::operator/(const Monom & rhs) {
     if (rhs.m_coff == 0.0)
-        throw std::string("Can't divide by zero");
+        throw string("Can't divide by zero");
     Monom ret(*this);
     ret.m_coff /= rhs.m_coff;
     for (auto& var : rhs.m_variabels) {
@@ -107,7 +113,7 @@ Monom Monom::operator/(const Monom & rhs) {
     return ret;
 }
 
-std::string Monom::str_emplace_spaces(const std::string& s_in) {
+string Monom::str_emplace_spaces(const string& s_in) {
     if (s_in.empty()) return "";
     auto s(s_in);
     for (size_t i = 0; i < s.size(); ++i) {
@@ -125,10 +131,10 @@ std::string Monom::str_emplace_spaces(const std::string& s_in) {
     return s;
 }
 
-void Monom::str_parse_symbols(const std::string & s) {
+void Monom::str_parse_symbols(const string & s) {
     if (s.empty()) return;
-    std::stringstream ss(s);
-    std::string temp;
+    stringstream ss(s);
+    string temp;
     double found = 0.0;
     char symbol;
     char last_found_symbol;
@@ -136,7 +142,7 @@ void Monom::str_parse_symbols(const std::string & s) {
     bool istrash = true;
     while (!ss.eof()) {
         ss >> temp;
-        if (std::stringstream(temp) >> found) {
+        if (stringstream(temp) >> found) {
             if (!its_pow) {
                 m_coff *= found;
             } else {
@@ -144,7 +150,7 @@ void Monom::str_parse_symbols(const std::string & s) {
             }
             its_pow = false;
             istrash = false;
-        } else if (std::stringstream(temp) >> symbol) {
+        } else if (stringstream(temp) >> symbol) {
             its_pow = (symbol == '^');
             if (isalpha(symbol)) {
                 m_variabels[symbol]++;

@@ -4,6 +4,7 @@
 
 #include <string>
 
+#include "include/monom.h"
 #include "include/polynom.h"
 
 class PolynomTest : public ::testing::Test {};
