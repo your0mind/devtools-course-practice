@@ -184,13 +184,13 @@ TEST_F(ConverterNumbersInWordsTest,
 TEST_F(ConverterNumbersInWordsTest, Can_Convert_Number_From_20_to_99) {
   // Arrange
   ConverterNumbersInWords converter;
-  converter.SetNumber(45.0);
+  converter.SetNumber(49.0);
 
   // Act
   std::string result = converter.ConvertToWords();
 
   // Assert
-  EXPECT_EQ("forty five", result);
+  EXPECT_EQ("forty nine", result);
 }
 
 TEST_F(ConverterNumbersInWordsTest,
@@ -233,13 +233,13 @@ TEST_F(ConverterNumbersInWordsTest, Can_Convert_Number_From_1000_to_9999) {
 TEST_F(ConverterNumbersInWordsTest, Can_Convert_Thousand_To_Word) {
   // Arrange
   ConverterNumbersInWords converter;
-  converter.SetNumber(5000.0);
+  converter.SetNumber(7000.0);
 
   // Act
   std::string result = converter.ConvertToWords();
 
   // Assert
-  EXPECT_EQ("five thousand", result);
+  EXPECT_EQ("seven thousand", result);
 }
 
 TEST_F(ConverterNumbersInWordsTest, Can_Convert_Million_To_Word) {
@@ -257,13 +257,13 @@ TEST_F(ConverterNumbersInWordsTest, Can_Convert_Million_To_Word) {
 TEST_F(ConverterNumbersInWordsTest, Can_Convert_Number_From_9999_to_99999) {
   // Arrange
   ConverterNumbersInWords converter;
-  converter.SetNumber(76790.0);
+  converter.SetNumber(73790.0);
 
   // Act
   std::string result = converter.ConvertToWords();
 
   // Assert
-  EXPECT_EQ("seventy six thousand seven hundred and ninety", result);
+  EXPECT_EQ("seventy three thousand seven hundred and ninety", result);
 }
 
 TEST_F(ConverterNumbersInWordsTest, Can_Convert_Number_From_99999_to_999999) {
