@@ -4,19 +4,19 @@
 #define DIGITS_CLASS_INCLUDE_H_
 
 #include <iostream>
+
 #include <string>
 
-class Digits
-{
- private:
-	std::string** digits;
+class Digits {
  public:
-	Digits();
-	~Digits();
-	void InitDigits();
-	std::string getLineOfNumeral(int line, int numeral);
-	std::string getLineOfNumber(int line, int* arr);
-	int* getNumberIntoArray(int n);
+    Digits();
+    ~Digits();
+    void InitDigits();
+    std::string getLineOfNumeral(int line, int numeral);
+    std::string getLineOfNumber(int line, int* arr);
+    int* getNumberIntoArray(int n);
+ private:
+    std::string** digits;
 };
 
-#endif // !DIGITS_CLASS_INCLUDE_H_
+#endif // DIGITS_CLASS_INCLUDE_H_
