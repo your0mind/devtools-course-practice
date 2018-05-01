@@ -5,6 +5,10 @@
 #include <vector>
 #include "include/l-metrics-float.h"
 
+namespace MyEpsilon {
+    float eps = 0.001f;
+}  // namespace MyEpsilon
+
 TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
     // Arrange
     std::vector<float> vec1 = { 2.4f, -7.8f, -1.3f };
@@ -15,7 +19,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
 
     // Assert
     float expected_res = 11.6f;
-    EXPECT_EQ(expected_res, res);
+    EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
 TEST(Gribov_Pavel_LMetricsFloatTest, L1_Dist_IsCorrect) {
@@ -28,7 +32,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L1_Dist_IsCorrect) {
 
     // Assert
     float expected_res = 19.0f;
-    EXPECT_EQ(expected_res, res);
+    EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
 TEST(Gribov_Pavel_LMetricsFloatTest, L2_Dist_IsCorrect) {
@@ -41,7 +45,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_Dist_IsCorrect) {
 
     // Assert
     float expected_res = 5.0f;
-    EXPECT_EQ(expected_res, res);
+    EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
 TEST(Gribov_Pavel_LMetricsFloatTest, L3_Dist_IsCorrect) {
@@ -53,9 +57,8 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L3_Dist_IsCorrect) {
     float res = LMetricsFloat::l3_vec_distance(vec1, vec2);
 
     // Assert
-    float eps = 0.001f;
     float expected_res = 3.3f;
-    EXPECT_NEAR(expected_res, res, eps);
+    EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
 
 TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
@@ -67,7 +70,6 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
     float res = LMetricsFloat::l4_vec_distance(vec1, vec2);
 
     // Assert
-    float eps = 0.001f;
     float expected_res = 10.156f;
-    EXPECT_NEAR(expected_res, res, eps);
+    EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
