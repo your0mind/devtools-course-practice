@@ -86,7 +86,7 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
                 r->right = insert(r->right, w);
                 r = balance(r);
             } else {
-                r->key++;
+                //r->key++;
             }
         }
     }
