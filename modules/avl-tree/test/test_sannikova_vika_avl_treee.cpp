@@ -70,14 +70,14 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_NOT_Find_Val_In_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_From_AVL_Tree) {
     // Arrange
     AVL avltree;
-    int numbers[10] = { 0, 2, 4, 5, 6, 15, 42, 82, 90, 91 };
-    for (int i = 0; i < 11; i++) {
+    int numbers[11] = { 0, 2, 4, 5, 6, 15, 82, 90, 91, 3 };
+    for (int i = 0; i < 12; i++) {
         avltree.insert(avltree.getRoot(), numbers[i]);
     }
 
     // Act
-    avltree.remove(avltree.getRoot(), 15);
-    AVLNode* res = avltree.search(avltree.getRoot(), 15);
+    avltree.remove(avltree.getRoot(), 4);
+    AVLNode* res = avltree.search(avltree.getRoot(), 4);
 
     // Assert
     AVLNode* exp_res = NULL;
