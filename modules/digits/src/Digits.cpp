@@ -44,7 +44,7 @@ std::string Digits::getLineOfNumber(int line, int* arr) {
 
 int * Digits::getNumberIntoArray(int n) {
     int* numerals = new int[100];
-    int temp = n, i = 0, j = 0;
+    int temp = n, i = 0;
 
     for (i = 0; i < 100; i++)
         numerals[0] = 0;

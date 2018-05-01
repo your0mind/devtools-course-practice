@@ -10,7 +10,7 @@ TEST(Kozorez_Alex_DigitsTest, canInitDigitClass) {
     // Act
 
     // Assert
-    ASSERT_NO_THROW(Digits Init());
+    ASSERT_NO_THROW(Digits Init);
 }
 
 TEST(Kozorez_Alex_DigitsTest, canGetNumberIntoArray) {
