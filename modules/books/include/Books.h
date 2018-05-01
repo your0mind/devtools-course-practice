@@ -1,12 +1,11 @@
 // Copyright 2018 Bolshakov Konstantin
 
-#ifndef BOOKS_CLASS_INCLUDE_H_
-#define BOOKS_CLASS_INCLUDE_H_
+#ifndef MODULES_BOOKS_INCLUDE_BOOKS_H_
+#define MODULES_BOOKS_INCLUDE_BOOKS_H_
 
 #include <iostream>
 
-class Books
-{
+class Books {
  public:
   Books(int n, int* arr);
   ~Books();
@@ -17,7 +16,6 @@ class Books
  private:
   int* arr;
   int n;
-  double pay;
 };
 
-#endif // !BOOKS_CLASS_INCLUDE_H_
+#endif  // !MODULES_BOOKS_INCLUDE_BOOKS_H_
