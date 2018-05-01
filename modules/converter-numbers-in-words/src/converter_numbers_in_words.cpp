@@ -24,27 +24,28 @@ std::string ConverterNumbersInWords::ConvertToWords() {
   int million = GetMillion(number_);
 
   std::string result = "";
-
-  if (number_ == 0) {
-    result = "zero";
-  } else if (number <= 999999999.0) {
-    if (million != 0) {
-      result = GetWordsForNumberFrom_1_To_999(million) + " million";
-      number_ = number_ % 1000000;
-      if (number_ != 0)
-        result += " ";
-    }
-    if (thousand != 0) {
-      result += GetWordsForNumberFrom_1_To_999(thousand) + " thousand";
-      number_ = number_ % 1000;
-      if (number_ != 0)
-        result += " ";
-    }
-    if (hundred != 0) {
-      result += GetWordsForNumberFrom_1_To_999(hundred);
-    }
+  if (number < 0) {
+    result = GetWorldForElementaryNumber(0);
   } else {
-    return "number is too large for our converter";
+    if (number_ == 0) {
+      result = "zero";
+    } else if (number <= 999999999.0) {
+      if (million != 0) {
+        result = GetWordsForNumberFrom_1_To_999(million) + " million";
+        number_ = number_ % 1000000;
+        if (number_ != 0)
+          result += " ";
+      } if (thousand != 0) {
+        result += GetWordsForNumberFrom_1_To_999(thousand) + " thousand";
+        number_ = number_ % 1000;
+        if (number_ != 0)
+          result += " ";
+      } if (hundred != 0) {
+        result += GetWordsForNumberFrom_1_To_999(hundred);
+      }
+    } else {
+      return "number is too large for our converter";
+    }
   }
   return result;
 }
@@ -230,7 +231,7 @@ std::string ConverterNumbersInWords::GetWorldForElementaryNumber(int number) {
     return "nine hundred";
     break;
   default:
-    return "";
+    return "number must be pozitive";
     break;
   }
 }

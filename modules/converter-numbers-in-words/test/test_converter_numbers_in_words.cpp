@@ -317,3 +317,14 @@ TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Large_Number) {
   EXPECT_EQ("number is too large for our converter", result);
 }
 
+TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Negative_Number) {
+  // Arrange
+  ConverterNumbersInWords converter;
+  converter.SetNumber(-1332.0);
+
+  // Act
+  std::string result = converter.ConvertToWords();
+
+  // Assert
+  EXPECT_EQ("number must be pozitive", result);
+}
