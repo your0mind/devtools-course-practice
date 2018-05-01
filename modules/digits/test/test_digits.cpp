@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/Digits.h"
-
 #include <string>
+
+#include "include/Digits.h"
 
 TEST(Kozorez_Alex_DigitsTest, canInitDigitClass) {
     // Arrange
@@ -49,7 +49,10 @@ TEST(Kozorez_Alex_DigitsTest, DigitNumberIsEqualToHis) {
 TEST(Kozorez_Alex_DigitsTest, DigitFirstLineStringIsEqualToThis) {
     // Arrange
     Digits Init;
-    std::string first_line[10] = { "._.", "...", "._.", "._.", "...", "._.", "._.", "._.", "._.", "._." };
+    std::string first_line[10] = { "._.", "...", 
+    "._.", "._.", "...", "._.", "._.",
+    "._.", "._.", "._." };
+    
     int arr[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     // Act
