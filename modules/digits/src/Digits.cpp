@@ -1,6 +1,6 @@
 // Copyright 2018 Kozorez Alexandr
 
-#include "Digits.h"
+#include "/include/Digits.h"
 
 void Digits::InitDigits()
 {

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "Digits.h"
+#include "/include/Digits.h"
 
 TEST(Kozorez_Alex_DigitsTest, canInitDigit)
 {
