@@ -121,9 +121,6 @@ ConverterNumbersInWords::GetWordsForNumberFrom_1_To_999(int number) {
 
 std::string ConverterNumbersInWords::GetWorldForElementaryNumber(int number) {
   switch (number)  {
-  case 0:
-    return "zero";
-    break;
   case 1:
     return "one";
     break;
