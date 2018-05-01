@@ -4,7 +4,7 @@
 
 #include "include/Digits.h"
 
-TEST(Kozorez_Alex_DigitsTest, canInitDigit) {
+TEST(Kozorez_Alex_DigitsTest, canInitDigitClass) {
     // Arrange
 
     // Act
