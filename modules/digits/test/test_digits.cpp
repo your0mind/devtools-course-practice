@@ -4,8 +4,7 @@
 
 #include "include/Digits.h"
 
-TEST(Kozorez_Alex_DigitsTest, canInitDigit)
-{
+TEST(Kozorez_Alex_DigitsTest, canInitDigit) {
     // Arrange
 
     // Act
@@ -14,8 +13,7 @@ TEST(Kozorez_Alex_DigitsTest, canInitDigit)
     ASSERT_NO_THROW(Digits Init());
 }
 
-TEST(Kozorez_Alex_DigitsTest, canGetNumberIntoArray)
-{
+TEST(Kozorez_Alex_DigitsTest, canGetNumberIntoArray) {
     // Arrange
     Digits Init;
     int n = 910;
@@ -29,8 +27,7 @@ TEST(Kozorez_Alex_DigitsTest, canGetNumberIntoArray)
         EXPECT_TRUE(mas[i] == arr[i]);
 }
 
-TEST(Kozorez_Alex_DigitsTest, DigitNumberIsEqualToHis)
-{
+TEST(Kozorez_Alex_DigitsTest, DigitNumberIsEqualToHis) {
     // Arrange
     Digits Init;
     std::string line[3];
@@ -47,8 +44,7 @@ TEST(Kozorez_Alex_DigitsTest, DigitNumberIsEqualToHis)
         EXPECT_EQ(Init.getLineOfNumber(i, arr), line[i]);
 }
 
-TEST(Kozorez_Alex_DigitsTest, DigitFirstLineStringIsEqualToThis)
-{
+TEST(Kozorez_Alex_DigitsTest, DigitFirstLineStringIsEqualToThis) {
     // Arrange
     Digits Init;
     std::string first_line[10] = { "._.", "...", "._.", "._.", "...", "._.", "._.", "._.", "._.", "._." };

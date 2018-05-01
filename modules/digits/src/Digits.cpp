@@ -2,8 +2,7 @@
 
 #include "include/Digits.h"
 
-void Digits::InitDigits()
-{
+void Digits::InitDigits() {
     this->digits = new std::string*[3];
     for (int i = 0; i < 3; i++)
         this->digits[i] = new std::string[10];
@@ -19,24 +18,20 @@ void Digits::InitDigits()
             this->digits[i][j] = digits[i][j];
 }
 
-Digits::Digits()
-{
+Digits::Digits() {
     InitDigits();
 }
 
-Digits::~Digits()
-{
+Digits::~Digits() {
     for (int i = 0; i < 3; i++)
         delete[] digits[i];
     delete digits;
 }
-std::string Digits::getLineOfNumeral(int line, int numeral)
-{
+std::string Digits::getLineOfNumeral(int line, int numeral) {
     return this->digits[line][numeral];
 }
 
-std::string Digits::getLineOfNumber(int line, int* arr)
-{
+std::string Digits::getLineOfNumber(int line, int* arr) {
     int size = arr[0];
     std::string LineOfNumber = "";
 
@@ -47,8 +42,7 @@ std::string Digits::getLineOfNumber(int line, int* arr)
     return LineOfNumber;
 }
 
-int * Digits::getNumberIntoArray(int n)
-{
+int * Digits::getNumberIntoArray(int n) {
     int* numerals = new int[100];
     int temp = n, i = 0, j = 0;
 

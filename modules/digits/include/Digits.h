@@ -1,7 +1,7 @@
 // Copyright 2018 Kozorez Alexandr
 
-#ifndef DIGITS_CLASS_INCLUDE_H_
-#define DIGITS_CLASS_INCLUDE_H_
+#ifndef MODULES_DIGITS_INCLUDE_DIGITS_H_
+#define MODULES_DIGITS_INCLUDE_DIGITS_H_
 
 #include <iostream>
 
@@ -19,4 +19,4 @@ class Digits {
     std::string** digits;
 };
 
-#endif // DIGITS_CLASS_INCLUDE_H_
+#endif  // MODULES_DIGITS_INCLUDE_DIGITS_H_
