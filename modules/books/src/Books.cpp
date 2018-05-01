@@ -2,20 +2,17 @@
 
 #include "include/Books.h"
 
-Books::Books(int n, int* arr)
-{
+Books::Books(int n, int* arr) {
     this->arr = new int[this->n = n];
     for (int i = 0; i < n; i++)
         this->arr[i] = arr[i];
 }
 
-Books::~Books()
-{
+Books::~Books() {
     delete arr;
 }
 
-double Books::calculatePayForCurrentCollection(int * arr, int collection)
-{
+double Books::calculatePayForCurrentCollection(int * arr, int collection) {
     double sum = 0.0;
     int arraySize = this->n;
     for (int i = 0; i < arraySize; i++)
@@ -29,8 +26,7 @@ double Books::calculatePayForCurrentCollection(int * arr, int collection)
     return sum;
 }
 
-int Books::curentCollectionSize(int * arr)
-{
+int Books::curentCollectionSize(int * arr) {
     int CollectionSize = 0;
     int arraySize = this->n;
     for (int i = 0; i < arraySize; i++)
@@ -38,19 +34,10 @@ int Books::curentCollectionSize(int * arr)
     return CollectionSize;
 }
 
-double Books::calculateAllPayment(int * arr)
-{
+double Books::calculateAllPayment(int * arr) {
     double payment = 0.0;
     int cur_collection = 0;
     while ((cur_collection = curentCollectionSize(arr)) != 0)
         payment += calculatePayForCurrentCollection(arr, cur_collection);
     return payment;
-}
-
-double Books::withoutSales(int * arr)
-{
-    int cur = 0;
-    for (int i = 0; i < n; i++)
-        cur += arr[i];
-    return cur * 8.0;
 }

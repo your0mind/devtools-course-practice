@@ -6,16 +6,15 @@
 
 TEST(Bolshakov_Konstantin_BooksTest, canCreateBooks) {
     // Arrange
-    int arr[5] = { 1,2,3,4,5 };
+    int arr[5] = { 1, 2, 3, 4, 5 };
 
     // Assert
     ASSERT_NO_THROW(Books magazin(5, arr));
 }
 
-TEST(Bolshakov_Konstantin_BooksTest, FiveSameBooks)
-{
+TEST(Bolshakov_Konstantin_BooksTest, FiveSameBooks) {
     // Arrange
-    int arr[5] = { 5,0,0,0,0 };
+    int arr[5] = { 5, 0, 0, 0, 0 };
     Books coll(5, arr);
 
     // Act
@@ -25,10 +24,9 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveSameBooks)
     EXPECT_EQ(pay, 40.0);
 }
 
-TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks)
-{
+TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
     // Arrange
-    int arr[5] = { 1,1,1,1,1 };
+    int arr[5] = { 1, 1, 1, 1, 1 };
     Books coll(5, arr);
 
     // Act

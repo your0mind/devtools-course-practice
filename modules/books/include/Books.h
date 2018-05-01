@@ -12,10 +12,9 @@ class Books {
   double calculatePayForCurrentCollection(int*arr, int collection);
   int curentCollectionSize(int*arr);
   double calculateAllPayment(int*arr);
-  double withoutSales(int*arr);
  private:
   int* arr;
   int n;
 };
 
-#endif  // !MODULES_BOOKS_INCLUDE_BOOKS_H_
+#endif  // MODULES_BOOKS_INCLUDE_BOOKS_H_
