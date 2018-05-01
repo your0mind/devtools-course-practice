@@ -70,11 +70,11 @@ AVLNode* AVL::balance(AVLNode* p) {
 }
 
 AVLNode* AVL::insert(AVLNode* r, int w) {
-	if (root == NULL) {
-		root = new AVLNode(w);
-		return root;
-	}
-	if (r == NULL) {
+    if (root == NULL) {
+        root = new AVLNode(w);
+        return root;
+    }
+    if (r == NULL) {
         r = new AVLNode(w);
         return r;
     } else {
