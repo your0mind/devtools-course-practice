@@ -11,12 +11,12 @@ class Digits {
  public:
     Digits();
     ~Digits();
-    void InitDigits();
     std::string getLineOfNumeral(int line, int numeral);
     std::string getLineOfNumber(int line, int* arr);
     int* getNumberIntoArray(int n);
  private:
     std::string** digits;
+    void InitDigits();
 };
 
 #endif  // MODULES_DIGITS_INCLUDE_DIGITS_H_
