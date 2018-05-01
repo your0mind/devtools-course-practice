@@ -63,8 +63,7 @@ capacity(rhs.capacity), head(rhs.head), tail(rhs.tail) {
 
 template <typename Ty>
 Queue<Ty>::~Queue() {
-    if (mem != nullptr)
-        delete[] mem;
+    delete[] mem;
 }
 
 template <typename Ty>
