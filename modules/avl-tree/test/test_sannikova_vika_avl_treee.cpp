@@ -76,8 +76,8 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_From_AVL_Tree) {
     }
 
     // Act
-    avltree.remove(avltree.getRoot(), 82);
-    AVLNode* res = avltree.search(avltree.getRoot(), 82);
+    avltree.remove(avltree.getRoot(), 15);
+    AVLNode* res = avltree.search(avltree.getRoot(), 15);
 
     // Assert
     AVLNode* exp_res = NULL;
