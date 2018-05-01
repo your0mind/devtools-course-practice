@@ -22,6 +22,7 @@ class ConverterNumbersInWords {
   int GetThousand(int number);
   int GetMillion(int number);
   int GetRemainderOfDivisionBy1000(int number);
+  std::string GetWordsForNumberFrom_1_To_99(int number);
   std::string GetWordsForNumberFrom_1_To_999(int number);
   std::string GetWorldForElementaryNumber(int number);
 };

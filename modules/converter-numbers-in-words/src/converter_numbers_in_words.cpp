@@ -88,34 +88,35 @@ int ConverterNumbersInWords::GetRemainderOfDivisionBy1000(int number) {
 }
 
 std::string
-ConverterNumbersInWords::GetWordsForNumberFrom_1_To_999(int number) {
+ConverterNumbersInWords::GetWordsForNumberFrom_1_To_99(int number) {
   std::string result = "";
   int lastDigit = GetLastDigit(number);
   int ten = GetTen(number);
+
+  if (number <= 20) {
+    result = GetWorldForElementaryNumber(number);
+  }
+  else if (number <= 99) {
+    result = GetWorldForElementaryNumber(ten);
+    if (lastDigit != 0) {
+      result += " " + GetWorldForElementaryNumber(lastDigit);
+    }
+  }
+  return result;
+}
+
+std::string
+ConverterNumbersInWords::GetWordsForNumberFrom_1_To_999(int number) {
+  std::string result = "";
   int hundred = GetHundred(number);
 
   if (number <= 99) {
-    if (number <= 20) {
-      result = GetWorldForElementaryNumber(number);
-    } else if (number <= 99) {
-      result = GetWorldForElementaryNumber(ten);
-      if (lastDigit != 0) {
-        result += " " + GetWorldForElementaryNumber(lastDigit);
-      }
-    }
+    result = GetWordsForNumberFrom_1_To_99(number);
   } else if (number <= 999) {
-    int hundred_ = GetHundred(number);
-    result = GetWorldForElementaryNumber(hundred_);
-    if (number - hundred != 0) {
-      result += " and ";
-      if (number - hundred <= 20) {
-        result += GetWorldForElementaryNumber(number - hundred);
-      } else if (number - hundred <= 99) {
-        result += GetWorldForElementaryNumber(ten);
-        if (lastDigit != 0) {
-          result += " " + GetWorldForElementaryNumber(lastDigit);
-        }
-      }
+    result = GetWorldForElementaryNumber(hundred);
+    if (number - hundred != 0)
+    {
+      result += " and " + GetWordsForNumberFrom_1_To_99(number - hundred);
     }
   }
 
