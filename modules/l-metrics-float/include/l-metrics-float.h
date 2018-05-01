@@ -1,4 +1,4 @@
-// Copyright 2017 Gribov Pavel
+// Copyright 2018 Gribov Pavel
 
 #ifndef MODULES_L_METRICS_FLOAT_INCLUDE_L_METRICS_FLOAT_H_
 #define MODULES_L_METRICS_FLOAT_INCLUDE_L_METRICS_FLOAT_H_

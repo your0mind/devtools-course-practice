@@ -1,4 +1,4 @@
-// Copyright 2017 Gribov Pavel
+// Copyright 2018 Gribov Pavel
 
 #include <gtest/gtest.h>
 
