@@ -2,6 +2,8 @@
 
 #include "include/Digits.h"
 
+#include <string>
+
 void Digits::InitDigits() {
     this->digits = new std::string*[3];
     for (int i = 0; i < 3; i++)
@@ -36,9 +38,7 @@ std::string Digits::getLineOfNumber(int line, int* arr) {
     std::string LineOfNumber = "";
 
     for (int i = size; i >= 1; i--)
-    {
         LineOfNumber += (getLineOfNumeral(line, arr[i]) + " ");
-    }
     return LineOfNumber;
 }
 

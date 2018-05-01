@@ -4,8 +4,6 @@
 
 #include "include/Digits.h"
 
-#include <string>
-
 TEST(Kozorez_Alex_DigitsTest, canInitDigitClass) {
     // Arrange
 
