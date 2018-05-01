@@ -24,10 +24,10 @@ std::string ConverterNumbersInWords::ConvertToWords() {
   int million = GetMillion(number_);
 
   std::string result = "";
-  if (number < 0) {
-    result = GetWorldForElementaryNumber(0);
+  if (number < 0.0) {
+    return GetWorldForElementaryNumber(-1);
   } else {
-    if (number_ == 0) {
+    if (number == 0.0) {
       result = "zero";
     } else if (number <= 999999999.0) {
       if (million != 0) {
