@@ -28,7 +28,7 @@ float LMetricsFloat::linf_vec_distance(const std::vector<float>& vec1,
     float linf_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
+    vec3 = vec_substract_mod(vec1, vec2);
 
     linf_vec_dist = *std::max_element(vec3.cbegin(), vec3.cend());
 
@@ -40,7 +40,7 @@ float LMetricsFloat::l1_vec_distance(const std::vector<float>& vec1,
     float l1_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
+    vec3 = vec_substract_mod(vec1, vec2);
 
     l1_vec_dist = std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f);
 
@@ -52,7 +52,7 @@ float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1,
     float l2_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
+    vec3 = vec_substract_mod(vec1, vec2);
 
     l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
@@ -67,7 +67,7 @@ float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1,
     float l3_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
+    vec3 = vec_substract_mod(vec1, vec2);
 
     l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
@@ -82,7 +82,7 @@ float LMetricsFloat::l4_vec_distance(const std::vector<float>& vec1,
     float l4_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = std::move(vec_substract_mod(vec1, vec2));
+    vec3 = vec_substract_mod(vec1, vec2);
 
     l4_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
