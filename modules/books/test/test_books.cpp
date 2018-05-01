@@ -36,7 +36,7 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
     EXPECT_EQ(pay, 30.0);
 }
 
-TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
+TEST(Bolshakov_Konstantin_BooksTest, FiveDiffCollection) {
     // Arrange
     int arr[5] = { 1, 2, 3, 4, 5 };
     Books coll(5, arr);
