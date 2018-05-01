@@ -35,12 +35,14 @@ std::string ConverterNumbersInWords::ConvertToWords() {
         number_ = number_ % 1000000;
         if (number_ != 0)
           result += " ";
-      } if (thousand != 0) {
+      }
+      if (thousand != 0) {
         result += GetWordsForNumberFrom_1_To_999(thousand) + " thousand";
         number_ = number_ % 1000;
         if (number_ != 0)
           result += " ";
-      } if (hundred != 0) {
+      }
+      if (hundred != 0) {
         result += GetWordsForNumberFrom_1_To_999(hundred);
       }
     } else {
