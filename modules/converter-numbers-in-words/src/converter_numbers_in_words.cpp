@@ -95,8 +95,7 @@ ConverterNumbersInWords::GetWordsForNumberFrom_1_To_99(int number) {
 
   if (number <= 20) {
     result = GetWorldForElementaryNumber(number);
-  }
-  else if (number <= 99) {
+  } else if (number <= 99) {
     result = GetWorldForElementaryNumber(ten);
     if (lastDigit != 0) {
       result += " " + GetWorldForElementaryNumber(lastDigit);
@@ -114,8 +113,7 @@ ConverterNumbersInWords::GetWordsForNumberFrom_1_To_999(int number) {
     result = GetWordsForNumberFrom_1_To_99(number);
   } else if (number <= 999) {
     result = GetWorldForElementaryNumber(hundred);
-    if (number - hundred != 0)
-    {
+    if (number - hundred != 0) {
       result += " and " + GetWordsForNumberFrom_1_To_99(number - hundred);
     }
   }
