@@ -35,3 +35,15 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
     // Assert
     EXPECT_EQ(pay, 30.0);
 }
+
+TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
+    // Arrange
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    Books coll(5, arr);
+
+    // Act
+    double pay = coll.calculateAllPayment(arr);
+
+    // Assert
+    EXPECT_EQ(pay, 100.4);
+}
