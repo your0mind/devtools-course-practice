@@ -169,6 +169,19 @@ TEST_F(ConverterNumbersInWordsTest,
 }
 
 TEST_F(ConverterNumbersInWordsTest,
+  Can_Convert_Elementary_Number_From_10_to_19_8) {
+  // Arrange
+  ConverterNumbersInWords converter;
+  converter.SetNumber(10.0);
+
+  // Act
+  std::string result = converter.ConvertToWords();
+
+  // Assert
+  EXPECT_EQ("ten", result);
+}
+
+TEST_F(ConverterNumbersInWordsTest,
   Can_Convert_Elementary_Round_Number_From_20_to_99) {
   // Arrange
   ConverterNumbersInWords converter;
