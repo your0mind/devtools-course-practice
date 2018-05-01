@@ -2,8 +2,8 @@
 
 #include <gtest/gtest.h>
 
-#include "include/l-metrics-float.h"
 #include <vector>
+#include "include/l-metrics-float.h"
 
 TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
     // Arrange
