@@ -22,7 +22,7 @@ public:
 	T extract_max() const;
 	void delete_max();
 	void push(const T& v, int priority = 0);
-	void swap(const PriorityQueue<T>& pq);
+	void swap(PriorityQueue<T>& pq);
 
 	bool empty()  const;
 	std::size_t size() const;
@@ -54,30 +54,30 @@ private:
 	};
 
 	struct List elements;
-	std::size_t element_count
+	std::size_t element_count;
 };
 
 template<typename T>
 PriorityQueue<T>::PriorityQueue() {
 	elements.head = elements.tail = elements.current = nullptr;
-	elements_count = 0;
+	element_count = 0;
 }
 
 template<typename T>
 PriorityQueue<T>::PriorityQueue(T v, int priority) {
 	elements.head = elements.tail = elements.current = new Node(v, priority);
-	elements_count = 1;
+	element_count = 1;
 }
 
 template<typename T>
 PriorityQueue<T>::PriorityQueue(const PriorityQueue<T>& pq) {
 	if (pq.empty()) {
 		elements.head = elements.tail = elements.current = nullptr;
-		elements_count = 0;
+		element_count = 0;
 	}
 	else {
 		elements.head = new Node(pq.elements.head->value, pq.elements.head->priority);
-		elements_count = pq.element_count;
+		element_count = pq.element_count;
 
 		elements.current = elements.head;
 		Node* other_current = pq.elements.head->next;
@@ -103,11 +103,11 @@ PriorityQueue<T>& PriorityQueue<T>::operator=(const PriorityQueue<T>& pq) {
 		delete_queue();
 		if (pq.empty()) {
 			elements.head = elements.tail = elements.current = nullptr;
-			elements_count = 0;
+			element_count = 0;
 		}
 		else {
 			elements.head = new Node(pq.elements.head->value, pq.elements.head->priority);
-			elements_count = pq.element_count;
+			element_count = pq.element_count;
 
 			elements.current = elements.head;
 			Node* other_current = pq.elements.head->next;
@@ -126,6 +126,8 @@ PriorityQueue<T>& PriorityQueue<T>::operator=(const PriorityQueue<T>& pq) {
 
 template<typename T>
 T PriorityQueue<T>::extract_max() const {
+	if(empty())
+		throw std::runtime_error("Queue is empty");
 	return elements.head->value;
 }
 
@@ -134,7 +136,7 @@ void PriorityQueue<T>::delete_max() {
 	if (!empty()) {
 		Node* tmp_head = elements.head;
 		elements.head = elements.head->next;
-		delete tmp_next;
+		delete tmp_head;
 		element_count--;
 	}
 	else
@@ -142,30 +144,29 @@ void PriorityQueue<T>::delete_max() {
 }
 
 template<typename T>
-void PriorityQueue<T>::push(const T & v, int priority){
+void PriorityQueue<T>::push(const T & v, int priority){	
 	if (empty()) 
-		elements.head = elements.tail = elements.current = new (v, priority);
+		elements.head = elements.tail = elements.current = new Node(v, priority);
 	else {
 		if (priority <= elements.tail->priority) {
 
 			elements.tail->next = new Node(v, priority);
 			elements.tail = elements.tail->next;
 		}
-		if (priority > elements.head->priority) {
+		else if (priority > elements.head->priority) {
 			Node* tmp_head = elements.head;
 			elements.head = new Node(v, priority, tmp_head);
 		}
 		else {
 			elements.current = elements.head;
 
-			while (elements.current != nullptr) {
-				if (priority > elements.current->next->priority)
-					break;
+			while (elements.current != elements.tail) {
+				if (priority > elements.current->next->priority) break;
 				elements.current = elements.current->next;
 			}
 
 			Node* tmp_next = elements.current->next;
-			elements.current->next = new (v, priority, tmp_next);
+			elements.current->next = new Node(v, priority, tmp_next);
 		}
 	}
 	element_count++;
@@ -233,7 +234,6 @@ bool PriorityQueue<T>::operator!=(const PriorityQueue<T>& pq) const {
 		current = current->next;
 		other_current = other_current->next;
 	}
-
 	return false;
 }
 
