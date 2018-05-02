@@ -76,3 +76,26 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
     // Act and assert
     ASSERT_ANY_THROW(q.getRoots());
 }
+
+TEST(Chvanov_Leonid_QuadraticEquationTest,
+    Can_Set_Corfficients) {
+    // Arrange
+    QuadraticEquation q(1, -2, 2);
+
+    // Act and assert
+    ASSERT_NO_THROW(q.setCoefficients(1, -2, 2));
+}
+
+TEST(Chvanov_Leonid_QuadraticEquationTest,
+    Setting_Coefficients_Changes_Roots) {
+    // Arrange
+    QuadraticEquation q(1, -2, 1);
+    std::vector<double> roots;
+
+    // Act
+    roots = q.getRoots();
+    q.setCoefficients(1, -2, -3);
+
+    // Assert
+    EXPECT_NE(roots, q.getRoots());
+}

@@ -13,6 +13,9 @@ class QuadraticEquation {
      ~QuadraticEquation();
 
      std::vector<double> getRoots();
+     void setCoefficients(const double& _a,
+                          const double& _b,
+                          const double& _c);
 
  private:
      double a, b, c;  // coefficients in a*x^2 + b*x + c = 0

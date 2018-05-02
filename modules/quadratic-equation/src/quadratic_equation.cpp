@@ -8,13 +8,8 @@
 
 QuadraticEquation::QuadraticEquation(const double& _a,
                                      const double& _b,
-                                     const double& _c):
-                                     a(_a), b(_b), c(_c) {
-    if (_a == 0.f)
-        throw std::invalid_argument(
-              "Quadratic coefficient can not be equal zero");
-    discriminant = b*b - 4 *a*c;
-    isSolved = false;
+                                     const double& _c) {
+    this->setCoefficients(_a, _b, _c);
 }
 
 QuadraticEquation::~QuadraticEquation() { }
@@ -30,6 +25,18 @@ std::vector<double> QuadraticEquation::getRoots() {
         this->solve();
         return this->getRoots();
     }
+}
+
+void QuadraticEquation::setCoefficients(const double& _a,
+                                        const double& _b,
+                                        const double& _c) {
+    if (_a == 0.f)
+        throw std::invalid_argument(
+            "Quadratic coefficient can not be equal zero");
+    a = _a; b = _b; c = _c;
+    discriminant = b*b - 4 * a*c;
+    isSolved = false;
+    roots.clear();
 }
 
 void QuadraticEquation::solve() {
