@@ -25,15 +25,13 @@ double Vector3d::GetComponent(int index) const {
     return data[index];
 }
 
-bool operator==(const Vector3d & vector1, const Vector3d & vector2)
-{
-    return (vector1.data[0]== vector2.data[0]) && 
+bool operator==(const Vector3d & vector1, const Vector3d & vector2) {
+    return (vector1.data[0]== vector2.data[0]) &&
         (vector1.data[1] == vector2.data[1]) &&
         (vector1.data[2] == vector2.data[2]);
 }
 
-bool operator!=(const Vector3d & vector1, const Vector3d & vector2)
-{
-    return !(vector1==vector2);
+bool operator!=(const Vector3d & vector1, const Vector3d & vector2) {
+    return !(vector1 == vector2);
 }
 
