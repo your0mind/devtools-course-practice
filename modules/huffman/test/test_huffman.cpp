@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <string.h>
+#include <iostream>
 #include <map>
 #include <utility>
 #include <vector>
@@ -27,6 +28,8 @@ TEST(Huffman_Tests, Can_Encode) {
   int i = 0;
   for (auto it = enc.begin(); it != enc.end(); it++, i++) {
     if ((it->first != exp[i].first) || strcmp(it->second, exp[i].second) != 0) {
+      std::cout << it->first << " " << it->second << std::endl;
+      std::cout << exp[i].first << " " << exp[i].second << std::endl;
       flag = false;
     }
   }
