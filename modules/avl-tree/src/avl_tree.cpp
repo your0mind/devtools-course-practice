@@ -92,10 +92,16 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
 }
 
 AVLNode* AVL::findMin(AVLNode* p) {
+    if (p==NULL) {
+        return NULL;
+    }
     return p->left ? findMin(p->left) : p;
 }
 
 AVLNode* AVL::removeMin(AVLNode* p) {
+    if (p==NULL) {
+        return NULL;
+    }
     if (p->left == 0)
         return p->right;
     p->left = removeMin(p->left);

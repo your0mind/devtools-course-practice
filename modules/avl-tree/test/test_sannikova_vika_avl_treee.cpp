@@ -19,6 +19,18 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_AVL_Tree) {
     EXPECT_EQ(exp_res, res);
 }
 
+TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Min_In_NULL_AVL_Tree) {
+    // Arrange
+    AVL avltree;
+    
+    // Act
+    AVLNode* res = avltree.findMin(avltree.getRoot());
+
+    // Assert
+    AVLNode* exp_res = NULL;
+    EXPECT_EQ(exp_res, res);
+}
+
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
     // Arrange
     AVL avltree;
@@ -33,6 +45,18 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
     // Assert
     int exp_res = 2;
     EXPECT_EQ(exp_res, avltree.findMin(avltree.getRoot())->key);
+}
+
+TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_NULL_AVL_Tree) {
+    // Arrange
+    AVL avltree;
+    
+    // Act
+    AVLNode* res = avltree.removeMin(avltree.getRoot());
+
+    // Assert
+    AVLNode* exp_res = NULL;
+    EXPECT_EQ(exp_res, res);
 }
 
 TEST(Sannikova_Vika_AVLTreeTest, Can_Find_Val_In_AVL_Tree) {
