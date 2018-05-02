@@ -1,4 +1,4 @@
-//Copyright 2018 Gracheva Elena
+// Copyright 2018 Gracheva Elena
 
 #include <gtest/gtest.h>
 #include "include/vector_3d.h"
@@ -32,7 +32,7 @@ TEST(Gracheva_Elena_TestVector3d, correct_indexing_valid_arguments) {
     Vector3d vector(1, 2, 3);
 
     // Act
-    double data1=vector[1];
+    double data1 = vector[1];
 
     // Assert
     EXPECT_DOUBLE_EQ(2, data1);

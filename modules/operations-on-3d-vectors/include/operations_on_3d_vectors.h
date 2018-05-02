@@ -1,7 +1,9 @@
-//Copyright 2018 Gracheva Elena
+// Copyright 2018 Gracheva Elena
 
-#pragma once
-#include "vector_3d.h"
+#ifndef MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_OPERATIONS_ON_3D_VECTORS_H_
+#define MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_OPERATIONS_ON_3D_VECTORS_H_
+
+#include "./vector_3d.h"
 
 class OperationsOn3dVectors {
 public:
@@ -10,3 +12,5 @@ public:
     static Vector3d VectorProduct(const Vector3d& vector1, const Vector3d& vector2);
     static Vector3d GetNormalizedVector(const Vector3d& vector);
 };
+
+#endif  // MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_OPERATIONS_ON_3D_VECTORS_H_
