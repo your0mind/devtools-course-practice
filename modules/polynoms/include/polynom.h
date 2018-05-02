@@ -5,8 +5,10 @@
 
 #include <string>
 #include <vector>
+#include <map>
 using std::string;
 using std::vector;
+using std::map;
 class Monom;
 
 class Polynom {
@@ -29,6 +31,12 @@ class Polynom {
      Polynom operator-(const Polynom& rhs);
      Polynom operator*(const Polynom& rhs);
      Polynom operator/(const Monom& m);
+
+     // Returns the map, where key is name, value should to fill user, default = 1.0
+     map<char, double> get_vars_list();
+
+     // Accept map with filled values
+     double calc_result(const map<char, double>& in_params);
 
  private:
      int contains(const monom_vec& vec, const Monom& m) const;

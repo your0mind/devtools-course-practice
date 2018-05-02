@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include <string>
+#include <vector>
 
 #include "include/monom.h"
 #include "include/polynom.h"
@@ -247,4 +248,18 @@ TEST_F(PolynomTest, Different_Monoms_Minus) {
     // Assert
     Polynom expected_p("3x^2 - 3y^2");
     EXPECT_EQ(expected_p, p);
+}
+
+TEST_F(PolynomTest, Check_Calculate) {
+    // Arrange
+    Polynom p1("3x^9");
+    Polynom p2("3y^10");
+    // Act
+    Polynom p = p1 + p2;
+    auto vars = p.get_vars_list();
+    for (auto& v : vars)
+        v.second = 2.0;
+
+    // Assert
+    EXPECT_NEAR(p.calc_result(vars), 4608.0, 0.00001);
 }

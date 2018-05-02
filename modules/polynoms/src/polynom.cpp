@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <cmath>
+#include <set>
 
 #include "include/monom.h"
 #include "include/polynom.h"
@@ -122,6 +123,37 @@ Polynom Polynom::operator/(const Monom & m) {
             tmp.m_monoms.emplace_back(t);
     }
     return tmp;
+}
+
+map<char, double> Polynom::get_vars_list()
+{
+    std::set<char> tmp;
+    for (const auto& m : m_monoms) {
+        for (const auto& v : m.m_variabels) {
+            tmp.insert(v.first);
+        }
+    }
+    map<char, double> ret;
+    for (auto& t : tmp) {
+        ret[t] = 1.0;
+    }
+    return ret;
+}
+
+double Polynom::calc_result(const map<char, double>& in_params)
+{
+    double res = 0.0;
+    for (const auto& m : m_monoms) {
+        double tmp = m.m_coff;
+        for (const auto& in_var : in_params) {
+            auto m_var = m.m_variabels.find(in_var.first);
+            if (m_var != m.m_variabels.end()) {
+                tmp *= std::pow(in_var.second, (*m_var).second);
+            }
+        }
+        res += tmp;
+    }
+    return res;
 }
 
 int Polynom::contains(const monom_vec& vec, const Monom & m) const {
