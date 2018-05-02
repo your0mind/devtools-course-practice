@@ -7,7 +7,8 @@
 #include <iostream>
 
 //    - The priority queue is implemented using a single linked list
-//    - Items in the list are in descending order of priority: 0 - minimum priority
+//    - Items in the list are in descending order of priority:
+//    - 0 - minimum priority
 
 template <typename T>
 class PriorityQueue {
@@ -76,14 +77,16 @@ PriorityQueue<T>::PriorityQueue(const PriorityQueue<T>& pq) {
         element_count = 0;
     }
     else {
-        elements.head = new Node(pq.elements.head->value, pq.elements.head->priority);
+        elements.head = 
+              new Node(pq.elements.head->value, pq.elements.head->priority);
         element_count = pq.element_count;
 
         elements.current = elements.head;
         Node* other_current = pq.elements.head->next;
 
         while (other_current != nullptr) {
-            elements.current->next = new Node(other_current->value, other_current->priority);
+            elements.current->next = 
+                new Node(other_current->value, other_current->priority);
             other_current = other_current->next;
             elements.current = elements.current->next;
         }
@@ -106,14 +109,16 @@ PriorityQueue<T>& PriorityQueue<T>::operator=(const PriorityQueue<T>& pq) {
             element_count = 0;
         }
         else {
-            elements.head = new Node(pq.elements.head->value, pq.elements.head->priority);
+            elements.head = 
+                new Node(pq.elements.head->value, pq.elements.head->priority);
             element_count = pq.element_count;
 
             elements.current = elements.head;
             Node* other_current = pq.elements.head->next;
 
             while (other_current != nullptr) {
-                elements.current->next = new Node(other_current->value, other_current->priority);
+                elements.current->next = 
+                new Node(other_current->value, other_current->priority);
                 other_current = other_current->next;
                 elements.current = elements.current->next;
             }
@@ -146,7 +151,7 @@ void PriorityQueue<T>::delete_max() {
 template<typename T>
 void PriorityQueue<T>::push(const T & v, int priority){	
     if (empty()) 
-        elements.head = elements.tail = elements.current = new Node(v, priority);
+     elements.head = elements.tail = elements.current = new Node(v, priority);
     else {
         if (priority <= elements.tail->priority) {
 
