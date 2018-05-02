@@ -1,6 +1,7 @@
 // Copyright 2018 Kamelina Julia
 
 #include <gtest/gtest.h>
+#include <string.h>
 #include <map>
 #include <utility>
 #include <vector>
