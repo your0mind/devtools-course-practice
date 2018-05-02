@@ -4,17 +4,19 @@
 #include <algorithm>
 
 BinarySearch::BinarySearch(int mas[], int size) {
-         if(mas != nullptr) {
-             if(size > 0) {
+         if (mas != nullptr) {
+             if (size > 0) {
                  masiv = new int[size];
                  for (int i = 0; i < size; i++)
                      masiv[i] = mas[i];
                  center = size / 2;
                  this->size = size;
-             } else
-                  throw("Error size!"); 
-         } else
-                  throw("Error mas!");
+             } else {
+                  throw std::string("Error size!");
+             }
+         } else {
+             throw std::string("Error mas!");
+         }
 }
 BinarySearch::~BinarySearch() {
          if (masiv!= nullptr)
