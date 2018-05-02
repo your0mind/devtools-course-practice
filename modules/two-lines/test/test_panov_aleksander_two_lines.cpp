@@ -34,3 +34,39 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
     // Assert
     EXPECT_TRUE(isIntersect);
 }
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines)
+{
+    Point a, b(0, 1);
+    Point c(0.1, 0), d(0.1, 1);
+
+    // Act
+    bool isIntersect = intersect(a, b, c, d);
+
+    // Assert
+    EXPECT_FALSE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Coverage)
+{
+    Point a(0, -1), b(0, 1);
+    Point c(0, 0.01), d(0, 0.02);
+
+    // Act
+    bool isIntersect = intersect(a, b, c, d);
+
+    // Assert
+    EXPECT_TRUE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent) {
+    // Arrange
+    Point a(0, 0), b(1000, 1000);
+    Point c(0, 1000), d(500, 500);
+
+    // Act
+    bool isIntersect = intersect(a, b, c, d);
+
+    // Assert
+    EXPECT_TRUE(isIntersect);
+}
