@@ -1,4 +1,4 @@
-// Copyright 2018 Panov Aleksandr
+// Copyright 2018 Panov Aleksander
 
 #ifndef MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
 #define MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
@@ -17,8 +17,12 @@ public:
     void setY(const double _y);
 
     bool isIntersection(const Line &l) const;
+
+    bool operator == (const Line& l) const;
+    bool operator != (const Line& l) const;
 private:
     double x;
     double y;
+    bool equalsZero() const;
 };
 #endif  // MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
