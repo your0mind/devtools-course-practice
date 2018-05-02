@@ -12,7 +12,7 @@ using std::pair;
 
 TEST(Huffman_Tests, Can_Encode) {
   //  Arrange
-  char* text = "AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF";
+  char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF");
   vector<pair<char, const char*> > exp = {
     make_pair('A', "01"), make_pair('B', "10"),
     make_pair('C', "111"), make_pair('D', "00"),
@@ -36,7 +36,7 @@ TEST(Huffman_Tests, Can_Encode) {
 
 TEST(Huffman_Tests, Can_Encode2) {
   //  Arrange
-  char* text = "AAAAAABBBBBBBCCDDDCCDDDCCAA";
+  char* text = const_cast<char*>("AAAAAABBBBBBBCCDDDCCDDDCCAA");
   vector<pair<char, const char*> > exp = {
     make_pair('A', "11"), make_pair('B', "10"),
     make_pair('C', "00"), make_pair('D', "01")};
@@ -74,7 +74,7 @@ TEST(Huffman_Tests, Throws_When_Encode_Nullptr) {
 
 TEST(Huffman_Tests, Can_Encode_One_Letter) {
   //  Arrange
-  char* text = "AAAAAA";
+  char* text = const_cast<char*>("AAAAAA");
   Huffman huff(text);
 
   //  Act
@@ -88,13 +88,13 @@ TEST(Huffman_Tests, Can_Encode_One_Letter) {
 
 TEST(Huffman_Tests, Fano_Conditional) {
   //  Arrange
-  char* text = "AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF";
+  char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF");
   bool flag = true;
   Huffman huff(text);
 
   //  Act
   map<char, char*> encoded = huff.Encode();
-  size_t size = encoded.size();
+  int size = encoded.size();
   for (auto it = encoded.begin(); it != encoded.end(); it++) {
     auto it2 = it;
     for (int i = 1; i < size - 1; i++) {

@@ -2,6 +2,7 @@
 
 #include "include/huffman.h"
 
+#include <string.h>
 #include <stdexcept>
 #include <queue>
 #include <utility>
@@ -26,7 +27,7 @@ Huffman::Huffman(char* text) {
     val[0] = text[i];
     val[1] = '\0';
 
-    size_t size = frequency.size();
+    int size = frequency.size();
     for (int j = 0; j < size; j++) {
       if (strcmp(frequency[j]->value, val) == 0) {
         frequency[j]->freq += 1;
@@ -67,9 +68,10 @@ void Huffman::BuildTree() {
   }
 
   priority_queue<CNode*, vector<CNode*>, CNode> q;
-  size_t size = frequency.size();
+  int size = frequency.size();
   if (size == 1) {
-    H_tree = new CNode(frequency[0]->value, frequency[0]->freq, 0, 0, "1");
+    H_tree = new CNode(frequency[0]->value, frequency[0]->freq,
+                        0, 0, const_cast<char*>("1"));
   }
 
   for (int i = 0; i < size; i++) {
@@ -89,8 +91,8 @@ void Huffman::BuildTree() {
     q.push(parent);
 
     H_tree = parent;
-    leaf1->code = "0";
-    leaf2->code = "1";
+    leaf1->code = const_cast<char*>("0");
+    leaf2->code = const_cast<char*>("1");
   }
   q.pop();
 }
