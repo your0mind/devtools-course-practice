@@ -92,14 +92,23 @@ AVLNode* AVL::insert(AVLNode* r, int w) {
 }
 
 AVLNode* AVL::findMin(AVLNode* p) {
-    if (p == NULL) {
+    try {
+        if ( p == NULL ) {
+            throw 666;
+        }
+    } catch (int i) {
         return NULL;
     }
     return p->left ? findMin(p->left) : p;
 }
 
 AVLNode* AVL::removeMin(AVLNode* p) {
-    if (p == NULL) {
+    try {
+        if ( p == NULL ) {
+            throw 666;
+        }
+    }
+    catch (int i) {
         return NULL;
     }
     if (p->left == 0)
