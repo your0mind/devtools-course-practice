@@ -141,15 +141,16 @@ void PriorityQueue<T>::delete_max() {
         elements.head = elements.head->next;
         delete tmp_head;
         element_count--;
-    } else
+    } else {
         throw std::runtime_error("Queue is empty");
+    }
 }
 
 template<typename T>
 void PriorityQueue<T>::push(const T & v, int priority) {
-    if (empty())
+    if (empty()) {
      elements.head = elements.tail = elements.current = new Node(v, priority);
-    else if (priority <= elements.tail->priority) {
+    } else if (priority <= elements.tail->priority) {
         elements.tail->next = new Node(v, priority);
         elements.tail = elements.tail->next;
     } else if (priority > elements.head->priority) {

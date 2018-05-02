@@ -11,15 +11,15 @@ TEST(PriorityQueueTest, can_create_empty_priority_queue) {
 
 TEST(PriorityQueueTest, can_create_priority_queue) {
     // AAA
-    ASSERT_NO_THROW(PriorityQueue<std::string> p("Hello World", 5));
+    ASSERT_NO_THROW(PriorityQueue<int> pq(5, 5));
 }
 
 TEST(PriorityQueueTest, can_copy_priority_queue) {
     // Arrange
-    PriorityQueue<std::string> pq("Hello World", 5);
+	PriorityQueue<int> pq(5, 5);
 
     // Act & Assert
-    ASSERT_NO_THROW(PriorityQueue<std::string> pq1(pq));
+    ASSERT_NO_THROW(PriorityQueue<int> pq1(pq));
 }
 
 TEST(PriorityQueueTest, text_and_its_copy_have_different_memory) {
@@ -37,7 +37,7 @@ TEST(PriorityQueueTest, text_and_its_copy_have_different_memory) {
 
 TEST(PriorityQueueTest, can_equate_priority_queue_to_itself) {
     // Arrange
-    PriorityQueue<std::string> pq1("Hello World", 5);
+    PriorityQueue<int> pq1(5, 5);
 
     // Act & Assert
     ASSERT_NO_THROW(pq1 = pq1);
@@ -102,7 +102,7 @@ TEST(PriorityQueueTest, cant_delete_max_from_empty_queue) {
 TEST(PriorityQueueTest, can_push_element_in_empty_queue) {
     // Arrange
     PriorityQueue<int> pq1;
-    
+
     // Act & Assert
     ASSERT_NO_THROW(pq1.push(4, 4));
     EXPECT_EQ(pq1.extract_max(), 4);
@@ -110,7 +110,7 @@ TEST(PriorityQueueTest, can_push_element_in_empty_queue) {
 
 TEST(PriorityQueueTest, can_push_element_in_queue) {
     // Arrange
-    PriorityQueue<int> pq1(5,6);
+    PriorityQueue<int> pq1(5, 6);
 
     // Act & Assert
     ASSERT_NO_THROW(pq1.push(4, 4));
@@ -119,7 +119,7 @@ TEST(PriorityQueueTest, can_push_element_in_queue) {
 
 TEST(PriorityQueueTest, item_with_highest_priority_has_correct_position) {
     // Arrange
-    PriorityQueue<int> pq1(1,3);
+    PriorityQueue<int> pq1(1, 3);
 
     // Act
     pq1.push(5, 2);
@@ -361,8 +361,8 @@ TEST(PriorityQueueTest, can_swap_two_queue) {
     pq1.swap(pq2);
 
     // Assert
-    EXPECT_TRUE(pq1.extract_max() == 4);
+    EXPECT_EQ(pq1.extract_max(), 4);
     EXPECT_TRUE(pq1.get_max_priority() == 9 && pq1.get_min_priority() == 8);
-    EXPECT_TRUE(pq2.extract_max() == 9);
+    EXPECT_EQ(pq2.extract_max(), 9);
     EXPECT_TRUE(pq2.get_max_priority() == 6 && pq2.get_min_priority() == 5);
 }
