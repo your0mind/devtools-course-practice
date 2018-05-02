@@ -1,6 +1,7 @@
 /* Copyright 2018 TolyaTalamanov */
 
 #include <gtest/gtest.h>
+#include <vector>
 #include "include/max_binary_heap.hpp"
 
 TEST(MaxBinaryHeapTest, Can_Create_Empty_Heap) {
@@ -40,60 +41,60 @@ TEST(MaxBinaryHeapTest, Check_Heap_Size) {
 
   // Act
   for (int i = 0; i < 100; ++i) {
-    heap.add(i);
+    heap.push(i);
   }
 
   // Assert
-  EXPECT_EQ(100, heap.getHeapSize());
+  EXPECT_EQ(100, heap.size());
 }
 
-TEST(MaxBinaryHeapTest, Right_Add_Element) {
+TEST(MaxBinaryHeapTest, Right_Push_Element) {
   // Arrange
   MaxBinaryHeap<int> heap = {1, 3, 5};
 
   // Act
-  heap.add(1000);
+  heap.push(1000);
 
   // Assert
-  EXPECT_EQ(1000, heap.getMax());
+  EXPECT_EQ(1000, heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Throw_When_Get_Max_From_Empty_Heap) {
+TEST(MaxBinaryHeapTest, Throw_When_Get_Top_From_Empty_Heap) {
   // Arrange
   MaxBinaryHeap<int> heap;
 
   // Act & Assert
-  ASSERT_ANY_THROW(heap.getMax());
+  ASSERT_ANY_THROW(heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Check_Get_Max) {
+TEST(MaxBinaryHeapTest, Check_Get_Top) {
   // Arrange
   MaxBinaryHeap<int> heap;
 
   // Act
   for (int i = 0; i < 4; ++i) {
-    heap.add(i);
+    heap.push(i);
   }
 
   // Assert
-  EXPECT_EQ(3, heap.getMax());
+  EXPECT_EQ(3, heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Throw_When_Delete_Max_From_Empty_Heap) {
+TEST(MaxBinaryHeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
   // Arrange
   MaxBinaryHeap<int> heap;
 
   // Act & Assert
-  ASSERT_NO_THROW(heap.deleteMax());
+  ASSERT_NO_THROW(heap.pop());
 }
 
-TEST(MaxBinaryHeapTest, Check_Delete_Max) {
+TEST(MaxBinaryHeapTest, Check_Delete_Top) {
   // Arrange
   MaxBinaryHeap<int> heap = {3, 5, 10, 2, 1};
 
   // Act
-  heap.deleteMax();
+  heap.pop();
 
   // Assert
-  EXPECT_EQ(5, heap.getMax());
+  EXPECT_EQ(5, heap.top());
 }
