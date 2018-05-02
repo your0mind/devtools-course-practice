@@ -7,15 +7,15 @@
 
 class QuadraticEquation {
  public:
-     QuadraticEquation(const double& _a, 
-                       const double& _b, 
+     QuadraticEquation(const double& _a,
+                       const double& _b,
                        const double& _c);
      ~QuadraticEquation();
-     
+
      std::vector<double> getRoots();
 
  private:
-     double a, b, c;//coefficients
+     double a, b, c;  // coefficients in a*x^2 + b*x + c = 0
      double discriminant;
      std::vector<double> roots;
 
