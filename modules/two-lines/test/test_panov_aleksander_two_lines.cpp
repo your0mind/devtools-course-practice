@@ -59,7 +59,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Coverage)
     EXPECT_TRUE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent) {
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent_Lines) {
     // Arrange
     Point a(0, 0), b(1000, 1000);
     Point c(0, 1000), d(500, 500);
@@ -69,4 +69,16 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent) {
 
     // Assert
     EXPECT_TRUE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines) {
+    // Arrange
+    Point a(0, 0), b(1000, 1000);
+    Point c(0, 1000), d(499.5, 500);
+
+    // Act
+    bool isIntersect = intersect(a, b, c, d);
+
+    // Assert
+    EXPECT_FALSE(isIntersect);
 }
