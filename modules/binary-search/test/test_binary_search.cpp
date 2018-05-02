@@ -8,7 +8,7 @@ TEST(Pozdeeva_Varvaral_BinarySearchTest, can_create) {
      // Arrange
      int mas[3];
       // Act
-    for(int i=0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
         mas[i] = i;
       // Assert
      ASSERT_NO_THROW(BinarySearch search(mas, 3));
@@ -17,7 +17,7 @@ TEST(Pozdeeva_Varvaral_BinarySearchTest, can_create_with_negative_size) {
      // Arrange
      int mas[3];
       // Act
-    for(int i=0; i < 3; i++)
+    for (int i = 0; i < 3; i++)
         mas[i] = i;
       // Assert
      ASSERT_ANY_THROW(BinarySearch search(mas, -3));
@@ -26,7 +26,7 @@ TEST(Pozdeeva_Varvaral_BinarySearchTest, can_create_with_null_mas) {
      // Arrange
      int *mas;
       // Act
-    mas = nullptr;    
+    mas = nullptr;
       // Assert
      ASSERT_ANY_THROW(BinarySearch search(mas, 3));
 }
