@@ -1,4 +1,4 @@
-#include "include/operations_on_3d_vectors.h"
+#include "operations_on_3d_vectors.h"
 #include <cmath>
 
 double OperationsOn3dVectors::GetNorm(const Vector3d& vector) {

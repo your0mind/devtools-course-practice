@@ -9,4 +9,7 @@ public:
     
     double& operator[](int index);
     double GetComponent(int index) const;
+
+    friend bool operator==(const Vector3d& vector1, const Vector3d& vector2);
+    friend bool operator!=(const Vector3d& vector1, const Vector3d& vector2);
 };

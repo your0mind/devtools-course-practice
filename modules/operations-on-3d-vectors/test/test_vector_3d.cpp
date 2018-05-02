@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "vector_3d.h"
+#include "include/vector_3d.h"
 
 TEST(TestVector3d, correct_constructor_with_parameters) {
     // Arrange

@@ -1,4 +1,4 @@
-#include "include/vector_3d.h"
+#include "vector_3d.h"
 #include <stdexcept>
 
 Vector3d::Vector3d() {
@@ -21,16 +21,4 @@ double Vector3d::GetComponent(int index) const {
     if (index < 0 || index>2)
         throw std::invalid_argument("incorrect index");
     return data[index];
-}
-
-bool operator==(const Vector3d & vector1, const Vector3d & vector2)
-{
-    return (vector1.data[0]== vector2.data[0]) && 
-        (vector1.data[1] == vector2.data[1]) &&
-        (vector1.data[2] == vector2.data[2]);
-}
-
-bool operator!=(const Vector3d & vector1, const Vector3d & vector2)
-{
-    return !(vector1==vector2);
 }
