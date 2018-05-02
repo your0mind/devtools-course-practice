@@ -18,6 +18,14 @@ TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Initializer_List) {
   ASSERT_NO_THROW(MaxBinaryHeap<int> heap{1});
 }
 
+TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Vector) {
+  // Arrange
+  std::vector<int> v {1, 4, -3, 2};
+
+  // Act & Assert
+  ASSERT_NO_THROW(MaxBinaryHeap<int> heap(v.begin(), v.end()));
+}
+
 TEST(MaxBinaryHeapTest, Check_That_Empty_Heap_Is_Empty) {
   // Arrange
   MaxBinaryHeap<int> heap;

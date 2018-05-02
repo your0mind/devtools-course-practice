@@ -14,13 +14,15 @@ class MaxBinaryHeap {
  public:
   MaxBinaryHeap() = default;
   explicit MaxBinaryHeap(int size_heap) { nodes.reserve(size_heap); }
-  MaxBinaryHeap(std::initializer_list<T> l) {
-    std::move(l.begin(), l.end(), std::back_inserter(nodes));
+  template<typename Iterator>
+  MaxBinaryHeap(Iterator first, Iterator last) {
+    std::copy(first, last, std::back_inserter(nodes));
     for (int i = nodes.size() / 2; i >= 0; --i) {
       shiftDown(i);
     }
   }
-
+  MaxBinaryHeap(std::initializer_list<T> l)
+  : MaxBinaryHeap(l.begin(), l.end()) {}
   void add(T value);
   std::size_t getHeapSize() { return nodes.size(); }
   bool empty() { return nodes.empty(); }
