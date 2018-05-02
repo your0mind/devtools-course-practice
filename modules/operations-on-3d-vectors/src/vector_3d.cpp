@@ -5,10 +5,10 @@ Vector3d::Vector3d() {
     data[0] = data[1] = data[2] = 0;
 }
 
-Vector3d::Vector3d(double component1, double component2, double component3) {
-    data[0] = component1;
-    data[1] = component2;
-    data[2] = component3;
+Vector3d::Vector3d(double component0, double component1, double component2) {
+    data[0] = component0;
+    data[1] = component1;
+    data[2] = component2;
 }
 
 double& Vector3d::operator[](int index) {
