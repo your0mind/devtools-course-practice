@@ -4,6 +4,7 @@
 
 #include <math.h>
 #include <stdexcept>
+#include <vector>
 
 QuadraticEquation::QuadraticEquation(const double& _a,
                                      const double& _b,
@@ -16,7 +17,7 @@ QuadraticEquation::QuadraticEquation(const double& _a,
     isSolved = false;
 }
 
-QuadraticEquation::~QuadraticEquation() { };
+QuadraticEquation::~QuadraticEquation() { }
 
 std::vector<double> QuadraticEquation::getRoots() {
     if (isSolved) {
@@ -25,8 +26,7 @@ std::vector<double> QuadraticEquation::getRoots() {
         else
             throw std::runtime_error(
                   "Quadratic equation has no real roots");
-    }
-    else {
+    } else {
         this->solve();
         return this->getRoots();
     }
@@ -37,8 +37,7 @@ void QuadraticEquation::solve() {
         if (discriminant > 0) {
             roots.push_back((-b - sqrt(discriminant)) / (2 * a));
             roots.push_back((-b + sqrt(discriminant)) / (2 * a));
-        }
-        else if (discriminant == 0) {
+        } else if (discriminant == 0) {
             roots.push_back((-b - sqrt(discriminant)) / (2 * a));
         }
     }

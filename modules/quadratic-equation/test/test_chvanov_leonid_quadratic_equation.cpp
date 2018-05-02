@@ -2,12 +2,14 @@
 
 #include <gtest/gtest.h>
 
+#include <vector>
+
 #include "include/quadratic_equation.h"
 
-TEST(Chvanov_Leonid_QuadraticEquationTest, 
+TEST(Chvanov_Leonid_QuadraticEquationTest,
      Can_Create_Quadratic_Equation) {
     // AAA
-    ASSERT_NO_THROW(QuadraticEquation q(1,1,1));
+    ASSERT_NO_THROW(QuadraticEquation q(1, 1, 1));
 }
 
 TEST(Chvanov_Leonid_QuadraticEquationTest,
@@ -32,7 +34,7 @@ TEST(Chvanov_Leonid_QuadraticEquationTest,
     QuadraticEquation q(1, -2, -3);
     std::vector<double> roots;
 
-    // Act 
+    // Act
     q.getRoots();
 
     // Assert
