@@ -3,28 +3,34 @@
 #include <gtest/gtest.h>
 #include "include/two_lines.h"
 
-TEST(Panov_Aleksander_LinesTest, Can_Create_Point) {
+TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
-    double x = 0.0;
-    double y = 0.0;
-
+    Point a(0, 0), b(1, 1);
     // Act
-    Line p(x, y);
+    bool isIntersect = intersect(a, a, b, b);
 
     // Assert
-    EXPECT_EQ(x, p.getX());
-    EXPECT_EQ(y, p.getY());
+    EXPECT_FALSE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Create_Copy) {
+TEST(Panov_Aleksander_LinesTest, Equal_Points_Intersect) {
     // Arrange
-    double x = 1.0;
-    double y = -1.0;
-    Line p1(x, y);
-
+    Point a(0, 0);
     // Act
-    Line p2(p1);
+    bool isIntersect = intersect(a, a, a, a);
 
     // Assert
-    EXPECT_EQ(p1, p2);
+    EXPECT_TRUE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
+    // Arrange
+    Point a, b(1,1);
+    Point c(0, 1), d(1, 0);
+
+    // Act
+    bool isIntersect = intersect(a, b, c, d);
+
+    // Assert
+    EXPECT_TRUE(isIntersect);
 }

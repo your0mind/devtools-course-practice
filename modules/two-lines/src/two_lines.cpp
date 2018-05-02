@@ -2,59 +2,24 @@
 
 #include "include/two_lines.h"
 #include <limits>
+#include <algorithm>
 
 const double eps = std::numeric_limits<double>::epsilon();
 
-Line::Line():x(0), y(0){}
-
-Line::Line(const double _x, const double _y):x(_x), y(_y){}
-
-Line::Line(const Line & l):x(l.x), y(l.y){}
-
-Line& Line::operator=(const Line & l)
-{
-    x = l.x;
-    y = l.y;
-    return *this;
+inline int orientedArea(Point a, Point b, Point c) {
+    return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
-double Line::getX() const
+inline bool checkProjection(double a, double b, double c, double d)
 {
-    return x;
+    if (a > b)  std::swap(a, b);
+    if (c > d)  std::swap(c, d);
+    return std::max(a, c) <= std::min(b, d);
 }
 
-double Line::getY() const
-{
-    return y;
-}
-
-void Line::setX(const double _x)
-{
-    x = _x;
-}
-
-void Line::setY(const double _y)
-{
-    y = _y;
-}
-
-bool Line::isIntersection(const Line & l) const
-{
-    return false;
-}
-
-bool Line::equalsZero() const 
-{
-    return x < eps && x > -eps &&
-        y < eps && y > -eps;
-}
-
-bool Line::operator==(const Line & l) const
-{
-    return Line(x-l.x, y-l.y).equalsZero();
-}
-
-bool Line::operator!=(const Line & l) const
-{
-    return !(*this == l);
+bool intersect(Point a, Point b, Point c, Point d) {
+    return checkProjection(a.x, b.x, c.x, d.x)
+        && checkProjection(a.y, b.y, c.y, d.y)
+        && orientedArea(a, b, c) * orientedArea(a, b, d) <= 0
+        && orientedArea(c, d, a) * orientedArea(c, d, b) <= 0;
 }

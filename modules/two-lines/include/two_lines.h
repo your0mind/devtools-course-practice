@@ -2,27 +2,14 @@
 
 #ifndef MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
 #define MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
-class Line
+
+struct Point
 {
-public:
-    Line();
-    Line(const double _x, const double _y);
-    Line(const Line &l);
-
-    Line& operator=(const Line &l);
-
-    double getX() const;
-    double getY() const;
-    void setX(const double _x);
-    void setY(const double _y);
-
-    bool isIntersection(const Line &l) const;
-
-    bool operator == (const Line& l) const;
-    bool operator != (const Line& l) const;
-private:
     double x;
     double y;
-    bool equalsZero() const;
+    Point():x(0.0), y(0.0) {};
+    Point(double _x, double _y) :x(_x), y(_y) {};
 };
+bool intersect(Point a, Point b, Point c, Point d);
+
 #endif  // MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
