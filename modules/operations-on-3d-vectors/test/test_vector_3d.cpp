@@ -49,18 +49,44 @@ TEST(Gracheva_Elena_TestVector3d, get_correct_component_valid_arguments) {
     EXPECT_DOUBLE_EQ(2, data1);
 }
 
-TEST(Gracheva_Elena_TestVector3d, correct_indexing_invalid_arguments) {
+TEST(Gracheva_Elena_TestVector3d,
+    correct_indexing_invalid_arguments_index_more_than_2) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
-    // Act, Assert
+    // Act
+
+    // Assert
     EXPECT_ANY_THROW(vector[3]);
 }
 
-TEST(Gracheva_Elena_TestVector3d, get_correct_component_invalid_arguments) {
+TEST(Gracheva_Elena_TestVector3d,
+    correct_indexing_invalid_arguments_index_less_than_0) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+
+    // Act
+
+    // Assert
+    EXPECT_ANY_THROW(vector[-1]);
+}
+
+TEST(Gracheva_Elena_TestVector3d,
+    get_correct_component_invalid_arguments_index_more_than_2) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
     // Act, Assert
+    EXPECT_ANY_THROW(vector.GetComponent(3));
+}
+
+TEST(Gracheva_Elena_TestVector3d,
+    get_correct_component_invalid_arguments_index_less_than_0) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+
+    // Act
+
+    // Assert
     EXPECT_ANY_THROW(vector.GetComponent(-1));
 }
