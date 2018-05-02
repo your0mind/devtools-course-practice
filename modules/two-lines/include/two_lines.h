@@ -6,15 +6,15 @@ class Line
 {
 public:
     Line();
-    Line(double x, double y);
+    Line(const double _x, const double _y);
     Line(const Line &l);
 
     Line& operator=(const Line &l);
 
     double getX() const;
     double getY() const;
-    void setX();
-    void setY();
+    void setX(const double _x);
+    void setY(const double _y);
 
     bool isIntersection(const Line &l) const;
 private:
