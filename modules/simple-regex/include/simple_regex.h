@@ -10,6 +10,8 @@
 #ifndef MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
 #define MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
 
+#include <cstddef>
+
 class SimpleRegex {
  public:
     SimpleRegex(const char* regex);
@@ -18,7 +20,7 @@ class SimpleRegex {
     void  setRegex(const char* regex);
 
     bool isMatch(const char* str);
-    void getMatch(char* buffer, size_t size);
+    void getMatch(char* buffer, std::size_t size);
     int getMatchIndex() const;
 
  private: 

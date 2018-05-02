@@ -109,8 +109,8 @@ bool SimpleRegex::isMatch(const char* str) {
     return true;
 }
 
-void SimpleRegex::getMatch(char* buffer, size_t size) {
-    if (size - 1 < static_cast<size_t>(matchEnd_ - matchBegin_)) {
+void SimpleRegex::getMatch(char* buffer, std::size_t size) {
+    if (size - 1 < static_cast<std::size_t>(matchEnd_ - matchBegin_)) {
         throw std::length_error("Size of buffer is smaller then size of match.");
     }
 
