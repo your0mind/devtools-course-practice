@@ -16,7 +16,7 @@ TEST(PriorityQueueTest, can_create_priority_queue) {
 
 TEST(PriorityQueueTest, can_copy_priority_queue) {
     // Arrange
-	PriorityQueue<int> pq(5, 5);
+    PriorityQueue<int> pq(5, 5);
 
     // Act & Assert
     ASSERT_NO_THROW(PriorityQueue<int> pq1(pq));
