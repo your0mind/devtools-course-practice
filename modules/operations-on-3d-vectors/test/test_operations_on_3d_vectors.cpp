@@ -1,3 +1,5 @@
+//Copyright 2018 Gracheva Elena
+
 #include <gtest/gtest.h>
 #include "include/operations_on_3d_vectors.h"
 #include "include/vector_3d.h"

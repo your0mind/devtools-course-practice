@@ -1,3 +1,5 @@
+//Copyright 2018 Gracheva Elena
+
 #pragma once
 #include "vector_3d.h"
 
