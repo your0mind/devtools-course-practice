@@ -36,3 +36,4 @@ bool operator!=(const Vector3d & vector1, const Vector3d & vector2)
 {
     return !(vector1==vector2);
 }
+

@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/vector_3d.h"
 
-TEST(TestVector3d, correct_constructor_with_parameters) {
+TEST(Gracheva_Elena_TestVector3d, correct_constructor_with_parameters) {
     // Arrange
     double component0 = 1, component1 = 2, component2 = 3;
 
@@ -16,7 +16,7 @@ TEST(TestVector3d, correct_constructor_with_parameters) {
     EXPECT_DOUBLE_EQ(component2, vector.GetComponent(2));
 }
 
-TEST(TestVector3d, correct_constructor_without_parameters) {
+TEST(Gracheva_Elena_TestVector3d, correct_constructor_without_parameters) {
     // Arrange
     Vector3d expectedResult(0, 0, 0);
 
@@ -27,7 +27,7 @@ TEST(TestVector3d, correct_constructor_without_parameters) {
     EXPECT_EQ(expectedResult, result);
 }
 
-TEST(TestVector3d, correct_indexing_valid_arguments) {
+TEST(Gracheva_Elena_TestVector3d, correct_indexing_valid_arguments) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
@@ -38,7 +38,7 @@ TEST(TestVector3d, correct_indexing_valid_arguments) {
     EXPECT_DOUBLE_EQ(2, data1);
 }
 
-TEST(TestVector3d, get_correct_component_valid_arguments) {
+TEST(Gracheva_Elena_TestVector3d, get_correct_component_valid_arguments) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
@@ -49,7 +49,7 @@ TEST(TestVector3d, get_correct_component_valid_arguments) {
     EXPECT_DOUBLE_EQ(2, data1);
 }
 
-TEST(TestVector3d, correct_indexing_invalid_arguments) {
+TEST(Gracheva_Elena_TestVector3d, correct_indexing_invalid_arguments) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
@@ -57,7 +57,7 @@ TEST(TestVector3d, correct_indexing_invalid_arguments) {
     EXPECT_ANY_THROW(vector[3]);
 }
 
-TEST(TestVector3d, get_correct_component_invalid_arguments) {
+TEST(Gracheva_Elena_TestVector3d, get_correct_component_invalid_arguments) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
