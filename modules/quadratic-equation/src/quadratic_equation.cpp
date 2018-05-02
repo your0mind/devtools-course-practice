@@ -51,6 +51,6 @@ void QuadraticEquation::solve() {
     isSolved = true;
 }
 
-bool QuadraticEquation::hasRealRoots() {
+bool QuadraticEquation::hasRealRoots() const {
     return (discriminant >= 0);
 }

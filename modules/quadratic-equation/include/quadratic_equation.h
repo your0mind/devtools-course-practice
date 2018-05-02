@@ -24,7 +24,7 @@ class QuadraticEquation {
 
      bool isSolved;
 
-     bool hasRealRoots();
+     bool hasRealRoots() const;
      void solve();
 };
 
