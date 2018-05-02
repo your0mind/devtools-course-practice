@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cmath>
 #include <set>
+#include <map>
 
 #include "include/monom.h"
 #include "include/polynom.h"
@@ -45,8 +46,7 @@ Polynom & Polynom::operator=(const Polynom & z) {
     return *this;
 }
 
-void Polynom::add_monom(const Monom & m)
-{
+void Polynom::add_monom(const Monom & m) {
     for (auto& mm : m_monoms) {
         if (mm.m_variabels == m.m_variabels) {
             mm.m_coff += m.m_coff;
@@ -136,8 +136,7 @@ Polynom Polynom::operator/(const Monom & m) {
     return tmp;
 }
 
-map<char, double> Polynom::get_vars_list()
-{
+map<char, double> Polynom::get_vars_list() {
     std::set<char> tmp;
     for (const auto& m : m_monoms) {
         for (const auto& v : m.m_variabels) {
@@ -151,8 +150,7 @@ map<char, double> Polynom::get_vars_list()
     return ret;
 }
 
-double Polynom::calc_result(const map<char, double>& in_params)
-{
+double Polynom::calc_result(const map<char, double>& in_params) {
     double res = 0.0;
     for (const auto& m : m_monoms) {
         double tmp = m.m_coff;
