@@ -59,7 +59,6 @@ Huffman::~Huffman() {
     }
     delete tmp;
   }
-  frequency.~vector();
 }
 
 void Huffman::BuildTree() {
