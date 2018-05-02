@@ -6,7 +6,7 @@
 #include "./vector_3d.h"
 
 class OperationsOn3dVectors {
-public:
+ public:
     static double GetNorm(const Vector3d& vector);
     static Vector3d GetNormalizedVector(const Vector3d& vector);
 
