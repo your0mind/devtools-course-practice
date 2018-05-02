@@ -6,11 +6,11 @@
 #pragma once
 
 template <typename T>
-class Steck;
+class Stack;
 
 template <typename T>
 class Node {
-friend Steck<T>;
+friend Stack<T>;
 
  private:
     T val;
@@ -27,13 +27,13 @@ Node<T>::Node(T _val, Node<T> *_next) {
 }
 
 template <typename T>
-class Steck {
+class Stack {
  private:
     Node<T> * currentTop;
     int sizeOfStack;
  public:
-    Steck();
-    ~Steck();
+    Stack();
+    ~Stack();
 
     bool IsEmpty();
     int Size();
@@ -43,19 +43,19 @@ class Steck {
 };
 
 template <typename T>
-Steck<T>::Steck() {
+Stack<T>::Stack() {
     sizeOfStack = 0;
     currentTop = 0;
 }
 
 template <typename T>
-Steck<T>::~Steck() {
+Stack<T>::~Stack() {
     while (Size())
         Pop();
 }
 
 template <typename T>
-bool Steck<T>::IsEmpty() {
+bool Stack<T>::IsEmpty() {
     if (sizeOfStack == 0)
         return 1;
     else
@@ -63,26 +63,26 @@ bool Steck<T>::IsEmpty() {
 }
 
 template <typename T>
-int Steck<T>::Size() {
+int Stack<T>::Size() {
     return sizeOfStack;
 }
 
 template <typename T>
-void Steck<T>::Push(T val) {
+void Stack<T>::Push(T val) {
     Node<T> *new_node = new Node<T>(val, currentTop);
     sizeOfStack++;
     currentTop = new_node;
 }
 
 template <typename T>
-void Steck<T>::Pop() {
+void Stack<T>::Pop() {
     Node<T> *node = currentTop;
     currentTop = currentTop->next;
     delete node;
 }
 
 template <typename T>
-T Steck<T>::LookTop() {
+T Stack<T>::LookTop() {
     return currentTop->val;
 }
 
