@@ -45,6 +45,17 @@ Polynom & Polynom::operator=(const Polynom & z) {
     return *this;
 }
 
+void Polynom::add_monom(const Monom & m)
+{
+    for (auto& mm : m_monoms) {
+        if (mm.m_variabels == m.m_variabels) {
+            mm.m_coff += m.m_coff;
+            return;
+        }
+    }
+    m_monoms.push_back(m);
+}
+
 string Polynom::toString() {
     stringstream ss;
     for (size_t i = 0; i < m_monoms.size() - 1; ++i)

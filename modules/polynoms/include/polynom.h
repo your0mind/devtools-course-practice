@@ -22,6 +22,7 @@ class Polynom {
 
      Polynom& operator=(const Polynom& z);
 
+     void add_monom(const Monom& m);
      string toString();
 
      bool operator==(const Polynom& rhs) const;
@@ -32,7 +33,7 @@ class Polynom {
      Polynom operator*(const Polynom& rhs);
      Polynom operator/(const Monom& m);
 
-     // Returns the map, where key is name, value should to fill user, default = 1.0
+     // Returns the map, where key is name, value should to fill user
      map<char, double> get_vars_list();
 
      // Accept map with filled values

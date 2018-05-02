@@ -263,3 +263,31 @@ TEST_F(PolynomTest, Check_Calculate) {
     // Assert
     EXPECT_NEAR(p.calc_result(vars), 4608.0, 0.00001);
 }
+
+TEST_F(PolynomTest, Add_Different_Monom) {
+    // Arrange
+    Polynom p1("3x^9");
+    Monom m("3y^10");
+    Polynom p2("3y^10");
+
+    // Act
+    Polynom p = p1 + p2;
+    p1.add_monom(m);
+
+    // Assert
+    EXPECT_EQ(p, p1);
+}
+
+
+TEST_F(PolynomTest, Add_Same_Monom) {
+    // Arrange
+    Polynom p1("3x^10");
+    Monom m("3x^10");
+
+    // Act
+    p1.add_monom(m);
+
+    // Assert
+    Polynom p2("6x^10");
+    EXPECT_EQ(p2, p1);
+}
