@@ -1,7 +1,7 @@
 // Copyright 2018 Tarakanov Kirill
 
-#ifndef MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
-#define MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
+#ifndef MODULES_MODIFY_STECK_INCLUDE_MODIFY_STACK_H_
+#define MODULES_MODIFY_STECK_INCLUDE_MODIFY_STACK_H_
 
 #pragma once
 #include "Stack.h"
@@ -10,8 +10,8 @@
 template <typename T>
 class ModifyStack {
  private:
-    Stack<T>* steck1;
-    Stack<T>* steck2;
+    Stack<T>* stack1;
+    Stack<T>* stack2;
  public:
     ModifyStack();
 
@@ -72,4 +72,4 @@ T ModifyStack<T>::FindMin() {
     return stack2->LookTop();
 }
 
-#endif  // MODULES_MODIFY_STECK_INCLUDE_MODIFY_STECK_H_
+#endif  // MODULES_MODIFY_STECK_INCLUDE_MODIFY_STACK_H_
