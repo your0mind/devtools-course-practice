@@ -1,7 +1,7 @@
 // Copyright 2018 Tarakanov Kirill
 
-#ifndef MODULES_MODIFY_STECK_INCLUDE_STACK_H_
-#define MODULES_MODIFY_STECK_INCLUDE_STACK_H_
+#ifndef MODULES_MODIFY_STACK_INCLUDE_STACK_H_
+#define MODULES_MODIFY_STACK_INCLUDE_STACK_H_
 
 #pragma once
 
@@ -86,4 +86,4 @@ T Stack<T>::LookTop() {
     return currentTop->val;
 }
 
-#endif  // MODULES_MODIFY_STECK_INCLUDE_STACK_H_
+#endif  // MODULES_MODIFY_STACK_INCLUDE_STACK_H_
