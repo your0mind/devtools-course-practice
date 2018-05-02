@@ -8,9 +8,12 @@
 class OperationsOn3dVectors {
 public:
     static double GetNorm(const Vector3d& vector);
-    static double ScalarProduct(const Vector3d& vector1, const Vector3d& vector2);
-    static Vector3d VectorProduct(const Vector3d& vector1, const Vector3d& vector2);
     static Vector3d GetNormalizedVector(const Vector3d& vector);
+
+    static double ScalarProduct(const Vector3d& vector1, 
+        const Vector3d& vector2);
+    static Vector3d VectorProduct(const Vector3d& vector1, 
+        const Vector3d& vector2);
 };
 
 #endif  // MODULES_OPERATIONS_ON_3D_VECTORS_INCLUDE_OPERATIONS_ON_3D_VECTORS_H_
