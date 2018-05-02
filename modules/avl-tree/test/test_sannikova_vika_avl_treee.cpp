@@ -50,7 +50,7 @@ TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_AVL_Tree) {
 TEST(Sannikova_Vika_AVLTreeTest, Can_Remove_Min_From_NULL_AVL_Tree) {
     // Arrange
     AVL avltree;
-    
+
     // Act
     AVLNode* res = avltree.removeMin(avltree.getRoot());
 
