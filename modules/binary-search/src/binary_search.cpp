@@ -2,6 +2,7 @@
 
 #include "include/binary_search.h"
 #include <algorithm>
+#include <string>
 
 BinarySearch::BinarySearch(int mas[], int size) {
          if (mas != nullptr) {
