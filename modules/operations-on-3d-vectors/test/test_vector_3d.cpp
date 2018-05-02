@@ -90,3 +90,23 @@ TEST(Gracheva_Elena_TestVector3d,
     // Assert
     EXPECT_ANY_THROW(vector.GetComponent(-1));
 }
+
+TEST(Gracheva_Elena_TestVector3d, correct_equals) {
+    // Arrange
+    Vector3d vector1(1, 2, 3), vector2(1, 2, 3);
+
+    // Act
+
+    // Assert
+    EXPECT_TRUE(vector1 == vector2);
+}
+
+TEST(Gracheva_Elena_TestVector3d, correct_not_equals) {
+    // Arrange
+    Vector3d vector1(1, 2, 3), vector2(1, 2, 4);
+
+    // Act
+
+    // Assert
+    EXPECT_TRUE(vector1 != vector2);
+}
