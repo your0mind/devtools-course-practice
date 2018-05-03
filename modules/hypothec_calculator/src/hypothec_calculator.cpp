@@ -77,9 +77,9 @@ float HypothecCalculator::return_final_amount_of_payment() {
             debt_per_month_extra = debt_per_month_main
                 + accrued_interest_in_the_period;
             loan_debt -= debt_per_month_main;
-            debt_per_month_extra_sum += debt_per_month_extra;
+            debt_per_month_extra_sum += (debt_per_month_extra + monthly_commissions);
         }
-        return debt_per_month_extra_sum;
+        return debt_per_month_extra_sum + first_commissions;
     }   else {
         int i = 0;
         float P = 1 + interest_rate_in_month / 1200;
@@ -89,8 +89,8 @@ float HypothecCalculator::return_final_amount_of_payment() {
             i++;
         }
         float K = (interest_rate_in_month / 1200 * (1 + 1 / (resultP - 1)));
-        debt_per_month_extra = apartments_cost * K;
-        return debt_per_month_extra * credit_term_in_month;
+        debt_per_month_extra = apartments_cost * K + monthly_commissions;
+        return debt_per_month_extra * credit_term_in_month + first_commissions;
     }
 }
 
