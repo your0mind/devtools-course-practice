@@ -73,3 +73,18 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
     float expected_res = 10.156f;
     EXPECT_NEAR(expected_res, res, MyEpsilon::eps);
 }
+
+TEST(Gribov_Pavel_LMetricsFloatTest, L2_EqualDistancesAreEqual) {
+// Arrange
+std::vector<float> vec1 = { 0.0f };
+std::vector<float> vec2 = { 0.0f, 2.3f };
+std::vector<float> vec3 = { -2.3f, 0.0f,};
+std::vector<float> vec4 = { 0.0f, 0.0f, 0.0f };
+
+// Act
+float res1 = LMetricsFloat::l2_vec_distance(vec1, vec2);
+float res2 = LMetricsFloat::l2_vec_distance(vec3, vec4);
+
+// Assert
+EXPECT_NEAR(res1, res2, MyEpsilon::eps);
+}
