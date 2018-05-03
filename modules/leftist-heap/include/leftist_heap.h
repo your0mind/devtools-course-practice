@@ -17,5 +17,5 @@ public:
     int MinKey();
     void DeleteMin();
 };
-#endif;
+#endif
 
