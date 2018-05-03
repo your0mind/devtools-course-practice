@@ -25,9 +25,9 @@ TEST(HypothecCalculator, Can_set_month_and_check_return_month) {
     // Arrange
     HypothecCalculator H;
     date data;
-    data.day = 9;
+    data.day = 15;
     data.month = 10;
-    data.year = 2018;
+    data.year = 2022;
 
     // Act
     H.set_date_of_payment(data);
@@ -40,7 +40,7 @@ TEST(HypothecCalculator, Can_set_year_and_check_return_year) {
     // Arrange
     HypothecCalculator H;
     date data;
-    data.day = 9;
+    data.day = 17;
     data.month = 10;
     data.year = 2018;
 
@@ -84,6 +84,15 @@ TEST(HypothecCalculator, Cannt_set_minus_value_to_monthly_commissions) {
     ASSERT_ANY_THROW(H.set_monthly_commissions(value));
 }
 
+TEST(HypothecCalculator, Cannt_set_true_value_to_monthly_commissions) {
+    // Arrange
+    float value = 150;
+    HypothecCalculator H;
+
+    // Act & Assert
+    ASSERT_NO_THROW(H.set_monthly_commissions(value));
+}
+
 TEST(HypothecCalculator, Cannt_set_minus_value_to_first_commissions) {
     // Arrange
     float value = -10;
@@ -93,15 +102,64 @@ TEST(HypothecCalculator, Cannt_set_minus_value_to_first_commissions) {
     ASSERT_ANY_THROW(H.set_first_commissions(value));
 }
 
-TEST(HypothecCalculator, Cannt_create_object_with_minus_value) {
+TEST(HypothecCalculator, Cannt_set_tru_value_to_first_commissions) {
     // Arrange
-    float value1 = -10;
-    float value2 = -15;
-    float value3 = -20;
-    int value4 = -25;
+    float value = 500;
+    HypothecCalculator H;
 
     // Act & Assert
-    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value4, value3));
+    ASSERT_NO_THROW(H.set_first_commissions(value));
+}
+
+TEST(HypothecCalculator, Cannt_create_object_with_minus_app_cost) {
+    // Arrange
+    float value1 = -10;
+    float value2 = 115;
+    int value_3 = 10;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
+}
+
+TEST(HypothecCalculator, Cannt_create_object_with_minus_init_fee) {
+    // Arrange
+    float value1 = 175;
+    float value2 = -30;
+    int value_3 = 20;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value1));
+}
+
+TEST(HypothecCalculator, Cannt_create_object_with_minus_inerest_rate) {
+    // Arrange
+    float value1 = -50;
+    float value2 = 195;
+    int value_3 = 90;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(HypothecCalculator H(value2, value2, value3, value1));
+}
+
+TEST(HypothecCalculator, Cannt_create_object_with_minus_term_in_month) {
+    // Arrange
+    float value1 = 60;
+    float value2 = 15;
+    int value_3 = -38;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
+}
+
+TEST(HypothecCalculator, Cannt_create_object_with_normal_parametrs) {
+    // Arrange
+    float value1 = 19;
+    float value2 = 18;
+    int value_3 = 38;
+    float value4 = 17;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value4));
 }
 
 TEST(HypothecCalculator, Cannt_set_last_year) {
