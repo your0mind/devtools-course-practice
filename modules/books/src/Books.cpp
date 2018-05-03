@@ -3,7 +3,8 @@
 #include "include/Books.h"
 
 Books::Books(int n, int* arr) {
-    this->arr = new int[this->n = n];
+    this->n = n;
+    this->arr = new int[n];
     for (int i = 0; i < n; i++)
         this->arr[i] = arr[i];
 }
