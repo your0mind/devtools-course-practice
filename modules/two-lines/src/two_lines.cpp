@@ -12,8 +12,7 @@ inline int orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
-inline bool checkProjection(double a, double b, double c, double d)
-{
+inline bool checkProjection(double a, double b, double c, double d) {
     if (a > b)  std::swap(a, b);
     if (c > d)  std::swap(c, d);
     return std::max(a, c) <= std::min(b, d);
