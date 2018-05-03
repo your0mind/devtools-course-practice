@@ -20,7 +20,7 @@ void radixSort(Iterator first, Iterator last) {
       throw std::logic_error
                ("The first iterator must be less than the last iterator");
     }
-    const int n = std::distance(first, last);
+    const int size = last - first;
     std::vector<int> copy_in_arr(first, last);
     const int counts_bucket = 256;
     std::queue<int> buckets[counts_bucket];
@@ -29,7 +29,7 @@ void radixSort(Iterator first, Iterator last) {
     int bucket_index;
     const int num_bytes = 4;
     for (int i = 0; i < num_bytes; ++i) {
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < size; ++j) {
             val = copy_in_arr[j];
             bucket_index = (i == num_bytes - 1) ? getSignByte(val, i) + 128 :
                                                   getByte(val, i);

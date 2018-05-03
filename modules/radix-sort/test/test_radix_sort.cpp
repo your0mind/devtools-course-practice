@@ -13,8 +13,7 @@ class RadixSortTest : public testing::Test {
  protected:
     virtual void SetUp() {
         data.resize(10000);
-        int seed = 1;
-        std::mt19937 generator(seed);
+        std::mt19937 generator{std::random_device()()};
         uniform_int_distribution<int> distr(std::numeric_limits<int>::min(),
                                             std::numeric_limits<int>::max());
         generate(data.begin(), data.end(), [&distr, &generator](){
