@@ -3,8 +3,7 @@
 #ifndef MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
 #define MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
 
-struct Point
-{
+struct Point {
     double x;
     double y;
     Point();
