@@ -14,6 +14,12 @@ TEST(PriorityQueueTest, can_create_priority_queue) {
     ASSERT_NO_THROW(PriorityQueue<int> pq(5, 5));
 }
 
+
+TEST(PriorityQueueTest, cant_create_priority_queue_with_negative_priority) {
+    // AAA
+    ASSERT_ANY_THROW(PriorityQueue<int> pq(5, -5));
+}
+
 TEST(PriorityQueueTest, can_copy_priority_queue) {
     // Arrange
     PriorityQueue<int> pq(5, 5);
@@ -108,6 +114,14 @@ TEST(PriorityQueueTest, can_push_element_in_empty_queue) {
     EXPECT_EQ(pq1.extract_max(), 4);
 }
 
+TEST(PriorityQueueTest, cant_push_element_with_negative_priority_in_queue) {
+    // Arrange
+    PriorityQueue<int> pq1(5, 5);
+
+    // Act & Assert
+    ASSERT_ANY_THROW(pq1.push(5, -3));
+}
+
 TEST(PriorityQueueTest, can_push_element_in_queue) {
     // Arrange
     PriorityQueue<int> pq1(5, 6);
@@ -133,16 +147,30 @@ TEST(PriorityQueueTest, item_with_highest_priority_has_correct_position) {
 TEST(PriorityQueueTest, item_with_highest_priority_is_not_only_one_in_queue) {
     // Arrange
     PriorityQueue<int> pq1(1, 3);
-
+    int maxVal1, maxVal2;
     // Act
     pq1.push(3, 2);
     pq1.push(4, 4);
     pq1.push(2, 4);
 
-    // Assert
-    EXPECT_EQ(pq1.extract_max(), 4);
+    maxVal1 = pq1.extract_max();
     pq1.delete_max();
-    EXPECT_EQ(pq1.extract_max(), 2);
+    maxVal2 = pq1.extract_max();
+
+    // Assert
+    EXPECT_EQ(maxVal1, 4);
+    EXPECT_EQ(maxVal2, 2);
+}
+
+TEST(PriorityQueueTest, can_push_item_with_lowest_priority) {
+    // Arrange
+    PriorityQueue<int> pq1(5, 5);
+
+    // Act
+    pq1.push(0, 0);
+    
+    // Assert
+    EXPECT_EQ(pq1.extract_max(), 5);
 }
 
 TEST(PriorityQueueTest, item_with_lowest_priority_has_correct_position) {
@@ -162,28 +190,8 @@ TEST(PriorityQueueTest, item_with_lowest_priority_has_correct_position) {
     EXPECT_EQ(pq1.extract_max(), 0);
 }
 
-TEST(PriorityQueueTest, item_with_lowest_priority_is_not_only_one_in_queue) {
-    // Arrange
-    PriorityQueue<int> pq1;
 
-    // Act
-    for (int i = 0; i < 5; i++) {
-        pq1.push(i, i);
-    }
-
-    pq1.push(1, 0);
-
-    for (int i = 0; i < 4; i++) {
-        pq1.delete_max();
-    }
-
-    // Assert
-    EXPECT_EQ(pq1.extract_max(), 0);
-    pq1.delete_max();
-    EXPECT_EQ(pq1.extract_max(), 1);
-}
-
-TEST(PriorityQueueTest, Queued_elements_with_the_same_priority) {
+TEST(PriorityQueueTest, queued_elements_with_the_same_priority) {
     // Arrange
     PriorityQueue<int> pq1;
 
@@ -361,8 +369,6 @@ TEST(PriorityQueueTest, can_swap_two_queue) {
     pq1.swap(pq2);
 
     // Assert
-    EXPECT_EQ(pq1.extract_max(), 4);
     EXPECT_TRUE(pq1.get_max_priority() == 9 && pq1.get_min_priority() == 8);
-    EXPECT_EQ(pq2.extract_max(), 9);
     EXPECT_TRUE(pq2.get_max_priority() == 6 && pq2.get_min_priority() == 5);
 }

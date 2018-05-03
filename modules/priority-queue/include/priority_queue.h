@@ -66,6 +66,9 @@ PriorityQueue<T>::PriorityQueue() {
 
 template<typename T>
 PriorityQueue<T>::PriorityQueue(T v, int priority) {
+    if (priority < 0)
+        throw std::invalid_argument("Priority is negstive");
+
     elements.head = elements.tail = elements.current = new Node(v, priority);
     element_count = 1;
 }
@@ -148,6 +151,8 @@ void PriorityQueue<T>::delete_max() {
 
 template<typename T>
 void PriorityQueue<T>::push(const T & v, int priority) {
+    if (priority < 0)
+        throw std::invalid_argument("Priority is negstive");
     if (empty()) {
      elements.head = elements.tail = elements.current = new Node(v, priority);
     } else if (priority <= elements.tail->priority) {
