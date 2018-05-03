@@ -1,10 +1,7 @@
 // Copyright 2018 Panov Aleksander
 
 #include "include/two_lines.h"
-#include <limits>
 #include <algorithm>
-
-const double eps = std::numeric_limits<double>::epsilon();
 
 inline int orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
