@@ -78,7 +78,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_EqualDistancesAreEqual) {
 // Arrange
 std::vector<float> vec1 = { 0.0f };
 std::vector<float> vec2 = { 0.0f, 2.3f };
-std::vector<float> vec3 = { -2.3f, 0.0f,};
+std::vector<float> vec3 = { -2.3f, 0.0f };
 std::vector<float> vec4 = { 0.0f, 0.0f, 0.0f };
 
 // Act
