@@ -82,7 +82,7 @@ TEST(LeftistHeapTest,
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest,
-    There_is_no_throw_when_merge_heap_with_null_root_with_heap_with_not_null_root) {
+    There_is_no_throw_when_merge_null_root_heap_with_not_null_root_heap) {
     leftist_heap h1;
     node *root2 = new node(5);
     leftist_heap *h2 = new leftist_heap(root2);
@@ -90,7 +90,7 @@ TEST(LeftistHeapTest,
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest,
-    There_is_no_throw_when_merge_heap_with_not_null_root_with_heap_with_null_root) {
+    There_is_no_throw_when_merge_not_null_root_heap_with_null_root_heap) {
     leftist_heap *h1 = new leftist_heap;
     node *root2 = new node(5);
     leftist_heap h2(root2);
@@ -146,7 +146,8 @@ TEST(LeftistHeapTest,
 
     EXPECT_ANY_THROW(h1.MinKey());
 }
-TEST(LeftistHeapTest, Can_find_minimum_in_the_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    Can_find_minimum_in_the_leftist_heap_with_not_null_root) {
     // Arrange
     leftist_heap h1;
     h1.insert(5);
@@ -164,7 +165,8 @@ TEST(LeftistHeapTest,
 
     EXPECT_ANY_THROW(h1.DeleteMin());
 }
-TEST(LeftistHeapTest, Can_delete_minimum_in_the_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    Can_delete_minimum_in_the_leftist_heap_with_not_null_root) {
     // Arrange
     leftist_heap h1;
     h1.insert(5);
