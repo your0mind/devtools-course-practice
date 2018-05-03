@@ -1,11 +1,11 @@
 // Copyright 2018 Gribov Pavel
 
-#include "include/l-metrics-float.h"
-
 #include <cmath>
 #include <algorithm>
 #include <numeric>
 #include <vector>
+
+#include "include/l-metrics-float.h"
 
 std::vector<float> LMetricsFloat::vec_substract_mod(std::vector<float> vec1,
                                                     std::vector<float> vec2) {
