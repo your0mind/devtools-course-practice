@@ -14,9 +14,9 @@ using std::pair;
 
 TEST(Huffman_Tests, Can_Encode) {
   //  Arrange
-  char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF");
+  char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFFAA");
   vector<pair<char, const char*> > exp = {
-    make_pair('A', "01"), make_pair('B', "10"),
+    make_pair('A', "10"), make_pair('B', "01"),
     make_pair('C', "111"), make_pair('D', "00"),
     make_pair('F', "110")};
 
@@ -44,6 +44,28 @@ TEST(Huffman_Tests, Can_Encode2) {
   vector<pair<char, const char*> > exp = {
     make_pair('A', "11"), make_pair('B', "10"),
     make_pair('C', "00"), make_pair('D', "01")};
+  bool flag = true;
+  Huffman huff(text);
+
+  //  Act
+  map<char, char*> encoded = huff.Encode();
+  int i = 0;
+  for (auto it = encoded.begin(); it != encoded.end(); it++, i++) {
+    if ((it->first != exp[i].first) || strcmp(it->second, exp[i].second) != 0) {
+      flag = false;
+    }
+  }
+
+  //  Assert
+  EXPECT_TRUE(flag);
+}
+
+TEST(Huffman_Tests, Can_Encode_Symbol) {
+  //  Arrange
+  char* text = const_cast<char*>("AAAABBB!!CCC!!@");
+  vector<pair<char, const char*> > exp = {
+    make_pair('!', "01"), make_pair('@', "110"),
+    make_pair('A', "10"), make_pair('B', "111"), make_pair('C', "00")};
   bool flag = true;
   Huffman huff(text);
 
