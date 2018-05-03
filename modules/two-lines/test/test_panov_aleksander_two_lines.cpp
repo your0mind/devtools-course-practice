@@ -25,7 +25,7 @@ TEST(Panov_Aleksander_LinesTest, Equal_Points_Intersect) {
 
 TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
     // Arrange
-    Point a, b(1,1);
+    Point a, b(1, 1);
     Point c(0, 1), d(1, 0);
 
     // Act
@@ -35,8 +35,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
     EXPECT_TRUE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines)
-{
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines) {
     Point a, b(0, 1);
     Point c(0.1, 0), d(0.1, 1);
 
@@ -47,8 +46,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines)
     EXPECT_FALSE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Detect_Coverage)
-{
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Coverage) {
     Point a(0, -1), b(0, 1);
     Point c(0, 0.01), d(0, 0.02);
 
