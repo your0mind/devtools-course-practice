@@ -1,9 +1,6 @@
 // Copyright 2018 Krasikova Ekaterina
-
 #include "include/leftist_heap.h"
 #include <queue>
-
-
 leftist_heap::leftist_heap() {
     root = 0;
 }
@@ -59,7 +56,6 @@ leftist_heap::~leftist_heap() {
     }
     root = 0;
 }
-
 leftist_heap& leftist_heap::operator=(const leftist_heap& h) {
     if (root == h.root) {
         return *this;
