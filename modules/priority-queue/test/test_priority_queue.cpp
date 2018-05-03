@@ -168,7 +168,7 @@ TEST(PriorityQueueTest, can_push_item_with_lowest_priority) {
 
     // Act
     pq1.push(0, 0);
-    
+
     // Assert
     EXPECT_EQ(pq1.extract_max(), 5);
 }
