@@ -1,4 +1,4 @@
-// Copyright 2017 Panov Aleksandr
+// Copyright 2018 Panov Aleksandr
 
 #include <gtest/gtest.h>
 
