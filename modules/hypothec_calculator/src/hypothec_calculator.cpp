@@ -77,7 +77,8 @@ float HypothecCalculator::return_final_amount_of_payment() {
             debt_per_month_extra = debt_per_month_main
                 + accrued_interest_in_the_period;
             loan_debt -= debt_per_month_main;
-            debt_per_month_extra_sum += (debt_per_month_extra + monthly_commissions);
+            debt_per_month_extra_sum += (debt_per_month_extra +
+                monthly_commissions);
         }
         return debt_per_month_extra_sum + first_commissions;
     }   else {
