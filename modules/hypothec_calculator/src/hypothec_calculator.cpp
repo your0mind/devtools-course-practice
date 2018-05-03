@@ -71,9 +71,8 @@ float HypothecCalculator::return_final_amount_of_payment() {
     if (differentiated_payment_type) {
         float debt_per_month_main = apartments_cost / credit_term_in_month;
         float debt_per_month_extra_sum = 0;
-        float accrued_interest_in_the_period;
         for (int i = 0; i < credit_term_in_month; i++) {
-            accrued_interest_in_the_period =
+            float accrued_interest_in_the_period =
                 loan_debt * interest_rate_in_month / (12 * 100);
             debt_per_month_extra = debt_per_month_main
                 + accrued_interest_in_the_period;
