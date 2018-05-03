@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 
+#include <cmath>
 #include <vector>
 
 #include "include/probability_distribution.h"
@@ -84,9 +85,8 @@ TEST(ProbabilityDistributionTest, Can_Get_Probabilities) {
 
 TEST(ProbabilityDistributionTest, Throws_If_There_Is_No_Data_Test_3) {
     DescretePD dpd;
-    double expectedValue = 0.0;
 
-    EXPECT_ANY_THROW(expectedValue = dpd.expectedValue());
+    EXPECT_ANY_THROW(dpd.expectedValue());
 }
 
 TEST(ProbabilityDistributionTest, Can_Get_Expected_Value) {
@@ -102,9 +102,8 @@ TEST(ProbabilityDistributionTest, Can_Get_Expected_Value) {
 
 TEST(ProbabilityDistributionTest, Throws_If_There_Is_No_Data_Test_4) {
     DescretePD dpd;
-    double variance = 0.0;
 
-    EXPECT_ANY_THROW(variance = dpd.variance());
+    EXPECT_ANY_THROW(dpd.variance());
 }
 
 TEST(ProbabilityDistributionTest, Can_Get_Variance) {
@@ -120,10 +119,9 @@ TEST(ProbabilityDistributionTest, Can_Get_Variance) {
 
 TEST(ProbabilityDistributionTest, Throws_If_There_Is_No_Data_Test_5) {
     DescretePD dpd;
-    double rawMoment = 0.0;
     unsigned char k = 1;
 
-    EXPECT_ANY_THROW(rawMoment = dpd.rawMoment(k));
+    EXPECT_ANY_THROW(dpd.rawMoment(k));
 }
 
 TEST(ProbabilityDistributionTest, Can_Get_Zeroth_Row_Moment) {
@@ -165,10 +163,9 @@ TEST(ProbabilityDistributionTest, Can_Get_Second_Row_Moment) {
 
 TEST(ProbabilityDistributionTest, Throws_If_There_Is_No_Data_Test_6) {
     DescretePD dpd;
-    double centralMoment = 0.0;
     unsigned char k = 1;
 
-    EXPECT_ANY_THROW(centralMoment = dpd.centralMoment(k));
+    EXPECT_ANY_THROW(dpd.centralMoment(k));
 }
 
 TEST(ProbabilityDistributionTest, Can_Get_Zeroth_Central_Moment) {
