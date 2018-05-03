@@ -5,7 +5,7 @@
 #include "Node.h"
 
 class leftist_heap {
-public:
+ public:
     node *root;
     leftist_heap();
     explicit leftist_heap(node *root_);
