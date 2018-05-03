@@ -173,4 +173,21 @@ TEST(LeftistHeapTest, Work_right_for_sorting_array) {
         EXPECT_EQ(exp[i], res[i]);
     }
 }
+TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_many_nodes) {
+    // Arrange
+    leftist_heap h1;
+    h1.insert(5);
+    h1.insert(2);
+    h1.insert(3);
+    h1.insert(10);
+    leftist_heap h2;
+    h2.insert(5);
+    h2.insert(2);
+    h2.insert(7);
+    h2.insert(10);
+    // Act
+    h2 = h1;
+    // Assert
+    EXPECT_EQ(h2.root->key, h1.root->key);
+}
 
