@@ -1,4 +1,7 @@
-#pragma once
+
+
+#ifndef MODULES_TRIANGLES_OPTIONS_INCLUDE_TRIANGLES_H_
+#define MODULES_TRIANGLES_OPTIONS_INCLUDE_TRIANGLES_H_
 
 #include <stdexcept>
 #define M_PI 3.14159265358979323846
@@ -49,3 +52,5 @@ class Triangles {
   Vertex Get_Barycenter();
   Vertex Get_Center_Of_Inscribed_Circle();
 };
+
+#endif  // MODULES_TRIANGLES_OPTIONS_INCLUDE_TRIANGLES_H_
