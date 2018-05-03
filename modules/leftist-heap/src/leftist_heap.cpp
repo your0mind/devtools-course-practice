@@ -58,7 +58,7 @@ leftist_heap::~leftist_heap() {
         }
         delete tmp;
     }
-	root = 0;
+    root = 0;
 }
 
 leftist_heap& leftist_heap::operator=(const leftist_heap& h) {
@@ -66,20 +66,20 @@ leftist_heap& leftist_heap::operator=(const leftist_heap& h) {
         return *this;
     }
     if (root != 0) {
-		std::queue<node*> q;
-		q.push(root);
-		node *tmp;
-		while (!q.empty()) {
-			tmp = q.front();
-			q.pop();
-			if (tmp->left) {
-				q.push(tmp->left);
-			}
-			if (tmp->right) {
-				q.push(tmp->right);
-			}
-			delete tmp;
-		}
+        std::queue<node*> q;
+        q.push(root);
+        node *tmp;
+        while (!q.empty()) {
+            tmp = q.front();
+            q.pop();
+            if (tmp->left) {
+                q.push(tmp->left);
+            }
+            if (tmp->right) {
+                q.push(tmp->right);
+            }
+            delete tmp;
+        }
     }
     leftist_heap *new_heap_pointer = new leftist_heap(h);
     root = new_heap_pointer->root;
@@ -90,7 +90,7 @@ void leftist_heap::merge(leftist_heap* h) {
     node *tmp;
     if (root == 0) {
         root = h->root;
-		h->root = 0;
+        h->root = 0;
         return;
     }
     if (h->root == 0) {
@@ -103,20 +103,20 @@ void leftist_heap::merge(leftist_heap* h) {
     }
     leftist_heap right(root->right);
     right.merge(h);
-	root->right = right.root;
-	right.root = 0;
+    root->right = right.root;
+    right.root = 0;
     if (root->left == 0 || root->right->rank > root->left->rank) {
         tmp = root->right;
         root->right = root->left;
         root->left = tmp;
     }
-	if (root->right == 0) {
-		root->rank = 1;
-	}
-	else {
-		root->rank = root->left->rank < root->right->rank ? root->left->rank + 1 : root->right->rank + 1;
-	}
-	h->root = 0;
+    if (root->right == 0) {
+        root->rank = 1;
+    }
+    else {
+        root->rank = root->left->rank < root->right->rank ? root->left->rank + 1 : root->right->rank + 1;
+    }
+    h->root = 0;
 }
 void leftist_heap::insert(int k) {
     node * new_node = new node;
@@ -126,13 +126,13 @@ void leftist_heap::insert(int k) {
     merge(new_heap);
 }
 int leftist_heap::MinKey() {
-	if (root == 0) throw 1;
+    if (root == 0) throw 1;
     return root->key;
 }
 void leftist_heap::DeleteMin() {
-	if (root == 0) throw 1;
+    if (root == 0) throw 1;
     leftist_heap left(root->left), *right = new leftist_heap(root->right);
     left.merge(right);
     root = left.root;
-	left.root = 0;
+    left.root = 0;
 }
