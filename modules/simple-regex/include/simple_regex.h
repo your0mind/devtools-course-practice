@@ -5,7 +5,7 @@
 // "\\d" - digit
 // "\\D" - any character except digits
 // "\\w" - digit, character (a-z, A-Z) or '_'
-// "\\W" - any character except characters in \\w 
+// "\\W" - any character except characters in \\w
 
 #ifndef MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
 #define MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
