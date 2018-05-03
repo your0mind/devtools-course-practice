@@ -45,8 +45,8 @@ leftist_heap::~leftist_heap() {
     }
     std::queue<node*> q;
     q.push(root);
-    node *tmp;
     while (!q.empty()) {
+        node *tmp;
         tmp = q.front();
         q.pop();
         if (tmp->left) {
