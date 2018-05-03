@@ -1,0 +1,2 @@
+╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╜╨░╨╣╤В╨╕ ╤Г╨║╨░╨╖╨░╨╜╨╜╤Л╨╣ ╤Д╨░╨╣╨╗
+CMake Error: Generator: execution of make failed. Make command was: "MSBuild.exe" "ALL_BUILD.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=14.0"

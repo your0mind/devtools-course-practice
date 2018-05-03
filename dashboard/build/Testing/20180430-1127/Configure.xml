@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Windows-AMD64-Experimental"
+	BuildStamp="20180430-1127-Experimental"
+	Name="DESKTOP-R9O6L5T"
+	Generator="ctest-3.11.0"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="DESKTOP-R9O6L5T"
+	OSRelease=" Professional"
+	OSVersion=" (Build 16299)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="10"
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="2"
+	NumberOfPhysicalCPU="2"
+	TotalVirtualMemory="7125"
+	TotalPhysicalMemory="3914"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2394"
+	>
+	<Configure>
+		<StartDateTime>Apr 30 14:27 RTZ 2 (ceia)</StartDateTime>
+		<StartConfigureTime>1525087637</StartConfigureTime>
+		<ConfigureCommand>"C:/Program Files/CMake/bin/cmake.exe" "-GVisual Studio 14 Win64" "C:/rep_lab/devtools-course-practice"</ConfigureCommand>
+		<Log>CMake Error at CMakeLists.txt:2 (project):
+  Failed to run MSBuild command:
+
+    MSBuild.exe
+
+  to get the value of VCTargetsPath:
+
+    ╨Э╨╡ ╤Г╨┤╨░╨╡╤В╤Б╤П ╨╜╨░╨╣╤В╨╕ ╤Г╨║╨░╨╖╨░╨╜╨╜╤Л╨╣ ╤Д╨░╨╣╨╗
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/rep_lab/devtools-course-practice/dashboard/build/CMakeFiles/CMakeOutput.log".
+</Log>
+		<ConfigureStatus>1</ConfigureStatus>
+		<EndDateTime>Apr 30 14:27 RTZ 2 (ceia)</EndDateTime>
+		<EndConfigureTime>1525087638</EndConfigureTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Configure>
+</Site>
