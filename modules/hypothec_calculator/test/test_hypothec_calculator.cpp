@@ -151,7 +151,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_term_in_month) {
     ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
 }
 
-TEST(HypothecCalculator, Cannt_create_object_with_normal_parametrs) {
+TEST(HypothecCalculator, Can_create_object_with_normal_parametrs) {
     // Arrange
     float value1 = 19;
     float value2 = 18;
@@ -159,7 +159,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_normal_parametrs) {
     float value4 = 17;
 
     // Act & Assert
-    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value4));
+    ASSERT_NO_THROW(HypothecCalculator H(value1, value2, value3, value4));
 }
 
 TEST(HypothecCalculator, Cannt_set_old_year) {
