@@ -26,7 +26,8 @@ struct CNode {
   }
 
   bool operator() (const CNode* x, const CNode* y) const {
-    return x->freq > y->freq;
+    return (x->freq > y->freq) || ((x->freq == y->freq)
+                                   &&(int(x->value[0]) > int(y->value[0])));
   }
 };
 
