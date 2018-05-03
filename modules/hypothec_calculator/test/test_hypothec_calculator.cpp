@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include <string>
+#include <string.h>
 
 #include "include/hypothec_calculator.h"
 
