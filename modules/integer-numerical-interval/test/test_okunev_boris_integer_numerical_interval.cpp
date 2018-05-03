@@ -198,15 +198,15 @@ TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Interval) {
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest, Can_Get_All_Points_Negative) {
-	// Arrange
-	IntegerNumericalInterval ni("(-4, -1]");
-	vector<int> allPointsR = { -3, -2, -1 };
+    // Arrange
+    IntegerNumericalInterval ni("(-4, -1]");
+    vector<int> allPointsR = { -3, -2, -1 };
 
-	// Act
-	vector<int> allPoints = ni.getAllPoints();
+    // Act
+    vector<int> allPoints = ni.getAllPoints();
 
-	// Assert
-	EXPECT_EQ(allPointsR, allPoints);
+    // Assert
+    EXPECT_EQ(allPointsR, allPoints);
 }
 
 TEST(Okunev_Boris_IntegerNumericalIntervalTest,
