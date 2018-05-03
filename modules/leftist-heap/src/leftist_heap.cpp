@@ -19,8 +19,8 @@ leftist_heap::leftist_heap(const leftist_heap& h) {
     q1.push(h.root);
     root = new node;
     q2.push(root);
-    node *tmp1, *tmp2;
     while (!q1.empty()) {
+		node *tmp1, *tmp2;
         tmp1 = q1.front();
         q1.pop();
         tmp2 = q2.front();
@@ -67,8 +67,8 @@ leftist_heap& leftist_heap::operator=(const leftist_heap& h) {
     if (root != 0) {
         std::queue<node*> q;
         q.push(root);
-        node *tmp;
         while (!q.empty()) {
+            node *tmp;
             tmp = q.front();
             q.pop();
             if (tmp->left) {
