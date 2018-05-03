@@ -20,7 +20,7 @@ leftist_heap::leftist_heap(const leftist_heap& h) {
     root = new node;
     q2.push(root);
     while (!q1.empty()) {
-		node *tmp1, *tmp2;
+        node *tmp1, *tmp2;
         tmp1 = q1.front();
         q1.pop();
         tmp2 = q2.front();
