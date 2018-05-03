@@ -14,6 +14,7 @@ class ModifyStack {
     Stack<T>* stack2;
  public:
     ModifyStack();
+    ~ModifyStack();
 
     bool IsEmpty();
     int Size();
@@ -27,6 +28,12 @@ template <typename T>
 ModifyStack<T>::ModifyStack() {
     stack1 = new Stack<T>();
     stack2 = new Stack<T>();
+}
+
+template <typename T>
+ModifyStack<T>::~ModifyStack() {
+    delete stack1;
+    delete stack2;
 }
 
 template <typename T>
