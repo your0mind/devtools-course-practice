@@ -73,19 +73,19 @@ TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_not_null_root) {
 
 TEST(LeftistHeapTest, There_is_no_throw_when_merge_two_leftist_heap_with_null_root) {
     leftist_heap h1;
-    leftist_heap h2;
+    leftist_heap *h2 = new leftist_heap;
 
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest, There_is_no_throw_when_merge_the_leftist_heap_with_null_root_with_the_leftist_heap_with_not_null_root) {
     leftist_heap h1;
     node *root2 = new node(5);
-    leftist_heap h2(root2);
+    leftist_heap *h2 = new leftist_heap(root2);
 
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest, There_is_no_throw_when_merge_the_leftist_heap_with_not_null_root_with_the_leftist_heap_with_null_root) {
-    leftist_heap h1;
+    leftist_heap *h1 = new leftist_heap;
     node *root2 = new node(5);
     leftist_heap h2(root2);
 
@@ -95,7 +95,7 @@ TEST(LeftistHeapTest, There_is_no_throw_when_merge_two_leftist_heap_with_not_nul
     node *root = new node(10);
     leftist_heap h1(root);
     node *root2 = new node(5);
-    leftist_heap h2(root2);
+    leftist_heap *h2 = new leftist_heap(root2);
 
     EXPECT_NO_THROW(h1.merge(h2));
 }
@@ -104,7 +104,7 @@ TEST(LeftistHeapTest, Correct_merge_two_leftist_heap_with_not_null_root) {
     node *root = new node(10);
     leftist_heap h1(root);
     node *root2 = new node(5);
-    leftist_heap h2(root2);
+    leftist_heap *h2 = new leftist_heap(root2);
 
     // Act
     h1.merge(h2);

@@ -9,7 +9,7 @@ struct node {
     node* parent;
     node* left;
     node* right;
-    explicit node() {
+    node() {
         key = 0;
         rank = 1;
         parent = left = right = 0;
@@ -20,4 +20,4 @@ struct node {
         parent = left = right = 0;
     }
 };
-#endif
+#endif  // MODULES_LEFTIST_HEAP_INCLUDE_NODE_H_
