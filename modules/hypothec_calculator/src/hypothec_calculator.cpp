@@ -67,9 +67,9 @@ void HypothecCalculator::set_date_of_payment(date _start_of_payments) {
 
 float HypothecCalculator::return_final_amount_of_payment() {
     float loan_debt = apartments_cost;
-    float debt_per_month_main = 0;
-    float debt_per_month_extra = 0;
-    float debt_per_month_extra_sum = 0;
+    float debt_per_month_main;
+    float debt_per_month_extra;
+    float debt_per_month_extra_sum;
     float accrued_interest_in_the_period;
 
     if (differentiated_payment_type) {
