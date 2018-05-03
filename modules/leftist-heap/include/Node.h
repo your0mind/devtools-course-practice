@@ -1,6 +1,7 @@
 // Copyright 2018 Krasikova Ekaterina
 
-#pragma once
+#ifndef MODULES_LEFTIST_HEAP_INCLUDE_NODE_H_
+#define MODULES_LEFTIST_HEAP_INCLUDE_NODE_H_
 
 struct node {
     int key;
@@ -8,14 +9,15 @@ struct node {
     node* parent;
     node* left;
     node* right;
-    node() {
+    explicit node() {
         key = 0;
         rank = 1;
         parent = left = right = 0;
     }
-    node(int k) {
+    explicit node(int k) {
         key = k;
         rank = 1;
         parent = left = right = 0;
     }
 };
+#endif

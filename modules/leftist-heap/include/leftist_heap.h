@@ -1,6 +1,7 @@
 // Copyright 2018 Krasikova Ekaterina
 
-#pragma once
+#ifndef MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
+#define MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
 #include "Node.h"
 
 class leftist_heap {
@@ -16,4 +17,5 @@ public:
     int MinKey();
     void DeleteMin();
 };
+#endif;
 
