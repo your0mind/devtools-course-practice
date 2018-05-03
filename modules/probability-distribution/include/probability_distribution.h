@@ -8,11 +8,26 @@
 class DescretePD {
  public:
     DescretePD();
-    DescretePD(const std::vector<double> &values,
+
+    std::vector<double> getValues() const;
+    std::vector<double> getProbabilities() const;
+    void setUpData(const std::vector<double> &values,
       const std::vector<double> &probabilities);
 
+    double expectedValue() const;
+    double variance() const;
+    double rawMoment(const unsigned char k) const;
+    double centralMoment(const unsigned char k) const;
+
  private:
-    bool sumOfProbabilities(const std::vector<double> &probabilities) const;
+    // verifies that probabilities are non-negative
+    // and their sum equals 1
+    bool verifyProbabilities(const std::vector<double> &probabilities) const;
+
+    // returns true if there is at least one value
+    bool hasData() const;
+
+    // probability of value[i] is probability[i]
     std::vector<double> values_;
     std::vector<double> probabilities_;
 };

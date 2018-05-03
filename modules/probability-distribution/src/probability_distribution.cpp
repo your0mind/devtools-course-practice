@@ -2,33 +2,148 @@
 
 #include "include/probability_distribution.h"
 
+#include <cmath>
 #include <limits>
 #include <string>
 #include <vector>
 
 DescretePD::DescretePD() {}
 
-DescretePD::DescretePD(const std::vector<double> &values,
+void DescretePD::setUpData(const std::vector<double> &values,
   const std::vector<double> &probabilities) {
     if (values.size() != probabilities.size()) {
         throw std::string("sizes of vectors do not match");
     } else {
-        if (sumOfProbabilities(probabilities)) {
-        values_ = values;
-        probabilities_ = probabilities;
+        if (verifyProbabilities(probabilities)) {
+            values_ = values;
+            probabilities_ = probabilities;
         } else {
-            throw std::string("sum of probabilities != 1");
+            throw std::string("invalid probabilities values");
         }
     }
   }
 
-bool DescretePD::sumOfProbabilities(const std::vector<double> &probabilities)
+double DescretePD::expectedValue() const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    double expectedValue = 0.0;
+
+    for (int i = 0; i < static_cast<int>(values_.size()); i++) {
+        expectedValue += values_[i] * probabilities_[i];
+    }
+
+    return expectedValue;
+}
+
+double DescretePD::variance() const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    double variance = 0.0;
+    double ev = expectedValue();
+
+    for (int i = 0; i < static_cast<int>(values_.size()); i++) {
+        variance += probabilities_[i] * pow((values_[i] - ev), 2);
+    }
+
+    return variance;
+}
+
+double DescretePD::rawMoment(const unsigned char k) const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    double rawMoment = 0.0;
+
+    switch (k) {
+    case 0: {
+        rawMoment = 1.0;
+        break;
+    }
+    case 1: {
+        rawMoment = expectedValue();
+        break;
+    }
+    default: {
+        for (int i = 0; i < static_cast<int>(values_.size()); i++) {
+            rawMoment += pow(values_[i], k) * probabilities_[i];
+        }
+    }
+    }
+
+    return rawMoment;
+}
+
+double DescretePD::centralMoment(const unsigned char k) const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    double centralMoment = 0.0;
+    double ev = expectedValue();
+
+    switch (k) {
+    case 0: {
+        centralMoment = 1.0;
+        break;
+    }
+    case 1: {
+        centralMoment = 0.0;
+        break;
+    }
+    case 2: {
+        centralMoment = variance();
+        break;
+    }
+    default: {
+        for (int i = 0; i < static_cast<int>(values_.size()); i++) {
+            centralMoment += probabilities_[i] * pow((values_[i] - ev), k);
+        }
+    }
+    }
+
+    return centralMoment;
+}
+
+std::vector<double> DescretePD::getValues() const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    return values_;
+}
+
+std::vector<double> DescretePD::getProbabilities() const {
+    if (!hasData()) {
+        throw std::string("no data");
+    }
+
+    return probabilities_;
+}
+
+bool DescretePD::verifyProbabilities(const std::vector<double> &probabilities)
                                                                       const {
-  double eps = std::numeric_limits<double>::epsilon();
-  double sum = 0.0;
+    double eps = std::numeric_limits<double>::epsilon();
+    double sum = 0.0;
+    bool sign = true;
 
-  for (int i = 0; i < static_cast<int>(probabilities.size()); i++)
-    sum += probabilities[i];
+    // probabilities should be non-negative
+    // sum of probabilities equals 1
+    for (int i = 0; i < static_cast<int>(probabilities.size()); i++) {
+        if (probabilities[i] < 0) {
+            sign = false;
+            break;
+        }
+        sum += probabilities[i];
+    }
 
-  return (sum > 1.0 - eps) && (sum < 1.0 + eps);
+    return (sum > 1.0 - eps) && (sum < 1.0 + eps) && sign;
+}
+
+bool DescretePD::hasData() const {
+    return (values_.size() > 0) ? true : false;
 }
