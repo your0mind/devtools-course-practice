@@ -7,12 +7,9 @@
 #include <stdexcept>
 #include "include/radix_sort.hpp"
 
-inline char getSignByte(int number, int position) {
-    return *(reinterpret_cast<char*>(&number) + position);
-}
-
-inline unsigned char getByte(int number, int position) {
-    return *(reinterpret_cast<unsigned char*>(&number) + position);
+template<typename T>
+inline T nth_byte(int number, int pos) {
+    return *(reinterpret_cast<T*>(&number) + pos);
 }
 
 void radixSort(Iterator first, Iterator last) {
@@ -31,8 +28,8 @@ void radixSort(Iterator first, Iterator last) {
     for (int i = 0; i < num_bytes; ++i) {
         for (int j = 0; j < size; ++j) {
             val = copy_in_arr[j];
-            bucket_index = (i == num_bytes - 1) ? getSignByte(val, i) + 128 :
-                                                  getByte(val, i);
+            bucket_index = (i == num_bytes - 1) ? nth_byte<char>(val, i) + 128 :
+                                                nth_byte<unsigned char>(val, i);
             buckets[bucket_index].push(val);
           }
     int k = 0;
