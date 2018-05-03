@@ -4,12 +4,12 @@
 
 #include "include/simple_regex.h"
 
-#include <stdexcept> 
+#include <stdexcept>
 #include <cstring>
 
 SimpleRegex::SimpleRegex(const char* regex) : str_(nullptr) {
-	str_ = nullptr;
-	setRegex(regex);
+    str_ = nullptr;
+    setRegex(regex);
 }
 
 const char* SimpleRegex::getRegex() const {
@@ -17,7 +17,7 @@ const char* SimpleRegex::getRegex() const {
 }
 
 void SimpleRegex::setRegex(const char* regex) {
-	matchBegin_ = matchEnd_ = -1;
+    matchBegin_ = matchEnd_ = -1;
     regex_ = regex;
 }
 
@@ -111,7 +111,7 @@ bool SimpleRegex::isMatch(const char* str) {
 
 void SimpleRegex::getMatch(char* buffer, std::size_t size) {
     if (size - 1 < static_cast<std::size_t>(matchEnd_ - matchBegin_)) {
-        throw std::length_error("Size of buffer is smaller then size of match.");
+        throw std::length_error("Insufficient buffer size.");
     }
 
     strncpy(buffer, str_ + matchBegin_, matchEnd_ - matchBegin_);
