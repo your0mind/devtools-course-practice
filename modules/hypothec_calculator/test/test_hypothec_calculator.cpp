@@ -115,7 +115,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_app_cost) {
     // Arrange
     float value1 = -10;
     float value2 = 115;
-    int value_3 = 10;
+    int value3 = 10;
 
     // Act & Assert
     ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
@@ -125,7 +125,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_init_fee) {
     // Arrange
     float value1 = 175;
     float value2 = -30;
-    int value_3 = 20;
+    int value3 = 20;
 
     // Act & Assert
     ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value1));
@@ -135,7 +135,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_inerest_rate) {
     // Arrange
     float value1 = -50;
     float value2 = 195;
-    int value_3 = 90;
+    int value3 = 90;
 
     // Act & Assert
     ASSERT_ANY_THROW(HypothecCalculator H(value2, value2, value3, value1));
@@ -145,21 +145,21 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_term_in_month) {
     // Arrange
     float value1 = 60;
     float value2 = 15;
-    int value_3 = -38;
+    int value3 = -38;
 
     // Act & Assert
     ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
 }
 
-TEST(HypothecCalculator, Cannt_create_object_with_normal_parametrs) {
+TEST(HypothecCalculator, Can_create_object_with_normal_parametrs) {
     // Arrange
     float value1 = 19;
     float value2 = 18;
-    int value_3 = 38;
+    int value3 = 38;
     float value4 = 17;
 
     // Act & Assert
-    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value4));
+    ASSERT_NO_THROW(HypothecCalculator H(value1, value2, value3, value4));
 }
 
 TEST(HypothecCalculator, Cannt_set_last_year) {
