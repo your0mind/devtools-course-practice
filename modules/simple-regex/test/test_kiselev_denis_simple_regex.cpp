@@ -61,7 +61,7 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
     SimpleRegex myRegex(regex);
 
     // Assert
-    EXPECT_EQ(false, myRegex.isMatch(str));
+    EXPECT_NE(true, myRegex.isMatch(str));
 }
 
 TEST(Kiselev_Denis_SimpleRegexTest, Can_Get_Match) {
