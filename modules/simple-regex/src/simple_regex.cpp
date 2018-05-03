@@ -79,9 +79,6 @@ bool SimpleRegex::isMatch(const char* str) {
                             matchBegin_ = j + 1;
                         }
                         break;
-
-                    default :
-                        break;
                 }
                 ++i;
                 ++j;

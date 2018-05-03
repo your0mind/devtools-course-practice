@@ -54,14 +54,17 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_True_When_Match_Exist) {
 
 TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
     // Arrange
-    const char* regex   = "May \\d\\d";
+    const char* regex   = "May\\w\\d";
+    const char* regex1  = "Ma\\d";
     const char* str     = "Today May 2";
 
     // Act
     SimpleRegex myRegex(regex);
+    EXPECT_NE(true, myRegex.isMatch(str));
+    myRegex.setRegex(regex1);
 
     // Assert
-    EXPECT_NE(true, myRegex.isMatch(str));
+    EXPECT_NE(true, myRegex.isMatch(str1));
 }
 
 TEST(Kiselev_Denis_SimpleRegexTest, Can_Get_Match) {
