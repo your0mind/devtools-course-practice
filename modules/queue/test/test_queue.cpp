@@ -164,10 +164,8 @@ TEST(QueueTest, Can_Swap_Two_Queues) {
     q1.swap(q2);
 
     // ASSERT
-    EXPECT_EQ(q1.front(), 3);
-    EXPECT_EQ(q1.back(), 4);
-    EXPECT_EQ(q2.front(), 1);
-    EXPECT_EQ(q2.back(), 2);
+    EXPECT_TRUE(q1.front() == 3 && q1.back() == 4
+        && q2.front() == 1 && q2.back() == 2);
 }
 
 TEST(QueueTest, Can_Assign_Queue_To_Itself) {
