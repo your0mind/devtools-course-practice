@@ -1,11 +1,11 @@
 // Copyright 2018 Kiselev Denis
 
-// Класс позволяет использовать упрощенные регулярные
-// выражения. Доступны следующие метасимволы:
-// "\\d" - любая цифра
-// "\\D" - любой символ кроме цифр
-// "\\w" - любая цифра, любая буква (в диапазонах a-z, A-Z) и символ "земли"
-// "\\W" - любой символ кроме символов, включенных в "\\w"
+// It's a class of simple regular expressions
+// The following metacharacters are available:
+// "\\d" - digit
+// "\\D" - any character except digits
+// "\\w" - digit, character (a-z, A-Z) or '_'
+// "\\W" - any character except characters in \\w 
 
 #ifndef MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
 #define MODULES_SIMPLE_REGEX_INCLUDE_SIMPLE_REGEX_H_
@@ -14,8 +14,8 @@
 
 class SimpleRegex {
  public:
-    SimpleRegex(const char* regex);
- 
+    explicit SimpleRegex(const char* regex);
+
     const char* getRegex() const;
     void  setRegex(const char* regex);
 
@@ -23,7 +23,7 @@ class SimpleRegex {
     void getMatch(char* buffer, std::size_t size);
     int getMatchIndex() const;
 
- private: 
+ private:
     const char* regex_;
     const char* str_;
     int matchBegin_;
