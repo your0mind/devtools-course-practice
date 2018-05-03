@@ -62,10 +62,10 @@ TEST(Huffman_Tests, Can_Encode2) {
 
 TEST(Huffman_Tests, Can_Encode_Symbol) {
   //  Arrange
-  char* text = const_cast<char*>("AAAABBB!!CCC!!@");
+  char* text = const_cast<char*>("AAAABBB!CCC!@");
   vector<pair<char, const char*> > exp = {
-    make_pair('!', "01"), make_pair('@', "100"),
-    make_pair('A', "11"), make_pair('B', "101"), make_pair('C', "00")};
+    make_pair('!', "001"), make_pair('@', "000"),
+    make_pair('A', "11"), make_pair('B', "01"), make_pair('C', "10")};
   bool flag = true;
   Huffman huff(text);
 
