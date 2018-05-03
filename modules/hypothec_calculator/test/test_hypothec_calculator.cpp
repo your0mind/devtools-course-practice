@@ -151,7 +151,7 @@ TEST(HypothecCalculator, Cannt_create_object_with_minus_term_in_month) {
     ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value2));
 }
 
-TEST(HypothecCalculator, Can_create_object_with_normal_parametrs) {
+TEST(HypothecCalculator, Cannt_create_object_with_normal_parametrs) {
     // Arrange
     float value1 = 19;
     float value2 = 18;
@@ -159,10 +159,10 @@ TEST(HypothecCalculator, Can_create_object_with_normal_parametrs) {
     float value4 = 17;
 
     // Act & Assert
-    ASSERT_NO_THROW(HypothecCalculator H(value1, value2, value3, value4));
+    ASSERT_ANY_THROW(HypothecCalculator H(value1, value2, value3, value4));
 }
 
-TEST(HypothecCalculator, Cannt_set_last_year) {
+TEST(HypothecCalculator, Cannt_set_old_year) {
     // Arrange
     HypothecCalculator H;
     date data;
@@ -170,7 +170,7 @@ TEST(HypothecCalculator, Cannt_set_last_year) {
     // Act
     data.day = 9;
     data.month = 10;
-    data.year = 2017;
+    data.year = 1989;
 
     // Assert
     ASSERT_ANY_THROW(H.set_date_of_payment(data));
