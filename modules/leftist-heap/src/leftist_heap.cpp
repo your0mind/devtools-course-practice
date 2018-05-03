@@ -4,8 +4,7 @@
 #include <queue>
 
 
-leftist_heap::leftist_heap()
-{
+leftist_heap::leftist_heap() {
     root = 0;
 }
 leftist_heap::leftist_heap(node *root_) {
@@ -112,9 +111,9 @@ void leftist_heap::merge(leftist_heap* h) {
     }
     if (root->right == 0) {
         root->rank = 1;
-    }
-    else {
-        root->rank = root->left->rank < root->right->rank ? root->left->rank + 1 : root->right->rank + 1;
+    } else {
+        root->rank = root->left->rank < root->right->rank ?
+            root->left->rank + 1 : root->right->rank + 1;
     }
     h->root = 0;
 }

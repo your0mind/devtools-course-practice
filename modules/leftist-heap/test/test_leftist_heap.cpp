@@ -4,10 +4,12 @@
 
 #include "include/leftist_heap.h"
 
-TEST(LeftistHeapTest, There_is_no_throw_when_create_leftist_heap_with_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_create_leftist_heap_with_null_root) {
     EXPECT_NO_THROW(leftist_heap h);
 }
-TEST(LeftistHeapTest, There_is_no_throw_when_create_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_create_leftist_heap_with_not_null_root) {
     node *root = new node;
     EXPECT_NO_THROW(leftist_heap h(root));
 }
@@ -30,7 +32,8 @@ TEST(LeftistHeapTest, Create_correct_copy_of_the_leftist_heap_with_null_root) {
     // Assert
     EXPECT_EQ(h2.root, nullptr);
 }
-TEST(LeftistHeapTest, Create_correct_copy_of_the_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    Create_correct_copy_of_the_leftist_heap_with_not_null_root) {
     // Arrange
     node *root = new node(10);
     leftist_heap h1(root);
@@ -71,27 +74,31 @@ TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_not_null_root) {
     EXPECT_EQ(h2.root->key, 10);
 }
 
-TEST(LeftistHeapTest, There_is_no_throw_when_merge_two_leftist_heap_with_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_merge_two_leftist_heap_with_null_root) {
     leftist_heap h1;
     leftist_heap *h2 = new leftist_heap;
 
     EXPECT_NO_THROW(h1.merge(h2));
 }
-TEST(LeftistHeapTest, There_is_no_throw_when_merge_the_leftist_heap_with_null_root_with_the_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_merge_heap_with_null_root_with_heap_with_not_null_root) {
     leftist_heap h1;
     node *root2 = new node(5);
     leftist_heap *h2 = new leftist_heap(root2);
 
     EXPECT_NO_THROW(h1.merge(h2));
 }
-TEST(LeftistHeapTest, There_is_no_throw_when_merge_the_leftist_heap_with_not_null_root_with_the_leftist_heap_with_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_merge_heap_with_not_null_root_with_heap_with_null_root) {
     leftist_heap *h1 = new leftist_heap;
     node *root2 = new node(5);
     leftist_heap h2(root2);
 
     EXPECT_NO_THROW(h2.merge(h1));
 }
-TEST(LeftistHeapTest, There_is_no_throw_when_merge_two_leftist_heap_with_not_null_root) {
+TEST(LeftistHeapTest,
+    There_is_no_throw_when_merge_two_leftist_heap_with_not_null_root) {
     node *root = new node(10);
     leftist_heap h1(root);
     node *root2 = new node(5);
@@ -133,7 +140,8 @@ TEST(LeftistHeapTest, Can_insert_in_the_leftist_heap_with_not_null_root) {
     // Assert
     EXPECT_EQ(2, h1.root->key);
 }
-TEST(LeftistHeapTest, There_is_a_throw_when_find_minimum_in_the_leftist_heap_with_null_root) {
+TEST(LeftistHeapTest,
+    There_is_a_throw_when_find_minimum_in_the_leftist_heap_with_null_root) {
     leftist_heap h1;
 
     EXPECT_ANY_THROW(h1.MinKey());
@@ -150,7 +158,8 @@ TEST(LeftistHeapTest, Can_find_minimum_in_the_leftist_heap_with_not_null_root) {
     // Assert
     EXPECT_EQ(2, h1.root->key);
 }
-TEST(LeftistHeapTest, There_is_a_throw_when_delete_minimum_in_the_leftist_heap_with_null_root) {
+TEST(LeftistHeapTest,
+    There_is_a_throw_when_delete_minimum_in_the_leftist_heap_with_null_root) {
     leftist_heap h1;
 
     EXPECT_ANY_THROW(h1.DeleteMin());
