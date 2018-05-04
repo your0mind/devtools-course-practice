@@ -1,9 +1,9 @@
 // Copyright 2018 Kulikova Svetlana
 
-#include <math.h>
-
 #ifndef MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
 #define MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
+
+#include <math.h>
 
 struct xyz {
     double x, y, z;
