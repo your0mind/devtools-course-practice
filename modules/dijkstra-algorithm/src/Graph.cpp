@@ -1,5 +1,11 @@
+// Copyright 2018 Bogatova Margarita
+
+#ifndef  MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_
+#define  MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_
+
 #include "include/Graph.h"
 #include <set>
+#include <stdexcept>
 
 
 Graph::Graph() 
@@ -17,7 +23,7 @@ Graph::Graph(int count_vertex, double** matrix)
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j)
             if (matrix[i][j] < 0)
-                throw std::invalid_argument("Negative weight");
+                throw std::invalid_argument("Negative_weight");
     }
     graph_matrix = new double*[n];
     for (int i = 0; i < n; ++i) {
@@ -42,7 +48,7 @@ int Graph::GetCount()
 double Graph::GetWeight(int first, int last)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw std::invalid_argument("Несуществующая вершина");
+        throw std::invalid_argument("Non_exist_vertex");
     return graph_matrix[first-1][last-1];
 }
 
@@ -67,21 +73,21 @@ void Graph::AddVertex()
 void Graph::AddEdge(int first, int last, double weight)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw std::invalid_argument("Несуществующая вершина");
+        throw std::invalid_argument("Non_exist_vertex");
     graph_matrix[first - 1][last - 1] = weight;
 }
 
 void Graph::DeleteEdge(int first, int last)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw std::invalid_argument("Несуществующая вершина");
+        throw std::invalid_argument("Non_exist_vertex");
     graph_matrix[first - 1][last - 1] = 0;
 }
 
 void Graph::DeleteVertex(int vertex)
 {
     if (vertex < 1 || vertex>n)
-        throw std::invalid_argument("Несуществующая вершина");
+        throw std::invalid_argument("Non_exist_vertex");
     double** tmp = new double*[n - 1];
     for (int i = 0; i < n - 1; ++i)
         tmp[i] = new double[n - 1];
@@ -106,7 +112,7 @@ void Graph::DeleteVertex(int vertex)
 double Graph::FindDistance(int start, int finish)
 {
     if (start < 1 || start>n || finish<1 || finish>n)
-        throw std::invalid_argument("Несуществующая вершина");
+        throw std::invalid_argument("Non_exist_vertex");
     static double* distance = new double[n];
     for (int i = 0; i < n; ++i)
         distance[i] = -1;
@@ -132,3 +138,5 @@ double Graph::FindDistance(int start, int finish)
 	double ans = distance[finish-1];
     return ans;
 }
+
+#endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_
