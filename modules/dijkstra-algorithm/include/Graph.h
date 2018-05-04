@@ -3,15 +3,14 @@
 #ifndef MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
 #define MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
 
-class Graph
-{
-protected:
+class Graph {
+ protected:
     int n;
     double** graph_matrix;
-public:
+ public:
     Graph();
     Graph(int count_vertex, double** matrix);
-	~Graph();
+    ~Graph();
     int GetCount();
     double GetWeight(int first, int last);
     void AddVertex();
