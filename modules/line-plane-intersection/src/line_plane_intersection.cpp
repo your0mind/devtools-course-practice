@@ -43,17 +43,17 @@ void line_plane_intersection::Normalize(xyz A) {
 }
 
 bool line_plane_intersection::IncorrectLine(xyz A, xyz B) {
-    if (A == B)
+    if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
     return false;
 }
 
 bool line_plane_intersection::IncorrectPlane(xyz A, xyz B, xyz C) {
-    if (A == B)
+    if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
-    if (A == C)
+    if (A.x == C.x && A.y == C.y && A.z == C.z)
         return true;
-    if (B == C)
+    if (C.x == B.x && C.y == B.y && C.z == B.z)
         return true;
     return false;
 }
