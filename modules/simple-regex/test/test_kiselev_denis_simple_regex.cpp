@@ -67,6 +67,18 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
     EXPECT_NE(true, myRegex.isMatch(str));
 }
 
+TEST(Kiselev_Denis_SimpleRegexTest, Exception_When_Invalid_Metasymbol) {
+    // Arrange
+    const char* regex   = "\\\\WinRa\\r";
+    const char* str     = "C:\\Program Files\\WinRar";
+
+    // Act
+    SimpleRegex myRegex(regex);
+
+    // Assert
+    ASSERT_ANY_THROW(myRegex.isMatch(str));
+}
+
 TEST(Kiselev_Denis_SimpleRegexTest, Can_Get_Match) {
     // Arrange
     const char* regex   = "Ma\\w \\d";

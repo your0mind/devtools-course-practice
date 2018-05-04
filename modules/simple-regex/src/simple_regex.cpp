@@ -79,6 +79,20 @@ bool SimpleRegex::isMatch(const char* str) {
                             matchBegin_ = j + 1;
                         }
                         break;
+
+                    case '\\' :
+                        if (str[j] != '\\') {
+                            if (i > 1) {
+                                --j;
+                            }
+                            i = -1;
+                            matchBegin_ = j + 1;
+                        }
+                        break;
+                        
+                    default:
+                        throw std::invalid_argument("Invalid metasymbol.");
+                        break;
                 }
                 ++i;
                 ++j;
