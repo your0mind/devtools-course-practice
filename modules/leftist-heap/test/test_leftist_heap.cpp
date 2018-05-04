@@ -53,7 +53,7 @@ TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_null_root) {
     // Act
     h2 = h1;
     // Assert
-    EXPECT_EQ(h2.root->key, 10);
+    EXPECT_EQ(h2.root->key, 0);
 }
 TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_not_null_root) {
     // Arrange
