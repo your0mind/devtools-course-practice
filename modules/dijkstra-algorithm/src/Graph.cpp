@@ -106,7 +106,7 @@ double Graph::FindDistance(int start, int finish) {
     for (int i = 0; i < n; ++i)
         distance[i] = -1;
     auto set_function = [](int a, int b) {
-        return (distance[a] < distance[b]) || 
+        return (distance[a] < distance[b]) ||
                ((distance[a] == distance[b]) && (a < b));
     };
     std::set<int, decltype(set_function)> distance_queue(set_function);
@@ -118,10 +118,10 @@ double Graph::FindDistance(int start, int finish) {
         for (int i = 0; i < n; ++i) {
             if (!graph_matrix[next_vertex][i])
                 continue;
-            if (distance[i] > distance[next_vertex] + 
-                    graph_matrix[next_vertex][i] || distance[i]==-1) {
+            if (distance[i] > distance[next_vertex] +
+                    graph_matrix[next_vertex][i] || distance[i] == -1) {
                 distance_queue.erase(i);
-                distance[i] = distance[next_vertex] + 
+                distance[i] = distance[next_vertex] +
                     graph_matrix[next_vertex][i];
                 distance_queue.insert(i);
             }
