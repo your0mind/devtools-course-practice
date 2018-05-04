@@ -1,37 +1,24 @@
 // Copyright 2018 Gorelova Ksenia
 
-#ifndef MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
-#define MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
+#ifndef MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
+#define MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
 
-#include <iostream>
-
-struct Node {
+struct Tree {
 public:
-    int key;
-    int count;
-    Node* left;
-    Node* right;
+    int value;
+    Tree * left;
+    Tree * right;
 };
 
-class SearchTree
-{
+class SearchTree {
 public:
-    SearchTree(Node* pRoot = nullptr);
-    ~SearchTree() {}
-private:
-    Node *pRoot;
-    Node * AddNode(const int &num, Node *nd);
-    int SearchNode(const int &num, Node *nd);
-    Node * DelNode(Node * nd, Node * cur);
-    Node * DelNode(Node * nd);
-public:
-    void Add(const int &num);
-    int Search(const int &num);
-    void DelTree(Node * nd);
-    bool IsEmpty() const;
-    Node * FindMin(Node * nd);
-    Node * FindMax(Node * nd);
-    Node * Find(Node *nd, const int &num);
+    void AddTree(int val, Tree** tr);
+    Tree * FindMin(Tree * tr);
+    Tree * FindMax(Tree * tr);
+    int NumberOfNodes(Tree* tr);
+    int ListCount(Tree* nd);
+    Tree * Search(Tree * tr, int key);
+    void DestroyBTree(Tree * tr);
 };
 
-#endif// MODULES_BINARY_SEARCH_INCLUDE_SEARCH_TREE_H_
+#endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
