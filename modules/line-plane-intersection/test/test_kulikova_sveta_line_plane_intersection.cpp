@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/line_plane_intersection.h"
+#include "inlude/line_plane_intersection.h"
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
     // Arrange
@@ -55,45 +55,6 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotIntersect) {
 
     // Assert
     EXPECT_TRUE(F.GetNotIntersectPlaneLine());
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualX) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 1, 0, 0 };
-    bool res;
-
-    // Act
-    res = !(A == B);
-
-    // Assert
-    EXPECT_TRUE(res);
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualY) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 0, 1, 0 };
-    bool res;
-
-    // Act
-    res = !(A == B);
-
-    // Assert
-    EXPECT_TRUE(res);
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualZ) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 0, 0, 1 };
-    bool res;
-
-    // Act
-    res = !(A == B);
-
-    // Assert
-    EXPECT_TRUE(res);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectLine) {
@@ -162,4 +123,56 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
 
     // Assert
     EXPECT_TRUE(F.GetNotIntersectPlaneLine());
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
+    // Act & Assert
+    ASSERT_NO_THROW(xyz A);
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, СopyСonstructor) {
+    // Arrange
+    xyz A = { 0, 0, 0 };
+
+    // Act & Assert
+    ASSERT_NO_THROW(xyz B(A));
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualX) {
+    // Arrange
+    xyz A = { 0, 0, 0 };
+    xyz B = { 1, 0, 0 };
+    bool res;
+
+    // Act & Assert
+    EXPECT_FALSE(A == B);
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualY) {
+    // Arrange
+    xyz A = { 0, 0, 0 };
+    xyz B = { 0, 1, 0 };
+    bool res;
+
+    // Act & Assert
+    EXPECT_FALSE(A == B);
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualZ) {
+    // Arrange
+    xyz A = { 0, 0, 0 };
+    xyz B = { 0, 0, 1 };
+    bool res;
+
+    // Act & Assert
+    EXPECT_FALSE(A == B);
+}
+
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, AssignmentOperator) {
+    // Arrange
+    xyz A = { 0, 0, 0 };
+    xyz B;
+
+    // Act & Assert
+    ASSERT_NO_THROW(B = A);
 }
