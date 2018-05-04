@@ -55,7 +55,7 @@ TEST(Graph, can_get_count) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetCount(), 2);
 }
 
@@ -70,7 +70,7 @@ TEST(Graph, can_get_weight) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetWeight(2, 1), 1);
 }
 
@@ -85,7 +85,7 @@ TEST(Graph, can_not_get_weight_with_negative_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.GetWeight(-1, 0));
 }
 
@@ -100,7 +100,7 @@ TEST(Graph, can_not_get_weight_with_non_existent_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.GetWeight(1, 4));
 }
 
@@ -116,7 +116,7 @@ TEST(Graph, can_add_vertex) {
     Graph g(2, matrix);
     g.AddVertex();
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetCount(), 3);
 }
 
@@ -133,7 +133,7 @@ TEST(Graph, can_add_edge) {
     g.AddVertex();
     g.AddEdge(3, 1, 4);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetWeight(3, 1), 4);
 }
 
@@ -148,7 +148,7 @@ TEST(Graph, can_not_add_edge_with_negative_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.AddEdge(3, -1, 4));
 }
 
@@ -163,7 +163,7 @@ TEST(Graph, can_not_add_edge_with_non_exist_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.AddEdge(5, 1, 4));
 }
 
@@ -180,7 +180,7 @@ TEST(Graph, can_delete_edge) {
     g.AddVertex();
     g.DeleteEdge(3, 1);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetWeight(3, 1), 0);
 }
 
@@ -195,7 +195,7 @@ TEST(Graph, can_not_delete_edge_with_negative_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.DeleteEdge(3, -1));
 }
 
@@ -210,7 +210,7 @@ TEST(Graph, can_not_delete_edge_with_non_exist_vertex) {
     // Act
     Graph g(2, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.DeleteEdge(5, 1));
 }
 
@@ -228,7 +228,7 @@ TEST(Graph, can_delete_vertex) {
     Graph g(3, matrix);
     g.DeleteVertex(2);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.GetCount(), 2);
     EXPECT_EQ(g.GetWeight(2, 2), 4);
 }
@@ -246,7 +246,7 @@ TEST(Graph, can_not_delete_negative_vertex) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.DeleteVertex(0));
 }
 
@@ -263,7 +263,7 @@ TEST(Graph, can_not_delete_non_exist_vertex) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.DeleteVertex(5));
 }
 
@@ -280,7 +280,7 @@ TEST(Graph, can_find_distance_throw_edge) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.FindDistance(1, 2), 1);
 }
 
@@ -297,7 +297,7 @@ TEST(Graph, can_find_distance_no_throw_edge) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     EXPECT_EQ(g.FindDistance(1, 2), 5);
 }
 
@@ -314,7 +314,7 @@ TEST(Graph, can_not_find_distance_with_negative_vertex) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.FindDistance(0, 2));
 }
 
@@ -331,6 +331,6 @@ TEST(Graph, can_not_find_distance_with_non_exist_vertex) {
     // Act
     Graph g(3, matrix);
 
-    //Assert
+    // Assert
     ASSERT_ANY_THROW(g.FindDistance(1, 7));
 }
