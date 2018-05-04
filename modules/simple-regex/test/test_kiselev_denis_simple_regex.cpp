@@ -56,12 +56,15 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
     // Arrange
     const char* regex   = "May\\w\\d";
     const char* regex1  = "Ma\\d";
+    const char* regex2  = "M\\\\ay";
     const char* str     = "Today May 2";
 
     // Act
     SimpleRegex myRegex(regex);
     EXPECT_NE(true, myRegex.isMatch(str));
     myRegex.setRegex(regex1);
+    EXPECT_NE(true, myRegex.isMatch(str));
+    myRegex.setRegex(regex2);
 
     // Assert
     EXPECT_NE(true, myRegex.isMatch(str));
@@ -69,7 +72,7 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
 
 TEST(Kiselev_Denis_SimpleRegexTest, Exception_When_Invalid_Metasymbol) {
     // Arrange
-    const char* regex   = "Files\\\\WinRa\\r";
+    const char* regex   = "\\\\WinRa\\r";
     const char* str     = "C:\\Program Files\\WinRar";
 
     // Act
