@@ -89,7 +89,7 @@ bool SimpleRegex::isMatch(const char* str) {
                             matchBegin_ = j + 1;
                         }
                         break;
-                        
+
                     default:
                         throw std::invalid_argument("Invalid metasymbol.");
                         break;
