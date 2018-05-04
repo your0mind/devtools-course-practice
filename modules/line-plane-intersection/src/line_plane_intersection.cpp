@@ -2,7 +2,8 @@
 
 #include "include/line_plane_intersection.h"
 
-line_plane_intersection::line_plane_intersection() : NotIntersectPlaneLine(true) {}
+line_plane_intersection::line_plane_intersection() : 
+    NotIntersectPlaneLine(true) {}
 
 xyz line_plane_intersection::CreateVector(xyz A, xyz B) {
     xyz CreateVector;
@@ -57,7 +58,8 @@ bool line_plane_intersection::IncorrectPlane(xyz A, xyz B, xyz C) {
     return false;
 }
 
-xyz line_plane_intersection::PlaneIntersectLine(xyz A, xyz B, xyz C, xyz X, xyz Y) {
+xyz line_plane_intersection::PlaneIntersectLine(xyz A,
+    xyz B, xyz C, xyz X, xyz Y) {
     xyz N, V, W, PlaneIntersectLine;
     double e, d;
 
