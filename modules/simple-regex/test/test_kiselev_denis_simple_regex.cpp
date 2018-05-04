@@ -69,7 +69,7 @@ TEST(Kiselev_Denis_SimpleRegexTest, IsMatch_Is_False_When_Match_Dont_Exist) {
 
 TEST(Kiselev_Denis_SimpleRegexTest, Exception_When_Invalid_Metasymbol) {
     // Arrange
-    const char* regex   = "\\\\WinRa\\r";
+    const char* regex   = "Files\\\\WinRa\\r";
     const char* str     = "C:\\Program Files\\WinRar";
 
     // Act
