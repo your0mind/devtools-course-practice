@@ -3,7 +3,7 @@
 #ifndef MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
 #define MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
 
-#include <math.h>
+#include <cmath>
 
 struct xyz {
     double x, y, z;
@@ -31,7 +31,7 @@ struct xyz {
         return *this;
     }
 
-    bool operator == ( const xyz& A) const {
+    bool operator == (const xyz& A) const {
         if (x != A.x)
             return false;
         if (y != A.y)
@@ -40,17 +40,16 @@ struct xyz {
             return false;
         return true;
     }
-
 };
 
 class line_plane_intersection {
-public:
+ public:
     line_plane_intersection();
 
-    xyz PlaneIntersectLine(xyz A,xyz B,xyz C, xyz X, xyz Y);
+    xyz PlaneIntersectLine(xyz A, xyz B,xyz C, xyz X, xyz Y);
     bool GetNotIntersectPlaneLine();
 
-private:
+ private:
     bool NotIntersectPlaneLine;
 
     xyz CreateVector(xyz A, xyz B);
@@ -59,7 +58,6 @@ private:
     bool IncorrectLine(xyz A, xyz B);
     bool IncorrectPlane(xyz A, xyz B, xyz C);
     void Normalize(xyz A);
-
 };
 
-#endif // MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
+#endif  // MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
