@@ -1,4 +1,4 @@
-// Copyright 2018 Bogatova Margarita
+// Copyright 2018 Mezina Margarita
 
 #ifndef  MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_
 #define  MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_

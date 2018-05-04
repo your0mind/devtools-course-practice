@@ -1,4 +1,4 @@
-//Copyright 2018 Mezina Margarita
+// Copyright 2018 Mezina Margarita
 
 #include <gtest/gtest.h>
 

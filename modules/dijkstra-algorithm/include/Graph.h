@@ -1,19 +1,24 @@
-#pragma once
+// Copyright 2018 Mezina Margarita
+
+#ifndef MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
+#define MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
+
 class Graph
 {
 protected:
     int n;
     double** graph_matrix;
 public:
-    Graph(); //котруктор по умолчанию
-    Graph(int count_vertex, double** matrix); //конструктор с параметрами
-    ~Graph(); //деструктор
-    int GetCount(); //Получить число вершин
-    double GetWeight(int first, int last); //Получить вес ребра
-    void AddVertex(); //Добавить вершину
-    void AddEdge(int first, int last, double weight); //добавить ребро
-    void DeleteEdge(int first, int last); //Удалить ребро
-    void DeleteVertex(int vertex); //Удалить вершину
-    double FindDistance(int start, int finish); //Поиск расстояния от start до finish
+    Graph();
+    Graph(int count_vertex, double** matrix);
+	~Graph();
+    int GetCount();
+    double GetWeight(int first, int last);
+    void AddVertex();
+    void AddEdge(int first, int last, double weight);
+    void DeleteEdge(int first, int last);
+    void DeleteVertex(int vertex);
+    double FindDistance(int start, int finish);
 };
 
+#endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
