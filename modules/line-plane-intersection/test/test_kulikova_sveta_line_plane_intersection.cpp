@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "inlude/line_plane_intersection.h"
+#include "include/line_plane_intersection.h"
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
     // Arrange
@@ -130,7 +130,7 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
     ASSERT_NO_THROW(xyz A);
 }
 
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, СopyСonstructor) {
+TEST(Kulikova_Sveta_LinePlaneIntersection_Test, CopyConstractor) {
     // Arrange
     xyz A = { 0, 0, 0 };
 
