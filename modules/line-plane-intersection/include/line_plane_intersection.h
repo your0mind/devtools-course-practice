@@ -7,39 +7,6 @@
 
 struct xyz {
     double x, y, z;
-
-    xyz() {
-        x = y = z = INFINITY;
-    }
-
-    xyz(const xyz& A) {
-        x = A.x;
-        y = A.y;
-        z = A.z;
-    }
-
-    xyz(double x_, double y_, double z_) {
-        x = x_;
-        y = y_;
-        z = z_;
-    }
-
-    xyz& operator = (const xyz& A) {
-        x = A.x;
-        y = A.y;
-        z = A.z;
-        return *this;
-    }
-
-    bool operator == (const xyz& A) const {
-        if (x != A.x)
-            return false;
-        if (y != A.y)
-            return false;
-        if (z != A.z)
-            return false;
-        return true;
-    }
 };
 
 class line_plane_intersection {
