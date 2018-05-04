@@ -19,7 +19,9 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
     res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
 
     // Assert
-    EXPECT_EQ(EQ, res);
+    EXPECT_EQ(EQ.x, res.x);
+    EXPECT_EQ(EQ.y, res.y);
+    EXPECT_EQ(EQ.z, res.z);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
@@ -37,7 +39,9 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
     res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
 
     // Assert
-    EXPECT_EQ(EQ, res);
+    EXPECT_EQ(EQ.x, res.x);
+    EXPECT_EQ(EQ.y, res.y);
+    EXPECT_EQ(EQ.z, res.z);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotIntersect) {
@@ -125,43 +129,4 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, CopyConstractor) {
 
     // Act & Assert
     ASSERT_NO_THROW(xyz B(A));
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualX) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 1, 0, 0 };
-    bool res;
-
-    // Act & Assert
-    EXPECT_FALSE(A == B);
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualY) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 0, 1, 0 };
-    bool res;
-
-    // Act & Assert
-    EXPECT_FALSE(A == B);
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotEqualZ) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B = { 0, 0, 1 };
-    bool res;
-
-    // Act & Assert
-    EXPECT_FALSE(A == B);
-}
-
-TEST(Kulikova_Sveta_LinePlaneIntersection_Test, AssignmentOperator) {
-    // Arrange
-    xyz A = { 0, 0, 0 };
-    xyz B;
-
-    // Act & Assert
-    ASSERT_NO_THROW(B = A);
 }
