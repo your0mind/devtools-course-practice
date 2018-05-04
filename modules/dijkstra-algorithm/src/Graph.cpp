@@ -12,12 +12,12 @@ Graph::Graph()
 Graph::Graph(int count_vertex, double** matrix)
 {
     if (count_vertex < 0)
-        throw "Negative_count";
+        throw std::invalid_argument("Negative_count");
     n = count_vertex;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j)
             if (matrix[i][j] < 0)
-                throw "Negative weight";
+                throw std::invalid_argument("Negative weight");
     }
     graph_matrix = new double*[n];
     for (int i = 0; i < n; ++i) {
@@ -42,7 +42,7 @@ int Graph::GetCount()
 double Graph::GetWeight(int first, int last)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw "Несуществующая вершина";
+        throw std::invalid_argument("Несуществующая вершина");
     return graph_matrix[first-1][last-1];
 }
 
@@ -67,21 +67,21 @@ void Graph::AddVertex()
 void Graph::AddEdge(int first, int last, double weight)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw "Несуществующая вершина";
+        throw std::invalid_argument("Несуществующая вершина");
     graph_matrix[first - 1][last - 1] = weight;
 }
 
 void Graph::DeleteEdge(int first, int last)
 {
     if (first < 1 || first>n || last<1 || last>n)
-        throw "Несуществующая вершина";
+        throw std::invalid_argument("Несуществующая вершина");
     graph_matrix[first - 1][last - 1] = 0;
 }
 
 void Graph::DeleteVertex(int vertex)
 {
     if (vertex < 1 || vertex>n)
-        throw "Несуществующая вершина";
+        throw std::invalid_argument("Несуществующая вершина");
     double** tmp = new double*[n - 1];
     for (int i = 0; i < n - 1; ++i)
         tmp[i] = new double[n - 1];
@@ -106,7 +106,7 @@ void Graph::DeleteVertex(int vertex)
 double Graph::FindDistance(int start, int finish)
 {
     if (start < 1 || start>n || finish<1 || finish>n)
-        throw "Несуществующая вершина";
+        throw std::invalid_argument("Несуществующая вершина");
     static double* distance = new double[n];
     for (int i = 0; i < n; ++i)
         distance[i] = -1;
