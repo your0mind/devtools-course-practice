@@ -60,16 +60,16 @@ bool line_plane_intersection::IncorrectPlane(xyz A, xyz B, xyz C) {
 
 xyz line_plane_intersection::PlaneIntersectLine(xyz A,
     xyz B, xyz C, xyz X, xyz Y) {
-    xyz N, V, W, PlaneIntersectLine;
+    xyz N, V, W, PlaneIntersectLine = { 0, 0, 0 };
     double e, d;
 
     NotIntersectPlaneLine = true;
 
     if (IncorrectLine(X, Y))
-        return PlaneIntersectLine;
+        throw "Incorrect Line";
 
     if (IncorrectPlane(A, B, C))
-        return PlaneIntersectLine;
+        throw "Incorrect Plane";
 
     N = VectorProduct(CreateVector(A, B), CreateVector(A, C));
     Normalize(N);
