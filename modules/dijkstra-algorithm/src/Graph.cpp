@@ -7,16 +7,13 @@
 #include <set>
 #include <stdexcept>
 
-
-Graph::Graph() 
-{
+Graph::Graph() {
     n = 0;
     graph_matrix = nullptr;
 }
 
 
-Graph::Graph(int count_vertex, double** matrix)
-{
+Graph::Graph(int count_vertex, double** matrix) {
     if (count_vertex < 0)
         throw std::invalid_argument("Negative_count");
     n = count_vertex;
@@ -33,27 +30,23 @@ Graph::Graph(int count_vertex, double** matrix)
     }
 }
 
-Graph::~Graph()
-{
+Graph::~Graph() {
     for (int i = 0; i < n; ++i)
         delete[] graph_matrix[i];
     delete[] graph_matrix;
 }
 
-int Graph::GetCount()
-{
+int Graph::GetCount() {
     return n;
 }
 
-double Graph::GetWeight(int first, int last)
-{
+double Graph::GetWeight(int first, int last) {
     if (first < 1 || first>n || last<1 || last>n)
         throw std::invalid_argument("Non_exist_vertex");
     return graph_matrix[first-1][last-1];
 }
 
-void Graph::AddVertex()
-{
+void Graph::AddVertex() {
     double** tmp = new double*[n + 1];
     for (int i = 0; i < n + 1; ++i) {
         tmp[i] = new double[n + 1];
@@ -70,22 +63,19 @@ void Graph::AddVertex()
     graph_matrix = tmp;
 }
 
-void Graph::AddEdge(int first, int last, double weight)
-{
+void Graph::AddEdge(int first, int last, double weight) {
     if (first < 1 || first>n || last<1 || last>n)
         throw std::invalid_argument("Non_exist_vertex");
     graph_matrix[first - 1][last - 1] = weight;
 }
 
-void Graph::DeleteEdge(int first, int last)
-{
+void Graph::DeleteEdge(int first, int last) {
     if (first < 1 || first>n || last<1 || last>n)
         throw std::invalid_argument("Non_exist_vertex");
     graph_matrix[first - 1][last - 1] = 0;
 }
 
-void Graph::DeleteVertex(int vertex)
-{
+void Graph::DeleteVertex(int vertex) {
     if (vertex < 1 || vertex>n)
         throw std::invalid_argument("Non_exist_vertex");
     double** tmp = new double*[n - 1];
@@ -109,15 +99,15 @@ void Graph::DeleteVertex(int vertex)
     graph_matrix = tmp;
 }
 
-double Graph::FindDistance(int start, int finish)
-{
+double Graph::FindDistance(int start, int finish) {
     if (start < 1 || start>n || finish<1 || finish>n)
         throw std::invalid_argument("Non_exist_vertex");
     static double* distance = new double[n];
     for (int i = 0; i < n; ++i)
         distance[i] = -1;
     auto set_function = [](int a, int b) {
-        return (distance[a] < distance[b]) || ((distance[a] == distance[b]) && (a < b));
+        return (distance[a] < distance[b]) || 
+               ((distance[a] == distance[b]) && (a < b));
     };
     std::set<int, decltype(set_function)> distance_queue(set_function);
     distance[start-1] = 0;
@@ -128,15 +118,16 @@ double Graph::FindDistance(int start, int finish)
         for (int i = 0; i < n; ++i) {
             if (!graph_matrix[next_vertex][i])
                 continue;
-            if (distance[i] > distance[next_vertex] + graph_matrix[next_vertex][i] || distance[i]==-1) {
+            if (distance[i] > distance[next_vertex] + 
+                    graph_matrix[next_vertex][i] || distance[i]==-1) {
                 distance_queue.erase(i);
-                distance[i] = distance[next_vertex] + graph_matrix[next_vertex][i];
+                distance[i] = distance[next_vertex] + 
+                    graph_matrix[next_vertex][i];
                 distance_queue.insert(i);
             }
         }
     }
-	double ans = distance[finish-1];
-    return ans;
+    return distance[finish - 1];
 }
 
 #endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_
