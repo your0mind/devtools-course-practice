@@ -67,7 +67,8 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectLine) {
     line_plane_intersection F;
 
     // Act & Assert
-    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1,
+        Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
@@ -80,7 +81,8 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
     line_plane_intersection F;
 
     // Act & Assert
-    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1,
+        Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
@@ -93,7 +95,8 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
     line_plane_intersection F;
 
     // Act & Assert
-    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1,
+        Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
@@ -107,7 +110,8 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
     line_plane_intersection F;
 
     // Act & Assert
-    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1,
+        Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
