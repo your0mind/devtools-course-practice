@@ -30,7 +30,7 @@ Graph::Graph(int count_vertex, double** matrix)
 Graph::~Graph()
 {
     for (int i = 0; i < n; ++i)
-        delete graph_matrix[i];
+        delete[] graph_matrix[i];
     delete[] graph_matrix;
 }
 
@@ -120,7 +120,7 @@ double Graph::FindDistance(int start, int finish)
         int next_vertex = *distance_queue.begin();
         distance_queue.erase(distance_queue.begin());
         for (int i = 0; i < n; ++i) {
-            if (graph_matrix[next_vertex][i])
+            if (!graph_matrix[next_vertex][i])
                 continue;
             if (distance[i] > distance[next_vertex] + graph_matrix[next_vertex][i] || distance[i]==-1) {
                 distance_queue.erase(i);
@@ -130,6 +130,5 @@ double Graph::FindDistance(int start, int finish)
         }
     }
 	double ans = distance[finish-1];
-	delete[] distance;
     return ans;
 }
