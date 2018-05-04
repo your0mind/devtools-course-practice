@@ -114,8 +114,8 @@ double Graph::FindDistance(int start, int finish)
         return distance[a] < distance[b] || distance[a] == distance[b] && a < b;
     };
     std::set<int, decltype(set_function)> distance_queue(set_function);
-    distance[start] = 0;
-    distance_queue.insert(start);
+    distance[start-1] = 0;
+    distance_queue.insert(start-1);
     while (!distance_queue.empty()) {
         int next_vertex = *distance_queue.begin();
         distance_queue.erase(distance_queue.begin());
@@ -129,5 +129,7 @@ double Graph::FindDistance(int start, int finish)
             }
         }
     }
-    return distance[finish];
+	double ans = distance[finish-1];
+	delete[] distance;
+    return distance[finish-1];
 }
