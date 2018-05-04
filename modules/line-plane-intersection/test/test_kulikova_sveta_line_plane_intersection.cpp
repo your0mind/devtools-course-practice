@@ -64,14 +64,10 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectLine) {
     xyz Plane1 = { 0, 1, 0 };
     xyz Plane2 = { -0.5, 0, 0 };
     xyz Plane3 = { 1, 0, 1 };
-    xyz res;
     line_plane_intersection F;
 
-    // Act
-    res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
-
-    // Assert
-    EXPECT_TRUE(F.GetNotIntersectPlaneLine());
+    // Act & Assert
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
@@ -81,14 +77,10 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
     xyz Plane1 = { 0, 0, 0 };
     xyz Plane2 = { 0, 0, 0 };
     xyz Plane3 = { 0, 1, 0 };
-    xyz res;
     line_plane_intersection F;
 
-    // Act
-    res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
-
-    // Assert
-    EXPECT_TRUE(F.GetNotIntersectPlaneLine());
+    // Act & Assert
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
@@ -98,14 +90,10 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
     xyz Plane1 = { 0, 0, 0 };
     xyz Plane2 = { 0, 1, 0 };
     xyz Plane3 = { 0, 0, 0 };
-    xyz res;
     line_plane_intersection F;
 
-    // Act
-    res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
-
-    // Assert
-    EXPECT_TRUE(F.GetNotIntersectPlaneLine());
+    // Act & Assert
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
@@ -118,11 +106,8 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
     xyz res;
     line_plane_intersection F;
 
-    // Act
-    res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
-
-    // Assert
-    EXPECT_TRUE(F.GetNotIntersectPlaneLine());
+    // Act & Assert
+    EXPECT_ANY_THROW(F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2));
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
