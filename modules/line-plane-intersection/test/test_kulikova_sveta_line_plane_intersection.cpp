@@ -13,15 +13,16 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
     xyz Plane3 = { -3, 0, 0 };
     xyz EQ = { -2, 3, -5 };
     xyz res;
+    double epsilon = 1e-6;
     line_plane_intersection F;
 
     // Act
     res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
 
     // Assert
-    EXPECT_EQ(EQ.x, res.x);
-    EXPECT_EQ(EQ.y, res.y);
-    EXPECT_EQ(EQ.z, res.z);
+    EXPECT_NEAR(EQ.x, res.x, epsilon);
+    EXPECT_NEAR(EQ.y, res.y, epsilon);
+    EXPECT_NEAR(EQ.z, res.z, epsilon);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
@@ -33,15 +34,16 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
     xyz Plane3 = { -2, 3, 1 };
     xyz EQ = { -2, 1, 1 };
     xyz res;
+    double epsilon = 1e-6;
     line_plane_intersection F;
 
     // Act
     res = F.PlaneIntersectLine(Plane1, Plane2, Plane3, Line1, Line2);
 
     // Assert
-    EXPECT_EQ(EQ.x, res.x);
-    EXPECT_EQ(EQ.y, res.y);
-    EXPECT_EQ(EQ.z, res.z);
+    EXPECT_NEAR(EQ.x, res.x, epsilon);
+    EXPECT_NEAR(EQ.y, res.y, epsilon);
+    EXPECT_NEAR(EQ.z, res.z, epsilon);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotIntersect) {
