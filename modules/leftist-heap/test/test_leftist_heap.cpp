@@ -47,7 +47,7 @@ TEST(LeftistHeapTest, There_is_no_throw_when_assign_to_itself) {
 }
 TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_null_root) {
     // Arrange
-    node *root = new node(10);
+    node *root = new node;
     leftist_heap h1(root);
     leftist_heap h2;
     // Act
