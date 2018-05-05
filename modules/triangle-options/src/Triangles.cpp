@@ -42,7 +42,7 @@ double Triangles::Get_Angle(num_of_ver _num) {
     (v2.y - v1.y)*(v3.y - v1.y)) /
     (l1 * l2));
 
-  //if (l3*l3 > l2*l2 + l1*l1)  //  obtuse angle
+  // if (l3*l3 > l2*l2 + l1*l1)  //  obtuse angle
   //  res = PI - res;
 
   return res;
