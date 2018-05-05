@@ -12,7 +12,6 @@ Graph::Graph() {
     graph_matrix = nullptr;
 }
 
-
 Graph::Graph(int count_vertex, double** matrix) {
     if (count_vertex < 0)
         throw std::invalid_argument("Negative_count");
@@ -30,7 +29,7 @@ Graph::Graph(int count_vertex, double** matrix) {
     }
 }
 
-Graph::Graph(Graph & copy) {
+Graph::Graph(const Graph & copy) {
 	n = copy.GetCount();
 	graph_matrix = new double*[n];
 	for (int i = 0; i < n; ++i) {
@@ -46,11 +45,11 @@ Graph::~Graph() {
     delete[] graph_matrix;
 }
 
-int Graph::GetCount() {
+int Graph::GetCount() const {
     return n;
 }
 
-double Graph::GetWeight(int first, int last) {
+double Graph::GetWeight(int first, int last) const {
     if (first < 1 || first>n || last<1 || last>n)
         throw std::invalid_argument("Non_exist_vertex");
     return graph_matrix[first-1][last-1];
@@ -111,7 +110,7 @@ void Graph::DeleteVertex(int vertex) {
     graph_matrix = tmp;
 }
 
-double Graph::FindDistance(int start, int finish) {
+double Graph::FindDistance(int start, int finish) const {
     if (start < 1 || start>n || finish<1 || finish>n)
         throw std::invalid_argument("Non_exist_vertex");
     static double* distance = new double[n];
@@ -142,7 +141,7 @@ double Graph::FindDistance(int start, int finish) {
     return distance[finish - 1];
 }
 
-bool Graph::operator==(Graph & g) {
+bool Graph::operator==(const Graph & g) const {
 	if (n != g.GetCount())
 		return false;
 	for (int i = 0; i < n; ++i) {
@@ -154,7 +153,7 @@ bool Graph::operator==(Graph & g) {
 	return true;
 }
 
-Graph& Graph::operator=(Graph & g) {
+Graph& Graph::operator=(const Graph & g) {
 	if (*this == g)
 		return *this;
     for (int i = 0; i < n; ++i)

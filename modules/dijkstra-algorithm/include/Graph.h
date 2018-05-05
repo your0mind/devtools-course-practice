@@ -12,14 +12,14 @@ class Graph {
     Graph(int count_vertex, double** matrix);
     Graph(const Graph& copy);
     ~Graph();
-    int GetCount();
-    double GetWeight(int first, int last);
+    int GetCount() const;
+    double GetWeight(int first, int last) const;
     void AddVertex();
     void AddEdge(int first, int last, double weight);
     void DeleteEdge(int first, int last);
     void DeleteVertex(int vertex);
-    double FindDistance(int start, int finish);
-    bool operator==(const Graph& g);
+    double FindDistance(int start, int finish) const;
+    bool operator==(const Graph& g) const;
     Graph& operator=(const Graph& g);
 };
 
