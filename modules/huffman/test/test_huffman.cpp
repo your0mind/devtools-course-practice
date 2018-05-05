@@ -11,7 +11,7 @@
 using std::make_pair;
 using std::pair;
 
-TEST(Huffman_Tests, Can_Encode) {
+TEST(Kamelina_Julia_Huffman_Tests, Can_Encode) {
   //  Arrange
   char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFFAA");
   vector<pair<char, const char*> > exp = {
@@ -35,7 +35,7 @@ TEST(Huffman_Tests, Can_Encode) {
   EXPECT_TRUE(flag);
 }
 
-TEST(Huffman_Tests, Can_Encode2) {
+TEST(Kamelina_Julia_Huffman_Tests, Can_Encode2) {
   //  Arrange
   char* text = const_cast<char*>("AAAAAABBBBBBBCCDDDCCDDDCCAA");
   vector<pair<char, const char*> > exp = {
@@ -57,7 +57,7 @@ TEST(Huffman_Tests, Can_Encode2) {
   EXPECT_TRUE(flag);
 }
 
-TEST(Huffman_Tests, Can_Encode_Symbol) {
+TEST(Kamelina_Julia_Huffman_Tests, Can_Encode_Symbol) {
   //  Arrange
   char* text = const_cast<char*>("AAAABBB!CCC!@");
   vector<pair<char, const char*> > exp = {
@@ -79,7 +79,7 @@ TEST(Huffman_Tests, Can_Encode_Symbol) {
   EXPECT_TRUE(flag);
 }
 
-TEST(Huffman_Tests, Throws_When_Create_Nullptr) {
+TEST(Kamelina_Julia_Huffman_Tests, Throws_When_Create_Nullptr) {
   //  Arrange
   char* text = nullptr;
 
@@ -87,7 +87,7 @@ TEST(Huffman_Tests, Throws_When_Create_Nullptr) {
   EXPECT_ANY_THROW(Huffman huff(text););
 }
 
-TEST(Huffman_Tests, Throws_When_Encode_Nullptr) {
+TEST(Kamelina_Julia_Huffman_Tests, Throws_When_Encode_Nullptr) {
   //  Arrange
   Huffman huff;
 
@@ -95,7 +95,7 @@ TEST(Huffman_Tests, Throws_When_Encode_Nullptr) {
   EXPECT_ANY_THROW(huff.Encode());
 }
 
-TEST(Huffman_Tests, Can_Encode_One_Letter) {
+TEST(Kamelina_Julia_Huffman_Tests, Can_Encode_One_Letter) {
   //  Arrange
   char* text = const_cast<char*>("AAAAAA");
   Huffman huff(text);
@@ -109,7 +109,7 @@ TEST(Huffman_Tests, Can_Encode_One_Letter) {
   EXPECT_EQ(strcmp(encoded.begin()->second, "1"), 0);
 }
 
-TEST(Huffman_Tests, Fano_Conditional) {
+TEST(Kamelina_Julia_Huffman_Tests, Fano_Conditional) {
   //  Arrange
   char* text = const_cast<char*>("AAAAAAABBBBBBBCCDDDCCDDDCCFFFFF");
   bool flag = true;
