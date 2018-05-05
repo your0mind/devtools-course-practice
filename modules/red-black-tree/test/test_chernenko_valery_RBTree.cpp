@@ -150,7 +150,7 @@ TEST(RBTree, can_delete_node_in_huge_tree_2) {
     array[0] = 0;
     for (int i = 1; i < 99; i+=2) {
         array[i] = 100000 / i;
-        array[i+1] = - 100000 / i;
+        array[i+1] = -100000 / i;
     }
     array[99] = 1;
     RBTree T(array, 100);
@@ -162,7 +162,27 @@ TEST(RBTree, can_delete_node_in_huge_tree_2) {
     T.deleteNode(-100000 / 16);
     T.deleteNode(-100000 / 18);
     T.deleteNode(-100000 / 80);
+
     EXPECT_EQ(RBTree::NIL, T.findNode(-100000 / 12));
+}
+
+TEST(RBTree, can_delete_node_in_huge_tree_3) {
+    int array[100];
+
+    array[0] = 0;
+    for (int i = 1; i < 99; i+=2) {
+        array[i] = 125125 / i;
+        array[i+1] = - 125125 / i+1;
+    }
+    array[99] = 1;
+    RBTree T(array, 100);
+
+    for (int i = 1; i < 19; i+=2) {
+        T.deleteNode(125125 / i);
+        T.deleteNode(-125125 / i+1);
+    }
+
+    EXPECT_EQ(RBTree::NIL, T.findNode(-125125 / 19));
 }
 
 TEST(RBTree, can_add_two_node) {
@@ -172,6 +192,24 @@ TEST(RBTree, can_add_two_node) {
     T.insertNode(5);
 
     EXPECT_NE(RBTree::NIL, T.findNode(5));
+}
+
+TEST(RBTree, can_add_more_nodes) {
+    RBTree T;
+
+    for (int i = 0; i < 100; i++)
+        T.insertNode(i);
+
+    EXPECT_NE(RBTree::NIL, T.findNode(5));
+}
+
+TEST(RBTree, can_add_more_nodes_inverted) {
+    RBTree T;
+
+    for (int i = 0; i < 100; i++)
+        T.insertNode(-i);
+
+    EXPECT_NE(RBTree::NIL, T.findNode(-5));
 }
 
 TEST(RBTree, can_delete_two_node) {
