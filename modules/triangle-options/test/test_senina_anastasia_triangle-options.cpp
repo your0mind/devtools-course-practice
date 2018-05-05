@@ -202,7 +202,7 @@ TEST(senina_anastasia_triangle_optionsTest,
 TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_) {
   // Arrange
   Vertex a;
-  Vertex b(6);
+  Vertex b(6, 0);
   Vertex c(0, 5);
   double angle;
   double res;
@@ -212,7 +212,6 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_) {
   // Act
   a.x = 0;
   a.y = 0;
-  b.y = 0;
   angle = PI / 2;
   res = figure.Get_Angle(first);
   eps = 0.001;

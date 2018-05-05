@@ -9,7 +9,11 @@
 struct Vertex {
   double x, y;  // the coordinates of the point
 
-  explicit Vertex(double _x = 0, double _y = 0) : x(_x),
+  Vertex() {
+    x = 0;
+    y = 0;
+  }
+  Vertex(double _x, double _y) : x(_x),
   y(_y) {}
 
   bool operator==(const Vertex& a) const {
