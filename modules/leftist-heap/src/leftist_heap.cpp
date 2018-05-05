@@ -121,11 +121,13 @@ void leftist_heap::insert(int k) {
     merge(new_heap);
 }
 int leftist_heap::minKey() {
-    if (root == nullptr) throw 1;
+    if (root == nullptr)
+        throw std::logic_error("Can't find minimum in empty heap");
     return root->key;
 }
 void leftist_heap::deleteMin() {
-    if (root == nullptr) throw 1;
+    if (root == nullptr)
+        throw std::logic_error("Can't delete node from empty heap");
     leftist_heap left(root->left), *right = new leftist_heap(root->right);
     left.merge(right);
     root = left.root;
