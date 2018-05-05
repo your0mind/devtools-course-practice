@@ -3,6 +3,11 @@
 #include "include/Triangles.h"
 #include <math.h>
 
+Vertex::Vertex(double _x, double _y) {
+  x = _x;
+  y = _y;
+}
+
 double Triangles::Length(Vertex a, Vertex b) {
   return sqrt((a.x - b.x)*
     (a.x - b.x) + (a.y - b.y)*(a.y - b.y));
