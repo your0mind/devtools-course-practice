@@ -13,8 +13,9 @@ Cylinder::Cylinder(const double _rad, const double _h) {
         radius = _rad;
         h = _h;
     }
-    else 
+    else {
         throw std::string("Numbers can't be less then zero");
+    }
 }
 
 Cylinder::Cylinder(const Cylinder & _c)

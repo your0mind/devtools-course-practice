@@ -13,8 +13,9 @@ Cone::Cone(const double _rad, const double _l) {
         radius = _rad;
         l = _l;
     }
-    else
+    else {
         throw std::string("Numbers can't be less then zero");
+    }
 }
 
 Cone::Cone(const Cone & _c)
