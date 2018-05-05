@@ -27,6 +27,7 @@ TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Vector) {
   ASSERT_NO_THROW(MaxBinaryHeap<int> heap(v.begin(), v.end()));
 }
 
+
 TEST(MaxBinaryHeapTest, Check_That_Empty_Heap_Is_Empty) {
   // Arrange
   MaxBinaryHeap<int> heap;
@@ -89,6 +90,41 @@ TEST(MaxBinaryHeapTest, Check_Get_Top) {
 
   // Assert
   EXPECT_EQ(3, heap.top());
+}
+
+TEST(MaxBinaryHeapTest, Can_Create_Copy_Heap) {
+  // Arrange
+  MaxBinaryHeap<int> h {2, -5, 1, 2};
+
+  // Act
+  MaxBinaryHeap<int> ch(h);
+
+  // Assert
+  EXPECT_EQ(2, ch.top());
+}
+
+TEST(MaxBinaryHeapTest, Check_Swap_Heaps) {
+  // Arrange
+  MaxBinaryHeap<int> h1 {2, -5, 1, 2};
+  MaxBinaryHeap<int> h2 {100, 1000, 3};
+
+  // Act
+  h1.swap(h2);
+
+  // Assert
+  EXPECT_EQ(1000, h1.top());
+  EXPECT_EQ(2, h2.top());
+}
+
+TEST(MaxBinaryHeapTest, Check_Assignment_Operator) {
+  // Arrange
+  MaxBinaryHeap<int> h1 {2, -5, 1, 2};
+  MaxBinaryHeap<int> h2 {100, 1000, 3};
+
+  // Act
+  h1 = h2;
+  // Assert
+  EXPECT_EQ(1000, h1.top());
 }
 
 TEST(MaxBinaryHeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
