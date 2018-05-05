@@ -15,29 +15,30 @@ template<class T>
 class MaxBinaryHeap {
  public:
   MaxBinaryHeap() = default;
-  explicit MaxBinaryHeap(size_t size);
-  MaxBinaryHeap(std::initializer_list<T> l);
+  explicit MaxBinaryHeap(size_t size) { m_nodes.reserve(size); }
 
   template<typename Iterator>
-  MaxBinaryHeap(Iterator first, Iterator last) {
-    std::copy(first, last, std::back_inserter(m_nodes));
+  MaxBinaryHeap(Iterator first, Iterator last) : m_nodes(first, last) {
     for (int i = m_nodes.size() / 2; i >= 0; --i) {
       shiftDown(i);
     }
   }
 
+  MaxBinaryHeap(std::initializer_list<T> l) : MaxBinaryHeap(l.begin(), l.end()) {}
   MaxBinaryHeap(const MaxBinaryHeap& other) : m_nodes(other.m_nodes) {}
   MaxBinaryHeap(MaxBinaryHeap&& other) : m_nodes(std::move(other.m_nodes)) {}
-  void swap(MaxBinaryHeap& other) noexcept;
+
+  void swap(MaxBinaryHeap& other) noexcept { m_nodes.swap(other.m_nodes); }
 
   MaxBinaryHeap& operator=(const MaxBinaryHeap& other);
   MaxBinaryHeap& operator=(MaxBinaryHeap&& other);
 
+  size_t size() { m_nodes.size(); }
+  bool empty() { m_nodes.empty(); } 
+
   void push(T value);
-  size_t size();
-  bool empty();
-  T top();
   void pop();
+  T top();
 
   template<class ...Args>
   void emplace(Args&&... args) {
@@ -59,21 +60,6 @@ class MaxBinaryHeap {
 };
 
 template<class T>
-inline
-MaxBinaryHeap<T>::MaxBinaryHeap(size_t size) { m_nodes.reserve(size); }
-
-template<class T>
-inline
-MaxBinaryHeap<T>::MaxBinaryHeap(std::initializer_list<T> l) :
-                  MaxBinaryHeap(l.begin(), l.end()) {}
-
-template<class T>
-inline
-void MaxBinaryHeap<T>::swap(MaxBinaryHeap<T>& other) noexcept {
-  m_nodes.swap(other.m_nodes);
-}
-
-template<class T>
 MaxBinaryHeap<T>& MaxBinaryHeap<T>::operator=(const MaxBinaryHeap<T>& other) {
   if (this != &other) {
     MaxBinaryHeap(other).swap(*this);
@@ -86,14 +72,6 @@ MaxBinaryHeap<T>& MaxBinaryHeap<T>::operator=(MaxBinaryHeap<T>&& other) {
   m_nodes = std::move(other.m_nodes);
   return *this;
 }
-
-template<class T>
-inline
-size_t MaxBinaryHeap<T>::size() { return m_nodes.size(); }
-
-template<class T>
-inline
-bool MaxBinaryHeap<T>::empty() { return m_nodes.empty(); }
 
 template<class T>
 void MaxBinaryHeap<T>::push(T value) {
