@@ -3,7 +3,8 @@
 #include <gtest/gtest.h>
 #include <vector>
 #include <functional>
-#include "include/binary_heap.hpp"
+#include <stdexcept>
+#include "include/heap.hpp"
 
 TEST(HeapTest, Can_Create_Empty_Heap) {
   // AAA
@@ -106,14 +107,14 @@ TEST(HeapTest, Can_Create_Copy_Heap) {
 TEST(HeapTest, Check_Swap_Heaps) {
   // Arrange
   heap<int> h1 {2, -5, 1, 2};
-  heap<int> h2 {100, 1000, 3};
+  heap<int> h2 {100, 3, 1000};
 
   // Act
   h1.swap(h2);
 
   // Assert
-  EXPECT_EQ(1000, h1.top());
   EXPECT_EQ(2, h2.top());
+  EXPECT_EQ(1000, h1.top());
 }
 
 TEST(HeapTest, Check_Assignment_Operator) {
@@ -126,7 +127,7 @@ TEST(HeapTest, Check_Assignment_Operator) {
   // Assert
   EXPECT_EQ(1000, h1.top());
 }
-
+//
 TEST(HeapTest, Can_Move_Heap) {
   // Arrange
   heap<int> h {2, -5, 1, 2};
@@ -171,11 +172,62 @@ TEST(HeapTest, Check_Delete_Top) {
 
 TEST(HeapTest, Check_Use_Other_Comparator) {
   // Arrange
-  heap<int, std::less<int>> h = {3, 5, 10, 2, 1};
+  heap<int, std::greater<int>> h = {3, 5, 10, 2, 1};
+
+  // Act & Assert
+  EXPECT_EQ(1, h.top());
+}
+
+TEST(HeapTest, Check_Set_Dimension) {
+  // Arrange
+  heap<int> h;
 
   // Act
+  h.setDim(3);
+
+  // Assert
+  EXPECT_EQ(3, h.getDim());
+}
+
+TEST(HeapTest, Check_Set_Invalid_Dimension) {
+  // Arrange
+  heap<int> h;
+
+  // Act & Assert
+  EXPECT_THROW(h.setDim(-3), std::logic_error);
+}
+
+TEST(HeapTest, Check_Top_When_Dimension_Changed) {
+  // Arrange
+  heap<int> h = {2, 5, 6, 1000, -3, 50};
+
+  // Act
+  h.setDim(5);
+
+  // Assert
+  EXPECT_EQ(h.top(), 1000);
+}
+
+TEST(HeapTest, Check_Push_With_Changed_Dimension) {
+  // Arrange
+  heap<int> h = {2, 5, 6, 7, -3, 50};
+
+  // Act
+  h.setDim(3);
+  h.push(1000);
+
+  // Assert
+  EXPECT_EQ(h.top(), 1000);
+}
+
+TEST(HeapTest, Check_Delete_Top_With_Changed_Dimension) {
+  // Arrange
+  heap<int> h = {2, 5, 6, 7, -3, 50};
+
+  // Act
+  h.setDim(5);
   h.pop();
 
   // Assert
-  EXPECT_EQ(1, h.top());
+  EXPECT_EQ(h.top(), 7);
 }

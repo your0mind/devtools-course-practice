@@ -13,31 +13,42 @@
 using std::size_t;
 
 template<class T,
-         class Compare = std::greater<T>
+         class Compare = std::less<T>
          >
 
 class heap {
  public:
   heap() = default;
-  explicit heap(size_t size) { m_nodes.reserve(size); }
+  explicit heap(size_t size) : m_d(2) { m_nodes.reserve(size); }
 
   template<typename Iterator>
-  heap(Iterator first, Iterator last) : m_nodes(first, last) {
+  heap(Iterator first, Iterator last) : m_d(2), m_nodes(first, last) {
     for (int i = m_nodes.size() / 2; i >= 0; --i) {
       shiftDown(i);
     }
   }
 
   heap(std::initializer_list<T> l) : heap(l.begin(), l.end()) {}
-  heap(const heap& other) : m_nodes(other.m_nodes) {}
-  heap(heap&& other) : m_nodes(std::move(other.m_nodes)) {} // NOLINT
+  heap(const heap& other) : m_d(other.m_d), m_nodes(other.m_nodes) {}
+  heap(heap&& other) : m_d(other.m_d), m_nodes(std::move(other.m_nodes)) {} // NOLINT
 
-  void swap(heap& other) noexcept { m_nodes.swap(other.m_nodes); }
+  void swap(heap& other) noexcept {
+    using std::swap;
+    swap(m_d, other.m_d);
+    m_nodes.swap(other.m_nodes);
+  }
 
   heap& operator=(const heap& other);
   heap& operator=(heap&& other); // NOLINT
 
   size_t size() { return m_nodes.size(); }
+  size_t getDim() { return m_d; }
+
+  void setDim(int d) {
+    if (d < 2) throw std::logic_error("invalid dimension");
+    m_d = d;
+  }
+
   bool empty() { return m_nodes.empty(); }
 
   void push(T value);
@@ -61,6 +72,7 @@ class heap {
 
  private:
   std::vector<T> m_nodes;
+  size_t m_d;
   Compare m_comp;
 };
 
@@ -76,7 +88,11 @@ heap<T, Compare>::operator=(const heap<T, Compare>& other) {
 template<class T, class Compare>
 heap<T, Compare>&
 heap<T, Compare>::operator=(heap<T, Compare>&& other) { // NOLINT
-  m_nodes = std::move(other.m_nodes);
+  if (this != &other) {
+    m_nodes = std::move(other.m_nodes);
+    m_d = other.m_d;
+    other.m_d = 0;
+  }
   return *this;
 }
 
@@ -98,7 +114,7 @@ template<class T, class Compare>
 void heap<T, Compare>::shiftUp(int node_index) {
   int parrent = getParrent(node_index);
 
-  while (node_index > 0 && m_comp(m_nodes[node_index],  m_nodes[parrent])) {
+  while (node_index > 0 && m_comp(m_nodes[parrent], m_nodes[node_index])) {
     std::iter_swap(m_nodes.begin() + node_index, m_nodes.begin() + parrent);
     node_index = parrent;
     parrent = getParrent(parrent);
@@ -107,18 +123,21 @@ void heap<T, Compare>::shiftUp(int node_index) {
 
 template<class T, class Compare>
 void heap<T, Compare>::shiftDown(int node_index) {
-  int max_child = getMaxChild(node_index);
+  int max_child_pos = getMaxChild(node_index);
 
-  while (max_child != -1 && !m_comp(m_nodes[node_index], m_nodes[max_child])) {
-    std::iter_swap(m_nodes.begin() + max_child, m_nodes.begin() + node_index);
-    node_index = max_child;
-    max_child = getMaxChild(max_child);
+  while (max_child_pos != -1 &&
+         m_comp(m_nodes[node_index], m_nodes[max_child_pos])) {
+    std::iter_swap(m_nodes.begin() + max_child_pos,
+                   m_nodes.begin() + node_index);
+
+    node_index = max_child_pos;
+    max_child_pos = getMaxChild(max_child_pos);
   }
 }
 
 template<class T, class Compare>
 int heap<T, Compare>::getLeftChild(int node_index) {
-  int j = 2 * node_index + 1;
+  int j = m_d * node_index + 1;
 
   if (j >= size()) {
     j = -1;
@@ -140,24 +159,28 @@ int heap<T, Compare>::getRightChild(int node_index) {
 template<class T, class Compare>
 inline
 int heap<T, Compare>::getParrent(int node_index) {
-  return (node_index - 1) / 2;
+  return (node_index - 1) / m_d;
 }
 
 template<class T, class Compare>
 int heap<T, Compare>::getMaxChild(int node_index) {
   int l_child  = getLeftChild(node_index);
   int r_child  = getRightChild(node_index);
-  int max_child;
+  int max_child_pos;
 
   if (l_child == -1) {
-    max_child = -1;
+    max_child_pos = -1;
   } else if (r_child != -1) {
-    max_child = m_nodes[l_child] > m_nodes[r_child] ? l_child : r_child;
+  auto pos_l = m_nodes.begin() + l_child;
+  auto pos_r = m_nodes.begin() + r_child + 1;
+
+  auto max_child_it = std::max_element(pos_l, pos_r, m_comp);
+  max_child_pos = std::distance(m_nodes.begin(), max_child_it);
   } else {
-    max_child = l_child;
+    max_child_pos = l_child;
   }
 
-  return max_child;
+  return max_child_pos;
 }
 
 template<class T, class Compare>
