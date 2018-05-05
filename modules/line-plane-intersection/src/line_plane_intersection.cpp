@@ -5,8 +5,8 @@
 line_plane_intersection::line_plane_intersection() :
     NotIntersectPlaneLine(true) {}
 
-xyz line_plane_intersection::CreateVector(xyz A, xyz B) {
-    xyz CreateVector;
+dot line_plane_intersection::CreateVector(dot A, dot B) {
+    dot CreateVector;
 
     CreateVector.x = B.x - A.x;
     CreateVector.y = B.y - A.y;
@@ -15,8 +15,8 @@ xyz line_plane_intersection::CreateVector(xyz A, xyz B) {
     return CreateVector;
 }
 
-xyz line_plane_intersection::VectorProduct(xyz A, xyz B) {
-    xyz VP;
+dot line_plane_intersection::VectorProduct(dot A, dot B) {
+    dot VP;
 
     VP.x = A.y * B.z - B.y * A.z;
     VP.y = A.z * B.x - B.z * A.x;
@@ -25,7 +25,7 @@ xyz line_plane_intersection::VectorProduct(xyz A, xyz B) {
     return VP;
 }
 
-double line_plane_intersection::DotProduct(xyz A, xyz B) {
+double line_plane_intersection::DotProduct(dot A, dot B) {
     double SP;
 
     SP = A.x * B.x + A.y * B.y + A.z * B.z;
@@ -33,7 +33,7 @@ double line_plane_intersection::DotProduct(xyz A, xyz B) {
     return SP;
 }
 
-void line_plane_intersection::Normalize(xyz A) {
+void line_plane_intersection::Normalize(dot A) {
     double mlr;
 
     mlr = sqrt(A.x * A.x + A.y * A.y + A.z * A.z);
@@ -42,13 +42,13 @@ void line_plane_intersection::Normalize(xyz A) {
     A.z = A.z / mlr;
 }
 
-bool line_plane_intersection::IncorrectLine(xyz A, xyz B) {
+bool line_plane_intersection::IncorrectLine(dot A, dot B) {
     if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
     return false;
 }
 
-bool line_plane_intersection::IncorrectPlane(xyz A, xyz B, xyz C) {
+bool line_plane_intersection::IncorrectPlane(dot A, dot B, dot C) {
     if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
     if (A.x == C.x && A.y == C.y && A.z == C.z)
@@ -58,9 +58,9 @@ bool line_plane_intersection::IncorrectPlane(xyz A, xyz B, xyz C) {
     return false;
 }
 
-xyz line_plane_intersection::PlaneIntersectLine(xyz A,
-    xyz B, xyz C, xyz X, xyz Y) {
-    xyz N, V, W, PlaneIntersectLine = { 0, 0, 0 };
+dot line_plane_intersection::PlaneIntersectLine(dot A,
+    dot B, dot C, dot X, dot Y) {
+    dot N, V, W, PlaneIntersectLine = { 0, 0, 0 };
     double e, d;
 
     NotIntersectPlaneLine = true;
