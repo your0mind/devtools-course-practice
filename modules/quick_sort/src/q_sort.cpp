@@ -12,7 +12,7 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
 
     int i = first;
     int j = last;
-    int mid = (*array)[(first + last + 1) / 2 - 1];
+    int mid = (*array)[(first + last + 1) / 2];
 
     do {
         while ((*array)[i] < mid) i++;
