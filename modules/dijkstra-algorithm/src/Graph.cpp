@@ -30,13 +30,13 @@ Graph::Graph(int count_vertex, double** matrix) {
 }
 
 Graph::Graph(const Graph & copy) {
-	n = copy.GetCount();
-	graph_matrix = new double*[n];
-	for (int i = 0; i < n; ++i) {
-		graph_matrix[i] = new double[n];
-		for (int j = 0; j < n; ++j) 
-			graph_matrix[i][j] = copy.GetWeight(i+1, j+1);
-	}
+    n = copy.GetCount();
+    graph_matrix = new double*[n];
+    for (int i = 0; i < n; ++i) {
+        graph_matrix[i] = new double[n];
+        for (int j = 0; j < n; ++j) 
+             graph_matrix[i][j] = copy.GetWeight(i+1, j+1);
+    }
 }
 
 Graph::~Graph() {
@@ -75,8 +75,8 @@ void Graph::AddVertex() {
 void Graph::AddEdge(int first, int last, double weight) {
     if (first < 1 || first>n || last<1 || last>n)
         throw std::invalid_argument("Non_exist_vertex");
-	if (weight < 0)
-		throw std::invalid_argument("Negative_weight");
+    if (weight < 0)
+        throw std::invalid_argument("Negative_weight");
     graph_matrix[first - 1][last - 1] = weight;
 }
 
@@ -142,20 +142,20 @@ double Graph::FindDistance(int start, int finish) const {
 }
 
 bool Graph::operator==(const Graph & g) const {
-	if (n != g.GetCount())
-		return false;
-	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++j) {
-			if (graph_matrix[i][j] != g.GetWeight(i+1, j+1))
-				return false;
-		}
-	}
-	return true;
+    if (n != g.GetCount())
+        return false;
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
+            if (graph_matrix[i][j] != g.GetWeight(i+1, j+1))
+                return false;
+        }
+    }
+    return true;
 }
 
 Graph& Graph::operator=(const Graph & g) {
-	if (*this == g)
-		return *this;
+    if (*this == g)
+        return *this;
     for (int i = 0; i < n; ++i)
         delete[] graph_matrix[i];
     delete[] graph_matrix;
@@ -165,8 +165,8 @@ Graph& Graph::operator=(const Graph & g) {
         graph_matrix[i] = new double[n];
         for (int j = 0; j < n; ++j)
             graph_matrix[i][j] = g.GetWeight(i+1, j+1);
-	}
-	return *this;
+    }
+    return *this;
 }
 
 #endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_CPP_

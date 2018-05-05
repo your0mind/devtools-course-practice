@@ -183,18 +183,18 @@ TEST(Graph, can_not_add_edge_with_non_exist_vertex) {
 }
 
 TEST(Graph, can_not_add_edge_with_negative_weight) {
-	// Arrange
-	double** matrix = new double*[2];
-	matrix[0] = new double[2];
-	matrix[1] = new double[2];
-	matrix[0][0] = 0; matrix[0][1] = 1;
-	matrix[1][0] = 1; matrix[1][1] = 0;
+    // Arrange
+    double** matrix = new double*[2];
+    matrix[0] = new double[2];
+    matrix[1] = new double[2];
+    matrix[0][0] = 0; matrix[0][1] = 1;
+    matrix[1][0] = 1; matrix[1][1] = 0;
 
-	// Act
-	Graph g(2, matrix);
+    // Act
+    Graph g(2, matrix);
 
-	// Assert
-	ASSERT_ANY_THROW(g.AddEdge(2, 1, -4));
+    // Assert
+    ASSERT_ANY_THROW(g.AddEdge(2, 1, -4));
 }
 
 TEST(Graph, can_delete_edge) {
