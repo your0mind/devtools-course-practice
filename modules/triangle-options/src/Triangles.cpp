@@ -36,7 +36,7 @@ double Triangles::Get_Angle(num_of_ver _num) {
 
   double l1 = Get_Length_side(_num, _num1),
     l2 = Get_Length_side(_num, _num2),
-    l3 = Get_Length_side(_num1, _num2);
+    // l3 = Get_Length_side(_num1, _num2);
 
   res = acos(((v2.x - v1.x)*(v3.x - v1.x) +
     (v2.y - v1.y)*(v3.y - v1.y)) /
