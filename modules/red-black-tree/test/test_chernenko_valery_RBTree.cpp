@@ -145,29 +145,24 @@ TEST(RBTree, can_delete_node_in_huge_tree) {
 }
 
 TEST(RBTree, can_delete_node_in_huge_tree_2) {
-    int array[20];
+    int array[100];
 
-    for (int i = 0; i < 10; i++)
-        array[i] = i * 2;
-    for (int i = 10; i < 20; i++)
-        array[i] = - i * 2;
-    RBTree T(array, 20);
+    array[0] = 0;
+    for(int i = 1; i < 99; i+=2) {
+        array[i] = 100000 / i;
+        array[i+1] = - 100000 / i;
+    }
+    array[99] = 1;
+    RBTree T(array, 100);
 
-    T.deleteNode(8);
-    EXPECT_EQ(RBTree::NIL, T.findNode(8));
-}
-
-TEST(RBTree, can_delete_node_in_huge_tree_3) {
-    int array[20];
-
-    for (int i = 0; i < 10; i++)
-        array[i] = i * 2;
-    for (int i = 10; i < 20; i++)
-        array[i] = - i * 2;
-    RBTree T(array, 20);
-
-    T.deleteNode(-8);
-    EXPECT_EQ(RBTree::NIL, T.findNode(-8));
+    T.deleteNode(0);
+    T.deleteNode(100000 / 7);
+    T.deleteNode(-100000 / 12);
+    T.deleteNode(-100000 / 14);
+    T.deleteNode(-100000 / 16);
+    T.deleteNode(-100000 / 18);
+    T.deleteNode(-100000 / 80);
+    EXPECT_EQ(RBTree::NIL, T.findNode(-100000 / 12));
 }
 
 TEST(RBTree, can_add_two_node) {
