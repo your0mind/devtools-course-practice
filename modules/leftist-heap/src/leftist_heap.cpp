@@ -1,6 +1,7 @@
 // Copyright 2018 Krasikova Ekaterina
 #include "include/leftist_heap.h"
 #include <queue>
+#include <stdexcept>
 leftist_heap::leftist_heap() {
     root = nullptr;
 }
