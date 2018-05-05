@@ -135,6 +135,60 @@ TEST(Sharov_Ivan_WagesTest, Set_Month) {
     EXPECT_TRUE(!strcmp(ivan.getMonth(), month));
 }
 
+
+TEST(Sharov_Ivan_WagesTest, Control_MROT) {
+    // Arrange
+    Wages ivan;
+    double salary = 10000;
+
+    // Act & assert
+    EXPECT_TRUE(ivan.controlMROT(salary)==true);
+}
+
+TEST(Sharov_Ivan_WagesTest, Control_Field) {
+    // Arrange
+    Wages ivan;
+    double hours = 10;
+
+    // Act & assert
+    EXPECT_TRUE(ivan.controlField(hours) == true);
+}
+
+TEST(Sharov_Ivan_WagesTest, Control_Month) {
+    // Arrange
+    Wages ivan;
+    char *month = "June";
+
+    // Act & assert
+    EXPECT_TRUE(ivan.controlMonth(month) == true);
+}
+
+TEST(Sharov_Ivan_WagesTest, Control_Overtime) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 1;
+    double overtime_hours = 3;
+    char *month = "May";
+    double countWorkingDays = 20;
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    ASSERT_NO_THROW(ivan.controlOvertime(overtime_hours));
+}
+
+TEST(Sharov_Ivan_WagesTest, Control_Administrative_Leave_Hours) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 10;
+    double overtime_hours = 3;
+    char *month = "May";
+    double countWorkingDays = 20;
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    ASSERT_NO_THROW(ivan.controlAdministrativeLeaveHours(admin_hours));
+}
+
 TEST(Sharov_Ivan_WagesTest, Get_Number_Of_Working_Days_In_May) {
     // Arrange
     double oklad = 10000;
@@ -325,5 +379,30 @@ TEST(Sharov_Ivan_WagesTest, Input_No_Name_Of_Month) {
 
     // Act & ssert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
+}
+
+TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Administrative_Leave) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 8*20+30;
+    double overtime_hours = 0;
+    char *month = "May";
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.controlAdministrativeLeaveHours(admin_hours));
+}
+
+TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Overtime) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 8;
+    double overtime_hours = 5*20;
+    char *month = "May";
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.controlOvertime(overtime_hours));
     system("pause");
 }
+
