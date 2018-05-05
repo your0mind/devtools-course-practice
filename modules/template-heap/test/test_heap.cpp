@@ -6,7 +6,6 @@
 #include <stdexcept>
 #include "include/heap.hpp"
 
-
 TEST(HeapTest, Can_Create_Empty_Heap) {
   // AAA
   ASSERT_NO_THROW(atal::heap<int> h);

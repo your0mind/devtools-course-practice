@@ -24,19 +24,26 @@ class heap {
   explicit heap(size_t size) : m_d(2) { m_nodes.reserve(size); }
 
   template<typename Iterator>
-  heap(Iterator first, Iterator last) : m_d(2), m_nodes(first, last) {
-    for (int i = m_nodes.size() / 2; i >= 0; --i) {
+  heap(Iterator first, Iterator last) : m_nodes(first, last), m_d(2) {
+    for (int i = m_nodes.size() / m_d; i >= 0; --i) {
       shiftDown(i);
     }
   }
 
   heap(std::initializer_list<T> l) : heap(l.begin(), l.end()) {}
-  heap(const heap& other) : m_d(other.m_d), m_nodes(other.m_nodes) {}
-  heap(heap&& other) : m_d(other.m_d), m_nodes(std::move(other.m_nodes)) {} // NOLINT
+
+  heap(const heap& other) : m_nodes(other.m_nodes),
+                            m_d(other.m_d),
+                            m_comp(other.m_comp) {}
+
+  heap(heap&& other) : m_nodes(std::move(other.m_nodes)), // NOLINT
+                       m_d(other.m_d),
+                       m_comp(std::move(other.m_comp)) {}
 
   void swap(heap& other) noexcept {
     using std::swap;
     swap(m_d, other.m_d);
+    swap(m_comp, other.m_comp);
     m_nodes.swap(other.m_nodes);
   }
 
@@ -82,7 +89,9 @@ template<class T, class Compare>
 heap<T, Compare>&
 heap<T, Compare>::operator=(const heap<T, Compare>& other) {
   if (this != &other) {
-    heap(other).swap(*this);
+    m_nodes = other.m_nodes;
+    m_d = other.m_d;
+    m_comp = other.m_comp;
   }
   return *this;
 }
@@ -93,7 +102,7 @@ heap<T, Compare>::operator=(heap<T, Compare>&& other) { // NOLINT
   if (this != &other) {
     m_nodes = std::move(other.m_nodes);
     m_d = other.m_d;
-    other.m_d = 0;
+    m_comp = other.m_comp;
   }
   return *this;
 }
@@ -193,5 +202,5 @@ void heap<T, Compare>::pop() {
     shiftDown(0);
   }
 }
-} // namespace atal
+}  // namespace atal
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_HEAP_HPP_
