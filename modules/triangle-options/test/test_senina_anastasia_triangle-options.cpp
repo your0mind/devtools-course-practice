@@ -37,6 +37,7 @@ TEST(senina_anastasia_triangle_optionsTest, Can_add_Get_Length_Side_second) {
   // Assert
   EXPECT_EQ(res, res_cur);
 }
+
 TEST(senina_anastasia_triangle_optionsTest, Can_add_Get_Length_Side_third) {
   // Arrange
   Vertex a(1, 5);
@@ -73,8 +74,6 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Inscribed_Circle) {
   // Assert
   EXPECT_NEAR(res, res_cur, eps);
 }
-
-
 
 TEST(senina_anastasia_triangle_optionsTest, Can_Get_Circumscribed_Circle) {
   // Arrange
@@ -240,6 +239,7 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Obtuse_Angle) {
   // Assert
   EXPECT_NEAR(res, angle, eps);
 }
+
 TEST(senina_anastasia_triangle_optionsTest, Throw_When_Uncorrected_points) {
   // Arrange
   Vertex a(2, 4);
