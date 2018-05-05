@@ -43,7 +43,7 @@ double Triangles::Get_Angle(num_of_ver _num) {
     (l1 * l2));
 
   if (l3*l3 > l2*l2 + l1*l1)  //  obtuse angle
-    res = M_PI - res;
+    res = PI - res;
 
   return res;
 }
@@ -63,7 +63,7 @@ double Triangles::Get_Radius_Of_Circumscribed_Circle() {
   return a*b*c / (4 * S);
 }
 double Triangles::Get_Square() {
-  return abs(first.x*(second.y - third.y) + second.x*(third.y - first.y)
+  return fabs(first.x*(second.y - third.y) + second.x*(third.y - first.y)
     + third.x*(first.y - second.y)) / 2;
 }
 

@@ -4,7 +4,7 @@
 #define MODULES_TRIANGLE_OPTIONS_INCLUDE_TRIANGLES_H_
 
 #include <stdexcept>
-#define M_PI 3.14159265358979323846
+#define PI 3.14159265358979323846
 
 struct Vertex {
   double x, y;  // the coordinates of the point

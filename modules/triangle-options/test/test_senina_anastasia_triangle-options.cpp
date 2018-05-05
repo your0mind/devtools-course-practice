@@ -210,7 +210,7 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_third) {
   Triangles figure(a, b, c);
 
   // Act
-  angle = M_PI / 2;
+  angle = PI / 2;
   res = figure.Get_Angle(first);
   eps = 0.001;
 
