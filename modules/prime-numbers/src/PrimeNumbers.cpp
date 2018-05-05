@@ -1,25 +1,34 @@
 // Copyright 2018 Tipanov Daniil
 
-#include "include/PrimeNumbers.h"
+#include <vector>
+#include "PrimeNumbers.h"
 
-primeNumbers::primeNumbers() { }
-
-primeNumbers::~primeNumbers() { }
-
-std::vector<int> primeNumbers::findPrimeNums(int min, int max) {
+primeNumbers::primeNumbers(int _min, int _max) {
+    min = _min;
+    max = _max;
     if (min < 0)
         throw "Error! Negative numbers can't be prime!";
-    int size = max - min + 1;
+    if (min > max)
+        throw "Error! Max can't be less than min!";
+    size = max - min + 1;
     int tmp = min;
-    std::vector<int> arr(size);
     for (int i = 0; i < size; i++) {
-        arr[i] = tmp;
+        arr.push_back(tmp);
         tmp++;
     }
+}
+
+primeNumbers::~primeNumbers() {
+    min = max = size = 0;
+    arr.clear();
+}
+
+std::vector<int> primeNumbers::findPrimeNums() {
     for (int i = 0; i < size; i++) {
-        for (int j = 2; j <= sqrt((double)arr[i]); j++)
+        for (int j = 2; j <= sqrt(static_cast<double>(arr[i])); j++)
             if (arr[i] % j == 0 && arr[i] != j && arr[i] != 1) {
-                arr[i] = 0; // 0 - not a prime number
+                arr.erase(arr.begin() + i);
+                size--;
                 break;
             }
     }

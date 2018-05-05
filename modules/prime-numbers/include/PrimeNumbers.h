@@ -9,9 +9,12 @@
 
 class primeNumbers {
  public:
-    primeNumbers();
+     primeNumbers(int _min = 0, int _max = 0);
     ~primeNumbers();
-    std::vector<int> findPrimeNums(int min, int max);
+    std::vector<int> findPrimeNums();
+ private:
+     int min, max, size;
+     std::vector<int> arr;
 };
 
-#endif // MODULES_PRIME_NUMBERS_INCLUDE_PRIMENUMBERS_H_
+#endif  // MODULES_PRIME_NUMBERS_INCLUDE_PRIMENUMBERS_H_
