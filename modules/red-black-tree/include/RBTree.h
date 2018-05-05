@@ -3,13 +3,13 @@
 #define MODULES_RED_BLACK_TREE_INCLUDE_RBTREE_H_
 
 typedef int T;
-typedef enum { BLACK, RED } nColor;    //Возможные цвета узлов дерева
+typedef enum { BLACK, RED } nColor;    /*Possible colors for the node*/
 struct Node {
-    Node* left;           //Указатель на "левого" потомка
-    Node* right;          //Указатель на "правого" потомка
-    Node* parent;         //Указатель на "предка"
-    nColor color;      //Цвет узла
-    T data;               //Хранящиеся в узле данные
+    Node* left;  /*Pointer on "left" child*/
+    Node* right;  /*Pointer on "right" child*/
+    Node* parent;  /*Pointer on "parent"*/
+    nColor color;  /*Color of Node*/
+    T data;  /*Stored data*/
 
     Node(Node* _l, Node* _r, Node* _p, nColor _c, T _d) {
         left = _l; right = _r, parent = _p, color = _c, data = _d;
@@ -18,22 +18,22 @@ struct Node {
 
 class RBTree {
  private:
-    void deleteTree(Node* x);  /*Удаление дерева*/
+    void deleteTree(Node* x);  /*Delete the tree*/
  protected:
-    Node* root;  /*Указатель на корень дерева*/
-    void rotateLeft(Node* x);   /*"Левый поворот"*/
-    void rotateRight(Node* x);  /*"Правый поворот"*/
-    void insertFixup(Node* x);  /*Вставка узла с балансировкой*/
-    void deleteFixup(Node* x);  /*Удаление узла с балансировкой*/
+    Node* root;  /*Pointer to the root of the tree*/
+    void rotateLeft(Node* x);   /*"Left rotate"*/
+    void rotateRight(Node* x);  /*"Right rotate"*/
+    void insertFixup(Node* x);  /*Inserting a node with balancing*/
+    void deleteFixup(Node* x);  /*Removing a node with balancing*/
  public:
     static Node* NIL;
     RBTree();
     explicit RBTree(T data);
     RBTree(T datas[], int count);
     ~RBTree();
-    Node* insertNode(T data);  /*Вставка узла по значению*/
-    Node* findNode(T data);  /*Поиск узла по значению*/
-    void deleteNode(T data);  /*Удаление узла по значению*/
+    Node* insertNode(T data);  /*Inserting node by value*/
+    Node* findNode(T data);  /*Searching node by value*/
+    void deleteNode(T data);  /*Deleting node by value*/
 };
 
 #endif  // MODULES_RED_BLACK_TREE_INCLUDE_RBTREE_H_
