@@ -27,7 +27,6 @@ TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Vector) {
   ASSERT_NO_THROW(MaxBinaryHeap<int> heap(v.begin(), v.end()));
 }
 
-
 TEST(MaxBinaryHeapTest, Check_That_Empty_Heap_Is_Empty) {
   // Arrange
   MaxBinaryHeap<int> heap;
@@ -125,6 +124,29 @@ TEST(MaxBinaryHeapTest, Check_Assignment_Operator) {
   h1 = h2;
   // Assert
   EXPECT_EQ(1000, h1.top());
+}
+
+TEST(MaxBinaryHeapTest, Can_Move_Heap) {
+  // Arrange
+  MaxBinaryHeap<int> h {2, -5, 1, 2};
+
+  // Act
+  MaxBinaryHeap<int> ch(std::move(h));
+
+  // Assert
+  EXPECT_EQ(2, ch.top());
+}
+
+TEST(MaxBinaryHeapTest, Can_Assign_Move_Heap) {
+  // Arrange
+  MaxBinaryHeap<int> h1 {3, 9, 15};
+  MaxBinaryHeap<int> h2 {5, 3, 1};
+
+  // Act
+  h2 = std::move(h1);
+
+  // Assert
+  EXPECT_EQ(15, h2.top());
 }
 
 TEST(MaxBinaryHeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
