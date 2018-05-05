@@ -3,9 +3,8 @@
 #ifndef MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_SPHERE_H_
 #define MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_SPHERE_H_
 
-class Sphere
-{
-public:
+class Sphere {
+ public:
     Sphere();
     Sphere(const double _rad);
     Sphere(const Sphere& _s);
@@ -19,8 +18,8 @@ public:
     bool operator!=(const Sphere& _s) const;
 
     double area() const;
-private:
+ private:
     bool negativeNumbers(const double _radius);
     double radius;
 };
-#endif
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_

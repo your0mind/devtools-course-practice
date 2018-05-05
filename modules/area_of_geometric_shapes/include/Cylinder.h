@@ -3,9 +3,8 @@
 #ifndef MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CYLINDER_H_
 #define MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CYLINDER_H_
 
-class Cylinder
-{
-public:
+class Cylinder {
+ public:
     Cylinder();
     Cylinder(const double _rad, const double _h);
     Cylinder(const Cylinder& _c);
@@ -21,9 +20,9 @@ public:
     bool operator!=(const Cylinder& _c) const;
 
     double area() const;
-private:
+ private:
     bool negativeNumbers(const double _rad, const double _h);
     double radius;
     double h;
 };
-#endif
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_

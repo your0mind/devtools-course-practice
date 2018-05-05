@@ -55,8 +55,8 @@ TEST(AreaOfGeometricShapes, Comparison_Operator) {
     cone1 = &cone2;
 
     // Assert
-    EXPECT_EQ(cone1->getRad, cone2.getRad());
-    EXPECT_EQ(cone1->getL, cone2.getL());
+    EXPECT_EQ(cone1->getRad(), cone2.getRad());
+    EXPECT_EQ(cone1->getL(), cone2.getL());
 }
 
 TEST(AreaOfGeometricShapes, Negative_Rad_Cone) {

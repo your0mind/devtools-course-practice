@@ -3,9 +3,8 @@
 #ifndef MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
 #define MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
 
-class Cone
-{
-public:
+class Cone {
+ public:
     Cone();
     Cone(const double _rad, const double _l);
     Cone(const Cone& _c);
@@ -21,9 +20,9 @@ public:
     bool operator!=(const Cone& _c) const;
 
     double area() const;
-private:
+ private:
     bool negativeNumbers(const double _rad, const double _l);
     double radius;
     double l;
 };
-#endif
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_

@@ -3,9 +3,8 @@
 #ifndef MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CUBE_H_
 #define MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CUBE_H_
 
-class Cube
-{
-public:
+class Cube {
+ public:
     Cube();
     Cube(const double _h);
     Cube(const Cube& _c);
@@ -19,8 +18,8 @@ public:
     bool operator!=(const Cube& _c) const;
 
     double area() const;
-private:
+ private:
     bool negativeNumbers(const double _h);
     double h;
 };
-#endif
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
