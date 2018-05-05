@@ -1,3 +1,4 @@
+// Copyright 2018 Chernenko Valery
 #include "include/RBTree.h"
 
 Node *RBTree::NIL = new Node(RBTree::NIL, RBTree::NIL, nullptr, BLACK, 0);
@@ -7,7 +8,8 @@ RBTree::RBTree() {
 }
 
 RBTree::RBTree(T data) {
-    root = new Node(NIL, NIL, nullptr, BLACK, data);
+    root = NIL;
+    insertNode(data);
 }
 
 RBTree::RBTree(T datas[], int count){

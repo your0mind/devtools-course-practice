@@ -1,5 +1,6 @@
-#ifndef RBTREE
-#define RBTREE
+// Copyright 2018 Chernenko Valery
+#ifndef MODULES_RED_BLACK_TREE_INCLUDE_RBTREE_H_
+#define MODULES_RED_BLACK_TREE_INCLUDE_RBTREE_H_
 
 typedef int T;
 typedef enum { BLACK, RED } nColor;    //Возможные цвета узлов дерева
@@ -15,34 +16,24 @@ struct Node {
     }
 };
 
-class RBTree
-{
-private:
-
-    void deleteTree(Node* x);  //Удаление дерева
-
-protected:
-
-    Node* root;             //Указатель на корень дерева
-
-    void rotateLeft(Node* x);  //"Левый поворот"
-    void rotateRight(Node* x); //"Правый поворот"
-    void insertFixup(Node* x); //Вставка узла с балансировкой
-    void deleteFixup(Node* x); //Удаление узла с балансировкой
-
-public:
-
+class RBTree {
+ private:
+    void deleteTree(Node* x); //Удаление дерева
+ protected:
+    Node* root; //Указатель на корень дерева
+    void rotateLeft(Node* x);   //"Левый поворот"
+    void rotateRight(Node* x);  //"Правый поворот"
+    void insertFixup(Node* x);  //Вставка узла с балансировкой
+    void deleteFixup(Node* x);  //Удаление узла с балансировкой
+ public:
     static Node* NIL;
-
     RBTree();
     RBTree(T data);
     RBTree(T datas[], int count);
     ~RBTree();
-
-    Node* insertNode(T data);     //Вставка узла по значению
-    Node* findNode(T data);       //Поиск узла по значению
-    void deleteNode(T data);      //Удаление узла по значению
-
+    Node* insertNode(T data);  //Вставка узла по значению
+    Node* findNode(T data);  //Поиск узла по значению
+    void deleteNode(T data);  //Удаление узла по значению
 };
 
 #endif
