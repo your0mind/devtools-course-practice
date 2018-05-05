@@ -1,7 +1,7 @@
 // Copyright 2018 Sharov Ivan
 
-#ifndef _WAGES_H
-#define _WAGES_H
+#ifndef MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
+#define MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
 
 class Wages
 {
@@ -22,6 +22,9 @@ class Wages
 
     bool controlMROT(const double field);
     bool controlField(const double field);
+    bool controlMonth(char *field);
+    void controlOvertime(const double overtime);
+    void controlAdministrativeLeaveHours(const double administrativeLeaveHours);
     double getNumberWorkingDaysInCurrentMonth();
     double calculationPaymentOvertime();
     double calculationActualWorkingDays();

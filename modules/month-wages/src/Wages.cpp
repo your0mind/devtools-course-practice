@@ -7,18 +7,19 @@
 Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_("January"){}
 
 Wages::Wages(const double salary, const double administrativeLeaveHours, const double overtime, char *month) {
-	bool control;
-	control = controlMROT(salary);
+    bool control;
+    control = controlMROT(salary);
     if (control == true) salary_ = salary;
     else throw std::string("The salary can not be less than the minimum wage!");
-	control = controlField(administrativeLeaveHours);
-	if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
-	else throw std::string("Administrative leave hours can not be negative!");
-	control = controlField(overtime);
-	if (control == true) 	overtime_ = overtime;
-	else throw std::string("Overtime leave hours can not be negative!");
-	control = controlField(administrativeLeaveHours);
-	month_ = month;
+    control = controlField(administrativeLeaveHours);
+    if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
+    else throw std::string("Administrative leave hours can not be negative!");
+    control = controlField(overtime);
+    if (control == true) 	overtime_ = overtime;
+    else throw std::string("Overtime leave hours can not be negative!");
+    control = controlMonth(month);
+    if (control == true) 	month_ = month;
+    else throw std::string("Month is not defined!");
 }
 
 Wages::Wages(const Wages& wages)
@@ -67,6 +68,34 @@ bool Wages::controlMROT(const double field) {
 	return result;
 }
 
+bool Wages::controlMonth(char *field) {
+    bool result = false;
+    if (!strcmp(field, "January")) result = true;
+    if (!strcmp(field, "February")) result = true;
+    if (!strcmp(field, "March")) result = true;
+    if (!strcmp(field, "April")) result = true;
+    if (!strcmp(field, "May")) result = true;
+    if (!strcmp(field, "June")) result = true;
+    if (!strcmp(field, "July")) result = true;
+    if (!strcmp(field, "August")) result = true;
+    if (!strcmp(field, "Semtember")) result = true;
+    if (!strcmp(field, "October")) result = true;
+    if (!strcmp(field, "November")) result = true;
+    if (!strcmp(field, "December")) result = true;
+
+    return result;
+}
+
+void Wages::controlOvertime(const double overtime) {
+    double workDays = getNumberWorkingDaysInCurrentMonth();
+    if(overtime>3*workDays) throw std::string("Exceeded the maximum number of overtime in month");
+}
+
+void Wages::controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
+    double workDays = getNumberWorkingDaysInCurrentMonth();
+    if (administrativeLeaveHours > 8 * workDays) throw std::string("Exceeded the maximum number of administrative leave hours in month");
+}
+
 double Wages::getNumberWorkingDaysInCurrentMonth() {
 	double result;
 	char *month;
@@ -88,14 +117,15 @@ double Wages::getNumberWorkingDaysInCurrentMonth() {
 }
 
 double Wages::calculationPaymentOvertime() {
-    double result, hourPayment, hours, hours2Payment;
+    double result, hours, hourPayment, hours2Payment;
     hours = getOvertime();
+    controlOvertime(hours);
     hourPayment = calculationHourPayment();
     if (hours < 3) result = 1.5 * hourPayment*hours;
-	else {
-		hours2Payment = hours - 2;
-		result = 1.5 * hourPayment* 2.0 + 2.0 * hourPayment*hours2Payment;
-	}
+    else {
+        hours2Payment = hours - 2;
+        result = 1.5 * hourPayment* 2.0 + 2.0 * hourPayment*hours2Payment;
+    }
 
     return result;
 }
@@ -105,20 +135,23 @@ double Wages::calculationActualWorkingDays() {
     daysInMonth = getNumberWorkingDaysInCurrentMonth();
     hoursInAdministrativeLeave = getAdministrativeLeaveHours();
     hoursOvertime = getOvertime();
+    controlAdministrativeLeaveHours(hoursInAdministrativeLeave);
+    controlOvertime(hoursOvertime);
     workHours = 8 * daysInMonth - hoursInAdministrativeLeave + hoursOvertime;
     result = workHours / 8;
     return result;
 }
 
 double Wages::calculationWagesWithoutOvertime() {
-	double result, workDays, daysInMonth, hoursInAdministrativeLeave, workHours, Salary;
-	daysInMonth = getNumberWorkingDaysInCurrentMonth();
-	hoursInAdministrativeLeave = getAdministrativeLeaveHours();
-	workHours = 8 * daysInMonth - hoursInAdministrativeLeave;
-	workDays = workHours / 8;
-	Salary = getSalary();
-	result = Salary*(workDays / daysInMonth);
-	return result;
+    double result, workDays, daysInMonth, hoursInAdministrativeLeave, workHours, Salary;
+    daysInMonth = getNumberWorkingDaysInCurrentMonth();
+    hoursInAdministrativeLeave = getAdministrativeLeaveHours();
+    controlAdministrativeLeaveHours(hoursInAdministrativeLeave);
+    workHours = 8 * daysInMonth - hoursInAdministrativeLeave;
+    workDays = workHours / 8;
+    Salary = getSalary();
+    result = Salary*(workDays / daysInMonth);
+    return result;
 }
 
 double Wages::calculationFullWages() {
