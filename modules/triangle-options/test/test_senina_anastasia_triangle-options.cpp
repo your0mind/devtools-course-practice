@@ -199,9 +199,9 @@ TEST(senina_anastasia_triangle_optionsTest,
   ASSERT_ANY_THROW(figure.Get_Length_side(first, first));
 }
 
-TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_third) {
+TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_) {
   // Arrange
-  Vertex a(0, 0);
+  Vertex a;
   Vertex b(6, 0);
   Vertex c(0, 5);
   double angle;
@@ -210,6 +210,8 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_third) {
   Triangles figure(a, b, c);
 
   // Act
+  a.x = 0;
+  a.y = 0;
   angle = PI / 2;
   res = figure.Get_Angle(first);
   eps = 0.001;
@@ -218,6 +220,26 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Angle_Of_Triangle_third) {
   EXPECT_NEAR(res, angle, eps);
 }
 
+TEST(senina_anastasia_triangle_optionsTest, Can_Get_Obtuse_Angle) {
+  // Arrange
+  Vertex a;
+  Vertex b(3, 0);
+  Vertex c(-2, 2);
+  double angle;
+  double res;
+  double eps;
+  Triangles figure(a, b, c);
+
+  // Act
+  a.x = 0;
+  a.y = 0;
+  angle = PI / 4 + PI / 2;
+  res = figure.Get_Angle(first);
+  eps = 0.001;
+
+  // Assert
+  EXPECT_NEAR(res, angle, eps);
+}
 TEST(senina_anastasia_triangle_optionsTest, Throw_When_Uncorrected_points) {
   // Arrange
   Vertex a(2, 4);
