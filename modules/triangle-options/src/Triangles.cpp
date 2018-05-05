@@ -27,7 +27,6 @@ double Triangles::Get_Length_side(num_of_ver _num1, num_of_ver _num2) {
 }
 
 double Triangles::Get_Angle(num_of_ver _num) {
-  double res;
   num_of_ver _num1 = (num_of_ver)((static_cast<int>(_num)) % 3 + 1);
   num_of_ver _num2 = (num_of_ver)(((static_cast<int>(_num)) + 1) % 3 + 1);
   Vertex v1 = Get_Vertex(_num),
@@ -35,17 +34,11 @@ double Triangles::Get_Angle(num_of_ver _num) {
     v3 = Get_Vertex(_num2);
 
   double l1 = Get_Length_side(_num, _num1),
-    l2 = Get_Length_side(_num, _num2),
-    // l3 = Get_Length_side(_num1, _num2);
+    l2 = Get_Length_side(_num, _num2);
 
-  res = acos(((v2.x - v1.x)*(v3.x - v1.x) +
+  return acos(((v2.x - v1.x)*(v3.x - v1.x) +
     (v2.y - v1.y)*(v3.y - v1.y)) /
     (l1 * l2));
-
-  // if (l3*l3 > l2*l2 + l1*l1)  //  obtuse angle
-  //  res = PI - res;
-
-  return res;
 }
 
 double Triangles::Get_Radius_Of_Inscribed_Circle() {
