@@ -75,7 +75,7 @@ TEST(Lvova_Alina_NumericalIntegrationTest, SimpsonRule) {
     int N = 750;
     double result, norma;
     Integral I(A, B, N);
-    double epsilon = 3.26e-9;
+    double epsilon = 3.26e-8;
 
     // Act
     result = I.SimpsonRule();
