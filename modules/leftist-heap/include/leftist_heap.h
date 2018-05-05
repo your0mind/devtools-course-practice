@@ -14,8 +14,8 @@ class leftist_heap {
     leftist_heap& operator=(const leftist_heap& h);
     void merge(leftist_heap* h);
     void insert(int k);
-    int MinKey();
-    void DeleteMin();
+    int minKey();
+    void deleteMin();
 };
 #endif  // MODULES_LEFTIST_HEAP_INCLUDE_LEFTIST_HEAP_H_
 

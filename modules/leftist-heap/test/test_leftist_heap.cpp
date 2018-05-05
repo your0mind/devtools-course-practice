@@ -125,7 +125,7 @@ TEST(LeftistHeapTest, Can_insert_in_the_leftist_heap_with_not_null_root) {
 TEST(LeftistHeapTest,
     There_is_a_throw_when_find_minimum_in_the_leftist_heap_with_null_root) {
     leftist_heap h1;
-    EXPECT_ANY_THROW(h1.MinKey());
+    EXPECT_ANY_THROW(h1.minKey());
 }
 TEST(LeftistHeapTest,
     Can_find_minimum_in_the_leftist_heap_with_not_null_root) {
@@ -134,14 +134,14 @@ TEST(LeftistHeapTest,
     h1.insert(5);
     h1.insert(2);
     // Act
-    int min = h1.MinKey();
+    int min = h1.minKey();
     // Assert
     EXPECT_EQ(2, h1.root->key);
 }
 TEST(LeftistHeapTest,
     There_is_a_throw_when_delete_minimum_in_the_leftist_heap_with_null_root) {
     leftist_heap h1;
-    EXPECT_ANY_THROW(h1.DeleteMin());
+    EXPECT_ANY_THROW(h1.deleteMin());
 }
 TEST(LeftistHeapTest,
     Can_delete_minimum_in_the_leftist_heap_with_not_null_root) {
@@ -150,9 +150,9 @@ TEST(LeftistHeapTest,
     h1.insert(5);
     h1.insert(2);
     // Act
-    h1.DeleteMin();
+    h1.deleteMin();
     // Assert
-    EXPECT_EQ(5, h1.MinKey());
+    EXPECT_EQ(5, h1.minKey());
 }
 TEST(LeftistHeapTest, Work_right_for_sorting_array) {
     // Arrange
@@ -165,8 +165,8 @@ TEST(LeftistHeapTest, Work_right_for_sorting_array) {
     int* res = new int[4];
     // Act
     for (int i = 0; i < 4; ++i) {
-        res[i] = h1.MinKey();
-        h1.DeleteMin();
+        res[i] = h1.minKey();
+        h1.deleteMin();
     }
     // Assert
     for (int i = 0; i < 4; ++i) {
