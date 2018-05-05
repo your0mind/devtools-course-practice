@@ -1,4 +1,5 @@
-#pragma once
+// Copyright 2018 Gusev Alexandr
+
 #include <iostream>
 #include <string>
 using namespace std;
