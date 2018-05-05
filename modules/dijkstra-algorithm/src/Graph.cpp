@@ -34,7 +34,7 @@ Graph::Graph(const Graph & copy) {
     graph_matrix = new double*[n];
     for (int i = 0; i < n; ++i) {
         graph_matrix[i] = new double[n];
-        for (int j = 0; j < n; ++j) 
+        for (int j = 0; j < n; ++j)
              graph_matrix[i][j] = copy.GetWeight(i+1, j+1);
     }
 }
