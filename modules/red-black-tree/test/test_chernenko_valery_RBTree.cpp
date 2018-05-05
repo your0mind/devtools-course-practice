@@ -148,7 +148,7 @@ TEST(RBTree, can_delete_node_in_huge_tree_2) {
     int array[100];
 
     array[0] = 0;
-    for(int i = 1; i < 99; i+=2) {
+    for (int i = 1; i < 99; i+=2) {
         array[i] = 100000 / i;
         array[i+1] = - 100000 / i;
     }
