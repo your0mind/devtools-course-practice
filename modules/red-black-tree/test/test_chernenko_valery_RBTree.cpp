@@ -235,24 +235,24 @@ TEST(RBTree, can_delete_node_in_very_hude_tree) {
     EXPECT_EQ(RBTree::NIL, T.findNode(5));
 }
 
-TEST(RBTree, can_delete_node_in_very_hude_tree_inverted) {
-    int array[1000];
+TEST(RBTree, can_delete_node_in_very_hude_tree_2) {
+    int array[10000];
 
-    for (int i = 0; i < 100; i += 10) {
+    for (int i = 9999; i >=0; i -= 10) {
         array[i] = i;
-        array[i + 1] = -i;
-        array[i + 2] = i * 2;
-        array[i + 3] = -i * 2;
-        array[i + 4] = i * 3;
-        array[i + 5] = -i * 3;
-        array[i + 6] = i * 5;
-        array[i + 7] = i * 9;
-        array[i + 8] = i * 7;
-        array[i + 9] = -i * 7;
+        array[i - 1] = -i;
+        array[i - 2] = i * 2;
+        array[i - 3] = -i * 2;
+        array[i - 4] = i * 3;
+        array[i - 5] = -i * 3;
+        array[i - 6] = i * 5;
+        array[i - 7] = i * 9;
+        array[i - 8] = i * 7;
+        array[i - 9] = -i * 7;
     }
 
-    RBTree T(array, 1000);
-    for (int i = 99; i >= 0; i --)
+    RBTree T(array, 10000);
+    for (int i = 0; i < 1000; i++)
         T.deleteNode(i * 5);
 
     EXPECT_EQ(RBTree::NIL, T.findNode(5));
