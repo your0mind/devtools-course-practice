@@ -2,8 +2,9 @@
 #include "include/q_sort.h"
 #include <stdexcept>
 #include <vector>
+#include <algorithm>
 
-void sort::quickSort(std::vector<int> *array, int first, int last){
+void sort::quickSort(std::vector<int> *array, int first, int last) {
     if ((*array).size() == 0)
         throw std::logic_error("Array is empty");
     if ((first < 0) || (last < 0))
