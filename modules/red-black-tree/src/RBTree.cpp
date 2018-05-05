@@ -29,11 +29,14 @@ void RBTree::rotateLeft(Node* x) {
     if (y != NIL) {
         y->parent = x->parent;
         if (x->parent) {
-            if (x == x->parent->left)
+            if (x == x->parent->left) {
                 x->parent->left = y;
-            else
+            } else {
                 x->parent->right = y;
-        } else root = y;
+            }
+        } else {
+            root = y;
+        }
         y->left = x;
         if (x != NIL) x->parent = y;
     }
@@ -46,11 +49,14 @@ void RBTree::rotateRight(Node* x) {
     if (y != NIL) {
         y->parent = x->parent;
         if (x->parent) {
-            if (x == x->parent->right)
+            if (x == x->parent->right) {
                 x->parent->right = y;
-            else
+            } else {
                 x->parent->left = y;
-        } else root = y;
+            }
+        } else {
+            root = y;
+        }
         y->right = x;
         if (x != NIL) x->parent = y;
     }
@@ -162,8 +168,8 @@ void RBTree::deleteTree(Node* x)
 }
 
 Node* RBTree::insertNode(T data) {
-    Node* current; 
-    Node* parent; 
+    Node* current;
+    Node* parent;
     Node* x;
     current = root;
     parent = nullptr;
@@ -186,7 +192,7 @@ Node* RBTree::insertNode(T data) {
 }
 
 void RBTree::deleteNode(T data) {
-    Node* x; 
+    Node* x;
     Node* y;
     Node* z = findNode(data);
     if (!z || z == NIL) return;
@@ -202,12 +208,14 @@ void RBTree::deleteNode(T data) {
         x = y->right;
     x->parent = y->parent;
     if (y->parent) {
-        if (y == y->parent->left)
+        if (y == y->parent->left) {
             y->parent->left = x;
-        else
+        } else {
             y->parent->right = x;
-    } else
+        }
+    } else {
         root = x;
+    }
     if (y != z) z->data = y->data;
     if (y->color == BLACK)
         deleteFixup(x);
