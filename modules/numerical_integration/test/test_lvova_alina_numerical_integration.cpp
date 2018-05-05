@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
-#include "numerical_integration.h"
+#include "include/numerical_integration.h"
 
 double equalFunction(double x) {
     return (x * x * x / 3 + x * x / 2 + 2 * x);
@@ -120,7 +120,6 @@ TEST(Lvova_Alina_NumericalIntegrationTest, NewtonCotes5) {
     EXPECT_NEAR(eq, result, epsilon);
 }
 
-
 TEST(Lvova_Alina_NumericalIntegrationTest, SetCorrectLowerLimitAndCorrectDivisions) {
     // Arrange
     double A = -153.26485, B = 0;
@@ -139,7 +138,8 @@ TEST(Lvova_Alina_NumericalIntegrationTest, SetCorrectLowerLimitAndCorrectDivisio
     EXPECT_NEAR(eq, result, epsilon);
 }
 
-TEST(Lvova_Alina_NumericalIntegrationTest, SetIncorrectLowerLimitAndCorrectDivisions) {
+TEST(Lvova_Alina_NumericalIntegrationTest,
+     SetIncorrectLowerLimitAndCorrectDivisions) {
     // Arrange
     double A = -15.12, B = 10;
     int N = 750;
@@ -155,7 +155,8 @@ TEST(Lvova_Alina_NumericalIntegrationTest, SetIncorrectLowerLimitAndCorrectDivis
     }
 }
 
-TEST(Lvova_Alina_NumericalIntegrationTest, SetCorrectUpperLimitAndCorrectDivisions) {
+TEST(Lvova_Alina_NumericalIntegrationTest,
+     SetCorrectUpperLimitAndCorrectDivisions) {
     // Arrange
     double A = 0, B = 35.365695;
     int N = 750;
@@ -173,7 +174,8 @@ TEST(Lvova_Alina_NumericalIntegrationTest, SetCorrectUpperLimitAndCorrectDivisio
     EXPECT_NEAR(eq, result, epsilon);
 }
 
-TEST(Lvova_Alina_NumericalIntegrationTest, SetIncorrectUpperLimitAndCorrectDivisions) {
+TEST(Lvova_Alina_NumericalIntegrationTest,
+     SetIncorrectUpperLimitAndCorrectDivisions) {
     // Arrange
     double A = -115.25, B = 10.10;
     int N = 750;
