@@ -72,7 +72,7 @@ void RBTree::insertFixup(Node* x) {
                 x->parent->parent->color = RED;
                 x = x->parent->parent;
             } else {
-                if (x == x->parent->right) {
+                if (x == x->parent->right) {	
                     x = x->parent;
                     rotateLeft(x);
                 }

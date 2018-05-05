@@ -103,6 +103,21 @@ TEST(RBTree, creation_tree_from_array_add_node_inverted) {
     EXPECT_TRUE(check);
 }
 
+TEST(RBTree, correctly_working_insertFixup) {
+    RBTree T;
+
+    for (int i = 1; i < 10; i++)
+        T.insertNode(i*5);
+    for (int i = 1; i < 20; i++)
+        T.insertNode(i*4);
+    for (int i = 1; i < 10; i++)
+        T.insertNode(i*3);
+    for (int i = 1; i < 10; i++)
+        T.insertNode(i*2);
+    
+    EXPECT_NE(RBTree::NIL, T.findNode(20));
+}
+
 TEST(RBTree, can_delete_nonexistent_node) {
     RBTree T(5);
 
