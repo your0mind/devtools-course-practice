@@ -87,17 +87,17 @@ TEST(RBTree, creation_tree_from_array_add_node) {
 }
 
 TEST(RBTree, creation_tree_from_array_add_node_inverted) {
-    int array[10];
+    int array[20];
     bool check = true;
 
-    for (int i = 0; i < 5; i++)
-        array[i] = - i * 2;
-    for (int i = 5; i < 10; i++)
+    for (int i = 0; i < 10; i++)
+        array[i] = - i * 3 + 10;
+    for (int i = 10; i < 20; i++)
         array[i] = i * 2;
-    RBTree T(array, 10);
-    for (int i = 0; i < 5; i++)
-        if (RBTree::NIL == T.findNode(- i * 2)) check = false;
-    for (int i = 5; i < 10; i++)
+    RBTree T(array, 20);
+    for (int i = 0; i < 10; i++)
+        if (RBTree::NIL == T.findNode(- i * 3 + 10)) check = false;
+    for (int i = 10; i < 20; i++)
         if (RBTree::NIL == T.findNode(i * 2)) check = false;
 
     EXPECT_TRUE(check);
@@ -138,7 +138,10 @@ TEST(RBTree, can_delete_node_in_huge_tree) {
     RBTree T(array, 20);
 
     T.deleteNode(0);
-    EXPECT_EQ(RBTree::NIL, T.findNode(0));
+    T.deleteNode(10);
+    T.deleteNode(-2);
+    T.deleteNode(-6);
+    EXPECT_EQ(RBTree::NIL, T.findNode(-6));
 }
 
 TEST(RBTree, can_delete_node_in_huge_tree_2) {
