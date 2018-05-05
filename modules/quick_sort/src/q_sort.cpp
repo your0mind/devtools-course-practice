@@ -3,27 +3,23 @@
 #include <stdexcept>
 #include <vector>
 
-void sort::quickSort(std::vector<int> &array, int first, int last){
-    if (array.size() == 0)
+void sort::quickSort(std::vector<int> *array, int first, int last){
+    if ((*array).size() == 0)
         throw std::logic_error("Array is empty");
     if ((first < 0) || (last < 0))
         throw std::logic_error("Array index can't be < 0");
 
     int i = first;
     int j = last;
-    int mid = array[(first + last + 1) / 2 - 1];
-    int tmp;
+    int mid = (*array)[(first + last + 1) / 2 - 1];
 
     do {
-        while (array[i] < mid) i++;
-        while (array[j] > mid) j--;
+        while ((*array)[i] < mid) i++;
+        while ((*array)[j] > mid) j--;
 
         if (i <= j) {
-            if (array[i] > array[j]) {
-                tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
-            }
+            if ((*array)[i] > (*array)[j])
+				std::swap((*array)[i], (*array)[j]);
             i++;
             j--;
         }

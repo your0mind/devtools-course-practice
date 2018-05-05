@@ -7,6 +7,6 @@
 #include <vector>
 
 struct sort {
-  static void quickSort(std::vector<int> &array, int first, int last);
+  static void quickSort(std::vector<int> *array, int first, int last);
 };
 #endif  // MODULES_QUICK_SORT_INCLUDE_Q_SORT_H_
