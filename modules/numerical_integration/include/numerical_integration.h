@@ -21,7 +21,7 @@ class Integral {
  private:
     double res;
     double step;
-    int div;
+    int divisions;
     double low, up;
     double function(double x);
 };
