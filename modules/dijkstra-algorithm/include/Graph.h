@@ -10,6 +10,7 @@ class Graph {
  public:
     Graph();
     Graph(int count_vertex, double** matrix);
+	Graph(Graph& copy);
     ~Graph();
     int GetCount();
     double GetWeight(int first, int last);
@@ -18,6 +19,8 @@ class Graph {
     void DeleteEdge(int first, int last);
     void DeleteVertex(int vertex);
     double FindDistance(int start, int finish);
+	bool operator==(Graph& g);
+	Graph& operator=(Graph& g);
 };
 
 #endif  // MODULES_DIJKSTRA_ALGORITHM_INCLUDE_GRAPH_H_
