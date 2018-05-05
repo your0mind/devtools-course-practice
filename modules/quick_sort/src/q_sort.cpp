@@ -19,7 +19,7 @@ void sort::quickSort(std::vector<int> *array, int first, int last){
 
         if (i <= j) {
             if ((*array)[i] > (*array)[j])
-				std::swap((*array)[i], (*array)[j]);
+                std::swap((*array)[i], (*array)[j]);
             i++;
             j--;
         }
