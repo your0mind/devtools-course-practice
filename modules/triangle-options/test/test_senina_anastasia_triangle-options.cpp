@@ -64,7 +64,7 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Inscribed_Circle) {
   Triangles figure(a, b, c);
   double res_cur;
   double res;
-  double eps = 0.01;
+  double eps = 0.1;
 
   // Act
   res_cur = figure.Get_Radius_Of_Inscribed_Circle();
