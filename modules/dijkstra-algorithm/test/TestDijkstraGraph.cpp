@@ -45,18 +45,18 @@ TEST(Graph, can_not_create_graph_with_negative_weight) {
 }
 
 TEST(Graph, can_copy_graph) {
-	// Arrange
-	double** matrix = new double*[2];
-	matrix[0] = new double[2];
-	matrix[1] = new double[2];
-	matrix[0][0] = 0; matrix[0][1] = 1;
-	matrix[1][0] = 1; matrix[1][1] = 0;
+    // Arrange
+    double** matrix = new double*[2];
+    matrix[0] = new double[2];
+    matrix[1] = new double[2];
+    matrix[0][0] = 0; matrix[0][1] = 1;
+    matrix[1][0] = 1; matrix[1][1] = 0;
 
-	// Act
-	Graph g(2, matrix);
+    // Act
+    Graph g(2, matrix);
 
-	// Assert
-	ASSERT_NO_THROW(Graph(g));
+    // Assert
+    ASSERT_NO_THROW(Graph(g));
 }
 
 TEST(Graph, can_get_count) {
