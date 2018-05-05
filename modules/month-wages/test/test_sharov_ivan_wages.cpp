@@ -222,5 +222,51 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_April_Without_Adm
 
     // Assert
     EXPECT_TRUE(ivan.calculationActualWorkingDays() == ivan.getNumberWorkingDaysInCurrentMonth());
+}
+
+TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_0_In_October) {
+    // Arrange
+    double oklad = 21000;
+    double admin_hours = 0;
+    double overtime_hour = 0;
+    char *month = "October";
+    double wages = 21000;
+
+    // Act
+    Wages ivan(oklad, admin_hours, overtime_hour, month);
+
+    // Assert
+    EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
+}
+
+TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_24_In_November) {
+    // Arrange
+    double oklad = 21000;
+    double admin_hours = 24;
+    double overtime_hour = 8;
+    char *month = "November";
+    double wages = 18000;
+
+    // Act
+    Wages ivan(oklad, admin_hours, overtime_hour, month);
+
+    // Assert
+    EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
+    system("pause");
+}
+
+TEST(Sharov_Ivan_WagesTest, Calculation_Full_Wages) {
+    // Arrange
+    double oklad = 21000;
+    double admin_hours = 24;
+    double overtime_hour = 8;
+    char *month = "November";
+    double wages = 18000;
+
+    // Act
+    Wages ivan(oklad, admin_hours, overtime_hour, month);
+
+    // Assert
+    EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
     system("pause");
 }
