@@ -1,0 +1,32 @@
+#pragma once
+
+typedef double money;
+enum ERRORS {WRONG_VALUE};
+
+class Investition{
+    private:
+    money* Incomes;
+    money* Expenses;
+    double RatePercent;
+    int YearCount; 
+    public:
+    Investition();
+    Investition(const int& years, money* Income_arr, money* Expenses_arr, const double& rate);
+    ~Investition();
+    void SetRate(const double& rate);
+    void SetYearCount (const int& years);
+    void SetIncomes (money* Income_arr);
+    void SetExpenses (money* Expenses_arr);
+    int GetYearCount() const;
+    double GetRate() const;
+    money* GetIncomes() const;
+    money* GetExpenses() const;
+    money GetIncomeOfYear(const int& year) const;
+    money GetExpenseOfYear(const int& year) const;
+    double FindNPV() const;
+    double FindNPV(const double& rate) const;
+    double FindIRR() const;
+    int FindRecoupmentTime() const;
+    double FindPBIndex() const;
+//    void Print() const;
+};
