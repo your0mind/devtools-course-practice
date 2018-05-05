@@ -13,6 +13,22 @@ TEST(RBTree, creation_empty_tree_not_added_node) {
     EXPECT_EQ(RBTree::NIL, T.findNode(5));
 }
 
+TEST(RBTree, can_not_found_node_with_NIL_data_in_empty_tree)
+{
+    RBTree T;
+
+    EXPECT_EQ(RBTree::NIL, T.findNode(RBTree::NIL->data));
+}
+
+TEST(RBTree, can_found_NIL_data)
+{
+    RBTree T;
+
+    T.insertNode(RBTree::NIL->data);
+
+    EXPECT_NE(RBTree::NIL, T.findNode(RBTree::NIL->data));
+}
+
 TEST(RBTree, can_create_tree) {
     ASSERT_NO_THROW(RBTree T(5));
 }
@@ -23,24 +39,51 @@ TEST(RBTree, creation_tree_add_data) {
     EXPECT_NE(RBTree::NIL, T.findNode(5));
 }
 
+TEST(RBTree, creation_tree_add_correct_data) {
+    RBTree T(5);
+
+    EXPECT_EQ(5, T.findNode(5)->data);
+}
+
+TEST(RBTree, creation_tree_add_correct_child) {
+    RBTree T;
+
+    T.insertNode(5);
+    T.insertNode(8);
+
+    EXPECT_EQ(T.findNode(8)->left, T.findNode(8)->right);
+}
+
+TEST(RBTree, creation_tree_add_correct_parent) {
+    RBTree T(5);
+
+    EXPECT_EQ(T.findNode(5)->parent, nullptr);
+}
+
 TEST(RBTree, can_create_tree_from_array) {
-    int array[5];
+    int array[10];
 
     for (int i = 0; i < 5; i++)
         array[i] = i * 2;
+    for (int i = 5; i < 10; i++)
+        array[i] = 30 - i * 2;
 
-    ASSERT_NO_THROW(RBTree T(array, 5));
+    ASSERT_NO_THROW(RBTree T(array, 10));
 }
 
 TEST(RBTree, creation_tree_from_array_add_node) {
-    int array[5];
+    int array[10];
     bool check = true;
 
     for (int i = 0; i < 5; i++)
         array[i] = i * 2;
-    RBTree T(array, 5);
+    for (int i = 5; i < 10; i++)
+        array[i] = - i * 2;
+    RBTree T(array, 10);
     for (int i = 0; i < 5; i++)
         if (RBTree::NIL == T.findNode(i * 2)) check = false;
+    for (int i = 5; i < 10; i++)
+        if (RBTree::NIL == T.findNode(- i * 2)) check = false;
 
     EXPECT_TRUE(check);
 }
@@ -55,6 +98,16 @@ TEST(RBTree, can_delete_node) {
     RBTree T;
 
     T.insertNode(5);
+    T.deleteNode(5);
+
+    EXPECT_EQ(RBTree::NIL, T.findNode(5));
+}
+
+TEST(RBTree, can_delete_root) {
+    RBTree T;
+
+    T.insertNode(5);
+    T.insertNode(8);
     T.deleteNode(5);
 
     EXPECT_EQ(RBTree::NIL, T.findNode(5));
