@@ -59,7 +59,7 @@ TEST(PriorityQueueTest, can_equate_priority_queue) {
     pq2.push(3, 3);
 
     // Assert
-    ASSERT_NO_THROW(pq1 = pq2);
+    pq1 = pq2;
     EXPECT_EQ(pq1.extract_max(), 3);
 }
 
@@ -72,7 +72,7 @@ TEST(PriorityQueueTest, can_extract_max_from_queue) {
     pq1.push(6, 6);
 
     // Assert
-    ASSERT_NO_THROW(pq1.extract_max());
+    pq1.extract_max();
     EXPECT_EQ(pq1.extract_max(), 6);
 }
 
@@ -110,7 +110,7 @@ TEST(PriorityQueueTest, can_push_element_in_empty_queue) {
     PriorityQueue<int> pq1;
 
     // Act & Assert
-    ASSERT_NO_THROW(pq1.push(4, 4));
+    pq1.push(4, 4);
     EXPECT_EQ(pq1.extract_max(), 4);
 }
 
@@ -127,7 +127,7 @@ TEST(PriorityQueueTest, can_push_element_in_queue) {
     PriorityQueue<int> pq1(5, 6);
 
     // Act & Assert
-    ASSERT_NO_THROW(pq1.push(4, 4));
+    pq1.push(4, 4);
     EXPECT_EQ(pq1.extract_max(), 5);
 }
 
@@ -158,8 +158,7 @@ TEST(PriorityQueueTest, item_with_highest_priority_is_not_only_one_in_queue) {
     maxVal2 = pq1.extract_max();
 
     // Assert
-    EXPECT_EQ(maxVal1, 4);
-    EXPECT_EQ(maxVal2, 2);
+    EXPECT_TRUE(maxVal1 == 4 && maxVal2 == 2);
 }
 
 TEST(PriorityQueueTest, can_push_item_with_lowest_priority) {
@@ -369,6 +368,5 @@ TEST(PriorityQueueTest, can_swap_two_queue) {
     pq1.swap(pq2);
 
     // Assert
-    EXPECT_TRUE(pq1.get_max_priority() == 9 && pq1.get_min_priority() == 8);
-    EXPECT_TRUE(pq2.get_max_priority() == 6 && pq2.get_min_priority() == 5);
+    EXPECT_TRUE(pq1.get_max_priority() == 9 && pq2.get_max_priority() == 6);
 }
