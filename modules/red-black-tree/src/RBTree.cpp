@@ -4,7 +4,7 @@
 Node *RBTree::NIL = new Node(RBTree::NIL, RBTree::NIL, nullptr, BLACK, 0);
 
 RBTree::RBTree() {
-   root = NIL;
+    root = NIL;
 }
 
 RBTree::RBTree(T data) {
@@ -12,7 +12,7 @@ RBTree::RBTree(T data) {
     insertNode(data);
 }
 
-RBTree::RBTree(T datas[], int count){
+RBTree::RBTree(T datas[], int count) {
     root = NIL;
     for (int i = 0; i < count; i++)
         insertNode(datas[i]);
@@ -28,12 +28,12 @@ void RBTree::rotateLeft(Node* x) {
     if (y->left != NIL) y->left->parent = x;
     if (y != NIL) {
         y->parent = x->parent;
-        if (x->parent)
+        if (x->parent) {
             if (x == x->parent->left)
                 x->parent->left = y;
             else
                 x->parent->right = y;
-        else root = y;
+        } else root = y;
         y->left = x;
         if (x != NIL) x->parent = y;
     }
@@ -45,12 +45,12 @@ void RBTree::rotateRight(Node* x) {
     if (y->right != NIL) y->right->parent = x;
     if (y != NIL) {
         y->parent = x->parent;
-        if (x->parent)
+        if (x->parent) {
             if (x == x->parent->right)
                 x->parent->right = y;
             else
                 x->parent->left = y;
-        else root = y;
+        } else root = y;
         y->right = x;
         if (x != NIL) x->parent = y;
     }
@@ -65,8 +65,7 @@ void RBTree::insertFixup(Node* x) {
                 y->color = BLACK;
                 x->parent->parent->color = RED;
                 x = x->parent->parent;
-            }
-            else {
+            } else {
                 if (x == x->parent->right) {
                     x = x->parent;
                     rotateLeft(x);
@@ -75,16 +74,14 @@ void RBTree::insertFixup(Node* x) {
                 x->parent->parent->color = RED;
                 rotateRight(x->parent->parent);
             }
-        }
-        else {
+        } else {
                 Node *y = x->parent->parent->left;
                 if (y->color == RED) {
                     x->parent->color = BLACK;
                     y->color = BLACK;
                     x->parent->parent->color = RED;
                     x = x->parent->parent;
-                }
-                else {
+                } else {
                     if (x == x->parent->left) {
                         x = x->parent;
                         rotateRight(x);
@@ -111,8 +108,7 @@ void RBTree::deleteFixup(Node* x) {
             if (w->left->color == BLACK && w->right->color == BLACK) {
                 w->color = RED;
                 x = x->parent;
-            }
-            else {
+            } else {
                 if (w->right->color == BLACK) {
                     w->left->color = BLACK;
                     w->color = RED;
@@ -125,8 +121,7 @@ void RBTree::deleteFixup(Node* x) {
                 rotateLeft(x->parent);
                 x = root;
             }
-        }
-        else {
+        } else {
             Node* w = x->parent->left;
             if (w->color == RED) {
                 w->color = BLACK;
@@ -137,8 +132,7 @@ void RBTree::deleteFixup(Node* x) {
             if (w->right->color == BLACK && w->left->color == BLACK) {
                 w->color = RED;
                 x = x->parent;
-            }
-            else {
+            } else {
                 if (w->left->color == BLACK) {
                     w->right->color = BLACK;
                     w->color = RED;
@@ -184,8 +178,7 @@ Node* RBTree::insertNode(T data) {
             parent->left = x;
         else
             parent->right = x;
-    }
-    else {
+    } else {
         root = x;
     }
     insertFixup(x);
@@ -199,8 +192,7 @@ void RBTree::deleteNode(T data) {
     if (!z || z == NIL) return;
     if (z->left == NIL || z->right == NIL) {
         y = z;
-    }
-    else {
+    } else {
         y = z->right;
         while (y->left != NIL) y = y->left;
     }
@@ -209,12 +201,12 @@ void RBTree::deleteNode(T data) {
     else
         x = y->right;
     x->parent = y->parent;
-    if (y->parent)
+    if (y->parent) {
         if (y == y->parent->left)
             y->parent->left = x;
         else
             y->parent->right = x;
-    else
+    } else
         root = x;
     if (y != z) z->data = y->data;
     if (y->color == BLACK)

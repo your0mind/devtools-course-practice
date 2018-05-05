@@ -4,7 +4,7 @@
 #include "include/RBTree.h"
 
 TEST(RBTree, can_create_empty_tree) {
-   ASSERT_NO_THROW(RBTree T);
+    ASSERT_NO_THROW(RBTree T);
 }
 
 TEST(RBTree, creation_empty_tree_not_added_node) {
@@ -23,7 +23,7 @@ TEST(RBTree, creation_tree_add_data) {
     EXPECT_NE(RBTree::NIL, T.findNode(5));
 }
 
-TEST(RBTree, can_create_tree_from_array){
+TEST(RBTree, can_create_tree_from_array) {
     int array[5];
 
     for (int i = 0; i < 5; i++)
