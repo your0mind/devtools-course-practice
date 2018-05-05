@@ -1,9 +1,9 @@
 // Copyright 2018 Senina Anastasia
 
 #include <gtest/gtest.h>
-#include "include/Triangles.h"
 #include <cmath>
- 
+#include "include/Triangles.h"
+
 TEST(senina_anastasia_triangle_optionsTest, Can_add_Get_Length_Side_first) {
   // Arrange
   Vertex a(1, 5);
@@ -149,7 +149,8 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Get_Barycenter) {
   EXPECT_EQ(res.y, res_cur.y);
 }
 
-TEST(senina_anastasia_triangle_optionsTest, Can_Get_Center_Of_Inscribed_Circle) {
+TEST(senina_anastasia_triangle_optionsTest,
+  Can_Get_Center_Of_Inscribed_Circle) {
   // Arrange
   Vertex a(1, 5);
   Vertex b(4, 9);
@@ -184,7 +185,8 @@ TEST(senina_anastasia_triangle_optionsTest, Can_Copy_Triangle) {
   EXPECT_EQ(figure.Get_Vertex(third), figure2.Get_Vertex(third));
 }
 
-TEST(senina_anastasia_triangle_optionsTest, Throw_When_Try_Get_Length_Same_Vertexes) {
+TEST(senina_anastasia_triangle_optionsTest,
+  Throw_When_Try_Get_Length_Same_Vertexes) {
   // Arrange
   Vertex a(1, 5);
   Vertex b(4, 9);
