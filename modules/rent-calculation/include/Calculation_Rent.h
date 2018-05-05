@@ -1,7 +1,7 @@
 // Copyright 2018 Boris Ermachenko
 
-#ifndef CALCULATION_RENT_H_
-#define CALCULATION_RENT_H_
+#ifndef CALCULATION_RENT_H
+#define CALCULATION_RENT_H
 
 class Calculation_Rent{
 	public:
@@ -22,4 +22,4 @@ class Calculation_Rent{
 
 
 };
-#endif  CALCULATION_RENT_H_
+#endif  CALCULATION_RENT_H
