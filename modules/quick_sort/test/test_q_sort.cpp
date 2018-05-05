@@ -24,14 +24,14 @@ TEST(QuickSortTest, Cant_Sort_Negative_index) {
 TEST(QuickSortTest, Sort_one_elem_no_exept) {
     // Arrange
     std::vector<int> arr = { 2, 1 };
-    //// Assert
+    // Assert
     EXPECT_NO_THROW(sort::quickSort(&arr, 1, 1));
 }
 
 TEST(QuickSortTest, Can_Sort_one_elem) {
     // Arrange
     std::vector<int> arr = { 2, 1 };
-    //Act
+    // Act
     sort::quickSort(&arr, 1, 1);
     // Assert
     EXPECT_EQ(arr[0], 2);
