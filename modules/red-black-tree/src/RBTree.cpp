@@ -227,6 +227,5 @@ Node* RBTree::findNode(T data) {
         if (data == current->data) return current;
         current = data < current->data ? current->left : current->right;
     }
-    if (current == NIL) return NIL;
     return current;
 }
