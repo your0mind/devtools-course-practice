@@ -31,6 +31,12 @@ class MaxBinaryHeap {
   T top();
   void pop();
 
+	template<class ...Args>
+	void emplace(Args&&... args) {
+		m_nodes.emplace_back(std::forward<Args>(args)...);
+    shiftUp(m_nodes.size() - 1);
+	}
+
  private:
   void shiftUp(int node_index);
   void shiftDown(int node_index);

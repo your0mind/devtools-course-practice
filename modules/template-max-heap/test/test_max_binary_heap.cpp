@@ -59,6 +59,17 @@ TEST(MaxBinaryHeapTest, Right_Push_Element) {
   EXPECT_EQ(1000, heap.top());
 }
 
+TEST(MaxBinaryHeapTest, Right_Emplace_Element) {
+  // Arrange
+  MaxBinaryHeap<int> heap = {1, 3, 5};
+
+  // Act
+  heap.emplace(1000);
+
+  // Assert
+  EXPECT_EQ(1000, heap.top());
+}
+
 TEST(MaxBinaryHeapTest, Throw_When_Get_Top_From_Empty_Heap) {
   // Arrange
   MaxBinaryHeap<int> heap;
