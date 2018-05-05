@@ -1,7 +1,7 @@
 // Copyright 2018 Senina Anastasia
 
 #include <gtest/gtest.h>
-#include <cmath>
+#include <math.h>
 #include "include/Triangles.h"
 
 TEST(senina_anastasia_triangle_optionsTest, Can_add_Get_Length_Side_first) {

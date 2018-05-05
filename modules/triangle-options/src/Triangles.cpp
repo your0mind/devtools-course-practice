@@ -1,7 +1,7 @@
 // Copyright 2018 Senina Anastasia
 
 #include "include/Triangles.h"
-#include <cmath>
+#include <math.h>
 
 double Triangles::Length(Vertex a, Vertex b) {
   return sqrt((a.x - b.x)*
