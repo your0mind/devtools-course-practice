@@ -127,7 +127,7 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, CopyConstractor) {
     // Arrange
-    xyz A = { 0, 0, 0 };
+    dot A = { 0, 0, 0 };
 
     // Act & Assert
     ASSERT_NO_THROW(dot B(A));
