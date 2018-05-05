@@ -6,19 +6,20 @@
 #include <stdexcept>
 #include "include/heap.hpp"
 
+
 TEST(HeapTest, Can_Create_Empty_Heap) {
   // AAA
-  ASSERT_NO_THROW(heap<int> h);
+  ASSERT_NO_THROW(atal::heap<int> h);
 }
 
 TEST(HeapTest, Can_Create_Heap_With_Reserved_Memory) {
   // AAA
-  ASSERT_NO_THROW(heap<int> h(100));
+  ASSERT_NO_THROW(atal::heap<int> h(100));
 }
 
 TEST(HeapTest, Can_Create_Heap_From_Initializer_List) {
   // AAA
-  ASSERT_NO_THROW(heap<int> h{1});
+  ASSERT_NO_THROW(atal::heap<int> h{1});
 }
 
 TEST(HeapTest, Can_Create_Heap_From_Vector) {
@@ -26,12 +27,12 @@ TEST(HeapTest, Can_Create_Heap_From_Vector) {
   std::vector<int> v {1, 4, -3, 2};
 
   // Act & Assert
-  ASSERT_NO_THROW(heap<int> h(v.begin(), v.end()));
+  ASSERT_NO_THROW(atal::heap<int> h(v.begin(), v.end()));
 }
 
 TEST(HeapTest, Check_That_Empty_Heap_Is_Empty) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act & Assert
   ASSERT_TRUE(h.empty());
@@ -39,7 +40,7 @@ TEST(HeapTest, Check_That_Empty_Heap_Is_Empty) {
 
 TEST(HeapTest, Check_Heap_Size) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act
   for (int i = 0; i < 100; ++i) {
@@ -52,7 +53,7 @@ TEST(HeapTest, Check_Heap_Size) {
 
 TEST(HeapTest, Right_Push_Element) {
   // Arrange
-  heap<int> h = {1, 3, 5};
+  atal::heap<int> h = {1, 3, 5};
 
   // Act
   h.push(1000);
@@ -63,7 +64,7 @@ TEST(HeapTest, Right_Push_Element) {
 
 TEST(HeapTest, Right_Emplace_Element) {
   // Arrange
-  heap<int> h = {1, 3, 5};
+  atal::heap<int> h = {1, 3, 5};
 
   // Act
   h.emplace(1000);
@@ -74,7 +75,7 @@ TEST(HeapTest, Right_Emplace_Element) {
 
 TEST(HeapTest, Throw_When_Get_Top_From_Empty_Heap) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act & Assert
   ASSERT_ANY_THROW(h.top());
@@ -82,7 +83,7 @@ TEST(HeapTest, Throw_When_Get_Top_From_Empty_Heap) {
 
 TEST(HeapTest, Check_Get_Top) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act
   for (int i = 0; i < 4; ++i) {
@@ -95,10 +96,10 @@ TEST(HeapTest, Check_Get_Top) {
 
 TEST(HeapTest, Can_Create_Copy_Heap) {
   // Arrange
-  heap<int> h {2, -5, 1, 2};
+  atal::heap<int> h {2, -5, 1, 2};
 
   // Act
-  heap<int> ch(h);
+  atal::heap<int> ch(h);
 
   // Assert
   EXPECT_EQ(2, ch.top());
@@ -106,8 +107,8 @@ TEST(HeapTest, Can_Create_Copy_Heap) {
 
 TEST(HeapTest, Check_Swap_Heaps) {
   // Arrange
-  heap<int> h1 {2, -5, 1, 2};
-  heap<int> h2 {100, 3, 1000};
+  atal::heap<int> h1 {2, -5, 1, 2};
+  atal::heap<int> h2 {100, 3, 1000};
 
   // Act
   h1.swap(h2);
@@ -119,8 +120,8 @@ TEST(HeapTest, Check_Swap_Heaps) {
 
 TEST(HeapTest, Check_Assignment_Operator) {
   // Arrange
-  heap<int> h1 {2, -5, 1, 2};
-  heap<int> h2 {100, 1000, 3};
+  atal::heap<int> h1 {2, -5, 1, 2};
+  atal::heap<int> h2 {100, 1000, 3};
 
   // Act
   h1 = h2;
@@ -130,10 +131,10 @@ TEST(HeapTest, Check_Assignment_Operator) {
 //
 TEST(HeapTest, Can_Move_Heap) {
   // Arrange
-  heap<int> h {2, -5, 1, 2};
+  atal::heap<int> h {2, -5, 1, 2};
 
   // Act
-  heap<int> ch(std::move(h));
+  atal::heap<int> ch(std::move(h));
 
   // Assert
   EXPECT_EQ(2, ch.top());
@@ -141,8 +142,8 @@ TEST(HeapTest, Can_Move_Heap) {
 
 TEST(HeapTest, Can_Assign_Move_Heap) {
   // Arrange
-  heap<int> h1 {3, 9, 15};
-  heap<int> h2 {5, 3, 1};
+  atal::heap<int> h1 {3, 9, 15};
+  atal::heap<int> h2 {5, 3, 1};
 
   // Act
   h2 = std::move(h1);
@@ -153,7 +154,7 @@ TEST(HeapTest, Can_Assign_Move_Heap) {
 
 TEST(HeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act & Assert
   ASSERT_NO_THROW(h.pop());
@@ -161,7 +162,7 @@ TEST(HeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
 
 TEST(HeapTest, Check_Delete_Top) {
   // Arrange
-  heap<int> h = {3, 5, 10, 2, 1};
+  atal::heap<int> h = {3, 5, 10, 2, 1};
 
   // Act
   h.pop();
@@ -172,7 +173,7 @@ TEST(HeapTest, Check_Delete_Top) {
 
 TEST(HeapTest, Check_Use_Other_Comparator) {
   // Arrange
-  heap<int, std::greater<int>> h = {3, 5, 10, 2, 1};
+  atal::heap<int, std::greater<int>> h = {3, 5, 10, 2, 1};
 
   // Act & Assert
   EXPECT_EQ(1, h.top());
@@ -180,7 +181,7 @@ TEST(HeapTest, Check_Use_Other_Comparator) {
 
 TEST(HeapTest, Check_Set_Dimension) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act
   h.setDim(3);
@@ -191,7 +192,7 @@ TEST(HeapTest, Check_Set_Dimension) {
 
 TEST(HeapTest, Check_Set_Invalid_Dimension) {
   // Arrange
-  heap<int> h;
+  atal::heap<int> h;
 
   // Act & Assert
   EXPECT_THROW(h.setDim(-3), std::logic_error);
@@ -199,7 +200,7 @@ TEST(HeapTest, Check_Set_Invalid_Dimension) {
 
 TEST(HeapTest, Check_Top_When_Dimension_Changed) {
   // Arrange
-  heap<int> h = {2, 5, 6, 1000, -3, 50};
+  atal::heap<int> h = {2, 5, 6, 1000, -3, 50};
 
   // Act
   h.setDim(5);
@@ -210,7 +211,7 @@ TEST(HeapTest, Check_Top_When_Dimension_Changed) {
 
 TEST(HeapTest, Check_Push_With_Changed_Dimension) {
   // Arrange
-  heap<int> h = {2, 5, 6, 7, -3, 50};
+  atal::heap<int> h = {2, 5, 6, 7, -3, 50};
 
   // Act
   h.setDim(3);
@@ -222,7 +223,7 @@ TEST(HeapTest, Check_Push_With_Changed_Dimension) {
 
 TEST(HeapTest, Check_Delete_Top_With_Changed_Dimension) {
   // Arrange
-  heap<int> h = {2, 5, 6, 7, -3, 50};
+  atal::heap<int> h = {2, 5, 6, 7, -3, 50};
 
   // Act
   h.setDim(5);

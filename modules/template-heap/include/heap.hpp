@@ -12,6 +12,8 @@
 
 using std::size_t;
 
+namespace atal {
+
 template<class T,
          class Compare = std::less<T>
          >
@@ -191,5 +193,5 @@ void heap<T, Compare>::pop() {
     shiftDown(0);
   }
 }
-
+} // namespace atal
 #endif  // MODULES_TEMPLATE_HEAP_INCLUDE_HEAP_HPP_
