@@ -30,7 +30,7 @@ Huffman::Huffman(char* text) {
     int size = frequency.size();
     for (int j = 0; j < size; j++) {
       if (strcmp(frequency[j]->value, val) == 0) {
-        frequency[j]->freq += 1;
+        frequency[j]->count += 1;
         f = false;
       }
     }
@@ -69,7 +69,7 @@ void Huffman::BuildTree() {
   priority_queue<CNode*, vector<CNode*>, CNode> q;
   int size = frequency.size();
   if (size == 1) {
-    H_tree = new CNode(frequency[0]->value, frequency[0]->freq,
+    H_tree = new CNode(frequency[0]->value, frequency[0]->count,
                         0, 0, const_cast<char*>("1"));
   }
 
@@ -86,7 +86,7 @@ void Huffman::BuildTree() {
     size_t len = strlen(leaf1->value) + strlen(leaf2->value) + 1;
     char* vals = new char[len];
     snprintf(vals, len, "%s%s", leaf1->value, leaf2->value);
-    CNode* parent = new CNode(vals, leaf1->freq + leaf2->freq, leaf1, leaf2);
+    CNode* parent = new CNode(vals, leaf1->count + leaf2->count, leaf1, leaf2);
     q.push(parent);
 
     H_tree = parent;

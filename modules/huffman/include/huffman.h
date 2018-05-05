@@ -14,19 +14,19 @@ struct CNode {
   CNode* right;
   char* value;
   char* code;
-  int freq;
+  int count;
 
-  CNode(char* v = 0, int f = 0,
-        CNode* l = 0, CNode* r = 0, char* c = 0) {
+  CNode(char* v = 0, int c = 0,
+        CNode* l = 0, CNode* r = 0, char* _code = 0) {
     value = v;
-    freq = f;
+    count = c;
     left = l;
     right = r;
-    code = c;
+    code = _code;
   }
 
   bool operator() (const CNode* x, const CNode* y) const {
-    return (x->freq > y->freq) || ((x->freq == y->freq)
+    return (x->count > y->count) || ((x->count == y->count)
             && (static_cast<int>(x->value[0]) > static_cast<int>(y->value[0])));
   }
 };

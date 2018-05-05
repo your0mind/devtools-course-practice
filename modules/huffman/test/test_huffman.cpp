@@ -81,7 +81,7 @@ TEST(Huffman_Tests, Can_Encode_Symbol) {
 
 TEST(Huffman_Tests, Throws_When_Create_Nullptr) {
   //  Arrange
-  char* text = 0;
+  char* text = nullptr;
 
   //  Assert
   EXPECT_ANY_THROW(Huffman huff(text););
