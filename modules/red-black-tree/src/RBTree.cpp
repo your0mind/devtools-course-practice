@@ -156,11 +156,10 @@ void RBTree::deleteFixup(Node* x) {
     x->color = BLACK;
 }
 
-void RBTree::deleteTree(Node* x)
-{
-    if (!x || x == NIL)
+void RBTree::deleteTree(Node* x) {
+    if (!x || x == NIL) {
         return;
-    else {
+    } else {
         deleteTree(x->left);
         deleteTree(x->right);
         delete x;
