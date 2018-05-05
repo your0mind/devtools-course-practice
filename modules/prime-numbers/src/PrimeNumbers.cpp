@@ -1,7 +1,7 @@
 // Copyright 2018 Tipanov Daniil
 
 #include <vector>
-#include "PrimeNumbers.h"
+#include "include/PrimeNumbers.h"
 
 primeNumbers::primeNumbers(int _min, int _max) {
     min = _min;

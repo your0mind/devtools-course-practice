@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <vector>
-#include "PrimeNumbers.h"
+#include "include/PrimeNumbers.h"
 
 TEST(primeNumbers, can_create_without_error_empty) {
     // AAA
