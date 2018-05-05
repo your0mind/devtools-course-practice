@@ -120,7 +120,8 @@ TEST(Lvova_Alina_NumericalIntegrationTest, NewtonCotes5) {
     EXPECT_NEAR(eq, result, epsilon);
 }
 
-TEST(Lvova_Alina_NumericalIntegrationTest, SetCorrectLowerLimitAndCorrectDivisions) {
+TEST(Lvova_Alina_NumericalIntegrationTest,
+     SetCorrectLowerLimitAndCorrectDivisions) {
     // Arrange
     double A = -153.26485, B = 0;
     int N = 750;
