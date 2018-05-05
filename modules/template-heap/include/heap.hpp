@@ -1,7 +1,7 @@
 /* Copyright 2018 TolyaTalamanov */
 
-#ifndef MODULES_TEMPLATE_HEAP_INCLUDE_BINARY_HEAP_HPP_
-#define MODULES_TEMPLATE_HEAP_INCLUDE_BINARY_HEAP_HPP_
+#ifndef MODULES_TEMPLATE_HEAP_INCLUDE_HEAP_HPP_
+#define MODULES_TEMPLATE_HEAP_INCLUDE_HEAP_HPP_
 
 #include <iterator>
 #include <vector>
@@ -16,26 +16,26 @@ template<class T,
          class Compare = std::greater<T>
          >
 
-class BinaryHeap {
+class heap {
  public:
-  BinaryHeap() = default;
-  explicit BinaryHeap(size_t size) { m_nodes.reserve(size); }
+  heap() = default;
+  explicit heap(size_t size) { m_nodes.reserve(size); }
 
   template<typename Iterator>
-  BinaryHeap(Iterator first, Iterator last) : m_nodes(first, last) {
+  heap(Iterator first, Iterator last) : m_nodes(first, last) {
     for (int i = m_nodes.size() / 2; i >= 0; --i) {
       shiftDown(i);
     }
   }
 
-  BinaryHeap(std::initializer_list<T> l) : BinaryHeap(l.begin(), l.end()) {}
-  BinaryHeap(const BinaryHeap& other) : m_nodes(other.m_nodes) {}
-  BinaryHeap(BinaryHeap&& other) : m_nodes(std::move(other.m_nodes)) {} // NOLINT
+  heap(std::initializer_list<T> l) : heap(l.begin(), l.end()) {}
+  heap(const heap& other) : m_nodes(other.m_nodes) {}
+  heap(heap&& other) : m_nodes(std::move(other.m_nodes)) {} // NOLINT
 
-  void swap(BinaryHeap& other) noexcept { m_nodes.swap(other.m_nodes); }
+  void swap(heap& other) noexcept { m_nodes.swap(other.m_nodes); }
 
-  BinaryHeap& operator=(const BinaryHeap& other);
-  BinaryHeap& operator=(BinaryHeap&& other); // NOLINT
+  heap& operator=(const heap& other);
+  heap& operator=(heap&& other); // NOLINT
 
   size_t size() { return m_nodes.size(); }
   bool empty() { return m_nodes.empty(); }
@@ -65,29 +65,29 @@ class BinaryHeap {
 };
 
 template<class T, class Compare>
-BinaryHeap<T, Compare>&
-BinaryHeap<T, Compare>::operator=(const BinaryHeap<T, Compare>& other) {
+heap<T, Compare>&
+heap<T, Compare>::operator=(const heap<T, Compare>& other) {
   if (this != &other) {
-    BinaryHeap(other).swap(*this);
+    heap(other).swap(*this);
   }
   return *this;
 }
 
 template<class T, class Compare>
-BinaryHeap<T, Compare>&
-BinaryHeap<T, Compare>::operator=(BinaryHeap<T, Compare>&& other) { // NOLINT
+heap<T, Compare>&
+heap<T, Compare>::operator=(heap<T, Compare>&& other) { // NOLINT
   m_nodes = std::move(other.m_nodes);
   return *this;
 }
 
 template<class T, class Compare>
-void BinaryHeap<T, Compare>::push(T value) {
+void heap<T, Compare>::push(T value) {
   m_nodes.push_back(value);
   shiftUp(m_nodes.size() - 1);
 }
 
 template<class T, class Compare>
-T BinaryHeap<T, Compare>::top() {
+T heap<T, Compare>::top() {
   if (empty()) {
     throw std::logic_error("heap is empty");
   }
@@ -95,7 +95,7 @@ T BinaryHeap<T, Compare>::top() {
 }
 
 template<class T, class Compare>
-void BinaryHeap<T, Compare>::shiftUp(int node_index) {
+void heap<T, Compare>::shiftUp(int node_index) {
   int parrent = getParrent(node_index);
 
   while (node_index > 0 && m_comp(m_nodes[node_index],  m_nodes[parrent])) {
@@ -106,7 +106,7 @@ void BinaryHeap<T, Compare>::shiftUp(int node_index) {
 }
 
 template<class T, class Compare>
-void BinaryHeap<T, Compare>::shiftDown(int node_index) {
+void heap<T, Compare>::shiftDown(int node_index) {
   int max_child = getMaxChild(node_index);
 
   while (max_child != -1 && !m_comp(m_nodes[node_index], m_nodes[max_child])) {
@@ -117,7 +117,7 @@ void BinaryHeap<T, Compare>::shiftDown(int node_index) {
 }
 
 template<class T, class Compare>
-int BinaryHeap<T, Compare>::getLeftChild(int node_index) {
+int heap<T, Compare>::getLeftChild(int node_index) {
   int j = 2 * node_index + 1;
 
   if (j >= size()) {
@@ -128,7 +128,7 @@ int BinaryHeap<T, Compare>::getLeftChild(int node_index) {
 }
 
 template<class T, class Compare>
-int BinaryHeap<T, Compare>::getRightChild(int node_index) {
+int heap<T, Compare>::getRightChild(int node_index) {
   int j = getLeftChild(node_index);
 
   if (j != -1) {
@@ -139,12 +139,12 @@ int BinaryHeap<T, Compare>::getRightChild(int node_index) {
 
 template<class T, class Compare>
 inline
-int BinaryHeap<T, Compare>::getParrent(int node_index) {
+int heap<T, Compare>::getParrent(int node_index) {
   return (node_index - 1) / 2;
 }
 
 template<class T, class Compare>
-int BinaryHeap<T, Compare>::getMaxChild(int node_index) {
+int heap<T, Compare>::getMaxChild(int node_index) {
   int l_child  = getLeftChild(node_index);
   int r_child  = getRightChild(node_index);
   int max_child;
@@ -161,7 +161,7 @@ int BinaryHeap<T, Compare>::getMaxChild(int node_index) {
 }
 
 template<class T, class Compare>
-void BinaryHeap<T, Compare>::pop() {
+void heap<T, Compare>::pop() {
   if (!empty()) {
     std::iter_swap(m_nodes.begin(), m_nodes.end() - 1);
     m_nodes.pop_back();
@@ -169,4 +169,4 @@ void BinaryHeap<T, Compare>::pop() {
   }
 }
 
-#endif  // MODULES_TEMPLATE_HEAP_INCLUDE_BINARY_HEAP_HPP_
+#endif  // MODULES_TEMPLATE_HEAP_INCLUDE_HEAP_HPP_
