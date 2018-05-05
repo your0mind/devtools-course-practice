@@ -13,15 +13,13 @@ TEST(RBTree, creation_empty_tree_not_added_node) {
     EXPECT_EQ(RBTree::NIL, T.findNode(5));
 }
 
-TEST(RBTree, can_not_found_node_with_NIL_data_in_empty_tree)
-{
+TEST(RBTree, can_not_found_node_with_NIL_data_in_empty_tree) {
     RBTree T;
 
     EXPECT_EQ(RBTree::NIL, T.findNode(RBTree::NIL->data));
 }
 
-TEST(RBTree, can_found_NIL_data)
-{
+TEST(RBTree, can_found_NIL_data) {
     RBTree T;
 
     T.insertNode(RBTree::NIL->data);
