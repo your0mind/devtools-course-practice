@@ -19,10 +19,13 @@ class Integral {
     void setDivisions(int _div);
 
  private:
+    bool negative;
+    bool nullResult;
     double res;
     double step;
     int divisions;
     double low, up;
     double function(double x);
+    void limitAdjustment(double _low, double _up);
 };
 #endif  // MODULES_NUMERICAL_INTEGRATION_INCLUDE_NUMERICAL_INTEGRATION_H_
