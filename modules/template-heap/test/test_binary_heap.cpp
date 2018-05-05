@@ -2,42 +2,42 @@
 
 #include <gtest/gtest.h>
 #include <vector>
-#include "include/max_binary_heap.hpp"
+#include "include/binary_heap.hpp"
 
-TEST(MaxBinaryHeapTest, Can_Create_Empty_Heap) {
+TEST(BinaryHeapTest, Can_Create_Empty_Heap) {
   // AAA
-  ASSERT_NO_THROW(MaxBinaryHeap<int> heap);
+  ASSERT_NO_THROW(BinaryHeap<int> heap);
 }
 
-TEST(MaxBinaryHeapTest, Can_Create_Heap_With_Reserved_Memory) {
+TEST(BinaryHeapTest, Can_Create_Heap_With_Reserved_Memory) {
   // AAA
-  ASSERT_NO_THROW(MaxBinaryHeap<int> heap(100));
+  ASSERT_NO_THROW(BinaryHeap<int> heap(100));
 }
 
-TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Initializer_List) {
+TEST(BinaryHeapTest, Can_Create_Heap_From_Initializer_List) {
   // AAA
-  ASSERT_NO_THROW(MaxBinaryHeap<int> heap{1});
+  ASSERT_NO_THROW(BinaryHeap<int> heap{1});
 }
 
-TEST(MaxBinaryHeapTest, Can_Create_Heap_From_Vector) {
+TEST(BinaryHeapTest, Can_Create_Heap_From_Vector) {
   // Arrange
   std::vector<int> v {1, 4, -3, 2};
 
   // Act & Assert
-  ASSERT_NO_THROW(MaxBinaryHeap<int> heap(v.begin(), v.end()));
+  ASSERT_NO_THROW(BinaryHeap<int> heap(v.begin(), v.end()));
 }
 
-TEST(MaxBinaryHeapTest, Check_That_Empty_Heap_Is_Empty) {
+TEST(BinaryHeapTest, Check_That_Empty_Heap_Is_Empty) {
   // Arrange
-  MaxBinaryHeap<int> heap;
+  BinaryHeap<int> heap;
 
   // Act & Assert
   ASSERT_TRUE(heap.empty());
 }
 
-TEST(MaxBinaryHeapTest, Check_Heap_Size) {
+TEST(BinaryHeapTest, Check_Heap_Size) {
   // Arrange
-  MaxBinaryHeap<int> heap;
+  BinaryHeap<int> heap;
 
   // Act
   for (int i = 0; i < 100; ++i) {
@@ -48,9 +48,9 @@ TEST(MaxBinaryHeapTest, Check_Heap_Size) {
   EXPECT_EQ(100, heap.size());
 }
 
-TEST(MaxBinaryHeapTest, Right_Push_Element) {
+TEST(BinaryHeapTest, Right_Push_Element) {
   // Arrange
-  MaxBinaryHeap<int> heap = {1, 3, 5};
+  BinaryHeap<int> heap = {1, 3, 5};
 
   // Act
   heap.push(1000);
@@ -59,9 +59,9 @@ TEST(MaxBinaryHeapTest, Right_Push_Element) {
   EXPECT_EQ(1000, heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Right_Emplace_Element) {
+TEST(BinaryHeapTest, Right_Emplace_Element) {
   // Arrange
-  MaxBinaryHeap<int> heap = {1, 3, 5};
+  BinaryHeap<int> heap = {1, 3, 5};
 
   // Act
   heap.emplace(1000);
@@ -70,17 +70,17 @@ TEST(MaxBinaryHeapTest, Right_Emplace_Element) {
   EXPECT_EQ(1000, heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Throw_When_Get_Top_From_Empty_Heap) {
+TEST(BinaryHeapTest, Throw_When_Get_Top_From_Empty_Heap) {
   // Arrange
-  MaxBinaryHeap<int> heap;
+  BinaryHeap<int> heap;
 
   // Act & Assert
   ASSERT_ANY_THROW(heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Check_Get_Top) {
+TEST(BinaryHeapTest, Check_Get_Top) {
   // Arrange
-  MaxBinaryHeap<int> heap;
+  BinaryHeap<int> heap;
 
   // Act
   for (int i = 0; i < 4; ++i) {
@@ -91,21 +91,21 @@ TEST(MaxBinaryHeapTest, Check_Get_Top) {
   EXPECT_EQ(3, heap.top());
 }
 
-TEST(MaxBinaryHeapTest, Can_Create_Copy_Heap) {
+TEST(BinaryHeapTest, Can_Create_Copy_Heap) {
   // Arrange
-  MaxBinaryHeap<int> h {2, -5, 1, 2};
+  BinaryHeap<int> h {2, -5, 1, 2};
 
   // Act
-  MaxBinaryHeap<int> ch(h);
+  BinaryHeap<int> ch(h);
 
   // Assert
   EXPECT_EQ(2, ch.top());
 }
 
-TEST(MaxBinaryHeapTest, Check_Swap_Heaps) {
+TEST(BinaryHeapTest, Check_Swap_Heaps) {
   // Arrange
-  MaxBinaryHeap<int> h1 {2, -5, 1, 2};
-  MaxBinaryHeap<int> h2 {100, 1000, 3};
+  BinaryHeap<int> h1 {2, -5, 1, 2};
+  BinaryHeap<int> h2 {100, 1000, 3};
 
   // Act
   h1.swap(h2);
@@ -115,10 +115,10 @@ TEST(MaxBinaryHeapTest, Check_Swap_Heaps) {
   EXPECT_EQ(2, h2.top());
 }
 
-TEST(MaxBinaryHeapTest, Check_Assignment_Operator) {
+TEST(BinaryHeapTest, Check_Assignment_Operator) {
   // Arrange
-  MaxBinaryHeap<int> h1 {2, -5, 1, 2};
-  MaxBinaryHeap<int> h2 {100, 1000, 3};
+  BinaryHeap<int> h1 {2, -5, 1, 2};
+  BinaryHeap<int> h2 {100, 1000, 3};
 
   // Act
   h1 = h2;
@@ -126,21 +126,21 @@ TEST(MaxBinaryHeapTest, Check_Assignment_Operator) {
   EXPECT_EQ(1000, h1.top());
 }
 
-TEST(MaxBinaryHeapTest, Can_Move_Heap) {
+TEST(BinaryHeapTest, Can_Move_Heap) {
   // Arrange
-  MaxBinaryHeap<int> h {2, -5, 1, 2};
+  BinaryHeap<int> h {2, -5, 1, 2};
 
   // Act
-  MaxBinaryHeap<int> ch(std::move(h));
+  BinaryHeap<int> ch(std::move(h));
 
   // Assert
   EXPECT_EQ(2, ch.top());
 }
 
-TEST(MaxBinaryHeapTest, Can_Assign_Move_Heap) {
+TEST(BinaryHeapTest, Can_Assign_Move_Heap) {
   // Arrange
-  MaxBinaryHeap<int> h1 {3, 9, 15};
-  MaxBinaryHeap<int> h2 {5, 3, 1};
+  BinaryHeap<int> h1 {3, 9, 15};
+  BinaryHeap<int> h2 {5, 3, 1};
 
   // Act
   h2 = std::move(h1);
@@ -149,21 +149,32 @@ TEST(MaxBinaryHeapTest, Can_Assign_Move_Heap) {
   EXPECT_EQ(15, h2.top());
 }
 
-TEST(MaxBinaryHeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
+TEST(BinaryHeapTest, Throw_When_Delete_Top_From_Empty_Heap) {
   // Arrange
-  MaxBinaryHeap<int> heap;
+  BinaryHeap<int> heap;
 
   // Act & Assert
   ASSERT_NO_THROW(heap.pop());
 }
 
-TEST(MaxBinaryHeapTest, Check_Delete_Top) {
+TEST(BinaryHeapTest, Check_Delete_Top) {
   // Arrange
-  MaxBinaryHeap<int> heap = {3, 5, 10, 2, 1};
+  BinaryHeap<int> heap = {3, 5, 10, 2, 1};
 
   // Act
   heap.pop();
 
   // Assert
   EXPECT_EQ(5, heap.top());
+}
+
+TEST(BinaryHeapTest, Check_Use_Other_Comparator) {
+  // Arrange
+  BinaryHeap<int, std::less<int>> heap = {3, 5, 10, 2, 1};
+
+  // Act
+  heap.pop();
+
+  // Assert
+  EXPECT_EQ(1, heap.top());
 }
