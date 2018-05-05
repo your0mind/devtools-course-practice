@@ -13,8 +13,10 @@ struct Vertex {
     x = 0;
     y = 0;
   }
-  Vertex(double _x, double _y) : x(_x),
-  y(_y) {}
+  Vertex(double _x, double _y) {
+    x = _x;
+    y = _y;
+  }
 
   bool operator==(const Vertex& a) const {
     return ((a.x == x) && (a.y == y));
