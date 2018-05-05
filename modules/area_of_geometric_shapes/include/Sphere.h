@@ -6,7 +6,7 @@
 class Sphere {
  public:
     Sphere();
-    Sphere(const double _rad);
+    explicit Sphere(const double _rad);
     Sphere(const Sphere& _s);
 
     Sphere& operator=(const Sphere& _s);
@@ -22,4 +22,5 @@ class Sphere {
     bool negativeNumbers(const double _radius);
     double radius;
 };
-#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
+
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_SPHERE_H_

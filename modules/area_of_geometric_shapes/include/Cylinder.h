@@ -25,4 +25,5 @@ class Cylinder {
     double radius;
     double h;
 };
-#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
+
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CYLINDER_H_

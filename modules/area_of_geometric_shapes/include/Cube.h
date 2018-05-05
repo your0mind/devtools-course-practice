@@ -6,7 +6,7 @@
 class Cube {
  public:
     Cube();
-    Cube(const double _h);
+    explicit Cube(const double _h);
     Cube(const Cube& _c);
 
     Cube& operator=(const Cube& _c);
@@ -22,4 +22,5 @@ class Cube {
     bool negativeNumbers(const double _h);
     double h;
 };
-#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
+
+#endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CUBE_H_

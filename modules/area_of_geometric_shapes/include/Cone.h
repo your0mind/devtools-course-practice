@@ -25,4 +25,5 @@ class Cone {
     double radius;
     double l;
 };
+
 #endif  // MODULES_AREA_OF_GEOMETRIC_SHAPES_INCLUDE_CONE_H_
