@@ -7,6 +7,7 @@
 #include <vector>
 #include <algorithm>
 #include <cstddef>
+#include <utility>
 
 using std::size_t;
 
@@ -25,11 +26,24 @@ class MaxBinaryHeap {
     }
   }
 
+  MaxBinaryHeap(const MaxBinaryHeap& other) : m_nodes(other.m_nodes) {}
+  MaxBinaryHeap(MaxBinaryHeap&& other) : m_nodes(std::move(other.m_nodes)) {}
+  void swap(MaxBinaryHeap& other) noexcept;
+
+  MaxBinaryHeap& operator=(const MaxBinaryHeap& other);
+  MaxBinaryHeap& operator=(MaxBinaryHeap&& other);
+
   void push(T value);
   size_t size();
   bool empty();
   T top();
   void pop();
+
+  template<class ...Args>
+  void emplace(Args&&... args) {
+    m_nodes.emplace_back(std::forward<Args>(args)...);
+    shiftUp(m_nodes.size() - 1);
+  }
 
  private:
   void shiftUp(int node_index);
@@ -52,6 +66,26 @@ template<class T>
 inline
 MaxBinaryHeap<T>::MaxBinaryHeap(std::initializer_list<T> l) :
                   MaxBinaryHeap(l.begin(), l.end()) {}
+
+template<class T>
+inline
+void MaxBinaryHeap<T>::swap(MaxBinaryHeap<T>& other) noexcept {
+  m_nodes.swap(other.m_nodes);
+}
+
+template<class T>
+MaxBinaryHeap<T>& MaxBinaryHeap<T>::operator=(const MaxBinaryHeap<T>& other) {
+  if (this != &other) {
+    MaxBinaryHeap(other).swap(*this);
+  }
+  return *this;
+}
+
+template<class T>
+MaxBinaryHeap<T>& MaxBinaryHeap<T>::operator=(MaxBinaryHeap<T>&& other) {
+  m_nodes = std::move(other.m_nodes);
+  return *this;
+}
 
 template<class T>
 inline
