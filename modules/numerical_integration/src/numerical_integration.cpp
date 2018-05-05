@@ -11,19 +11,19 @@ double Integral::function(double x) {
 Integral::Integral() {
     low = 0;
     up = 0;
-    div = 0;
+    divisions = 0;
     res = 0;
     step = 0;
 }
 
-Integral::Integral(double lower_limit, double upper_limit, int divisions) {
+Integral::Integral(double lower_limit, double upper_limit, int _divisions) {
     if (lower_limit < upper_limit) {
         up = upper_limit;
         low = lower_limit;
     } else {
         throw std::out_of_range("limits out of range");
     }
-    setDivisions(divisions);
+    setDivisions(_divisions);
     res = 0;
     step = (upper_limit - lower_limit) / divisions;
 }
@@ -31,7 +31,7 @@ Integral::Integral(double lower_limit, double upper_limit, int divisions) {
 double Integral::RiemannSumLeft() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         res += step * function(A);
     }
@@ -41,7 +41,7 @@ double Integral::RiemannSumLeft() {
 double Integral::TrapezoidalRule() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         res += step / 2 * (function(A) + function(A + step));
     }
@@ -51,7 +51,7 @@ double Integral::TrapezoidalRule() {
 double Integral::SimpsonRule() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         res += step / 6 *
             (function(A) + 4 * function((2 * A + step) / 2)
@@ -63,7 +63,7 @@ double Integral::SimpsonRule() {
 double Integral::Simpson3_8Rule() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         double B = A + step;
         res += (B - A) / 8 *
@@ -76,7 +76,7 @@ double Integral::Simpson3_8Rule() {
 double Integral::BooleRule() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         double B = A + step;
         res += (B - A) / 90 * (7 * function(A) + 32 * function((3 * A + B) / 4)
@@ -89,7 +89,7 @@ double Integral::BooleRule() {
 double Integral::NewtonCotes5() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         double B = A + step;
         res += (B - A) / 288 * (19 * function(A)
@@ -104,7 +104,7 @@ double Integral::NewtonCotes5() {
 double Integral::GaussianQuadrature() {
     res = 0;
     double A = low - step;
-    for (int i = 0; i < div; i++) {
+    for (int i = 0; i < divisions; i++) {
         A += step;
         double B = A + step;
         double f1 = (A + B) / 2;
@@ -126,15 +126,15 @@ void Integral::setUpper(double _up) {
         up = _up;
     else
         throw std::out_of_range("upper limit out of range");
-    step = (up - low) / div;
+    step = (up - low) / divisions;
     res = 0;
 }
 
 void Integral::setDivisions(int _div) {
     if (_div > 1)
-        div = _div;
+        divisions = _div;
     else
         throw std::out_of_range("Divisions must be greater than 1");
-    step = (up - low) / div;
+    step = (up - low) / divisions;
     res = 0;
 }
