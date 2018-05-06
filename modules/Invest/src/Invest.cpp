@@ -3,6 +3,7 @@
 #include "include/Invest.h"
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 Investition::Investition() {
     YearCount = 0;
