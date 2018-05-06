@@ -103,7 +103,8 @@ void Wages::
     controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
     double workDays = getNumberWorkingDaysInCurrentMonth();
     if (administrativeLeaveHours > 8 * workDays)
-        throw std::string("Exceeded the maximum number of administrative leave hours in month");
+throw std::
+ string("Exceeded the maximum number of administrative leave hours in month");
 }
 
 double Wages::getNumberWorkingDaysInCurrentMonth() {
