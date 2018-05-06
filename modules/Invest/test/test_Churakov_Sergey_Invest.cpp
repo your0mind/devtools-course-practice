@@ -243,7 +243,8 @@ TEST(Churakov_Sergey_Investition, can_set_lesser_year_count) {
     arr1[0] = arr1[1] = 10;
     arr2[0] = arr2[1] = 10;
     Investition inv(years, arr1, arr2, rate);
-    inv.SetYearCount(1);
+    years = 1;
+    inv.SetYearCount(years);
 
     EXPECT_EQ(inv.GetYearCount(), years);
 }
