@@ -369,6 +369,18 @@ TEST(Sharov_Ivan_WagesTest, Input_No_Name_Of_Month) {
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
 }
 
+TEST(Sharov_Ivan_WagesTest, Get_Number_Of_Working_Days_In_Not_Month) {
+    // Arrange
+    Wages ivan;
+    char *month = const_cast<char*>("month");
+
+    // Act
+    ivan.setMonth(month);
+
+    // Assert
+    ASSERT_ANY_THROW(ivan.getNumberWorkingDaysInCurrentMonth());
+}
+
 TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Administrative_Leave) {
     // Arrange
     double oklad = 10000;
