@@ -5,7 +5,7 @@
 #include "include/Invest.h"
 
 TEST(Churakov_Sergey_Investition, can_create_empty_investition) {
-	ASSERT_NO_THROW(Investition inv);
+    ASSERT_NO_THROW(Investition inv);
 }
 
 TEST(Churakov_Sergey_Investition, can_create_investition ) {
@@ -64,7 +64,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
     ASSERT_ANY_THROW(Investition inv(years, arr1, arr2, rate));
 }
 
-TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_income_value) {
+TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_income) {
     money* arr1 = new money[2];
     money* arr2 = new money[2];
     int years;
@@ -78,7 +78,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_income_v
     ASSERT_ANY_THROW(Investition inv(years, arr1, arr2, rate));
 }
 
-TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_expenses_value) {
+TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_expenses) {
     money* arr1 = new money[2];
     money* arr2 = new money[2];
     int years;
@@ -285,7 +285,7 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_incomes) {
     ASSERT_ANY_THROW(inv.SetIncomes(arr));
 }
 
-TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_size_of_array) { // �������� �������������� �������� ��������, ����� �������������� ������������ �������
+TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_size_of_array) {
     money* arr = new money[1];
     Investition inv;
 
@@ -370,7 +370,7 @@ TEST(Churakov_Sergey_Investition, can_find_recoupment_time) {
     EXPECT_EQ(inv.FindRecoupmentTime(), 3);
 }
 
-TEST(Churakov_Sergey_Investition, cant_find_recoupment_time_when_there_is_no_answer) {
+TEST(Churakov_Sergey_Investition, cant_find_recoupment_time_when_no_answer) {
     money* arr1 = new money[5];
     money* arr2 = new money[5];
     int years;
@@ -403,7 +403,7 @@ TEST(Churakov_Sergey_Investition, can_find_IRR) {
     arr1[4] = 600;
     Investition inv(years, arr1, arr2, rate);
 
-    EXPECT_TRUE(inv.FindIRR()> 24 && inv.FindIRR()<24.2);
+    EXPECT_TRUE(inv.FindIRR() > 24 && inv.FindIRR() < 24.2);
 }
 
 TEST(Churakov_Sergey_Investition, cant_find_IRR_when_it_is_infinite) {

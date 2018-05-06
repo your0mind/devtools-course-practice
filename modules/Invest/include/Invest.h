@@ -1,4 +1,7 @@
-#pragma once
+// Copyright 2018 Churakov Sergey
+
+#ifndef MODULES_INVEST_INCLUDE_INVEST_H_
+#define MODULES_INVEST_INCLUDE_INVEST_H_
 
 typedef double money;
 enum ERRORS {WRONG_VALUE};
@@ -9,9 +12,11 @@ class Investition{
     money* Expenses;
     double RatePercent;
     int YearCount; 
+
     public:
     Investition();
-    Investition(const int& years, money* Income_arr, money* Expenses_arr, const double& rate);
+    Investition(const int& years, money* Income_arr,
+                money* Expenses_arr, const double& rate);
     ~Investition();
     void SetRate(const double& rate);
     void SetYearCount (const int& years);
@@ -30,3 +35,5 @@ class Investition{
     double FindPBIndex() const;
 //    void Print() const;
 };
+
+#endif // MODULES_INVEST_INCLUDE_INVEST_H_
