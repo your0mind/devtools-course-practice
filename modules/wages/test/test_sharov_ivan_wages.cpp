@@ -285,7 +285,7 @@ TEST(Sharov_Ivan_WagesTest,
     EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
 }
 
-TEST(Sharov_Ivan_WagesTest, 
+TEST(Sharov_Ivan_WagesTest,
     Calculation_Wages_Without_Overtime_With_Admin_Hours_24_In_November) {
     // Arrange
     double oklad = 21000;
