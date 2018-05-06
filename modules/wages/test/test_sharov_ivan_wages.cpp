@@ -1,7 +1,6 @@
 // Copyright 2018 Sharov Ivan
 
 #include <gtest/gtest.h>
-#include <cstdlib>
 #include "include/Wages.h"
 
 

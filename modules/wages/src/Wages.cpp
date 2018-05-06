@@ -128,14 +128,14 @@ double Wages::getNumberWorkingDaysInCurrentMonth() {
 }
 
 double Wages::calculationPaymentOvertime() {
-    double result, hours, hourPayment, hours2Payment;
+    double result, hours, hourPayment;
     hours = getOvertime();
     controlOvertime(hours);
     hourPayment = calculationHourPayment();
     if (hours < 3) {
         result = 1.5 * hourPayment*hours;
     } else {
-        hours2Payment = hours - 2;
+        double hours2Payment = hours - 2;
         result = 1.5 * hourPayment* 2.0 + 2.0 * hourPayment*hours2Payment;
     }
 
