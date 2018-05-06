@@ -1,7 +1,7 @@
 // Copyright 2018 Sharov Ivan
 
-#ifndef MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
-#define MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
+#ifndef MODULES_WAGES_INCLUDE_WAGES_H_
+#define MODULES_WAGES_INCLUDE_WAGES_H_
 
 class Wages
 {
@@ -38,4 +38,4 @@ class Wages
     double overtime_;
     char *month_;
 };
-#endif //MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
+#endif //MODULES_WAGES_INCLUDE_WAGES_H_
