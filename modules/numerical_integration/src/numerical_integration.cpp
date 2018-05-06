@@ -81,6 +81,8 @@ double Integral::SimpsonRule() {
 }
 
 double Integral::Simpson3_8Rule() {
+    if (nullResult)
+        return 0;
     res = 0;
     double A = low - step;
     for (int i = 0; i < divisions; i++) {
