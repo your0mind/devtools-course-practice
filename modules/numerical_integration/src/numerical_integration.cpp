@@ -8,8 +8,7 @@ double Integral::function(double x) {
     return (x * x + x + 2);
 }
 
-void Integral::limitAdjustment(double _low, double _up)
-{
+void Integral::limitAdjustment(double _low, double _up) {
     nullResult = false;
     if (_low < _up) {
         low = _low;
