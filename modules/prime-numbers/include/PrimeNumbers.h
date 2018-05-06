@@ -9,9 +9,9 @@
 
 class primeNumbers {
  public:
-     primeNumbers(int _min = 0, int _max = 0);
-    ~primeNumbers();
-    std::vector<int> findPrimeNums();
+     explicit primeNumbers(int _min = 0, int _max = 0);
+     ~primeNumbers();
+     std::vector<int> findPrimeNums();
  private:
      int min, max, size;
      std::vector<int> arr;
