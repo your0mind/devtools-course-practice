@@ -45,7 +45,7 @@ TEST(AreaOfGeometricShapes, Set_Radius_And_L_From_Cone) {
 }
 
 TEST(AreaOfGeometricShapes, Comparison_Operator) {
-    // Arrange    
+    // Arrange
     double radius = 7.9;
     double l = 15.2;
     Cone* cone1 = new Cone();
@@ -61,8 +61,8 @@ TEST(AreaOfGeometricShapes, Comparison_Operator) {
 
 TEST(AreaOfGeometricShapes, Negative_Rad_Cone) {
     // Arrange
-    double radius = -7.1;    
-    double l = 15.9;    
+    double radius = -7.1;
+    double l = 15.9;
 
     // Act & Assert
     ASSERT_ANY_THROW(Cone cone(radius, l));
@@ -70,17 +70,9 @@ TEST(AreaOfGeometricShapes, Negative_Rad_Cone) {
 
 TEST(AreaOfGeometricShapes, Negative_L_Cone) {
     // Arrange
-    double radius = 7.1;    
-    double l = -15.9;    
+    double radius = 7.1;
+    double l = -15.9;
 
     // Act & Assert
     ASSERT_ANY_THROW(Cone cone(radius, l));
-}
-
-TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
-    // Arrange
-    Cone cone(2.1, 4.5);
-
-    // Act & Assert
-    EXPECT_EQ(cone.area(), 43.5425);
 }
