@@ -76,3 +76,15 @@ TEST(AreaOfGeometricShapes, Negative_L_Cone) {
     // Act & Assert
     ASSERT_ANY_THROW(Cone cone(radius, l));
 }
+
+TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
+    // Arrange
+    double res = 0;
+    Cone cone(2.1, 4.5);
+
+    // Act
+    res = cone.area();
+
+    // Assert
+    EXPECT_NEAR(res, 43.5425);
+}
