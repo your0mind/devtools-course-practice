@@ -65,6 +65,8 @@ void Investition:: SetYearCount(const int& years) {
             }
         }
     }
+    delete [] buf1;
+    delete [] buf2;
     YearCount = years;
 }
 
