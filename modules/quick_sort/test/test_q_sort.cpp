@@ -11,7 +11,7 @@ TEST(QuickSortTest, Cant_Sort_Empty_Array) {
   // Arrange
   std::vector<int> arr;
 
-  // Assert
+  // Act & Assert
   EXPECT_ANY_THROW(sort::quickSort(&arr, 0, 3));
 }
 
@@ -27,7 +27,7 @@ TEST(QuickSortTest, Cant_out_right_bound) {
     // Arrange
     std::vector<int> arr = { 1, 3, 4, 5, 6 };
 
-    // Assert
+    // Act & Assert
     EXPECT_ANY_THROW(sort::quickSort(&arr, 0, 8));
 }
 
@@ -35,7 +35,7 @@ TEST(QuickSortTest, Sort_one_elem_no_exept) {
     // Arrange
     std::vector<int> arr = { 2, 1 };
 
-    // Assert
+    // Act & Assert
     EXPECT_NO_THROW(sort::quickSort(&arr, 1, 1));
 }
 

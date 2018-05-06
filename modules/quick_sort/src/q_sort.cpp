@@ -10,7 +10,7 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
         throw std::logic_error("Array is empty");
     if ((first < 0) || (last < 0))
         throw std::logic_error("Array index can't be < 0");
-    if (array->size() < last)
+    if (static_cast<int>(array->size()) < last)
         throw std::logic_error("Right bound of array > array size");
 
     int i = first;
