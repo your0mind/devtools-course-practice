@@ -4,14 +4,13 @@
 #include <vector>
 #include <algorithm>
 #include <cstdint>
-#include <stdexcept>
 
 void sort::quickSort(std::vector<int> *array, int first, int last) {
     if (array->empty())
         throw std::logic_error("Array is empty");
     if ((first < 0) || (last < 0))
         throw std::logic_error("Array index can't be < 0");
-    if (array->size() < last)
+    if (int(array->size()) < last)
         throw std::logic_error("Right bound of array > array size");
 
     int i = first;
