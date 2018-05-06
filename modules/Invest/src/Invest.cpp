@@ -33,10 +33,8 @@ Investition::Investition(const int& years, std::vector<money> Income_arr,
 }
 
 Investition::~Investition() {
-    if (Incomes != NULL)
-        delete[] Incomes;
-    if (Expenses != NULL)
-        delete[] Expenses;
+    delete[] Incomes;
+    delete[] Expenses;
 }
 
 void Investition::SetRate(const double& rate) {
