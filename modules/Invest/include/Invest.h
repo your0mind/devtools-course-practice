@@ -7,11 +7,11 @@ typedef double money;
 enum ERRORS {WRONG_VALUE};
 
 class Investition{
-    private:
+    private: 
     money* Incomes;
     money* Expenses;
     double RatePercent;
-    int YearCount; 
+    int YearCount;
 
     public:
     Investition();
@@ -19,9 +19,9 @@ class Investition{
                 money* Expenses_arr, const double& rate);
     ~Investition();
     void SetRate(const double& rate);
-    void SetYearCount (const int& years);
-    void SetIncomes (money* Income_arr);
-    void SetExpenses (money* Expenses_arr);
+    void SetYearCount(const int& years);
+    void SetIncomes(money* Income_arr);
+    void SetExpenses(money* Expenses_arr);
     int GetYearCount() const;
     double GetRate() const;
     money* GetIncomes() const;
@@ -36,4 +36,4 @@ class Investition{
 //    void Print() const;
 };
 
-#endif // MODULES_INVEST_INCLUDE_INVEST_H_
+#endif //  MODULES_INVEST_INCLUDE_INVEST_H_
