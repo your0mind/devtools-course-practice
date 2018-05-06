@@ -20,7 +20,8 @@ TEST(Churakov_Sergey_Investition, can_create_investition ) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    ASSERT_NO_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_NO_THROW(Investition inv(years, Income_vector,
+                    Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_year ) {
@@ -34,7 +35,8 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_year ) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    ASSERT_ANY_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_ANY_THROW(Investition inv(years, Income_vector,
+                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_rate) {
@@ -48,7 +50,8 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_rate) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    ASSERT_ANY_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_ANY_THROW(Investition inv(years, Income_vector,
+                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
@@ -62,7 +65,8 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    ASSERT_ANY_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_ANY_THROW(Investition inv(years, Income_vector,
+                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_income) {
@@ -76,7 +80,8 @@ TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_income) {
     Income_vector[0] = Income_vector[1] = -10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    ASSERT_ANY_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_ANY_THROW(Investition inv(years, Income_vector,
+                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_expenses) {
@@ -90,7 +95,8 @@ TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_expenses) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = -10;
 
-    ASSERT_ANY_THROW(Investition inv(years, Income_vector, Expense_vector, rate));
+    ASSERT_ANY_THROW(Investition inv(years, Income_vector,
+                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, can_get_year_count) {
@@ -343,7 +349,8 @@ TEST(Churakov_Sergey_Investition, can_find_NPV) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -361,7 +368,8 @@ TEST(Churakov_Sergey_Investition, can_find_NPV_for_rate) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -379,7 +387,8 @@ TEST(Churakov_Sergey_Investition, can_find_recoupment_time) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -397,7 +406,8 @@ TEST(Churakov_Sergey_Investition, cant_find_recoupment_time_when_no_answer) {
     years = 5;
     rate = 88;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -415,7 +425,8 @@ TEST(Churakov_Sergey_Investition, can_find_IRR) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -433,7 +444,8 @@ TEST(Churakov_Sergey_Investition, cant_find_IRR_when_it_is_infinite) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 0;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -451,7 +463,8 @@ TEST(Churakov_Sergey_Investition, cant_find_IRR_when_there_is_no_recoupment) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 100;
     Income_vector[2] = Income_vector[3] = 80;
     Income_vector[4] = 60;
@@ -469,7 +482,8 @@ TEST(Churakov_Sergey_Investition, can_find_PBIndex) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = Expense_vector[4] = 0;
+    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = 0;
+    Expense_vector[3] = Expense_vector[4] = 0;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
     Income_vector[4] = 600;
@@ -478,7 +492,7 @@ TEST(Churakov_Sergey_Investition, can_find_PBIndex) {
     EXPECT_TRUE(inv.FindPBIndex()> 0.46 && inv.FindPBIndex() <0.47);
 }
 
-TEST(Churakov_Sergey_Investition, cant_fint_PBIndex_with_multiple_expenses) {
+TEST(Churakov_Sergey_Investition, cant_find_PBIndex_with_multiple_expenses) {
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -487,7 +501,8 @@ TEST(Churakov_Sergey_Investition, cant_fint_PBIndex_with_multiple_expenses) {
     years = 5;
     rate = 8;
     Expense_vector[0] = 2000;
-    Income_vector[0] = Expense_vector[1] = Expense_vector[2] = Expense_vector[3] = 0;
+    Income_vector[0] = Expense_vector[1] = 0;
+    Expense_vector[2] = Expense_vector[3] = 0;
     Expense_vector[4] = 10;
     Income_vector[1] = 1000;
     Income_vector[2] = Income_vector[3] = 800;
