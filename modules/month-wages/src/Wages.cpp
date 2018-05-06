@@ -4,7 +4,7 @@
 #include<string.h>
 #include <string>
 
-Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_("January") {}
+Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_(const_cast<char*>("January")) {}
 
 Wages::Wages(const double salary, const double administrativeLeaveHours, const double overtime, char *month) {
     bool control;
@@ -141,7 +141,7 @@ double Wages::calculationActualWorkingDays() {
 }
 
 double Wages::calculationWagesWithoutOvertime() {
-    double result, workDays, daysInMonth, hoursInAdministrativeLeave, workHours, Salary;
+    double result, workDays, daysInMonth, hoursInAdministrativeLeave, Salary;
     daysInMonth = getNumberWorkingDaysInCurrentMonth();
     hoursInAdministrativeLeave = getAdministrativeLeaveHours();
     controlAdministrativeLeaveHours(hoursInAdministrativeLeave);

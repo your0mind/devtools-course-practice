@@ -10,7 +10,7 @@ TEST(Sharov_Ivan_WagesTest, Calling_An_Empty_Constructor) {
     double oklad = 10000;
     double admin_hours = 0;
     double overtime_hours = 0;
-    char *month = "January";
+    char* month = const_cast<char*>("January");
 
     // Act
     Wages ivan;
@@ -27,7 +27,7 @@ TEST(Sharov_Ivan_WagesTest, Calling_The_Constructor_With_Parameters) {
     double oklad = 10000;
     double admin_hours = 0;
     double overtime_hours = 0;
-    char *month = "January";
+    char *month = const_cast<char*>("January");
 
     // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
@@ -83,7 +83,7 @@ TEST(Sharov_Ivan_WagesTest, Get_Overtime_Hours) {
 TEST(Sharov_Ivan_WagesTest, Get_Month) {
     // Arrange
     Wages ivan;
-    char *month = "January";
+    char *month = const_cast<char*>("January");
 
     // Act & assert
     EXPECT_TRUE(!strcmp(ivan.getMonth(), month));
@@ -128,7 +128,7 @@ TEST(Sharov_Ivan_WagesTest, Set_Overtime_Hours) {
 TEST(Sharov_Ivan_WagesTest, Set_Month) {
     // Arrange
     Wages ivan;
-    char *month = "Semtember";
+    char *month = const_cast<char*>("Semtember");
 
     // Act
     ivan.setMonth(month);
@@ -159,7 +159,7 @@ TEST(Sharov_Ivan_WagesTest, Control_Field) {
 TEST(Sharov_Ivan_WagesTest, Control_Month) {
     // Arrange
     Wages ivan;
-    char *month = "June";
+    char *month = const_cast<char*>("June");
 
     // Act & assert
     EXPECT_TRUE(ivan.controlMonth(month) == true);
@@ -170,7 +170,7 @@ TEST(Sharov_Ivan_WagesTest, Control_Overtime) {
     double oklad = 10000;
     double admin_hours = 1;
     double overtime_hours = 3;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double countWorkingDays = 20;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -183,7 +183,7 @@ TEST(Sharov_Ivan_WagesTest, Control_Administrative_Leave_Hours) {
     double oklad = 10000;
     double admin_hours = 10;
     double overtime_hours = 3;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double countWorkingDays = 20;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -196,7 +196,7 @@ TEST(Sharov_Ivan_WagesTest, Get_Number_Of_Working_Days_In_May) {
     double oklad = 10000;
     double admin_hours = 1;
     double overtime_hours = 3;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double countWorkingDays = 20;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -209,7 +209,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_10_hours_In_May) {
     double oklad = 10000;
     double admin_hours = 5;
     double overtime_hours = 10;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double payment_Overtime_10_hours = 1187.5;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -222,7 +222,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_1_hour_In_May) {
     double oklad = 10000;
     double admin_hours = 5;
     double overtime_hours = 1;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double payment_Overtime_1_hour = 93.75;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -235,7 +235,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_0_hour_In_May) {
     double oklad = 10000;
     double admin_hours = 5;
     double overtime_hours = 0;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double payment_Overtime_0_hour = 0;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -248,7 +248,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_December) {
     double oklad = 10000;
     double admin_hours = 8;
     double overtime_hours = 5;
-    char *month = "December";
+    char *month = const_cast<char*>("December");
     double workDays = 20;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -261,7 +261,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_April_Without_Adm
     double oklad = 10000;
     double admin_hours = 0;
     double overtime_hours = 0;
-    char *month = "April";
+    char *month = const_cast<char*>("April");
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
@@ -273,7 +273,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_
     double oklad = 21000;
     double admin_hours = 0;
     double overtime_hours = 0;
-    char *month = "October";
+    char *month = const_cast<char*>("October");
     double wages = 21000;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -286,7 +286,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_
     double oklad = 21000;
     double admin_hours = 24;
     double overtime_hours = 8;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
     double wages = 18000;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -299,7 +299,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Full_Wages) {
     double oklad = 21000;
     double admin_hours = 24;
     double overtime_hours = 8;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
     double wages = 18000;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
@@ -312,7 +312,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Full_Wages_Without_Overtime_And_Administ
     double oklad = 21000;
     double admin_hours = 0;
     double overtime_hours = 0;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
@@ -324,7 +324,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Salary_Less_Than_Minimum_Wage) {
     double oklad = 2100;
     double admin_hours = 24;
     double overtime_hours = 8;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
 
     // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
@@ -335,7 +335,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Negative_Administrative_Leave) {
     double oklad = 100000;
     double admin_hours = -24;
     double overtime_hours = 8;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
 
     // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
@@ -346,7 +346,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Negative_Overtime) {
     double oklad = 10000;
     double admin_hours = 24;
     double overtime_hours = -8;
-    char *month = "November";
+    char *month = const_cast<char*>("November");
 
     // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
@@ -357,7 +357,7 @@ TEST(Sharov_Ivan_WagesTest, Input_No_Name_Of_Month) {
     double oklad = 10000;
     double admin_hours = 24;
     double overtime_hours = 8;
-    char *month = "month";
+    char *month = const_cast<char*>("month");
 
     // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
@@ -368,7 +368,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Administrative_Leave) {
     double oklad = 10000;
     double admin_hours = 8 * 20 + 30;
     double overtime_hours = 0;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
@@ -380,7 +380,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Overtime) {
     double oklad = 10000;
     double admin_hours = 8;
     double overtime_hours = 5 * 20;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
@@ -392,7 +392,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Overtine_In_Administrative_Leave_Month) {
     double oklad = 10000;
     double admin_hours = 8 * 20;
     double overtime_hours = 10;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
@@ -404,7 +404,7 @@ TEST(Sharov_Ivan_WagesTest, Full_Wages_In_Administrative_Leave_Month_Equal_0) {
     double oklad = 10000;
     double admin_hours = 8 * 20;
     double overtime_hours = 0;
-    char *month = "May";
+    char *month = const_cast<char*>("May");
     double wages = 0;
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
