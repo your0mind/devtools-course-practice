@@ -64,7 +64,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
     ASSERT_ANY_THROW(Investition inv(years, arr1, arr2, rate));
 }
 
-TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_income) {
+TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_income) {
     money* arr1 = new money[2];
     money* arr2 = new money[2];
     int years;
@@ -78,7 +78,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_income) 
     ASSERT_ANY_THROW(Investition inv(years, arr1, arr2, rate));
 }
 
-TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_expenses) {
+TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_expenses) {
     money* arr1 = new money[2];
     money* arr2 = new money[2];
     int years;
@@ -285,7 +285,7 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_incomes) {
     ASSERT_ANY_THROW(inv.SetIncomes(arr));
 }
 
-TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_size_of_array) {
+TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_arr) {
     money* arr = new money[1];
     Investition inv;
 
@@ -306,7 +306,7 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_expenses) {
     ASSERT_ANY_THROW(inv.SetExpenses(arr));
 }
 
-TEST(Churakov_Sergey_Investition, DISABLED_cant_set_expenses_with_small_size_of_array) {
+TEST(Churakov_Sergey_Investition, DISABLED_cant_set_expenses_with_small_arr) {
     money* arr = new money[1];
     Investition inv;
 

@@ -13,7 +13,7 @@ Investition::Investition() {
     Expenses[0] = 0;
 }
 
-Investition::Investition(const int& years, money* Income_arr, 
+Investition::Investition(const int& years, money* Income_arr,
                         money* Expenses_arr, const double& rate) {
     if (years < 0 || rate < 0|| rate>199)
         throw WRONG_VALUE;
