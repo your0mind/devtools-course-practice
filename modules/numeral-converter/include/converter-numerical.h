@@ -12,7 +12,7 @@ class NumericalConverter {
         int ArabicNumberOutput;
         std::string RomanNumeralOuput;
         NumericalConverter();
-        
+
         // Functions to convert from Arabic numbers to Roman Numeral
         std::string ConvertOneToRomanNumeral(int inputNumber);
         std::string ConvertThreeToRomanNumeral(int inputNumber);
@@ -20,7 +20,7 @@ class NumericalConverter {
         // Functions to convert from Roman Numeral to Arabic numbers
         int ConvertOneToArabicNumber(std::string inputString);
         int ConvertRomanNumeralToArabicNumber(std::string inputString);
-        int ConvertRomanNumeralToArabicNumberRefactored(std::string inputString);
+        int ConvertRomanNumToArabicNumRefac(std::string inputStr);
 };
 
-#endif  //  MODULES_TEMPERATURE_CONVERTER_INCLUDE_NUMERICAL_CONVERTER_H_
+#endif  // MODULES_NUMERAL_CONVERTER_INCLUDE_CONVERTER_NUMERICAL_H_
