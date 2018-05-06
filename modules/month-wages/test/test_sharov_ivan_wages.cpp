@@ -6,14 +6,16 @@
 
 
 TEST(Sharov_Ivan_WagesTest, Calling_An_Empty_Constructor) {
-	// Arrange
-    Wages ivan;
+    // Arrange
     double oklad = 10000;
     double admin_hours = 0;
     double overtime_hours = 0;
     char *month = "January";
 
-	// Act & assert
+    // Act
+    Wages ivan;
+    
+    // Assert
     EXPECT_TRUE(ivan.getSalary() == oklad);
     EXPECT_TRUE(ivan.getAdministrativeLeaveHours() == admin_hours);
     EXPECT_TRUE(ivan.getOvertime() == overtime_hours);
@@ -28,9 +30,9 @@ TEST(Sharov_Ivan_WagesTest, Calling_The_Constructor_With_Parameters) {
     char *month = "January";
 
     // Act
-    Wages ivan(oklad,admin_hours, overtime_hours,month);
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    //assert
+    // Assert
     EXPECT_TRUE(ivan.getSalary() == oklad);
     EXPECT_TRUE(ivan.getAdministrativeLeaveHours() == admin_hours);
     EXPECT_TRUE(ivan.getOvertime() == overtime_hours);
@@ -44,7 +46,7 @@ TEST(Sharov_Ivan_WagesTest, Create_Copy) {
     // Act
     Wages sergey(ivan);
 
-    //assert
+    // Assert
     EXPECT_TRUE(ivan.getSalary() == sergey.getSalary());
     EXPECT_TRUE(ivan.getAdministrativeLeaveHours() == sergey.getAdministrativeLeaveHours());
     EXPECT_TRUE(ivan.getOvertime() == sergey.getOvertime());
@@ -142,7 +144,7 @@ TEST(Sharov_Ivan_WagesTest, Control_MROT) {
     double salary = 10000;
 
     // Act & assert
-    EXPECT_TRUE(ivan.controlMROT(salary)==true);
+    EXPECT_TRUE(ivan.controlMROT(salary) == true);
 }
 
 TEST(Sharov_Ivan_WagesTest, Control_Field) {
@@ -196,11 +198,9 @@ TEST(Sharov_Ivan_WagesTest, Get_Number_Of_Working_Days_In_May) {
     double overtime_hours = 3;
     char *month = "May";
     double countWorkingDays = 20;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.getNumberWorkingDaysInCurrentMonth() == countWorkingDays);
 }
 
@@ -211,11 +211,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_10_hours_In_May) {
     double overtime_hours = 10;
     char *month = "May";
     double payment_Overtime_10_hours = 1187.5;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationPaymentOvertime() == payment_Overtime_10_hours);
 }
 
@@ -226,11 +224,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_1_hour_In_May) {
     double overtime_hours = 1;
     char *month = "May";
     double payment_Overtime_1_hour = 93.75;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationPaymentOvertime() == payment_Overtime_1_hour);
 }
 
@@ -241,11 +237,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Payment_Overtime_0_hour_In_May) {
     double overtime_hours = 0;
     char *month = "May";
     double payment_Overtime_0_hour = 0;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationPaymentOvertime() == payment_Overtime_0_hour);
 }
 
@@ -256,11 +250,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_December) {
     double overtime_hours = 5;
     char *month = "December";
     double workDays = 20;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationActualWorkingDays() == workDays);
 }
 
@@ -270,11 +262,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_April_Without_Adm
     double admin_hours = 0;
     double overtime_hours = 0;
     char *month = "April";
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationActualWorkingDays() == ivan.getNumberWorkingDaysInCurrentMonth());
 }
 
@@ -285,11 +275,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_
     double overtime_hours = 0;
     char *month = "October";
     double wages = 21000;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
 }
 
@@ -300,11 +288,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Wages_Without_Overtime_With_Admin_Hours_
     double overtime_hours = 8;
     char *month = "November";
     double wages = 18000;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
 }
 
@@ -315,11 +301,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Full_Wages) {
     double overtime_hours = 8;
     char *month = "November";
     double wages = 18000;
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationWagesWithoutOvertime() == wages);
 }
 
@@ -329,11 +313,9 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Full_Wages_Without_Overtime_And_Administ
     double admin_hours = 0;
     double overtime_hours = 0;
     char *month = "November";
-
-    // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
-    // Assert
+    // Act & assert
     EXPECT_TRUE(ivan.calculationFullWages() == ivan.calculationWagesWithoutOvertime());
 }
 
@@ -343,7 +325,7 @@ TEST(Sharov_Ivan_WagesTest, Input_Salary_Less_Than_Minimum_Wage) {
     double admin_hours = 24;
     double overtime_hours = 8;
     char *month = "November";
-    
+
     // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
 }
@@ -377,14 +359,14 @@ TEST(Sharov_Ivan_WagesTest, Input_No_Name_Of_Month) {
     double overtime_hours = 8;
     char *month = "month";
 
-    // Act & ssert
+    // Act & assert
     ASSERT_ANY_THROW(Wages ivan(oklad, admin_hours, overtime_hours, month));
 }
 
 TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Administrative_Leave) {
     // Arrange
     double oklad = 10000;
-    double admin_hours = 8*20+30;
+    double admin_hours = 8 * 20 + 30;
     double overtime_hours = 0;
     char *month = "May";
     Wages ivan(oklad, admin_hours, overtime_hours, month);
@@ -397,12 +379,35 @@ TEST(Sharov_Ivan_WagesTest, Input_Overmuch_Overtime) {
     // Arrange
     double oklad = 10000;
     double admin_hours = 8;
-    double overtime_hours = 5*20;
+    double overtime_hours = 5 * 20;
     char *month = "May";
     Wages ivan(oklad, admin_hours, overtime_hours, month);
 
     // Act & assert
     ASSERT_ANY_THROW(ivan.controlOvertime(overtime_hours));
-    system("pause");
 }
 
+TEST(Sharov_Ivan_WagesTest, Input_Overtine_In_Administrative_Leave_Month) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 8 * 20;
+    double overtime_hours = 10;
+    char *month = "May";
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.controlOvertime(overtime_hours));
+}
+
+TEST(Sharov_Ivan_WagesTest, Full_Wages_In_Administrative_Leave_Month_Equal_0) {
+    // Arrange
+    double oklad = 10000;
+    double admin_hours = 8 * 20;
+    double overtime_hours = 0;
+    char *month = "May";
+    double wages = 0;
+    Wages ivan(oklad, admin_hours, overtime_hours, month);
+
+    // Act & assert
+    EXPECT_TRUE(ivan.calculationFullWages() == wages);
+}

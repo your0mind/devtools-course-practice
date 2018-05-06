@@ -4,7 +4,7 @@
 #include<string.h>
 #include <string>
 
-Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_("January"){}
+Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_("January") {}
 
 Wages::Wages(const double salary, const double administrativeLeaveHours, const double overtime, char *month) {
     bool control;
@@ -39,7 +39,7 @@ double Wages::getOvertime() const {
 }
 
 char* Wages::getMonth() const {
-	return month_;
+    return month_;
 }
 
 void Wages::setSalary(const double salary) {
@@ -47,7 +47,7 @@ void Wages::setSalary(const double salary) {
 }
 
 void Wages::setMonth(char *month) {
-	month_ = month;
+    month_ = month;
 }
 void Wages::setAdministrativeLeaveHours(const double administrativeLeaveHours) {
     administrativeLeaveHours_ = administrativeLeaveHours;
@@ -57,15 +57,15 @@ void Wages::setOvertime(const double overtime) {
 }
 
 bool Wages::controlField(const double field) {
-	bool result = true;
-	if (field < 0) result = false;
-	return result;
+    bool result = true;
+    if (field < 0) result = false;
+    return result;
 }
 
 bool Wages::controlMROT(const double field) {
-	bool result = true;
-	if (field < 9489) result = false;
-	return result;
+    bool result = true;
+    if (field < 9489) result = false;
+    return result;
 }
 
 bool Wages::controlMonth(char *field) {
@@ -87,8 +87,8 @@ bool Wages::controlMonth(char *field) {
 }
 
 void Wages::controlOvertime(const double overtime) {
-    int workDays =(int)calculationActualWorkingDays();
-    if(overtime>3*((double)workDays)) throw std::string("Exceeded the maximum number of overtime in month");
+    int workDays = (int)calculationActualWorkingDays();
+    if (overtime > 3 * ((double)workDays)) throw std::string("Exceeded the maximum number of overtime in month");
 }
 
 void Wages::controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
@@ -97,23 +97,23 @@ void Wages::controlAdministrativeLeaveHours(const double administrativeLeaveHour
 }
 
 double Wages::getNumberWorkingDaysInCurrentMonth() {
-	double result;
-	char *month;
-	month = getMonth();
-	if(!strcmp(month, "January")) result = 17;
-	else if (!strcmp(month, "February")) result = 19;
-	else if (!strcmp(month, "March")) result = 20;
-	else if (!strcmp(month, "April")) result = 21;
-	else if (!strcmp(month, "May")) result = 20;
-	else if (!strcmp(month, "June")) result = 20;
-	else if (!strcmp(month, "July")) result = 22;
-	else if (!strcmp(month, "August")) result = 23;
-	else if (!strcmp(month, "Semtember")) result = 20;
-	else if (!strcmp(month, "October")) result = 23;
-	else if (!strcmp(month, "November")) result = 21;
-	else if (!strcmp(month, "December")) result = 21;
-	else throw std::string("Month is not defined");
-    return result; 
+    double result;
+    char *month;
+    month = getMonth();
+    if (!strcmp(month, "January")) result = 17;
+    else if (!strcmp(month, "February")) result = 19;
+    else if (!strcmp(month, "March")) result = 20;
+    else if (!strcmp(month, "April")) result = 21;
+    else if (!strcmp(month, "May")) result = 20;
+    else if (!strcmp(month, "June")) result = 20;
+    else if (!strcmp(month, "July")) result = 22;
+    else if (!strcmp(month, "August")) result = 23;
+    else if (!strcmp(month, "Semtember")) result = 20;
+    else if (!strcmp(month, "October")) result = 23;
+    else if (!strcmp(month, "November")) result = 21;
+    else if (!strcmp(month, "December")) result = 21;
+    else throw std::string("Month is not defined");
+    return result;
 }
 
 double Wages::calculationPaymentOvertime() {
@@ -152,16 +152,16 @@ double Wages::calculationWagesWithoutOvertime() {
 }
 
 double Wages::calculationFullWages() {
-	double result, wagesWithoutOvertime, paymentOvertime;
-	wagesWithoutOvertime = calculationWagesWithoutOvertime();
-	paymentOvertime = calculationPaymentOvertime();
-	result = wagesWithoutOvertime + paymentOvertime;
-	return result;
+    double result, wagesWithoutOvertime, paymentOvertime;
+    wagesWithoutOvertime = calculationWagesWithoutOvertime();
+    paymentOvertime = calculationPaymentOvertime();
+    result = wagesWithoutOvertime + paymentOvertime;
+    return result;
 }
 
 double Wages::calculationHourPayment() {
     double Salary, Days, result;
-    Salary =getSalary();
+    Salary = getSalary();
     Days = getNumberWorkingDaysInCurrentMonth();
     result = Salary / (8 * Days);
     return result;
