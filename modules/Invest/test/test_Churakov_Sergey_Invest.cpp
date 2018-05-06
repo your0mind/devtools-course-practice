@@ -232,6 +232,22 @@ TEST(Churakov_Sergey_Investition, can_set_year_count) {
     EXPECT_EQ(inv.GetYearCount(), years);
 }
 
+TEST(Churakov_Sergey_Investition, can_set_lesser_year_count) {
+    money* arr1 = new money[2];
+    money* arr2 = new money[2];
+    int years;
+    double rate;
+
+    years = 2;
+    rate = 20;
+    arr1[0] = arr1[1] = 10;
+    arr2[0] = arr2[1] = 10;
+    Investition inv(years, arr1, arr2, rate);
+    inv.SetYearCount(1);
+
+    EXPECT_EQ(inv.GetYearCount(), years);
+}
+
 TEST(Churakov_Sergey_Investition, can_set_incomes) {
     money* arr = new money[2];
     Investition inv;
