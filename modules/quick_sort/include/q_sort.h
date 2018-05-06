@@ -2,8 +2,6 @@
 #ifndef MODULES_QUICK_SORT_INCLUDE_Q_SORT_H_
 #define MODULES_QUICK_SORT_INCLUDE_Q_SORT_H_
 
-#include <cstdint>
-#include <stdexcept>
 #include <vector>
 
 struct sort {
