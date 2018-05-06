@@ -255,7 +255,7 @@ TEST(Sharov_Ivan_WagesTest, Calculation_Actual_Working_Days_In_December) {
     double admin_hours = 8;
     double overtime_hours = 5;
     char *month = "December";
-    double workDays = 20.625;
+    double workDays = 20;
 
     // Act
     Wages ivan(oklad, admin_hours, overtime_hours, month);

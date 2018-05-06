@@ -87,8 +87,8 @@ bool Wages::controlMonth(char *field) {
 }
 
 void Wages::controlOvertime(const double overtime) {
-    double workDays = getNumberWorkingDaysInCurrentMonth();
-    if(overtime>3*workDays) throw std::string("Exceeded the maximum number of overtime in month");
+    int workDays =(int)calculationActualWorkingDays();
+    if(overtime>3*((double)workDays)) throw std::string("Exceeded the maximum number of overtime in month");
 }
 
 void Wages::controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
@@ -131,13 +131,11 @@ double Wages::calculationPaymentOvertime() {
 }
 
 double Wages::calculationActualWorkingDays() {
-    double result, daysInMonth, hoursInAdministrativeLeave, hoursOvertime, workHours;
+    double result, daysInMonth, hoursInAdministrativeLeave, workHours;
     daysInMonth = getNumberWorkingDaysInCurrentMonth();
     hoursInAdministrativeLeave = getAdministrativeLeaveHours();
-    hoursOvertime = getOvertime();
     controlAdministrativeLeaveHours(hoursInAdministrativeLeave);
-    controlOvertime(hoursOvertime);
-    workHours = 8 * daysInMonth - hoursInAdministrativeLeave + hoursOvertime;
+    workHours = 8 * daysInMonth - hoursInAdministrativeLeave;
     result = workHours / 8;
     return result;
 }
@@ -147,8 +145,7 @@ double Wages::calculationWagesWithoutOvertime() {
     daysInMonth = getNumberWorkingDaysInCurrentMonth();
     hoursInAdministrativeLeave = getAdministrativeLeaveHours();
     controlAdministrativeLeaveHours(hoursInAdministrativeLeave);
-    workHours = 8 * daysInMonth - hoursInAdministrativeLeave;
-    workDays = workHours / 8;
+    workDays = calculationActualWorkingDays();
     Salary = getSalary();
     result = Salary*(workDays / daysInMonth);
     return result;
