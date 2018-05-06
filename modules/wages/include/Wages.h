@@ -38,4 +38,5 @@ class Wages {
     double overtime_;
     char *month_;
 };
-#endif //  MODULES_WAGES_INCLUDE_WAGES_H_
+
+#endif   //  MODULES_WAGES_INCLUDE_WAGES_H_
