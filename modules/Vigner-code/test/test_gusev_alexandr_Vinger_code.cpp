@@ -16,27 +16,27 @@ TEST(Gusev_Alexandr_VingerCodeTest, Can_Get_Symbol)
 }
 TEST(Gusev_Alexandr_VingerCodeTest, Can_Encode_Symbol)
 {
-	// Arrange
-	Vinger_code vinger;
-	string Text = "abcABC";
-	string Key = "abc";
-	// Act
-	string res = vinger.Encode(Text, Key);
-	// Assert
-	string ans = "bdfBDF";
-	EXPECT_EQ(res, ans);
+    // Arrange
+    Vinger_code vinger;
+    string Text = "abcABC";
+    string Key = "abc";
+    // Act
+    string res = vinger.Encode(Text, Key);
+    // Assert
+    string ans = "bdfBDF";
+    EXPECT_EQ(res, ans);
 }
 TEST(Gusev_Alexandr_VingerCodeTest, Can_Decode_Symbol)
 {
-	// Arrange
-	Vinger_code vinger;
-	string Text = "bdfBDF";
-	string Key = "abc";
-	// Act
-	string res = vinger.Decode(Text, Key);
-	// Assert
-	string ans = "abcABC";
-	EXPECT_EQ(res, ans);
+    // Arrange
+    Vinger_code vinger;
+    string Text = "bdfBDF";
+    string Key = "abc";
+    // Act
+    string res = vinger.Decode(Text, Key);
+    // Assert
+    string ans = "abcABC";
+    EXPECT_EQ(res, ans);
 }
 
 
