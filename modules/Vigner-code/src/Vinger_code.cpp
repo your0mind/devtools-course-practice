@@ -1,6 +1,7 @@
 #include "include/Vinger_code.h"
 string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int i, j, c, sum;
+unsigned int i, j;
+int c, sum;
 Vinger_code::Vinger_code()
 {
 }
@@ -10,9 +11,9 @@ Vinger_code::~Vinger_code()
 //Функция получения кода символа
 int Vinger_code::Keycode(char s)
 {
-    for (int i = 0; i < symbols.length(); i++)
-    if (s == symbols[i])
-        c = i;
+    for (unsigned int k = 0; k < symbols.length(); k++)
+    if (s == symbols[k])
+        c = k;
     return c;
 }
 //Функция шифрования
