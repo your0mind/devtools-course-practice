@@ -4,26 +4,32 @@
 #include<string.h>
 #include <string>
 
-Wages::Wages() : salary_(10000), administrativeLeaveHours_(0), overtime_(0), month_(const_cast<char*>("January")) {}
+Wages::Wages() : salary_(10000), administrativeLeaveHours_(0),
+    overtime_(0), month_(const_cast<char*>("January")) {}
 
-Wages::Wages(const double salary, const double administrativeLeaveHours, const double overtime, char *month) {
+Wages::Wages(const double salary, const double administrativeLeaveHours,
+    const double overtime, char *month) {
     bool control;
     control = controlMROT(salary);
     if (control == true) salary_ = salary;
-    else throw std::string("The salary can not be less than the minimum wage!");
+    else
+        throw std::string("The salary can not be less than the minimum wage!");
     control = controlField(administrativeLeaveHours);
     if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
-    else throw std::string("Administrative leave hours can not be negative!");
+    else
+        throw std::string("Administrative leave hours can not be negative!");
     control = controlField(overtime);
     if (control == true) overtime_ = overtime;
-    else throw std::string("Overtime leave hours can not be negative!");
+    else
+        throw std::string("Overtime leave hours can not be negative!");
     control = controlMonth(month);
     if (control == true)  month_ = month;
-    else throw std::string("Month is not defined!");
+    else
+        throw std::string("Month is not defined!");
 }
 
-Wages::Wages(const Wages& wages)
-    : salary_(wages.getSalary()), administrativeLeaveHours_(wages.getAdministrativeLeaveHours()),
+Wages::Wages(const Wages& wages) : salary_(wages.getSalary()),
+    administrativeLeaveHours_(wages.getAdministrativeLeaveHours()),
     overtime_(wages.getOvertime()), month_(wages.getMonth()) {}
 
 double Wages::getSalary() const {
@@ -88,13 +94,16 @@ bool Wages::controlMonth(char *field) {
 }
 
 void Wages::controlOvertime(const double overtime) {
-    int workDays = (int)calculationActualWorkingDays();
-    if (overtime > 3 * ((double)workDays)) throw std::string("Exceeded the maximum number of overtime in month");
+    int workDays = static_cast<int>(calculationActualWorkingDays());
+    if (overtime > 3 * (static_cast<double>(workDays)))
+        throw std::string("Exceeded the maximum number of overtime in month");
 }
 
-void Wages::controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
+void Wages::
+    controlAdministrativeLeaveHours(const double administrativeLeaveHours) {
     double workDays = getNumberWorkingDaysInCurrentMonth();
-    if (administrativeLeaveHours > 8 * workDays) throw std::string("Exceeded the maximum number of administrative leave hours in month");
+    if (administrativeLeaveHours > 8 * workDays)
+        throw std::string("Exceeded the maximum number of administrative leave hours in month");
 }
 
 double Wages::getNumberWorkingDaysInCurrentMonth() {
@@ -113,7 +122,8 @@ double Wages::getNumberWorkingDaysInCurrentMonth() {
     else if (!strcmp(month, "October")) result = 23;
     else if (!strcmp(month, "November")) result = 21;
     else if (!strcmp(month, "December")) result = 21;
-    else throw std::string("Month is not defined");
+    else
+        throw std::string("Month is not defined");
     return result;
 }
 
@@ -122,8 +132,9 @@ double Wages::calculationPaymentOvertime() {
     hours = getOvertime();
     controlOvertime(hours);
     hourPayment = calculationHourPayment();
-    if (hours < 3) result = 1.5 * hourPayment*hours;
-    else {
+    if (hours < 3) {
+        result = 1.5 * hourPayment*hours;
+    } else {
         hours2Payment = hours - 2;
         result = 1.5 * hourPayment* 2.0 + 2.0 * hourPayment*hours2Payment;
     }
