@@ -15,10 +15,10 @@ Wages::Wages(const double salary, const double administrativeLeaveHours, const d
     if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
     else throw std::string("Administrative leave hours can not be negative!");
     control = controlField(overtime);
-    if (control == true) 	overtime_ = overtime;
+    if (control == true) overtime_ = overtime;
     else throw std::string("Overtime leave hours can not be negative!");
     control = controlMonth(month);
-    if (control == true) 	month_ = month;
+    if (control == true)  month_ = month;
     else throw std::string("Month is not defined!");
 }
 
@@ -49,6 +49,7 @@ void Wages::setSalary(const double salary) {
 void Wages::setMonth(char *month) {
     month_ = month;
 }
+
 void Wages::setAdministrativeLeaveHours(const double administrativeLeaveHours) {
     administrativeLeaveHours_ = administrativeLeaveHours;
 }

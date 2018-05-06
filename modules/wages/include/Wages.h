@@ -3,11 +3,11 @@
 #ifndef MODULES_WAGES_INCLUDE_WAGES_H_
 #define MODULES_WAGES_INCLUDE_WAGES_H_
 
-class Wages
-{
+class Wages {
  public:
     Wages();
-    Wages(const double salary, const double administrativeLeaveHours, const double overtime, char *month);
+    Wages(const double salary, const double administrativeLeaveHours,
+        const double overtime, char *month);
     Wages(const Wages& wages);
 
     double getSalary() const;
@@ -38,4 +38,4 @@ class Wages
     double overtime_;
     char *month_;
 };
-#endif //MODULES_WAGES_INCLUDE_WAGES_H_
+#endif //  MODULES_WAGES_INCLUDE_WAGES_H_
