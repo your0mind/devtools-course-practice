@@ -79,12 +79,8 @@ TEST(AreaOfGeometricShapes, Negative_L_Cone) {
 
 TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
     // Arrange
-    double res = 0;
     Cone cone(2.1, 4.5);
 
-    // Act
-    res = cone.area();
-
-    // Assert
-    EXPECT_EQ(res, 43.5425);
+    // Act & Assert
+    EXPECT_EQ(cone.area(), 43.5425);
 }
