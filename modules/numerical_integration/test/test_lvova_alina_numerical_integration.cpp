@@ -209,14 +209,16 @@ TEST(Lvova_Alina_NumericalIntegrationTest, NullResult) {
     // Arrange
     double A = 35.36, B = 35.36;
     int N = 750;
-    double result;
     Integral I(A, B, N);
 
-    // Act
-    result = I.GaussianQuadrature();
-
-    // Assert
-    EXPECT_EQ(result, .0);
+    // Act & Assert
+    EXPECT_EQ(I.BooleRule(), .0);
+    EXPECT_EQ(I.GaussianQuadrature(), .0);
+    EXPECT_EQ(I.NewtonCotes5(), .0);
+    EXPECT_EQ(I.RiemannSumLeft(), .0);
+    EXPECT_EQ(I.Simpson3_8Rule(), .0);
+    EXPECT_EQ(I.SimpsonRule(), .0);
+    EXPECT_EQ(I.TrapezoidalRule(), .0);
 }
 
 TEST(Lvova_Alina_NumericalIntegrationTest, SetReverseLimits) {
