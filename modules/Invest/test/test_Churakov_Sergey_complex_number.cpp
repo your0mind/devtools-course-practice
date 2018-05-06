@@ -285,7 +285,7 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_incomes) {
     ASSERT_ANY_THROW(inv.SetIncomes(arr));
 }
 
-TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_size_of_array) { // Решается использованием структур хранения, более функциональных относительно массива
+TEST(Churakov_Sergey_Investition, DISABLED_cant_set_incomes_with_small_size_of_array) { // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     money* arr = new money[1];
     Investition inv;
 
@@ -442,7 +442,7 @@ TEST(Churakov_Sergey_Investition, cant_find_IRR_when_there_is_no_recoupment) {
     EXPECT_EQ(inv.FindIRR(), -1);
 }
 
-TEST(Churakov_Sergey_Investition, can_fint_PBIndex) {
+TEST(Churakov_Sergey_Investition, can_find_PBIndex) {
     money* arr1 = new money[5];
     money* arr2 = new money[5];
     int years;
@@ -460,7 +460,7 @@ TEST(Churakov_Sergey_Investition, can_fint_PBIndex) {
     EXPECT_TRUE(inv.FindPBIndex()> 0.46 && inv.FindPBIndex() <0.47);
 }
 
-TEST(Churakov_Sergey_Investition, canе_fint_PBIndex_with_multiple_expenses) {
+TEST(Churakov_Sergey_Investition, cant_fint_PBIndex_with_multiple_expenses) {
     money* arr1 = new money[5];
     money* arr2 = new money[5];
     int years;
