@@ -11,7 +11,7 @@ class DescretePD {
 
     std::vector<double> getValues() const;
     std::vector<double> getProbabilities() const;
-    void setUpData(const std::vector<double> &values,
+    void setData(const std::vector<double> &values,
       const std::vector<double> &probabilities);
 
     double expectedValue() const;
