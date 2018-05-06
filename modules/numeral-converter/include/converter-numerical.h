@@ -1,31 +1,26 @@
 // Copyright 2018 Novikova Alisa
-#ifndef MODULES_NUMERICAL_CONVERTER_INCLUDE_NUMERICAL_CONVERTER_H_
-#define MODULES_NUMERICAL_CONVERTER_INCLUDE_NUMERICAL_CONVERTER_H_
+
 #include <iostream>
-#include <cstring>
-using namespace std;
+#include <string>
 
-class NumericalConverter
-{
-public:
+#ifndef MODULES_NUMERAL_CONVERTER_INCLUDE_CONVERTER_NUMERICAL_H_
+#define MODULES_NUMERAL_CONVERTER_INCLUDE_CONVERTER_NUMERICAL_H_
 
-	int InputNumber;
-	int ArabicNumberOutput;
-
-	string RomanNumeralOuput;
-
-	//Constructor
-	NumericalConverter();
-
-	// Functions to convert from Arabic numbers to Roman Numeral
-	string ConvertOneToRomanNumeral(int inputNumber);
-	string ConvertThreeToRomanNumeral(int inputNumber);
-	string ConvertToRomanNumeral(int inputNumber);
-
-	// Functions to convert from Roman Numeral to Arabic numbers
-	int ConvertOneToArabicNumber(string inputString);
-	int ConvertRomanNumeralToArabicNumber(string inputString);
-	int ConvertRomanNumeralToArabicNumberRefactored(string inputString);
+class NumericalConverter {
+ public:
+        int InputNumber;
+        int ArabicNumberOutput;
+        std::string RomanNumeralOuput;
+        NumericalConverter();
+        
+        // Functions to convert from Arabic numbers to Roman Numeral
+        std::string ConvertOneToRomanNumeral(int inputNumber);
+        std::string ConvertThreeToRomanNumeral(int inputNumber);
+        std::string ConvertToRomanNumeral(int inputNumber);
+        // Functions to convert from Roman Numeral to Arabic numbers
+        int ConvertOneToArabicNumber(std::string inputString);
+        int ConvertRomanNumeralToArabicNumber(std::string inputString);
+        int ConvertRomanNumeralToArabicNumberRefactored(std::string inputString);
 };
 
-#endif  MODULES_TEMPERATURE_CONVERTER_INCLUDE_NUMERICAL_CONVERTER_H_
+#endif  //  MODULES_TEMPERATURE_CONVERTER_INCLUDE_NUMERICAL_CONVERTER_H_
