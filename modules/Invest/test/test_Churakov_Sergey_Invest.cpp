@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/Invest.h"
+#include <vector>
 
 TEST(Churakov_Sergey_Investition, can_create_empty_investition) {
     ASSERT_NO_THROW(Investition inv);
