@@ -54,6 +54,27 @@ TEST(ProbabilityDistributionTest, Throws_When_Some_Probabilities_Are_Negative) {
     EXPECT_ANY_THROW(dpd.setData(values, probabilities));
 }
 
+TEST(ProbabilityDistributionTest, Can_Check_If_There_Is_No_Data) {
+    // Arrange
+    DescretePD dpd;
+
+    // Act & Assert
+    EXPECT_FALSE(dpd.hasData());
+}
+
+TEST(ProbabilityDistributionTest, Can_Check_If_There_Is_Data) {
+    // Arrange
+    std::vector<double> values = { 1.0, 3.0, 5.0 };
+    std::vector<double> probabilities = { 0.2, 0.5, 0.3 };
+    DescretePD dpd;
+
+    // Act
+    dpd.setData(values, probabilities);
+
+    // Assert
+    EXPECT_TRUE(dpd.hasData());
+}
+
 TEST(ProbabilityDistributionTest, Throws_If_There_Is_No_Data_Test_1) {
     // Arrange
     DescretePD dpd;

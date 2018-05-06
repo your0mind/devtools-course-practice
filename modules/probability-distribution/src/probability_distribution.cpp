@@ -145,5 +145,5 @@ bool DescretePD::verifyProbabilities(const std::vector<double> &probabilities)
 }
 
 bool DescretePD::hasData() const {
-    return (values_.size() > 0) ? true : false;
+    return !values_.empty();
 }

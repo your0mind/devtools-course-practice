@@ -19,13 +19,12 @@ class DescretePD {
     double rawMoment(const unsigned char k) const;
     double centralMoment(const unsigned char k) const;
 
+    // returns true if there is at least one value
+    bool hasData() const;
  private:
     // verifies that probabilities are non-negative
     // and their sum equals 1
     bool verifyProbabilities(const std::vector<double> &probabilities) const;
-
-    // returns true if there is at least one value
-    bool hasData() const;
 
     // probability of value[i] is probability[i]
     std::vector<double> values_;
