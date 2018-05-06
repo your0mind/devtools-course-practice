@@ -1,5 +1,4 @@
 // Copyright 2018 Lvova Alina
-
 #include <gtest/gtest.h>
 #include <string>
 #include "include/numerical_integration.h"
