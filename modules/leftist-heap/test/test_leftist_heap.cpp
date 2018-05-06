@@ -6,11 +6,14 @@
 
 TEST(LeftistHeapTest,
     There_is_no_throw_when_create_leftist_heap_with_null_root) {
+    // Act and Assert
     EXPECT_NO_THROW(leftist_heap h);
 }
 TEST(LeftistHeapTest,
     There_is_no_throw_when_create_leftist_heap_with_not_null_root) {
+    // Arrange
     node *root = new node;
+    // Act and Assert
     EXPECT_NO_THROW(leftist_heap h(root));
 }
 TEST(LeftistHeapTest, Create_correct_leftist_heap_with_the_root) {
@@ -41,8 +44,10 @@ TEST(LeftistHeapTest,
 }
 
 TEST(LeftistHeapTest, There_is_no_throw_when_assign_to_itself) {
+    // Arrange
     node *root = new node(10);
     leftist_heap h1(root);
+    // Act and Assert
     EXPECT_NO_THROW(h1 = h1);
 }
 TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_null_root) {
@@ -68,30 +73,38 @@ TEST(LeftistHeapTest, Can_assign_to_the_leftist_heap_with_not_null_root) {
 }
 TEST(LeftistHeapTest,
     There_is_no_throw_when_merge_two_leftist_heap_with_null_root) {
+    // Arrange
     leftist_heap h1;
     leftist_heap *h2 = new leftist_heap;
+    // Act and Assert
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest,
     There_is_no_throw_when_merge_null_root_heap_with_not_null_root_heap) {
+    // Arrange
     leftist_heap h1;
     node *root2 = new node(5);
     leftist_heap *h2 = new leftist_heap(root2);
+    // Act and Assert
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest,
     There_is_no_throw_when_merge_not_null_root_heap_with_null_root_heap) {
+    // Arrange
     leftist_heap *h1 = new leftist_heap;
     node *root2 = new node(5);
     leftist_heap h2(root2);
+    // Act and Assert
     EXPECT_NO_THROW(h2.merge(h1));
 }
 TEST(LeftistHeapTest,
     There_is_no_throw_when_merge_two_leftist_heap_with_not_null_root) {
+    // Arrange
     node *root = new node(10);
     leftist_heap h1(root);
     node *root2 = new node(5);
     leftist_heap *h2 = new leftist_heap(root2);
+    // Act and Assert
     EXPECT_NO_THROW(h1.merge(h2));
 }
 TEST(LeftistHeapTest, Correct_merge_two_leftist_heap_with_not_null_root) {
@@ -124,7 +137,9 @@ TEST(LeftistHeapTest, Can_insert_in_the_leftist_heap_with_not_null_root) {
 }
 TEST(LeftistHeapTest,
     There_is_a_throw_when_find_minimum_in_the_leftist_heap_with_null_root) {
+    // Arrange
     leftist_heap h1;
+    // Act and Assert
     EXPECT_ANY_THROW(h1.minKey());
 }
 TEST(LeftistHeapTest,
@@ -140,7 +155,9 @@ TEST(LeftistHeapTest,
 }
 TEST(LeftistHeapTest,
     There_is_a_throw_when_delete_minimum_in_the_leftist_heap_with_null_root) {
+    // Arrange
     leftist_heap h1;
+    // Act and Assert
     EXPECT_ANY_THROW(h1.deleteMin());
 }
 TEST(LeftistHeapTest,
