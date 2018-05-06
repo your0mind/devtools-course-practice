@@ -169,7 +169,6 @@ double Investition::FindIRR() const {
     for (double i = 0; i < 200; i+=0.1)
         if (this->FindNPV(i) <= 0)
             return i-0.1;
-    return -3;
 }
 
 // void Investition::Print() const {
