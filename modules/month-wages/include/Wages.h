@@ -38,4 +38,4 @@ class Wages
     double overtime_;
     char *month_;
 };
-#endif
+#endif //MODULES_MOUNTH_WAGES_INCLUDE_WAGES_H_
