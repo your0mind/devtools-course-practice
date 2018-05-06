@@ -164,12 +164,10 @@ double Investition::FindPBIndex() const {
 double Investition::FindIRR() const {
     if (this->FindNPV(0.0) < 0)
         return -1;
-    if (this->FindNPV(199.0) > 0)
-        return -2;
     for (double i = 0; i < 200; i+=0.1)
         if (this->FindNPV(i) <= 0)
             return i-0.1;
-    return -3;
+    return -2;
 }
 
 // void Investition::Print() const {
