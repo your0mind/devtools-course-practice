@@ -13,12 +13,14 @@ Investition::Investition() {
     Expenses[0] = 0;
 }
 
-Investition::Investition(const int& years, money* Income_arr,
-                        money* Expenses_arr, const double& rate) {
+Investition::Investition(const int& years, std::vector<money> Income_arr,
+                        std::vector<money> Expenses_arr, const double& rate) {
     if (years < 0 || rate < 0|| rate>199)
         throw WRONG_VALUE;
     YearCount = years;
     RatePercent = rate;
+    Income_arr.at(years - 1);
+    Expenses_arr.at(years - 1);
     Incomes = new money[years];
     Expenses = new money[years];
     for (int i = 0; i < YearCount; i++) {
@@ -70,7 +72,8 @@ void Investition:: SetYearCount(const int& years) {
     YearCount = years;
 }
 
-void Investition::SetIncomes(money* Income_arr) {
+void Investition::SetIncomes(std::vector<money> Income_arr) {
+    Income_arr.at(YearCount - 1);
     for (int i = 0; i < YearCount; i++) {
         if (Income_arr[i] < 0)
             throw WRONG_VALUE;
@@ -78,7 +81,8 @@ void Investition::SetIncomes(money* Income_arr) {
     }
 }
 
-void Investition::SetExpenses(money* Expenses_arr) {
+void Investition::SetExpenses(std::vector<money> Expenses_arr) {
+    Expenses_arr.at(YearCount - 1);
     for (int i = 0; i < YearCount; i++) {
         if (Expenses_arr[i] < 0)
             throw WRONG_VALUE;

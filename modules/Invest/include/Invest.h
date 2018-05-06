@@ -2,6 +2,7 @@
 
 #ifndef MODULES_INVEST_INCLUDE_INVEST_H_
 #define MODULES_INVEST_INCLUDE_INVEST_H_
+#include <vector>
 
 typedef double money;
 enum ERRORS {WRONG_VALUE};
@@ -15,13 +16,13 @@ class Investition{
 
  public:
     Investition();
-    Investition(const int& years, money* Income_arr,
-                money* Expenses_arr, const double& rate);
+    Investition(const int& years, std::vector<money> Income_arr,
+                std::vector<money> Expenses_arr, const double& rate);
     ~Investition();
     void SetRate(const double& rate);
     void SetYearCount(const int& years);
-    void SetIncomes(money* Income_arr);
-    void SetExpenses(money* Expenses_arr);
+    void SetIncomes(std::vector<money> Income_arr);
+    void SetExpenses(std::vector<money> Expenses_arr);
     int GetYearCount() const;
     double GetRate() const;
     money* GetIncomes() const;
