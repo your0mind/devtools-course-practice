@@ -3,7 +3,7 @@
 #include"include/Calculation_Rent.h"
 
 #include <cmath>
-double Calculation_Rent::Rent_Accum_Year_postnumerando_hard_rate(double amunt,
+double Calculation_Rent::Rent_Accum_Year_postnum_hard_rate(double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -19,7 +19,7 @@ double Calculation_Rent::Rent_Accum_Year_postnumerando_hard_rate(double amunt,
     double re = rent_term;
     return am*((pow((1 + in), re) - 1) / in);
 }
-double Calculation_Rent::Rent_Accum_Year_postnumerando_easy_rate(double amunt,
+double Calculation_Rent::Rent_Accum_Year_postnum_easy_rate(double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -36,7 +36,7 @@ double Calculation_Rent::Rent_Accum_Year_postnumerando_easy_rate(double amunt,
 
     return am*(re + in*(re*(re-1))/2 );
 }
-double Calculation_Rent::Rent_Accum_Year_prenumerando_hard_rate(double amunt,
+double Calculation_Rent::Rent_Accum_Year_prenum_hard_rate(double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -68,7 +68,7 @@ double Calculation_Rent::Rent_Accum_Year_pretnumerando_easy_rate(double amunt,
     double re = rent_term;
     return am*(re + in*(re*(re + 1)) / 2);
 }
-double Calculation_Rent::Rent_Accum_P_Period_postnumerando(double amunt,
+double Calculation_Rent::Rent_Accum_P_Period_postnum(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0
@@ -91,7 +91,7 @@ double Calculation_Rent::Rent_Accum_P_Period_postnumerando(double amunt,
     return am*((pow((1 + nom / com), (com*re)) - 1)
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))));
 }
-double Calculation_Rent::Rent_Accum_P_Period_prenumerando(double amunt,
+double Calculation_Rent::Rent_Accum_P_Period_prenum(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0
@@ -115,7 +115,7 @@ double Calculation_Rent::Rent_Accum_P_Period_prenumerando(double amunt,
         (pow((1 + nom / com), (com*re)) - 1)
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))));
 }
-double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(
+double Calculation_Rent::Rent_Modern_Year_postnum_hard_rate(
     double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
@@ -132,7 +132,7 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(
     double re = rent_term;
     return am*((1-pow((1 + in), -re)) / in);
 }
-double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(
+double Calculation_Rent::Rent_Modern_Year_postnum_easy_rate(
     double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
@@ -154,7 +154,7 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(
     rez = am*rez;
     return static_cast<int>(rez * 100 + 0.5) / 100.0;
 }
-double Calculation_Rent::Rent_Modern_Year_prenumerando_hard_rate(double amunt,
+double Calculation_Rent::Rent_Modern_Year_prenum_hard_rate(double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -192,7 +192,7 @@ double Calculation_Rent::Rent_Modern_Year_pretnumerando_easy_rate(
     }
     return am*(rez);
 }
-double Calculation_Rent::Rent_Modern_P_Period_postnumerando(double amunt,
+double Calculation_Rent::Rent_Modern_P_Period_postnum(double amunt,
     double rent_term, double nominal_rate,
     int number_compounding_per_year, int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0
@@ -217,7 +217,7 @@ double Calculation_Rent::Rent_Modern_P_Period_postnumerando(double amunt,
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))))
         * 10000 + 0.5) / 10000.0;
 }
-double Calculation_Rent::Rent_Modern_P_Period_prenumerando(double amunt,
+double Calculation_Rent::Rent_Modern_P_Period_prenum(double amunt,
     double rent_term, double nominal_rate,
     int number_compounding_per_year, int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0
