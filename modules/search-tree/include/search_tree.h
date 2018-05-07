@@ -1,17 +1,17 @@
 // Copyright 2018 Gorelova Ksenia
 
-#ifndef MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
-#define MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
+#ifndef MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
+#define MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
 
 struct Tree {
-public:
+ public:
     int value;
     Tree * left;
     Tree * right;
 };
 
 class SearchTree {
-public:
+ public:
     void AddTree(int val, Tree** tr);
     Tree * FindMin(Tree * tr);
     Tree * FindMax(Tree * tr);
@@ -21,4 +21,4 @@ public:
     void DestroyBTree(Tree * tr);
 };
 
-#endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCHTREE_H_
+#endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
