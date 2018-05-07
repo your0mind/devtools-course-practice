@@ -46,7 +46,8 @@ std::string ConverterNumbersInWords::ConvertToWords() {
         result += GetWordsForNumberFrom_1_To_999(hundred);
       }
     } else {
-      throw std::logic_error("Input error: number is too large for our converter.\n");
+      throw std::
+        logic_error("Input error: number is too large for our converter.\n");
     }
   }
   return result;
