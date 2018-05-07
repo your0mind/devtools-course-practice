@@ -55,8 +55,8 @@ TEST(AreaOfGeometricShapes, Comparison_Operator) {
     cone1 = cone2;
 
     // Assert
-    EXPECT_EQ(cone1->getRad(), cone2.getRad());
-    EXPECT_EQ(cone1->getL(), cone2.getL());
+    EXPECT_EQ(cone1.getRad(), cone2.getRad());
+    EXPECT_EQ(cone1.getL(), cone2.getL());
 }
 
 TEST(AreaOfGeometricShapes, Negative_Rad_Cone) {
@@ -111,12 +111,12 @@ TEST(AreaOfGeometricShapes, Equal_Test_Cone) {
     // Act & Assert
     EXPECT_TRUE(cone1 == cone2);
 }
-TEST(AreaOfGeometricShapes, Negative_L_Cone) {
+TEST(AreaOfGeometricShapes, Not_Equal_Test_Cone) {
     // Arrange
     double radius = 7.1;
     double l = 15.9;
     Cone cone1(2.1, 4.5);
-    Cone cone2(radius, l);    
+    Cone cone2(radius, l);
 
     // Act & Assert
     EXPECT_TRUE(cone1 != cone2);
