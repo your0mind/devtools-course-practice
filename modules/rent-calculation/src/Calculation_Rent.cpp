@@ -152,7 +152,7 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(
     rez = rez + (1.0 / (1.0 + (in * k)));
     }
     rez = am*rez;
-	return static_cast<int>(rez * 100 + 0.5) / 100.0;
+    return static_cast<int>(rez * 100 + 0.5) / 100.0;
 }
 double Calculation_Rent::Rent_Modern_Year_prenumerando_hard_rate(double amunt,
     double rent_term, double interest_rate) {
@@ -168,7 +168,7 @@ double Calculation_Rent::Rent_Modern_Year_prenumerando_hard_rate(double amunt,
     int in = interest_rate;
     double am = amunt;
     double re = rent_term;
-	return static_cast<int>(am*((1 + in)*
+    return static_cast<int>(am*((1 + in)*
         ((1 - pow((1 + in), -re)) / in))*10000+0.5)/10000.0;
 }
 double Calculation_Rent::Rent_Modern_Year_pretnumerando_easy_rate(
@@ -213,7 +213,7 @@ double Calculation_Rent::Rent_Modern_P_Period_postnumerando(double amunt,
     int nom = nominal_rate;
     int com = number_compounding_per_year;
     int pay = number_payments_per_year;
-	return static_cast<int>(am*((1 - pow((1 + nom / com), (-com*re)))
+    return static_cast<int>(am*((1 - pow((1 + nom / com), (-com*re)))
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))))
         * 10000 + 0.5) / 10000.0;
 }
@@ -238,7 +238,7 @@ double Calculation_Rent::Rent_Modern_P_Period_prenumerando(double amunt,
     int nom = nominal_rate;
     int com = number_compounding_per_year;
     int pay = number_payments_per_year;
-	return static_cast<int>(am*(pow((1 + nom / com), (com / pay))
+    return static_cast<int>(am*(pow((1 + nom / com), (com / pay))
         *(1 - pow((1 + nom / com), (-com*re)))
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))))
         * 10000 + 0.5) / 10000.0;
