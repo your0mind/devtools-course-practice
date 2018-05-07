@@ -101,12 +101,12 @@ int NumericalConverter::ConvertOneToArabicNumber(std::string inputString) {
         return ArabicNumberOutput;
 }
 
-int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inputStr) {
-        for (int i = 0; i < static_cast<int>(inputStr.size()); ++i) {
-                if (inputStr[i + 1] == static_cast<char>('X')) {
+int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inpStr) {
+        for (int i = 0; i < static_cast<int>(inStr.size()); ++i) {
+                if (inpStr[i + 1] == static_cast<char>('X')) {
                         ArabicNumberOutput += 9;
                         i++;
-                } else if (inputStr[i] == static_cast<char>('I')) {
+                } else if (inpStr[i] == static_cast<char>('I')) {
                         ArabicNumberOutput += 1;
                 }
         }
