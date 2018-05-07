@@ -13,7 +13,7 @@ class Calculation_Rent{
                                 double rent_term, double interest_rate);
         double Rent_Accum_Year_prenum_hard_rate(double amount_payment,
                                 double rent_term, double interest_rate);
-        double Rent_Accum_Year_pretnumerando_easy_rate(double amount_payment,
+        double Rent_Accum_Year_prenum_easy_rate(double amount_payment,
                                 double rent_term, double interest_rate);
         double Rent_Accum_P_Period_postnum(double amount_payment,
                                     double rent_term, double nominal_rate,
@@ -28,7 +28,7 @@ class Calculation_Rent{
                 double rent_term, double interest_rate);
         double Rent_Modern_Year_prenum_hard_rate(double amount_payment,
                 double rent_term, double interest_rate);
-        double Rent_Modern_Year_pretnumerando_easy_rate(double amount_payment,
+        double Rent_Modern_Year_prenum_easy_rate(double amount_payment,
                 double rent_term, double interest_rate);
         double Rent_Modern_P_Period_postnum(double amount_payment,
                 double rent_term, double nominal_rate,
