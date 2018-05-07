@@ -86,8 +86,8 @@ TEST(Shurygin_Dmitriy_Volume_Test, Set_h_From_Cylinder) {
     // Act
     cylinder.seth(_h);
 
-	// Assert
-	EXPECT_EQ(_h, cylinder.geth());
+    // Assert
+    EXPECT_EQ(_h, cylinder.geth());
 }
 
 TEST(Shurygin_Dmitriy_Volume_Test, Volume_Calculation_Cube) {
@@ -159,5 +159,3 @@ TEST(Shurygin_Dmitriy_Volume_Test, Can_Copy_Cylinder) {
     EXPECT_EQ(_cylinder.getR(), cylinder.getR());
     EXPECT_EQ(_cylinder.geth(), cylinder.geth());
 }
-
-
