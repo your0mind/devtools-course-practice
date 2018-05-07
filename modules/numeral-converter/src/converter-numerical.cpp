@@ -11,21 +11,21 @@ NumericalConverter::NumericalConverter() {
         RomanNumeralOuput.clear();
 }
 
-std::string NumericalConverter::ConvertOneToRomanNumeral(int inNum) {
-        while ((inNum -= 1) >= 0) {
+std::string NumericalConverter::ConvertOneToRomanNumeral(int inputNumber) {
+        while ((inputNumber -= 1) >= 0) {
                 RomanNumeralOuput.append("I");
         }
         return RomanNumeralOuput;
 }
 
-std::string NumericalConverter::ConvertThreeToRomanNumeral(int inNum) {
-        while ((inNum -= 1) >= 0) {
+std::string NumericalConverter::ConvertThreeToRomanNumeral(int inputNumber) {
+        while ((inputNumber -= 1) >= 0) {
                 RomanNumeralOuput.append("I");
         }
         return RomanNumeralOuput;
 }
 
-std::string NumericalConverter::ConvertToRomanNumeral(int inNum) {
+std::string NumericalConverter::ConvertToRomanNumeral(int inputNumber) {
         int m = 1000;
         int cm = 900;
         int d = 500;
@@ -39,137 +39,137 @@ std::string NumericalConverter::ConvertToRomanNumeral(int inNum) {
         int v = 5;
         int iv = 4;
         int i = 1;
-        while (inNum >= m) {
+        while (inputNumber >= m) {
                 RomanNumeralOuput.append("M");
-                inNum -= m;
+                inputNumber -= m;
         }
-        while (inNum >= cm) {
+        while (inputNumber >= cm) {
                 RomanNumeralOuput.append("CM");
-                inNum -= cm;
+                inputNumber -= cm;
         }
-        while (inNum >= d) {
+        while (inputNumber >= d) {
                 RomanNumeralOuput.append("D");
-                inNum -= d;
+                inputNumber -= d;
         }
-        while (inNum >= cd) {
+        while (inputNumber >= cd) {
                 RomanNumeralOuput.append("CD");
-                inNum -= cd;
+                inputNumber -= cd;
         }
-        while (inNum >= c) {
+        while (inputNumber >= c) {
                 RomanNumeralOuput.append("C");
-                inNum -= c;
+                inputNumber -= c;
         }
-        while (inNum >= xc) {
+        while (inputNumber >= xc) {
                 RomanNumeralOuput.append("XC");
-                inNum -= xc;
+                inputNumber -= xc;
         }
-        while (inNum>= l) {
+        while (inputNumber>= l) {
                 RomanNumeralOuput.append("L");
-                inNum -= l;
+                inputNumber -= l;
         }
-        while (inNum >= xl) {
+        while (inputNumber >= xl) {
                 RomanNumeralOuput.append("XL");
-                inNum -= xl;
+                inputNumber -= xl;
         }
-        while (inNum >= x) {
+        while (inputNumber >= x) {
                 RomanNumeralOuput.append("X");
-                inNum -= x;
+                inputNumber -= x;
         }
-        while (inNum >= ix) {
+        while (inputNumber >= ix) {
                 RomanNumeralOuput.append("IX");
-                inNum -= ix;
+                inputNumber -= ix;
         }
-        while (inNum >= v) {
+        while (inputNumber >= v) {
                 RomanNumeralOuput.append("V");
-                inNum-= v;
+                inputNumber-= v;
         }
-        while (inNum >= iv) {
+        while (inputNumber >= iv) {
                 RomanNumeralOuput.append("IV");
-                inNum -= m;
+                inputNumber -= m;
         }
-        while (inNum >= i) {
+        while (inputNumber >= i) {
                 RomanNumeralOuput.append("I");
-                inNum -= i;
+                inputNumber -= i;
         }
         return RomanNumeralOuput;
 }
 
-int NumericalConverter::ConvertOneToArabicNumber(std::string inStr) {
-        if (inStr[0] == static_cast<char>('I')) {
+int NumericalConverter::ConvertOneToArabicNumber(std::string inputString) {
+        if (inputString[0] == static_cast<char>('I')) {
                 ArabicNumberOutput += 1;
         }
         return ArabicNumberOutput;
 }
 
-int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inStr) {
-        for (int i = 0; i < static_cast<int>(inStr.size()); ++i) {
-                if (inStr[i + 1] == static_cast<char>('X')) {
+int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inputStr) {
+        for (int i = 0; i < static_cast<int>(inputStr.size()); ++i) {
+                if (inputStr[i + 1] == static_cast<char>('X')) {
                         ArabicNumberOutput += 9;
                         i++;
-                } else if (inStr[i] == static_cast<char>('I')) {
+                } else if (inputStr[i] == static_cast<char>('I')) {
                         ArabicNumberOutput += 1;
                 }
         }
         return ArabicNumberOutput;
 }
 
-int NumericalConverter::ConvertRomanNumToArabicNumRefac(std::string inStr) {
-    for (int i = 0; i <static_cast<int>(inStr.size()); ++i) {
-        if (inStr[i] != inStr.back()) {
-            if (inStr[i] == static_cast<char>('I')) {
-                if (inStr[i + 1] != 'I') {
+int NumericalConverter::ConvertRomanNumToArabicNumRefac(std::string inputStr) {
+    for (int i = 0; i <static_cast<int>(inputStr.size()); ++i) {
+        if (inputStr[i] != inputStr.back()) {
+            if (inputStr[i] == static_cast<char>('I')) {
+                if (inputStr[i + 1] != 'I') {
                     ArabicNumberOutput -= 1;
                 }
                     // else {
                     // ArabicNumberOutput += 1;
                     // }
             }
-            if (inStr[i] == static_cast<char>('V')) {
+            if (inputStr[i] == static_cast<char>('V')) {
                 ArabicNumberOutput += 5;
             }
-            if (inStr[i] == static_cast<char>('X')) {
-                if (inStr[i + 1] == 'I' || inStr[i + 1] == 'V') {
+            if (inputStr[i] == static_cast<char>('X')) {
+                if (inputStr[i + 1] == 'I' || inputStr[i + 1] == 'V') {
                     ArabicNumberOutput += 10;
                 } else {
                     ArabicNumberOutput -= 10;
                 }
             }
-            if (inStr[i] == static_cast<char>('L')) {
+            if (inputStr[i] == static_cast<char>('L')) {
                 ArabicNumberOutput += 50;
             }
-            if (inStr[i] == static_cast<char>('C')) {
-                if (inStr[i + 1] == 'D' || inStr[i + 1] == 'M') {
+            if (inputStr[i] == static_cast<char>('C')) {
+                if (inputStr[i + 1] == 'D' || inputStr[i + 1] == 'M') {
                     ArabicNumberOutput -= 100;
                 } else {
                     ArabicNumberOutput += 100;
                 }
             }
-            if (inStr[i] == static_cast<char>('D')) {
+            if (inputStr[i] == static_cast<char>('D')) {
                 ArabicNumberOutput += 500;
             }
-            if (inStr[i] == static_cast<char>('M')) {
+            if (inputStr[i] == static_cast<char>('M')) {
                 ArabicNumberOutput += 1000;
             }
             } else {
-            if (inStr[i] == static_cast<char>('I')) {
+            if (inputStr[i] == static_cast<char>('I')) {
                 ArabicNumberOutput += 1;
             }
-            if (inStr[i] == static_cast<char>('V')) {
+            if (inputStr[i] == static_cast<char>('V')) {
                 ArabicNumberOutput += 5;
             }
-            if (inStr[i] == static_cast<char>('X')) {
+            if (inputStr[i] == static_cast<char>('X')) {
                 ArabicNumberOutput += 10;
             }
-            if (inStr[i] == static_cast<char>('L')) {
+            if (inputStr[i] == static_cast<char>('L')) {
                 ArabicNumberOutput += 50;
             }
-            if (inStr[i] == static_cast<char>('C')) {
+            if (inputStr[i] == static_cast<char>('C')) {
                 ArabicNumberOutput += 100;
             }
-            if (inStr[i] == static_cast<char>('D')) {
+            if (inputStr[i] == static_cast<char>('D')) {
                 ArabicNumberOutput += 500;
             }
-            if (inStr[i] == static_cast<char>('M')) {
+            if (inputStr[i] == static_cast<char>('M')) {
                 ArabicNumberOutput += 1000;
             }
         }
