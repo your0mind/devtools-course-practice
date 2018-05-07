@@ -177,7 +177,7 @@ TEST(Temperature_Converter_Test, Cant_Calculate_Rent_Accumulated_Yearly_pretnume
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(rent.Rent_Accumulated_Yearly_pretnumerando_with_easy_rate(1200000000000, 10, 5));
+    ASSERT_ANY_THROW(rent.Rent_Accumulated_Yearly_pretnumerando_with_easy_rate(12000000000, 10, 0));
 }
 
 TEST(Temperature_Converter_Test, Cant_Calculate_Rent_Accumulated_P_Period_postnumerando_With_wrong_parametres) {
@@ -197,7 +197,7 @@ TEST(Temperature_Converter_Test, Cant_Calculate_Rent_Accumulated_P_Period_prenum
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(rent.Rent_Accumulated_P_Period_prenumerando(100, 4, 5, 2, 2000000000000));
+    ASSERT_ANY_THROW(rent.Rent_Accumulated_P_Period_prenumerando(100, 0, 5, 2, 20000000000));
 }
 
 TEST(Temperature_Converter_Test, Cant_Calculate_Rent_Modern_Yearly_postnumerando_with_hard_rate_With_wrong_parametres) {

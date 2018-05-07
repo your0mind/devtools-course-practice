@@ -21,5 +21,5 @@ class Calculation_Rent{
         double Rent_Modern_P_Period_prenumerando(double amount_of_payment, double rent_term, double nominal_rate, int number_of_compounding_per_year, int number_of_payments_per_year);
 };
 
-#endif  MODULES_RENT_CALCULATION_INCLUDE_CALCULATION_RENT_H_
+#endif MODULES_RENT_CALCULATION_INCLUDE_CALCULATION_RENT_H_
 
