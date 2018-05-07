@@ -41,7 +41,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
 
 TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines) {
     // Arrange
-    Point startLine1(0,0), endLine1(0, 1);
+    Point startLine1(0, 0), endLine1(0, 1);
     Point startLine2(0.1, 0), endLine2(0.1, 1);
 
     // Act
