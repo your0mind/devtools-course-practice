@@ -4,6 +4,7 @@
 #define MODULES_STACK_INCLUDE_STACK_H_
 
 #include <string>
+#include <stdexcept>
 
 template <class ValType>
 class TStack {
@@ -42,7 +43,7 @@ TStack<ValType>::TStack(int _size) {
     pMem = new ValType[size];
 
     if (pMem == NULL)
-        throw std::string("Out of memory");
+        throw std::logic_error("Out of memory");
 }
 
 template <class ValType>
@@ -58,7 +59,7 @@ TStack<ValType>::TStack(const TStack<ValType> &S) {
 
     pMem = new ValType[size];
     if (pMem == NULL) {
-        throw std::string("Out of memory");
+        throw std::logic_error("Out of memory");
     } else {
         for (int i = 0; i < S.sp; i++)
             pMem[i] = S.pMem[i];

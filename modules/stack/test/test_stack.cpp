@@ -10,13 +10,13 @@ TEST(Gladyshev_Alexey_StackTest, Always_Correct_Test) {
     // Arrange
     int hello = 1;
     int world = 1;
-    int assert = 0;
+    int result = 0;
 
     // Act
-    assert = hello + world;
+    result = hello + world;
 
     // Assert
-    EXPECT_EQ(assert, 2);
+    EXPECT_EQ(result, 2);
 }
 
 TEST(Gladyshev_Alexey_StackTest, Can_Create_Stack_With_My_Size) {
