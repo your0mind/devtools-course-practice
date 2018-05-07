@@ -26,7 +26,7 @@ inline bool checkProjection(double startLine1_coord, double endLine1_coord,
 
 bool intersect(Point startLine1, Point endLine1,
     Point startLine2, Point endLine2) {
-    return 
+    return
         checkProjection(startLine1.x, endLine1.x, startLine2.x, endLine2.x) &&
         checkProjection(startLine1.y, endLine1.y, startLine2.y, endLine2.y) &&
         orientedArea(startLine1, endLine1, startLine2) *
