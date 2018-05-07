@@ -15,7 +15,7 @@ class Sphere : public Shape {
 
  public:
     Sphere(const Sphere& sphere);
-    Sphere(const double _R);
+    explicit Sphere(const double _R);
     Sphere();
     double getR() const;
     double Volume();
@@ -27,7 +27,7 @@ class Cube : public Shape {
 
  public:
     Cube(const Cube& cube);
-    Cube(const double _A);
+    explicit Cube(const double _A);
     Cube();
     double getA() const;
     double Volume();
