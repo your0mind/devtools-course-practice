@@ -210,7 +210,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_prenum_easy_rate_bad_val) {
     ASSERT_ANY_THROW(r.Rent_Accum_Year_prenum_easy_rate(20000, 10, 0));
 }
 
-TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_prenum_easy_rate_bad_val) {
+TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_prenum_easy_rate_bad_val2) {
     // Arrange
     Calculation_Rent r;
 
@@ -230,7 +230,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Accum_P_Period_postnum_bad_val) {
     ASSERT_ANY_THROW(r.Rent_Accum_P_Period_postnum(0, 0, 0, 0, 0));
 }
 
-TEST(Calc_Rent_Test, no_Calc_Rent_Accum_P_Period_postnum_bad_val) {
+TEST(Calc_Rent_Test, no_Calc_Rent_Accum_P_Period_postnum_bad_val2) {
     // Arrange
     Calculation_Rent r;
 
