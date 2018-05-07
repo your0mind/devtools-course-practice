@@ -12,15 +12,15 @@ inline int orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
-inline bool checkProjection(double a, double b, double c, double d) {
-    if (a > b)  std::swap(a, b);
-    if (c > d)  std::swap(c, d);
-    return std::max(a, c) <= std::min(b, d);
+inline bool checkProjection(double x1, double y1, double x2, double y2) {
+    if (x1 > y1)  std::swap(x1, y1);
+    if (x2 > y2)  std::swap(x2, y2);
+    return std::max(x1, x2) <= std::min(y1, y2);
 }
 
-bool intersect(Point a, Point b, Point c, Point d) {
-    return checkProjection(a.x, b.x, c.x, d.x)
-        && checkProjection(a.y, b.y, c.y, d.y)
-        && orientedArea(a, b, c) * orientedArea(a, b, d) <= 0
-        && orientedArea(c, d, a) * orientedArea(c, d, b) <= 0;
+bool intersect(Point startLine1, Point endLine1, Point startLine2, Point endLine2) {
+    return checkProjection(startLine1.x, b.x, c.x, d.x)
+        && checkProjection(startLine1.y, b.y, c.y, d.y)
+        && orientedArea(startLine1, b, c) * orientedArea(startLine1, b, d) <= 0
+        && orientedArea(c, d, startLine1) * orientedArea(c, d, b) <= 0;
 }
