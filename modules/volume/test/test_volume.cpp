@@ -4,7 +4,7 @@
 
 #include "include/volume.h"
 
- TEST(Shurygin_Dmitriy_Volume_Test, Get_Radius_From_Sphere) {
+TEST(Shurygin_Dmitriy_Volume_Test, Get_Radius_From_Sphere) {
      // Arrange
     double _R = 3;
     Sphere sphere(_R);
@@ -19,7 +19,7 @@ TEST(Shurygin_Dmitriy_Volume_Test, Get_A_From_Cube) {
     Cube cube(_A);
 
     // Act & Assert
-   EXPECT_EQ(_A, cube.getA()); 
+   EXPECT_EQ(_A, cube.getA());
 }
 
 TEST(Shurygin_Dmitriy_Volume_Test, Get_R_From_Cylinder) {
@@ -30,7 +30,7 @@ TEST(Shurygin_Dmitriy_Volume_Test, Get_R_From_Cylinder) {
 
     // Act & Assert
     EXPECT_EQ(_R, cylinder.getR());
- }
+}
 
 TEST(Shurygin_Dmitriy_Volume_Test, Get_h_From_Cylinder) {
     // Arrange
@@ -47,14 +47,14 @@ TEST(Shurygin_Dmitriy_Volume_Test, Set_R_From_Sphere) {
     Sphere sphere;
     double _R = 7.4;
 
-   // Act
+    // Act
     sphere.setR(_R);
 
     // Assert
     EXPECT_EQ(_R, sphere.getR());
 }
- 
- TEST(Shurygin_Dmitriy_Volume_Test, Volume_Calculation_Cube) {
+
+TEST(Shurygin_Dmitriy_Volume_Test, Volume_Calculation_Cube) {
     // Arrange
     double res = 0;
     Cube cube(2.0);
@@ -64,5 +64,4 @@ TEST(Shurygin_Dmitriy_Volume_Test, Set_R_From_Sphere) {
 
     // Assert
     EXPECT_NEAR(res, 8.0, 0.0001);
-
 }
