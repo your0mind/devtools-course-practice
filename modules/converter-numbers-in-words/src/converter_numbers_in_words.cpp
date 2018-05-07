@@ -3,6 +3,7 @@
 #include "include/converter_numbers_in_words.h"
 
 #include <string>
+#include <stdexcept>
 
 ConverterNumbersInWords::ConverterNumbersInWords() : number(0.0) {}
 
