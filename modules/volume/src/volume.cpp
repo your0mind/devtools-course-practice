@@ -16,7 +16,7 @@ double Sphere::getR() const {
 }
 
 void Sphere::setR(const double _R) {
-    R=_R;
+    R = _R;
 }
 
 double Sphere::Volume() {
