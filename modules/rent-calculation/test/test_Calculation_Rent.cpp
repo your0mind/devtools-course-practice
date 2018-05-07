@@ -276,7 +276,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_postnum_hard_rate_bad_val2) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Modern_Year_postnum_hard_rate2(200000000, 8, 4));
+    ASSERT_ANY_THROW(r.Rent_Modern_Year_postnum_hard_rate(200000000, 8, 4));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_postnum_easy_rate_bad_val) {
