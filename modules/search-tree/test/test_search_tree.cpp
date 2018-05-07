@@ -37,3 +37,10 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element) {
     ASSERT_NO_THROW(tree->Search(tr, key));
     delete tree;
 }
+
+TEST(Gorelova_Ksenia_SearchTree_Test, can_delete_tree) {
+    SearchTree *tree = new SearchTree();
+    Tree * tr = nullptr;
+    ASSERT_NO_THROW(tree->DestroyBTree(tr));
+    delete tree;
+}
