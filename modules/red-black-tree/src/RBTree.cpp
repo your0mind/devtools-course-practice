@@ -176,7 +176,7 @@ Node* RBTree::insertNode(T data) {
         if (data == current->data){
             current->count++;
             return current;
-        };
+        }
         parent = current;
         current = data < current->data ? current->left : current->right;
     }
