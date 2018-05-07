@@ -238,7 +238,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Yearly_prenumer_easy_rate_bad_val) {
 
     // Assert
     ASSERT_ANY_THROW(r.Rent_Modern_Yearly_pretnumerando_easy_rate(
-												20000000000, 2, 3));
+                                                20000000000, 2, 3));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Modern_P_Period_postnumerando_bad_val) {
