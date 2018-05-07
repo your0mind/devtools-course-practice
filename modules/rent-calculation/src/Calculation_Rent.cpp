@@ -52,7 +52,7 @@ double Calculation_Rent::Rent_Accum_Year_prenum_hard_rate(double amunt,
     double re = rent_term;
     return am*( (1+in)* (pow((1 + in), re) - 1) / in );
 }
-double Calculation_Rent::Rent_Accum_Year_pretnumerando_easy_rate(double amunt,
+double Calculation_Rent::Rent_Accum_Year_prenum_easy_rate(double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -171,7 +171,7 @@ double Calculation_Rent::Rent_Modern_Year_prenum_hard_rate(double amunt,
     return static_cast<int>(am*((1 + in)*
         ((1 - pow((1 + in), -re)) / in))*10000+0.5)/10000.0;
 }
-double Calculation_Rent::Rent_Modern_Year_pretnumerando_easy_rate(
+double Calculation_Rent::Rent_Modern_Year_prenum_easy_rate(
     double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
