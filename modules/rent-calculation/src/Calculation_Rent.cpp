@@ -72,7 +72,8 @@ double Calculation_Rent::Rent_Accum_P_Period_postnumerando(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0 
-        || number_compounding_per_year <= 0 || number_payments_per_year <= 0) {
+        || number_compounding_per_year <= 0 
+        || number_payments_per_year <= 0) {
         throw "Enter a wrong mumber";
         return 0;
     }
@@ -94,7 +95,8 @@ double Calculation_Rent::Rent_Accum_P_Period_prenumerando(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0 
-        || number_compounding_per_year <= 0 || number_payments_per_year <= 0) {
+        || number_compounding_per_year <= 0 
+        || number_payments_per_year <= 0) {
         throw "Enter a wrong mumber";
         return 0;
     }
@@ -113,13 +115,15 @@ double Calculation_Rent::Rent_Accum_P_Period_prenumerando(double amunt,
         (pow((1 + nom / com), (com*re)) - 1)
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))));
 }
-double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(double amunt,
+double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(
+    double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
         return 0;
     }
-    if (interest_rate > 10000000 || rent_term > 10000000 || amunt > 100000000) {
+    if (interest_rate > 10000000 
+        || rent_term > 10000000 || amunt > 100000000) {
         throw "Enter a too long mumber";
         return 0;
     }
@@ -128,7 +132,8 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(double amunt,
     double re = rent_term;
     return am*((1-pow((1 + in), -re)) / in);
 }
-double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(double amunt,
+double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(
+    double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -166,7 +171,8 @@ double Calculation_Rent::Rent_Modern_Year_prenumerando_hard_rate(double amunt,
     return int(am*((1 + in)*
         ((1 - pow((1 + in), -re)) / in))*10000+0.5)/10000.0;
 }
-double Calculation_Rent::Rent_Modern_Year_pretnumerando_easy_rate(double amunt,
+double Calculation_Rent::Rent_Modern_Year_pretnumerando_easy_rate(
+    double amunt,
     double rent_term, double interest_rate) {
     if (interest_rate <= 0 || rent_term <= 0 || amunt <= 0) {
         throw "Enter a wrong mumber";
@@ -234,5 +240,6 @@ double Calculation_Rent::Rent_Modern_P_Period_prenumerando(double amunt,
     int pay = number_payments_per_year;
     return int(am*(pow((1 + nom / com), (com / pay))
         *(1 - pow((1 + nom / com), (-com*re)))
-        / (pay*((pow((1 + nom / com), (com / pay)) - 1)))) * 10000 + 0.5) / 10000.0;
+        / (pay*((pow((1 + nom / com), (com / pay)) - 1))))
+        * 10000 + 0.5) / 10000.0;
 }
