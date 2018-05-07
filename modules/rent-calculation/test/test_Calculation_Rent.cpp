@@ -147,7 +147,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_postnumerando_hard_rate_bad_val) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Accum_Year_postnumerando_hard_rate(0,-1,6));
+    ASSERT_ANY_THROW(r.Rent_Accum_Year_postnumerando_hard_rate(0, -1, 6));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_postnumerando_easy_rate_bad_val) {
@@ -177,7 +177,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Accum_Year_pretnumerando_easy_rate_bad_val) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Accum_Year_pretnumerando_easy_rate(20000000, 10, 0));
+    ASSERT_ANY_THROW(r.Rent_Accum_Year_pretnumerando_easy_rate(20000, 10, 0));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Accum_P_Period_postnumerando_bad_val) {
@@ -197,7 +197,7 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Accum_P_Period_prenumerando_bad_val) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Accum_P_Period_prenumerando(100, 0, 5, 2, 200000000));
+    ASSERT_ANY_THROW(r.Rent_Accum_P_Period_prenumerando(1, 0, 5, 2, 20000000));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_postnumerando_hard_rate_bad_val) {
@@ -230,14 +230,15 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_prenumerando_hard_rate_bad_val) {
     ASSERT_ANY_THROW(r.Rent_Modern_Yearly_prenumerando_hard_rate(50, -200, 3));
 }
 
-TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Yearly_pretnumerando_easy_rate_bad_val) {
+TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Yearly_prenumer_easy_rate_bad_val) {
     // Arrange
     Calculation_Rent r;
 
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Modern_Yearly_pretnumerando_easy_rate(50000000000, 2, 30000));
+    ASSERT_ANY_THROW(r.Rent_Modern_Yearly_pretnumerando_easy_rate(
+												20000000000, 2, 3));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_Modern_P_Period_postnumerando_bad_val) {

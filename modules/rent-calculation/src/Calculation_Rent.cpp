@@ -71,37 +71,37 @@ double Calculation_Rent::Rent_Accum_Year_pretnumerando_easy_rate(double amunt,
 double Calculation_Rent::Rent_Accum_P_Period_postnumerando(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
-    if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0 
-        || number_compounding_per_year <= 0 
+    if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0
+        || number_compounding_per_year <= 0
         || number_payments_per_year <= 0) {
         throw "Enter a wrong mumber";
         return 0;
     }
-    if (nominal_rate > 100000000 || rent_term >10000000 
-        || amunt >100000000 || number_compounding_per_year>100000000
+    if (nominal_rate > 100000000 || rent_term >10000000
+        || amunt >100000000 || number_compounding_per_year >100000000
         || number_payments_per_year >100000000) {
         throw "Enter a wrong mumber";
         return 0;
     }
     double am = amunt;
-    double re=rent_term;
+    double re = rent_term;
     int nom = nominal_rate;
-    int com=number_compounding_per_year;
-    int pay=number_payments_per_year;
-    return am*((pow((1 + nom / com), (com*re)) - 1) 
+    int com = number_compounding_per_year;
+    int pay = number_payments_per_year;
+    return am*((pow((1 + nom / com), (com*re)) - 1)
         / (pay*((pow((1 + nom / com), (com / pay)) - 1))));
 }
 double Calculation_Rent::Rent_Accum_P_Period_prenumerando(double amunt,
     double rent_term, double nominal_rate, int number_compounding_per_year,
     int number_payments_per_year) {
-    if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0 
-        || number_compounding_per_year <= 0 
+    if (nominal_rate <= 0 || rent_term <= 0 || amunt <= 0
+        || number_compounding_per_year <= 0
         || number_payments_per_year <= 0) {
         throw "Enter a wrong mumber";
         return 0;
     }
-    if (nominal_rate > 100000000 || rent_term >10000000 || amunt >100000000 
-        || number_compounding_per_year>100000000 
+    if (nominal_rate > 100000000 || rent_term >10000000 || amunt >100000000
+        || number_compounding_per_year > 100000000
         || number_payments_per_year >10000000) {
         throw "Enter a wrong mumber";
         return 0;
@@ -122,7 +122,7 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_hard_rate(
         throw "Enter a wrong mumber";
         return 0;
     }
-    if (interest_rate > 10000000 
+    if (interest_rate > 10000000
         || rent_term > 10000000 || amunt > 100000000) {
         throw "Enter a too long mumber";
         return 0;
@@ -139,7 +139,7 @@ double Calculation_Rent::Rent_Modern_Year_postnumerando_easy_rate(
         throw "Enter a wrong mumber";
         return 0;
     }
-    if (interest_rate > 10000000 
+    if (interest_rate > 10000000
         || rent_term > 10000000 || amunt > 100000000) {
         throw "Enter a too long mumber";
         return 0;
@@ -203,7 +203,7 @@ double Calculation_Rent::Rent_Modern_P_Period_postnumerando(double amunt,
     }
     if (nominal_rate > 100000000 || rent_term >10000000
         || amunt >100000000
-        || number_compounding_per_year>100000000
+        || number_compounding_per_year >100000000
         || number_payments_per_year >100000000) {
         throw "Enter a wrong mumber";
         return 0;
@@ -221,14 +221,14 @@ double Calculation_Rent::Rent_Modern_P_Period_prenumerando(double amunt,
     double rent_term, double nominal_rate,
     int number_compounding_per_year, int number_payments_per_year) {
     if (nominal_rate <= 0 || rent_term <= 0
-        || amunt <= 0 || number_compounding_per_year<=0
+        || amunt <= 0 || number_compounding_per_year <=0
         || number_payments_per_year <=0) {
         throw "Enter a wrong mumber";
         return 0;
     }
     if (nominal_rate > 100000000
         || rent_term >10000000 || amunt >100000000
-        || number_compounding_per_year>100000000
+        || number_compounding_per_year >100000000
         || number_payments_per_year >100000000) {
         throw "Enter a wrong mumber";
         return 0;
