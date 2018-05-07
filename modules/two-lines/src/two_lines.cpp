@@ -12,10 +12,10 @@ inline int orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
-inline bool checkProjection(double x1, double y1, double x2, double y2) {
-    if (x1 > y1)  std::swap(x1, y1);
-    if (x2 > y2)  std::swap(x2, y2);
-    return std::max(x1, x2) <= std::min(y1, y2);
+inline bool checkProjection(double startLine1_coord, double endLine1_coord, double startLine2_coord, double endLine2_coord) {
+    if (startLine1_coord > endLine1_coord)  std::swap(startLine1_coord, endLine1_coord);
+    if (startLine2_coord > endLine2_coord)  std::swap(startLine2_coord, endLine2_coord);
+    return std::max(startLine1_coord, startLine2_coord) <= std::min(endLine1_coord, endLine2_coord);
 }
 
 bool intersect(Point startLine1, Point endLine1, Point startLine2, Point endLine2) {
