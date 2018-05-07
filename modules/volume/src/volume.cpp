@@ -38,7 +38,8 @@ Cylinder::Cylinder() : R(0), h(0) {}
 
 Cylinder::Cylinder(const double _R, const double _h) : R(_R), h(_h) {}
 
-Cylinder::Cylinder(const Cylinder& cylinder) : R(cylinder.getR()), h(cylinder.geth()) {}
+Cylinder::Cylinder(const Cylinder& cylinder) 
+         : R(cylinder.getR()), h(cylinder.geth()) {}
 
 double Cylinder::getR() const {
     return R;

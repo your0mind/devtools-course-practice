@@ -1,8 +1,8 @@
 // Copyright 2018 Shurygin Dmitriy
 
 
-#ifndef MODULES_VOLUME_H_
-#define MODULES_VOLUME_H_
+#ifndef MODULES_VOLUME_INCLUDE_VOLUME_H_
+#define MODULES_VOLUME_INCLUDE_VOLUME_H_
 
 class Shape {
  public:
@@ -47,4 +47,4 @@ class Cylinder : public Shape {
     double Volume();
 };
 
-#endif  // MODULES_VOLUME_H_
+#endif  // MODULES_VOLUME_INCLUDE_VOLUME_H_
