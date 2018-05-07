@@ -37,17 +37,3 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element) {
     ASSERT_NO_THROW(tree->Search(tr, key));
     delete tree;
 }
-
-TEST(Gorelova_Ksenia_SearchTree_Test, throw_when_try_findMin_in_empty_tree) {
-    SearchTree *tree = new SearchTree();
-    Tree * tr = nullptr;
-    ASSERT_ANY_THROW(tree->FindMin(tr));
-    delete tree;
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, throw_when_try_findMax_in_empty_tree) {
-    SearchTree *tree = new SearchTree();
-    Tree * tr = nullptr;
-    ASSERT_ANY_THROW(tree->FindMax(tr));
-    delete tree;
-}
