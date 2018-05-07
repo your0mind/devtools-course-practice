@@ -40,5 +40,5 @@ class Calculation_Rent{
                     int number_payments_per_year);
 };
 
-#endif // MODULES_RENT_CALCULATION_INCLUDE_CALCULATION_RENT_H_
+#endif  // MODULES_RENT_CALCULATION_INCLUDE_CALCULATION_RENT_H_
 
