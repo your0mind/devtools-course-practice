@@ -18,8 +18,7 @@ void SearchTree::AddTree(int val, Tree ** tr) {
 Tree * SearchTree::FindMin(Tree * tr) {
     if (tr->left != nullptr) {
         return FindMin(tr->left);
-    }
-    else {
+    } else {
         return tr;
     }
 }
@@ -27,8 +26,7 @@ Tree * SearchTree::FindMin(Tree * tr) {
 Tree * SearchTree::FindMax(Tree * tr) {
     if (tr->right != nullptr) {
         return  FindMax(tr->right);
-    }
-    else {
+    } else {
         return tr;
     }
 }
