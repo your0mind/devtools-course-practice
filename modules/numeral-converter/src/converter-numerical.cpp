@@ -101,9 +101,9 @@ int NumericalConverter::ConvertOneToArabicNumber(std::string inputString) {
         return ArabicNumberOutput;
 }
 
-int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inptr) {
-        for (int i = 0; i < static_cast<int>(inptr.size()); ++i) {
-                if (inptr[i + 1] == static_cast<char>('X')) {
+int NumericalConverter::ConvertRomanNumeralToArabicNumber(std::string inpStr) {
+        for (int i = 0; i < static_cast<int>(inpStr.size()); ++i) {
+                if (inpStr[i + 1] == static_cast<char>('X')) {
                         ArabicNumberOutput += 9;
                         i++;
                 } else if (inpStr[i] == static_cast<char>('I')) {
