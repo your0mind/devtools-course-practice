@@ -15,6 +15,10 @@ double Sphere::getR() const {
     return R;
 }
 
+void Sphere::setR(const double _R) {
+    R=_R;
+}
+
 double Sphere::Volume() {
     return M_PI * R * R * R;
 }
@@ -30,6 +34,11 @@ double Cube::getA() const {
     return A;
 }
 
+void Cube::setA(const double _A) {
+    A = _A;
+}
+
+
 double Cube::Volume() {
     return A * A * A;
 }
@@ -44,6 +53,15 @@ Cylinder::Cylinder(const Cylinder& cylinder)
 double Cylinder::getR() const {
     return R;
 }
+
+void Cylinder::setR(const double _R) {
+    R = _R;
+}
+
+void Cylinder::seth(const double _h) {
+    h = _h;
+}
+
 
 double Cylinder::geth() const {
     return h;

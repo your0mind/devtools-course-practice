@@ -4,12 +4,7 @@
 #ifndef MODULES_VOLUME_INCLUDE_VOLUME_H_
 #define MODULES_VOLUME_INCLUDE_VOLUME_H_
 
-class Shape {
- public:
-    virtual double Volume() = 0;
-};
-
-class Sphere : public Shape {
+class Sphere {
  private:
     double R;
 
@@ -18,10 +13,11 @@ class Sphere : public Shape {
     explicit Sphere(const double _R);
     Sphere();
     double getR() const;
+    void setR(const double _R);
     double Volume();
 };
 
-class Cube : public Shape {
+class Cube {
  private:
     double A;
 
@@ -30,10 +26,11 @@ class Cube : public Shape {
     explicit Cube(const double _A);
     Cube();
     double getA() const;
+    void setA(const double _A);
     double Volume();
 };
 
-class Cylinder : public Shape {
+class Cylinder {
  private:
     double R;
     double h;
@@ -44,6 +41,8 @@ class Cylinder : public Shape {
     Cylinder();
     double getR() const;
     double geth() const;
+    void setR(const double _R);
+    void seth(const double _h);
     double Volume();
 };
 
