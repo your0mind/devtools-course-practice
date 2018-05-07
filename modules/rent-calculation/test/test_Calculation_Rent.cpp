@@ -227,17 +227,17 @@ TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_prenumerando_hard_rate_bad_val) {
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Modern_Yearly_prenumerando_hard_rate(50, -200, 3));
+    ASSERT_ANY_THROW(r.Rent_Modern_Year_prenumerando_hard_rate(50, -200, 3));
 }
 
-TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Yearly_prenumer_easy_rate_bad_val) {
+TEST(Calc_Rent_Test, no_Calc_Rent_Modern_Year_prenumer_easy_rate_bad_val) {
     // Arrange
     Calculation_Rent r;
 
     // Act
 
     // Assert
-    ASSERT_ANY_THROW(r.Rent_Modern_Yearly_pretnumerando_easy_rate(
+    ASSERT_ANY_THROW(r.Rent_Modern_Year_pretnumerando_easy_rate(
                                                 20000000000, 2, 3));
 }
 
