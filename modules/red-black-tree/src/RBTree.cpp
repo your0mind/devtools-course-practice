@@ -173,7 +173,10 @@ Node* RBTree::insertNode(T data) {
     current = root;
     parent = nullptr;
     while (current != NIL) {
-        if (data == current->data) return current;
+        if (data == current->data){
+            current->count++;
+            return current;
+        };
         parent = current;
         current = data < current->data ? current->left : current->right;
     }
@@ -195,6 +198,10 @@ void RBTree::deleteNode(T data) {
     Node* y;
     Node* z = findNode(data);
     if (!z || z == NIL) return;
+    if (z->count > 1) {
+        z->count--;
+        return;
+    }
     if (z->left == NIL || z->right == NIL) {
         y = z;
     } else {

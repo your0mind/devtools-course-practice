@@ -10,9 +10,10 @@ struct Node {
     Node* parent;  /*Pointer on "parent"*/
     nColor color;  /*Color of Node*/
     T data;  /*Stored data*/
+    int count;  /*Count of Elements*/
 
     Node(Node* _l, Node* _r, Node* _p, nColor _c, T _d) {
-        left = _l; right = _r, parent = _p, color = _c, data = _d;
+        left = _l; right = _r; parent = _p; color = _c; data = _d; count = 1;
     }
 };
 

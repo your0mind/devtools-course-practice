@@ -292,5 +292,5 @@ TEST(RBTree, can_delete_two_node) {
     T.insertNode(5);
     T.deleteNode(5);
 
-    EXPECT_EQ(RBTree::NIL, T.findNode(5));
+    EXPECT_NE(RBTree::NIL, T.findNode(5));
 }
