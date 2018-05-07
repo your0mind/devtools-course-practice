@@ -19,7 +19,7 @@ TEST(Shurygin_Dmitriy_Volume_Test, Get_A_From_Cube) {
     Cube cube(_A);
 
     // Act & Assert
-   EXPECT_EQ(_A, cube.getA());
+    EXPECT_EQ(_A, cube.getA());
 }
 
 TEST(Shurygin_Dmitriy_Volume_Test, Get_R_From_Cylinder) {
