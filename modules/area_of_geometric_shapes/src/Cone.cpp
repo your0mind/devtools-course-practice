@@ -51,7 +51,7 @@ bool Cone::operator!=(const Cone & _c) const {
     return !(*this == _c);
 }
 
-double Cone::area() const {
+double Cone::areaCone() const {
     return pi * radius * (radius + l);
 }
 

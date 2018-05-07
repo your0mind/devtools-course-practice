@@ -19,7 +19,7 @@ class Cone {
     bool operator==(const Cone& _c) const;
     bool operator!=(const Cone& _c) const;
 
-    double area() const;
+    double areaCone() const;
  private:
     bool negativeNumbers(const double _rad, const double _l);
     double radius;

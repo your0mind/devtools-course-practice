@@ -39,7 +39,7 @@ bool Sphere::operator!=(const Sphere & _s) const {
     return !(*this == _s);
 }
 
-double Sphere::area() const {
+double Sphere::areaSph() const {
     return 4 * pi * radius * radius;
 }
 

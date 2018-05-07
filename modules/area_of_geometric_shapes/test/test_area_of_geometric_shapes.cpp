@@ -48,11 +48,11 @@ TEST(AreaOfGeometricShapes, Comparison_Operator) {
     // Arrange
     double radius = 7.9;
     double l = 15.2;
-    Cone* cone1 = new Cone();
+    Cone cone1(3.1, 6.5);
     Cone cone2(radius, l);
 
     // Act
-    cone1 = &cone2;
+    cone1 = cone2;
 
     // Assert
     EXPECT_EQ(cone1->getRad(), cone2.getRad());
@@ -83,8 +83,41 @@ TEST(AreaOfGeometricShapes, Area_Calculation_Cone) {
     Cone cone(2.1, 4.5);
 
     // Act
-    res = cone.area();
+    res = cone.areaCone();
 
     // Assert
     EXPECT_NEAR(res, 43.5425, 0.0001);
+}
+
+TEST(AreaOfGeometricShapes, Copy_Cone) {
+    // Arrange
+    Cone cone1(2.1, 4.5);
+
+    // Act
+    Cone cone2(cone1);
+
+    // Assert
+    EXPECT_EQ(cone1.getRad(), cone2.getRad());
+    EXPECT_EQ(cone1.getL(), cone2.getL());
+}
+
+TEST(AreaOfGeometricShapes, Equal_Test_Cone) {
+    // Arrange
+    double radius = 7.1;
+    double l = 15.9;
+    Cone cone1(radius, l);
+    Cone cone2(cone1);
+
+    // Act & Assert
+    EXPECT_TRUE(cone1 == cone2);
+}
+TEST(AreaOfGeometricShapes, Negative_L_Cone) {
+    // Arrange
+    double radius = 7.1;
+    double l = 15.9;
+    Cone cone1(2.1, 4.5);
+    Cone cone2(radius, l);    
+
+    // Act & Assert
+    EXPECT_TRUE(cone1 != cone2);
 }

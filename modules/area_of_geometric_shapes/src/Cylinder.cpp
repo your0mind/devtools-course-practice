@@ -51,7 +51,7 @@ bool Cylinder::operator!=(const Cylinder & _c) const {
     return !(*this == _c);
 }
 
-double Cylinder::area() const {
+double Cylinder::areaCyl() const {
     return 2 * pi * radius * h;
 }
 

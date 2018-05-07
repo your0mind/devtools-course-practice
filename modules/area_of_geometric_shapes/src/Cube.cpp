@@ -37,7 +37,7 @@ bool Cube::operator!=(const Cube & _c) const {
     return !(*this == _c);
 }
 
-double Cube::area() const {
+double Cube::areaCube() const {
     return 6 * h * h;
 }
 

@@ -17,7 +17,7 @@ class Sphere {
     bool operator==(const Sphere& _s) const;
     bool operator!=(const Sphere& _s) const;
 
-    double area() const;
+    double areaSph() const;
  private:
     bool negativeNumbers(const double _radius);
     double radius;

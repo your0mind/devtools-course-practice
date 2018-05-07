@@ -17,7 +17,7 @@ class Cube {
     bool operator==(const Cube& _c) const;
     bool operator!=(const Cube& _c) const;
 
-    double area() const;
+    double areaCube() const;
  private:
     bool negativeNumbers(const double _h);
     double h;
