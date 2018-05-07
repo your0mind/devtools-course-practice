@@ -323,11 +323,8 @@ TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Large_Number) {
   ConverterNumbersInWords converter;
   converter.SetNumber(9999999991.0);
 
-  // Act
-  std::string result = converter.ConvertToWords();
-
-  // Assert
-  EXPECT_EQ("number is too large for our converter", result);
+  // Act & Assert
+  EXPECT_ANY_THROW(converter.ConvertToWords());
 }
 
 TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Negative_Number) {
@@ -335,9 +332,6 @@ TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Negative_Number) {
   ConverterNumbersInWords converter;
   converter.SetNumber(-1332.0);
 
-  // Act
-  std::string result = converter.ConvertToWords();
-
-  // Assert
-  EXPECT_EQ("number must be pozitive", result);
+  // Act & Assert
+  EXPECT_ANY_THROW(converter.ConvertToWords());
 }

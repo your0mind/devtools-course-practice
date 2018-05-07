@@ -46,7 +46,7 @@ std::string ConverterNumbersInWords::ConvertToWords() {
         result += GetWordsForNumberFrom_1_To_999(hundred);
       }
     } else {
-      return "number is too large for our converter";
+      throw std::logic_error("Input error: number is too large for our converter.\n");
     }
   }
   return result;
@@ -232,7 +232,7 @@ std::string ConverterNumbersInWords::GetWorldForElementaryNumber(int number) {
     return "nine hundred";
     break;
   default:
-    return "number must be pozitive";
+    throw std::logic_error("Input error: number must be pozitive.\n");
     break;
   }
 }
