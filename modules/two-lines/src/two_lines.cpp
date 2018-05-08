@@ -3,7 +3,6 @@
 #include "include/two_lines.h"
 #include <algorithm>
 
-
 Point::Point() : x(0), y(0) {}
 
 Point::Point(double _x, double _y) : x(_x), y(_y) {}
