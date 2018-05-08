@@ -3,15 +3,26 @@
 #include <gtest/gtest.h>
 #include "include/two_lines.h"
 
+TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
+    // Arrange
+    double x = 0, y = 0;
+
+    // Act
+    const Point point1(x, y);
+    const Point point2;
+
+    // Assert
+    EXPECT_DOUBLE_EQ(point1.x, point2.x);
+    EXPECT_DOUBLE_EQ(point1.y, point2.y);
+}
+
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
-    Point line1[2];
-    line1[0] = Point(0, 0);
-    line1[1] = Point(0, 0);
+    Point startLine1(0, 0), endLine1(0, 0);
     Point startLine2(1, 1), endLine2(1, 1);
 
     // Act
-    bool isIntersect = intersect(line1[0], line1[1], startLine2, endLine2);
+    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
