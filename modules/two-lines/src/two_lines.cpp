@@ -25,11 +25,16 @@ inline bool checkProjection(double startLine1_coord, double endLine1_coord,
 
 bool intersect(Point startLine1, Point endLine1,
     Point startLine2, Point endLine2) {
+    bool isX, isY;
+    isX = checkProjection(startLine1.x, endLine1.x, startLine2.x, endLine2.x);
+    isY = checkProjection(startLine1.y, endLine1.y, startLine2.y, endLine2.y);
+    double orientedArea1, orientedArea2, orientedArea3, orientedArea4;
+    orientedArea1 = orientedArea(startLine1, endLine1, startLine2);
+    orientedArea2 = orientedArea(startLine1, endLine1, endLine2);
+    orientedArea3 = orientedArea(startLine2, endLine2, startLine1);
+    orientedArea4 = orientedArea(startLine2, endLine2, endLine1);
     return
-        checkProjection(startLine1.x, endLine1.x, startLine2.x, endLine2.x) &&
-        checkProjection(startLine1.y, endLine1.y, startLine2.y, endLine2.y) &&
-        orientedArea(startLine1, endLine1, startLine2) *
-        orientedArea(startLine1, endLine1, endLine2) <= 0 &&
-        orientedArea(startLine2, endLine2, startLine1) *
-        orientedArea(startLine2, endLine2, endLine1) <= 0;
+        (isX && isY
+         && orientedArea1 * orientedArea2 <= 0
+         && orientedArea3 * orientedArea4 <= 0);
 }
