@@ -13,7 +13,7 @@ Vector3d::Vector3d(double component0, double component1, double component2) {
     z = component2;
 }
 
-void Vector3d::SetComponent(int index, double value){
+void Vector3d::SetComponent(int index, double value) {
     switch (index) {
     case 0:
         x = value;
