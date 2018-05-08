@@ -5,11 +5,13 @@
 
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
-    Point startLine1(0, 0), endLine1(0, 0);
+    Point line1[2];
+    line1[0] = Point(0, 0);
+    line1[1] = Point(0, 0);
     Point startLine2(1, 1), endLine2(1, 1);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = intersect(line1[0], line1[1], startLine2, endLine2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
