@@ -142,7 +142,7 @@ bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const {
         if (mem[lhsCurPos] != rhs.mem[rhsCurPos])
             return false;
         lhsCurPos = nextIndex(lhsCurPos);
-        rhsCurPos = nextIndex(lhsCurPos);
+        rhsCurPos = nextIndex(rhsCurPos);
     }
     return back() == rhs.back();
 }
