@@ -3,6 +3,18 @@
 #include <gtest/gtest.h>
 #include "include/two_lines.h"
 
+TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
+    // Arrange
+    double x = 0, y = 0;
+
+    // Act
+    Point point1, point2(x, y);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(point1.x, point2.x);
+    EXPECT_DOUBLE_EQ(point1.y, point2.y);
+}
+
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
     Point startLine1(0, 0), endLine1(0, 0);
@@ -74,10 +86,22 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent_Lines) {
     EXPECT_TRUE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines) {
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines1) {
     // Arrange
     Point startLine1(0, 0), endLine1(1000, 1000);
     Point startLine2(0, 1000), endLine2(499.5, 500);
+
+    // Act
+    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+
+    // Assert
+    EXPECT_FALSE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines2) {
+    // Arrange
+    Point startLine1, endLine1(101, 0.1);
+    Point startLine2(-100, 0.1), endLine2(100, 0.1);
 
     // Act
     bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);

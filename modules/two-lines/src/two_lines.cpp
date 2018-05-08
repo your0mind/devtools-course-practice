@@ -3,9 +3,12 @@
 #include "include/two_lines.h"
 #include <algorithm>
 
+
+Point::Point() : x(0), y(0) {}
+
 Point::Point(double _x, double _y) : x(_x), y(_y) {}
 
-inline int orientedArea(Point a, Point b, Point c) {
+inline double orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 }
 
