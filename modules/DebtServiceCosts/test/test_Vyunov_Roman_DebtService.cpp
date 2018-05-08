@@ -12,5 +12,5 @@ TEST(Vyunov_Roman_DebtService_test, Can_Create_Zero) {
 
 
     // Assert
-
+    ASSERT_ANY_THROW(new DebtService(-1,2,3));
 }
