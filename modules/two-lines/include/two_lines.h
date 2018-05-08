@@ -9,6 +9,7 @@ struct Point {
     Point(double _x, double _y);
 };
 
-bool intersect(Point a, Point b, Point c, Point d);
+bool intersect(Point startLine1, Point endLine1,
+    Point startLine2, Point endLine2);
 
 #endif  // MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_
