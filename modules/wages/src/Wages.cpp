@@ -92,8 +92,7 @@ void Wages::
 double Wages::getNumberWorkingDaysInCurrentMonth() {
     double result;
     Month month = getMonth();
-    switch (month)
-    {
+    switch (month) {
     case January: {
         result = 17;
         break;
@@ -142,7 +141,7 @@ double Wages::getNumberWorkingDaysInCurrentMonth() {
         result = 21;
         break;
     }
- }
+    }
     return result;
 }
 
