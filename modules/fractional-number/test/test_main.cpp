@@ -1,6 +1,6 @@
 //
 //  test_main.cpp
-//  fractional_numbers
+//  fractional_number
 //
 //  Created by Aleksei Khomenko.
 //  Copyright © 2018 Aleksei Khomenko. All rights reserved.
