@@ -4,12 +4,12 @@
 #define MODULES_RENT_CALCULATION_INCLUDE_CALCULATION_RENT_H_
 
 class Calculation_Rent{
-private:
+ private:
     double amount_payment;
     double rent_term;
     double interest_rate;
 
-public:
+ public:
     Calculation_Rent(
         double am_pay = 1,
         double re_term = 1,
