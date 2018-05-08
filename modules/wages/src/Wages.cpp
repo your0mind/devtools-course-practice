@@ -5,10 +5,10 @@
 #include <string>
 
 Wages::Wages() : salary_(10000), administrativeLeaveHours_(0),
-    overtime_(0), month_(const_cast<char*>("January")) {}
+    overtime_(0), current_month_(January) {}
 
 Wages::Wages(const double salary, const double administrativeLeaveHours,
-    const double overtime, char *month) {
+    const double overtime, Month month) {
     bool control;
     control = controlMROT(salary);
     if (control == true) salary_ = salary;
@@ -22,15 +22,12 @@ Wages::Wages(const double salary, const double administrativeLeaveHours,
     if (control == true) overtime_ = overtime;
     else
         throw std::string("Overtime leave hours can not be negative!");
-    control = controlMonth(month);
-    if (control == true)  month_ = month;
-    else
-        throw std::string("Month is not defined!");
+    current_month_ = month;
 }
 
 Wages::Wages(const Wages& wages) : salary_(wages.getSalary()),
     administrativeLeaveHours_(wages.getAdministrativeLeaveHours()),
-    overtime_(wages.getOvertime()), month_(wages.getMonth()) {}
+    overtime_(wages.getOvertime()), current_month_(wages.getMonth()) {}
 
 double Wages::getSalary() const {
     return salary_;
@@ -44,16 +41,16 @@ double Wages::getOvertime() const {
     return overtime_;
 }
 
-char* Wages::getMonth() const {
-    return month_;
+Month Wages::getMonth() const {
+    return current_month_;
 }
 
 void Wages::setSalary(const double salary) {
     salary_ = salary;
 }
 
-void Wages::setMonth(char *month) {
-    month_ = month;
+void Wages::setMonth(Month month) {
+    current_month_ = month;
 }
 
 void Wages::setAdministrativeLeaveHours(const double administrativeLeaveHours) {
@@ -75,24 +72,6 @@ bool Wages::controlMROT(const double field) {
     return result;
 }
 
-bool Wages::controlMonth(char *field) {
-    bool result = false;
-    if (!strcmp(field, "January")) result = true;
-    if (!strcmp(field, "February")) result = true;
-    if (!strcmp(field, "March")) result = true;
-    if (!strcmp(field, "April")) result = true;
-    if (!strcmp(field, "May")) result = true;
-    if (!strcmp(field, "June")) result = true;
-    if (!strcmp(field, "July")) result = true;
-    if (!strcmp(field, "August")) result = true;
-    if (!strcmp(field, "Semtember")) result = true;
-    if (!strcmp(field, "October")) result = true;
-    if (!strcmp(field, "November")) result = true;
-    if (!strcmp(field, "December")) result = true;
-
-    return result;
-}
-
 void Wages::controlOvertime(const double overtime) {
     int workDays = static_cast<int>(calculationActualWorkingDays());
     if (overtime > 3 * (static_cast<double>(workDays)))
@@ -108,22 +87,58 @@ void Wages::
 
 double Wages::getNumberWorkingDaysInCurrentMonth() {
     double result;
-    char *month;
-    month = getMonth();
-    if (!strcmp(month, "January")) result = 17;
-    else if (!strcmp(month, "February")) result = 19;
-    else if (!strcmp(month, "March")) result = 20;
-    else if (!strcmp(month, "April")) result = 21;
-    else if (!strcmp(month, "May")) result = 20;
-    else if (!strcmp(month, "June")) result = 20;
-    else if (!strcmp(month, "July")) result = 22;
-    else if (!strcmp(month, "August")) result = 23;
-    else if (!strcmp(month, "Semtember")) result = 20;
-    else if (!strcmp(month, "October")) result = 23;
-    else if (!strcmp(month, "November")) result = 21;
-    else if (!strcmp(month, "December")) result = 21;
-    else
-        throw std::string("Month is not defined");
+    Month month = getMonth();
+    switch (month)
+    {
+    case January: {
+        result = 17;
+        break;
+    }
+    case February: {
+        result = 19;
+        break;
+    }
+    case March: {
+        result = 20;
+        break;
+    }
+    case April: {
+        result = 21;
+        break;
+    }
+    case May: {
+        result = 20;
+        break;
+    }
+    case June: {
+        result = 20;
+        break;
+    }
+    case July: {
+        result = 22;
+        break;
+    }
+    case August: {
+        result = 23;
+        break;
+    }
+    case September: {
+        result = 20;
+        break;
+    }
+    case October: {
+        result = 23;
+        break;
+    }
+    case November: {
+        result = 21;
+        break;
+    }
+    case December: {
+        result = 21;
+        break;
+    }
+ }
     return result;
 }
 

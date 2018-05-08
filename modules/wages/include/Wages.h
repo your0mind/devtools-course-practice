@@ -3,26 +3,31 @@
 #ifndef MODULES_WAGES_INCLUDE_WAGES_H_
 #define MODULES_WAGES_INCLUDE_WAGES_H_
 
+typedef enum {
+    January = 1, February, March, April, May, June,
+    July, August, September, October, November, December
+} Month;
+
 class Wages {
  public:
     Wages();
     Wages(const double salary, const double administrativeLeaveHours,
-        const double overtime, char *month);
+        const double overtime, Month month);
     Wages(const Wages& wages);
 
     double getSalary() const;
     double getAdministrativeLeaveHours() const;
     double getOvertime() const;
-    char* getMonth() const;
+    Month getMonth() const;
 
     void setSalary(const double salary);
     void setAdministrativeLeaveHours(const double administrativeLeaveHours);
     void setOvertime(const double overtime);
-    void setMonth(char *month);
+    void setMonth(Month month);
 
     bool controlMROT(const double field);
     bool controlField(const double field);
-    bool controlMonth(char *field);
+    bool controlMonth(Month month);
     void controlOvertime(const double overtime);
     void controlAdministrativeLeaveHours(const double administrativeLeaveHours);
     double getNumberWorkingDaysInCurrentMonth();
@@ -36,7 +41,7 @@ class Wages {
     double salary_;
     double administrativeLeaveHours_;
     double overtime_;
-    char *month_;
+    Month current_month_;
 };
 
 #endif   //  MODULES_WAGES_INCLUDE_WAGES_H_
