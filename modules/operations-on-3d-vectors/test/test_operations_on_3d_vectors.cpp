@@ -15,7 +15,8 @@ TEST(Gracheva_Elena_TestOperationsOn3dVectors, can_get_correct_norm) {
     EXPECT_DOUBLE_EQ(5, result);
 }
 
-TEST(Gracheva_Elena_TestOperationsOn3dVectors, can_get_correct_normalized_vector) {
+TEST(Gracheva_Elena_TestOperationsOn3dVectors,
+    can_get_correct_normalized_vector) {
     // Arrange
     Vector3d vector(0, 3, -4);
     Vector3d expectedResult(0, 3 / 5.0, -4 / 5.0);
