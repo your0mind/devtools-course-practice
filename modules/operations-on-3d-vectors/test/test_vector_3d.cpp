@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/vector_3d.h"
 
-TEST(Gracheva_Elena_TestVector3d, correct_constructor_with_parameters) {
+TEST(Gracheva_Elena_TestVector3d, can_create_not_zero_vector) {
     // Arrange
     double component0 = 1, component1 = 2, component2 = 3;
 
@@ -27,7 +27,30 @@ TEST(Gracheva_Elena_TestVector3d, can_create_zero_vector) {
     EXPECT_EQ(expectedResult, result);
 }
 
-TEST(Gracheva_Elena_TestVector3d, can_get_component) {
+TEST(Gracheva_Elena_TestVector3d, can_get_component_0) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+
+    // Act
+    double data1 = vector.GetComponent(0);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(1, data1);
+}
+
+TEST(Gracheva_Elena_TestVector3d, can_set_component_0) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+    double setValue = 1;
+
+    // Act
+    vector.SetComponent(0, setValue);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(setValue, vector.GetComponent(0));
+}
+
+TEST(Gracheva_Elena_TestVector3d, can_get_component_1) {
     // Arrange
     Vector3d vector(1, 2, 3);
 
@@ -38,7 +61,30 @@ TEST(Gracheva_Elena_TestVector3d, can_get_component) {
     EXPECT_DOUBLE_EQ(2, data1);
 }
 
-TEST(Gracheva_Elena_TestVector3d, can_set_component) {
+TEST(Gracheva_Elena_TestVector3d, can_set_component_1) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+    double setValue = 1;
+
+    // Act
+    vector.SetComponent(1, setValue);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(setValue, vector.GetComponent(1));
+}
+
+TEST(Gracheva_Elena_TestVector3d, can_get_component_2) {
+    // Arrange
+    Vector3d vector(1, 2, 3);
+
+    // Act
+    double data1 = vector.GetComponent(2);
+
+    // Assert
+    EXPECT_DOUBLE_EQ(3, data1);
+}
+
+TEST(Gracheva_Elena_TestVector3d, can_set_component_2) {
     // Arrange
     Vector3d vector(1, 2, 3);
     double setValue = 1;
