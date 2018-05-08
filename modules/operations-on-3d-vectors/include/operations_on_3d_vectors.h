@@ -10,9 +10,9 @@ class OperationsOn3dVectors {
     static double GetNorm(const Vector3d& vector);
     static Vector3d GetNormalizedVector(const Vector3d& vector);
 
-    static double ScalarProduct(const Vector3d& vector1,
+    static double DotProduct(const Vector3d& vector1,
         const Vector3d& vector2);
-    static Vector3d VectorProduct(const Vector3d& vector1,
+    static Vector3d CrossProduct(const Vector3d& vector1,
         const Vector3d& vector2);
 };
 

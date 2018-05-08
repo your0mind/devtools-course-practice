@@ -4,34 +4,57 @@
 #include <stdexcept>
 
 Vector3d::Vector3d() {
-    data[0] = data[1] = data[2] = 0;
+    x = y = z = 0;
 }
 
 Vector3d::Vector3d(double component0, double component1, double component2) {
-    data[0] = component0;
-    data[1] = component1;
-    data[2] = component2;
+    x = component0;
+    y = component1;
+    z = component2;
 }
 
-double& Vector3d::operator[](int index) {
-    if (index < 0 || index>2)
+void Vector3d::SetComponent(int index, double value)
+{
+    switch (index) {
+    case 0:
+        x = value;
+        break;
+    case 1:
+        y = value;
+        break;
+    case 2:
+        z = value;
+        break;
+    default:
         throw std::invalid_argument("incorrect index");
-    return data[index];
+    }
 }
 
 double Vector3d::GetComponent(int index) const {
-    if (index < 0 || index>2)
+    switch (index) {
+    case 0:
+        return x;
+        break;
+    case 1:
+        return y;
+        break;
+    case 2:
+        return z;
+        break;
+    default:
         throw std::invalid_argument("incorrect index");
-    return data[index];
+    }
 }
 
 bool operator==(const Vector3d & vector1, const Vector3d & vector2) {
-    return (vector1.data[0]== vector2.data[0]) &&
-        (vector1.data[1] == vector2.data[1]) &&
-        (vector1.data[2] == vector2.data[2]);
+    return (vector1.x == vector2.x) &&
+        (vector1.y == vector2.y) &&
+        (vector1.z == vector2.z);
 }
 
 bool operator!=(const Vector3d & vector1, const Vector3d & vector2) {
-    return !(vector1 == vector2);
+    return (vector1.x != vector2.x) ||
+        (vector1.y != vector2.y) ||
+        (vector1.z != vector2.z);
 }
 
