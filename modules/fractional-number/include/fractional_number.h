@@ -12,7 +12,6 @@
 class FractionalNumber {
  public:
 FractionalNumber();
-~FractionalNumber();
 FractionalNumber(const int numerator, const int denominator);
 FractionalNumber(const FractionalNumber& r);
 

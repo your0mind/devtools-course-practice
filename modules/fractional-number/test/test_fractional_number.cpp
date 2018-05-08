@@ -181,7 +181,7 @@ TEST(FractionNumberTest, Not_Equal_Numbers_Are_Not_Equal) {
 
 TEST(FractionNumberTest, Do_Create_Throw) {
     // Arrange & Act & Assert
-    EXPECT_THROW(FractionalNumber r1(1, 0), std::overflow_error);
+    EXPECT_THROW(FractionalNumber r1(1, 0), std::string);
 }
 
 TEST(FractionNumberTest, Different_Numbers_Not_Equal) {

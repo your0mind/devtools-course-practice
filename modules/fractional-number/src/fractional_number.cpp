@@ -17,7 +17,7 @@ FractionalNumber::FractionalNumber(const int Numerator, const int Denominator) {
     a = Numerator;
     b = Denominator;
     if (b == 0) {
-        throw std::overflow_error("Division by zero");
+        throw std::string("Division by zero");
     }
 }
 FractionalNumber::FractionalNumber(const FractionalNumber& r):
