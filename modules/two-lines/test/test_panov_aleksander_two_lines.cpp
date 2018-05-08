@@ -8,8 +8,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
     double x = 0, y = 0;
 
     // Act
-    const Point point1(x, y);
-    const Point point2;
+    Point point1, point2(x, y);
 
     // Assert
     EXPECT_DOUBLE_EQ(point1.x, point2.x);
