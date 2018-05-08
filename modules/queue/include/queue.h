@@ -34,7 +34,6 @@ class Queue {
     std::size_t capacity;
     int head;
     int tail;
-    int nextIndex(int oldIndex);
     int nextIndex(int oldIndex) const;
     void resize();
 };
@@ -155,11 +154,6 @@ bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const {
 // ----------------------------------
 
 // ----------PRIVATE METHODS----------
-
-template <typename Ty>
-int Queue<Ty>::nextIndex(int oldIndex) {
-    return (oldIndex + 1) % capacity;
-}
 
 template <typename Ty>
 int Queue<Ty>::nextIndex(int oldIndex) const {
