@@ -8,7 +8,7 @@ const double pi = 3.141592653589793238463;
 
 Cone::Cone() : radius(0), l(0) {}
 
-Cone::Cone(const double _rad, const double _l) {
+Cone::Cone(const double& _rad, const double& _l) {
     if (!negativeNumbers(_rad, _l)) {
         radius = _rad;
         l = _l;

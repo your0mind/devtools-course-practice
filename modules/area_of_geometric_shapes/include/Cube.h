@@ -6,7 +6,7 @@
 class Cube {
  public:
     Cube();
-    explicit Cube(const double _h);
+    explicit Cube(const double& _h);
     Cube(const Cube& _c);
 
     Cube& operator=(const Cube& _c);

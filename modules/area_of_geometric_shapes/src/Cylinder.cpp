@@ -8,7 +8,7 @@ const double pi = 3.141592653589793238463;
 
 Cylinder::Cylinder() : radius(0), h(0) {}
 
-Cylinder::Cylinder(const double _rad, const double _h) {
+Cylinder::Cylinder(const double& _rad, const double& _h) {
     if (!negativeNumbers(_rad, _h)) {
         radius = _rad;
         h = _h;

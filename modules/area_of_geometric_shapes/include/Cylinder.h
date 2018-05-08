@@ -6,7 +6,7 @@
 class Cylinder {
  public:
     Cylinder();
-    Cylinder(const double _rad, const double _h);
+    Cylinder(const double& _rad, const double& _h);
     Cylinder(const Cylinder& _c);
 
     Cylinder& operator=(const Cylinder& _c);

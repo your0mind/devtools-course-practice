@@ -8,7 +8,7 @@ const double pi = 3.141592653589793238463;
 
 Sphere::Sphere() : radius(0) {}
 
-Sphere::Sphere(const double _rad) {
+Sphere::Sphere(const double& _rad) {
     if (!negativeNumbers(_rad))
         radius = _rad;
     else

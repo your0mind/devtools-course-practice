@@ -6,7 +6,7 @@
 class Sphere {
  public:
     Sphere();
-    explicit Sphere(const double _rad);
+    explicit Sphere(const double& _rad);
     Sphere(const Sphere& _s);
 
     Sphere& operator=(const Sphere& _s);

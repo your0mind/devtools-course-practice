@@ -6,7 +6,7 @@
 
 Cube::Cube() : h(0) {}
 
-Cube::Cube(const double _h) {
+Cube::Cube(const double& _h) {
     if (!negativeNumbers(_h))
         h = _h;
     else

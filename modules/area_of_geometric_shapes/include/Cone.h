@@ -6,7 +6,7 @@
 class Cone {
  public:
     Cone();
-    Cone(const double _rad, const double _l);
+    Cone(const double& _rad, const double& _l);
     Cone(const Cone& _c);
 
     Cone& operator=(const Cone& _c);
