@@ -9,20 +9,10 @@ Wages::Wages() : salary_(10000), administrativeLeaveHours_(0),
 
 Wages::Wages(const double salary, const double administrativeLeaveHours,
     const double overtime, Month month) {
-    bool control;
-    control = controlMROT(salary);
-    if (control == true) salary_ = salary;
-    else
-        throw std::string("The salary can not be less than the minimum wage!");
-    control = controlField(administrativeLeaveHours);
-    if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
-    else
-        throw std::string("Administrative leave hours can not be negative!");
-    control = controlField(overtime);
-    if (control == true) overtime_ = overtime;
-    else
-        throw std::string("Overtime leave hours can not be negative!");
-    current_month_ = month;
+    setSalary(salary);
+    setAdministrativeLeaveHours(administrativeLeaveHours);
+    setOvertime(overtime);
+    setMonth(month);
 }
 
 Wages::Wages(const Wages& wages) : salary_(wages.getSalary()),
@@ -46,18 +36,32 @@ Month Wages::getMonth() const {
 }
 
 void Wages::setSalary(const double salary) {
-    salary_ = salary;
-}
-
-void Wages::setMonth(Month month) {
-    current_month_ = month;
+    bool control;
+    control = controlMROT(salary);
+    if (control == true) salary_ = salary;
+    else
+        throw std::string("The salary can not be less than the minimum wage!");
 }
 
 void Wages::setAdministrativeLeaveHours(const double administrativeLeaveHours) {
-    administrativeLeaveHours_ = administrativeLeaveHours;
+    bool control;
+    control = controlField(administrativeLeaveHours);
+    if (control == true) administrativeLeaveHours_ = administrativeLeaveHours;
+    else
+        throw std::string("Administrative leave hours can not be negative!");
 }
+
 void Wages::setOvertime(const double overtime) {
-    overtime_ = overtime;
+    bool control;
+    control = controlField(overtime);
+    if (control == true) overtime_ = overtime;
+    else
+        throw std::string("Overtime leave hours can not be negative!");
+}
+
+
+void Wages::setMonth(Month month) {
+    current_month_ = month;
 }
 
 bool Wages::controlField(const double field) {

@@ -397,3 +397,30 @@ TEST(Sharov_Ivan_WagesTest, Full_Wages_In_Administrative_Leave_Month_Equal_0) {
     // Act & assert
     EXPECT_TRUE(ivan.calculationFullWages() == wages);
 }
+
+TEST(Sharov_Ivan_WagesTest, Set_Negative_Salary) {
+    // Arrange
+    Wages ivan;
+    double oklad = -7;
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.setSalary(oklad));
+}
+
+TEST(Sharov_Ivan_WagesTest, Set_Negative_Administrative_Leave_Hours) {
+    // Arrange
+    Wages ivan;
+    double admin_hours = -10;
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.setAdministrativeLeaveHours(admin_hours));
+}
+
+TEST(Sharov_Ivan_WagesTest, Set_Negative_Overtime_Hours) {
+    // Arrange
+    Wages ivan;
+    double overtime_hours = -20;
+
+    // Act & assert
+    ASSERT_ANY_THROW(ivan.setOvertime(overtime_hours));
+}
