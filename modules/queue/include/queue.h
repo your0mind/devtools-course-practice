@@ -35,6 +35,7 @@ class Queue {
     int head;
     int tail;
     int nextIndex(int oldIndex);
+    int nextIndex(int oldIndex) const;
     void resize();
 };
 
@@ -140,8 +141,8 @@ bool Queue<Ty>::operator==(const Queue<Ty>& rhs) const {
             break;
         if (mem[lhsCurPos] != rhs.mem[rhsCurPos])
             return false;
-        lhsCurPos = (lhsCurPos + 1) % capacity;
-        rhsCurPos = (rhsCurPos + 1) % capacity;
+        lhsCurPos = nextIndex(lhsCurPos);
+        rhsCurPos = nextIndex(lhsCurPos);
     }
     return back() == rhs.back();
 }
@@ -157,6 +158,11 @@ bool Queue<Ty>::operator!=(const Queue<Ty>& rhs) const {
 
 template <typename Ty>
 int Queue<Ty>::nextIndex(int oldIndex) {
+    return (oldIndex + 1) % capacity;
+}
+
+template <typename Ty>
+int Queue<Ty>::nextIndex(int oldIndex) const {
     return (oldIndex + 1) % capacity;
 }
 
