@@ -11,13 +11,14 @@
 #include <stdbool.h>
 #include <string>
 #include <iostream>
+#include <stdexcept>
 
 FractionalNumber::FractionalNumber(): a(0), b(1) {}
 FractionalNumber::FractionalNumber(const int Numerator, const int Denominator) {
     a = Numerator;
     b = Denominator;
     if (b == 0) {
-        throw std::string("Division by zero");
+        throw std::overflow_error("Division by zero");
     }
 }
 FractionalNumber::FractionalNumber(const FractionalNumber& r):
