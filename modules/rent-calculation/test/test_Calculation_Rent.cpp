@@ -144,38 +144,38 @@ TEST(Calc_Rent_Test, Can_Calc_Rent_Modern_P_Period_prenum) {
 
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_very_big_parametr1) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(200000000, 1, 6));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_very_big_parametr2) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(3, 200000000, 6));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_very_big_parametr3) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(20, 1, 200000000));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_null_parametr1) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(0, 1, 6));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_null_parametr2) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(0, 1, 6));
 }
 
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_null_parametr3) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(0, 1, 6));
 }
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_negative_parametr1) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(-1, 1, 6));
 }
 
