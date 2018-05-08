@@ -181,13 +181,13 @@ TEST(Calc_Rent_Test, no_Calc_Rent_with_negative_parametr1) {
 
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_negative_parametr2) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(1, -1, 6));
 }
 
 
 TEST(Calc_Rent_Test, no_Calc_Rent_with_negative_parametr3) {
-    // Arrange and Act and Assert 
+    // Arrange and Act and Assert
     ASSERT_ANY_THROW(Calculation_Rent r(1, 1, -6));
 }
 
