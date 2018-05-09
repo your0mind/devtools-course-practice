@@ -1,6 +1,6 @@
 #include "include/Vinger_code.h"
 
-string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+std::string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 unsigned int i, j;
 int c, sum;
 
@@ -15,9 +15,9 @@ int Vinger_code::Keycode(char s)
     return c;
 }
 
-string Vinger_code::Encode(string Text, string Key)
+std::string Vinger_code::Encode(std::string Text, std::string Key)
 {
-    string result;
+	std::string result;
 	for (i = 0; i < Text.length(); i++)
 	{
         if (j >= Key.length())
@@ -35,9 +35,9 @@ string Vinger_code::Encode(string Text, string Key)
     return result;
 }
 
-string Vinger_code::Decode(string Text, string Key)
+std::string Vinger_code::Decode(std::string Text, std::string Key)
 {
-    string result;
+	std::string result;
     for (i = 0; i < Text.length(); i++)
     {
         if (j >= Key.length())
