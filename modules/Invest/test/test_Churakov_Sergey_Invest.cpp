@@ -11,25 +11,25 @@ TEST(Churakov_Sergey_Investition, can_create_empty_investition) {
 }
 
 TEST(Churakov_Sergey_Investition, can_create_investition ) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
     double rate;
-    
+
     //  Act
     years = 2;
     rate = 20;
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    //Arrange
+    //  Assert
     ASSERT_NO_THROW(Investition inv(years, Income_vector,
                     Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_year ) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -46,7 +46,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_year ) {
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_rate) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -58,13 +58,13 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_rate) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(Investition inv(years, Income_vector,
                      Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -76,13 +76,13 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_huge_rate) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(Investition inv(years, Income_vector,
                      Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_income) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -94,13 +94,13 @@ TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_income) {
     Income_vector[0] = Income_vector[1] = -10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(Investition inv(years, Income_vector,
                      Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_expenses) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -112,13 +112,13 @@ TEST(Churakov_Sergey_Investition, cant_create_invest_with_neg_expenses) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = -10;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(Investition inv(years, Income_vector,
                      Expense_vector, rate));
 }
 
 TEST(Churakov_Sergey_Investition, can_get_year_count) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -131,12 +131,12 @@ TEST(Churakov_Sergey_Investition, can_get_year_count) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetYearCount(), 2);
 }
 
 TEST(Churakov_Sergey_Investition, can_get_rate) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -149,12 +149,12 @@ TEST(Churakov_Sergey_Investition, can_get_rate) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetRate(), 20);
 }
 
 TEST(Churakov_Sergey_Investition, can_get_incomes) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -167,12 +167,12 @@ TEST(Churakov_Sergey_Investition, can_get_incomes) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(*(inv.GetIncomes())+0, 10);
 }
 
 TEST(Churakov_Sergey_Investition, can_get_expenses) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -185,12 +185,12 @@ TEST(Churakov_Sergey_Investition, can_get_expenses) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(*(inv.GetExpenses()) + 0, 10);
 }
 
 TEST(Churakov_Sergey_Investition, can_get_income_of_year) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -203,12 +203,12 @@ TEST(Churakov_Sergey_Investition, can_get_income_of_year) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetIncomeOfYear(0), 10);
 }
 
 TEST(Churakov_Sergey_Investition, can_get_expense_of_year) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -221,12 +221,12 @@ TEST(Churakov_Sergey_Investition, can_get_expense_of_year) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetExpenseOfYear(0), 10);
 }
 
 TEST(Churakov_Sergey_Investition, cant_get_income_of_unexisting_year) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -239,12 +239,12 @@ TEST(Churakov_Sergey_Investition, cant_get_income_of_unexisting_year) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.GetIncomeOfYear(10));
 }
 
 TEST(Churakov_Sergey_Investition, cant_get_expense_of_unexisting_year) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -257,12 +257,12 @@ TEST(Churakov_Sergey_Investition, cant_get_expense_of_unexisting_year) {
     Expense_vector[0] = Expense_vector[1] = 10;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.GetExpenseOfYear(10));
 }
 
 TEST(Churakov_Sergey_Investition, can_set_rate) {
-    //  Assert
+    //  Arrange
     double rate;
     Investition inv;
 
@@ -270,12 +270,12 @@ TEST(Churakov_Sergey_Investition, can_set_rate) {
     rate = 20;
     inv.SetRate(rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetRate(), rate);
 }
 
 TEST(Churakov_Sergey_Investition, can_set_year_count) {
-    //  Assert
+    //  Arrange
     int years;
     Investition inv;
 
@@ -283,12 +283,12 @@ TEST(Churakov_Sergey_Investition, can_set_year_count) {
     years = 3;
     inv.SetYearCount(years);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetYearCount(), years);
 }
 
 TEST(Churakov_Sergey_Investition, can_set_lesser_year_count) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(2);
     std::vector<money> Expense_vector(2);
     int years;
@@ -303,12 +303,12 @@ TEST(Churakov_Sergey_Investition, can_set_lesser_year_count) {
     years = 1;
     inv.SetYearCount(years);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.GetYearCount(), years);
 }
 
 TEST(Churakov_Sergey_Investition, can_set_incomes) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(2);
     Investition inv;
 
@@ -318,12 +318,12 @@ TEST(Churakov_Sergey_Investition, can_set_incomes) {
         Input_vector[i] = i;
     inv.SetIncomes(Input_vector);
 
-    //Arrange
+    //  Assert
     EXPECT_TRUE(inv.GetIncomeOfYear(0) == 0 && inv.GetIncomeOfYear(1) == 1);
 }
 
 TEST(Churakov_Sergey_Investition, can_set_expenses) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(2);
     Investition inv;
 
@@ -333,36 +333,36 @@ TEST(Churakov_Sergey_Investition, can_set_expenses) {
         Input_vector[i] = i;
     inv.SetExpenses(Input_vector);
 
-    //Arrange
+    //  Assert
     EXPECT_TRUE(inv.GetExpenseOfYear(0) == 0 && inv.GetExpenseOfYear(1) == 1);
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_invalid_rate) {
-    //  Assert
+    //  Arrange
     double rate;
     Investition inv;
 
     //  Act
     rate = -20;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.SetRate(rate));
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_invalid_year_count) {
-    //  Assert
+    //  Arrange
     int years;
     Investition inv;
 
     //  Act
     years = -3;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.SetYearCount(years));
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_negative_incomes) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(2);
     Investition inv;
 
@@ -375,7 +375,7 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_incomes) {
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_incomes_with_small_a) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(1);
     Investition inv;
 
@@ -383,12 +383,12 @@ TEST(Churakov_Sergey_Investition, cant_set_incomes_with_small_a) {
     inv.SetYearCount(2);
     Input_vector[0] = 1;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.SetIncomes(Input_vector));
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_negative_expenses) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(2);
     Investition inv;
 
@@ -397,12 +397,12 @@ TEST(Churakov_Sergey_Investition, cant_set_negative_expenses) {
     for (int i = 0; i < 2; i++)
         Input_vector[i] = -i;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.SetExpenses(Input_vector));
 }
 
 TEST(Churakov_Sergey_Investition, cant_set_expenses_with_small_a) {
-    //  Assert
+    //  Arrange
     std::vector<money> Input_vector(1);
     Investition inv;
 
@@ -410,12 +410,12 @@ TEST(Churakov_Sergey_Investition, cant_set_expenses_with_small_a) {
     inv.SetYearCount(2);
     Input_vector[0] = 1;
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.SetExpenses(Input_vector));
 }
 
 TEST(Churakov_Sergey_Investition, can_find_NPV) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -432,12 +432,12 @@ TEST(Churakov_Sergey_Investition, can_find_NPV) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_TRUE(inv.FindNPV() > 687 && inv.FindNPV() < 688);
 }
 
 TEST(Churakov_Sergey_Investition, can_find_NPV_for_rate) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -454,12 +454,12 @@ TEST(Churakov_Sergey_Investition, can_find_NPV_for_rate) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.FindNPV(), inv.FindNPV(8));
 }
 
 TEST(Churakov_Sergey_Investition, can_find_recoupment_time) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -476,12 +476,12 @@ TEST(Churakov_Sergey_Investition, can_find_recoupment_time) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.FindRecoupmentTime(), 3);
 }
 
 TEST(Churakov_Sergey_Investition, cant_find_recoupment_time_when_no_answer) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -498,12 +498,12 @@ TEST(Churakov_Sergey_Investition, cant_find_recoupment_time_when_no_answer) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.FindRecoupmentTime(), -1);
 }
 
 TEST(Churakov_Sergey_Investition, can_find_IRR) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -520,12 +520,12 @@ TEST(Churakov_Sergey_Investition, can_find_IRR) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_TRUE(inv.FindIRR() > 24 && inv.FindIRR() < 24.2);
 }
 
 TEST(Churakov_Sergey_Investition, cant_find_IRR_when_it_is_infinite) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -542,12 +542,12 @@ TEST(Churakov_Sergey_Investition, cant_find_IRR_when_it_is_infinite) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.FindIRR(), -2);
 }
 
 TEST(Churakov_Sergey_Investition, cant_find_IRR_when_there_is_no_recoupment) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -564,12 +564,12 @@ TEST(Churakov_Sergey_Investition, cant_find_IRR_when_there_is_no_recoupment) {
     Income_vector[4] = 60;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_EQ(inv.FindIRR(), -1);
 }
 
 TEST(Churakov_Sergey_Investition, can_find_PBIndex) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -586,12 +586,12 @@ TEST(Churakov_Sergey_Investition, can_find_PBIndex) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     EXPECT_TRUE(inv.FindPBIndex()> 0.46 && inv.FindPBIndex() <0.47);
 }
 
 TEST(Churakov_Sergey_Investition, cant_find_PBIndex_with_multiple_expenses) {
-    //  Assert
+    //  Arrange
     std::vector<money> Income_vector(5);
     std::vector<money> Expense_vector(5);
     int years;
@@ -609,6 +609,6 @@ TEST(Churakov_Sergey_Investition, cant_find_PBIndex_with_multiple_expenses) {
     Income_vector[4] = 600;
     Investition inv(years, Income_vector, Expense_vector, rate);
 
-    //Arrange
+    //  Assert
     ASSERT_ANY_THROW(inv.FindPBIndex());
 }
