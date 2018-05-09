@@ -7,16 +7,14 @@ int c, sum;
 Vinger_code::Vinger_code() {
 }
 
-int Vinger_code::Keycode(char s)
-{
+int Vinger_code::Keycode(char s) {
     for (unsigned int k = 0; k < symbols.length(); k++)
     if (s == symbols[k])
         c = k;
     return c;
 }
 
-std::string Vinger_code::Encode(std::string Text, std::string Key)
-{
+std::string Vinger_code::Encode(std::string Text, std::string Key) {
 	std::string result;
 	for (i = 0; i < Text.length(); i++)
 	{
@@ -35,8 +33,7 @@ std::string Vinger_code::Encode(std::string Text, std::string Key)
     return result;
 }
 
-std::string Vinger_code::Decode(std::string Text, std::string Key)
-{
+std::string Vinger_code::Decode(std::string Text, std::string Key) {
 	std::string result;
     for (i = 0; i < Text.length(); i++)
     {
