@@ -7,9 +7,6 @@ int c, sum;
 Vinger_code::Vinger_code() {
 }
 
-Vinger_code::~Vinger_code() {
-}
-
 int Vinger_code::Keycode(char s)
 {
     for (unsigned int k = 0; k < symbols.length(); k++)
