@@ -172,30 +172,3 @@ double Investition::FindIRR() const {
             return i-0.1;
     return -2;
 }
-
-// void Investition::Print() const {
-//     cout<<"Number of years is "<<YearCount<<endl;
-//     cout<<"Rate is "<<(1+RatePercent/100)<<endl;
-//     cout<<"Expenses        Incomes" << endl;
-//     cout<<"______________________________________"<<endl;
-//     for (int i = 0; i < YearCount; i++)
-//         cout<<Expenses[i]<<"        "<<Incomes[i]<<endl;
-//     cout<<"______________________________________"<<endl;
-//     cout<<"NPV is "<<this->FindNPV()<<endl;
-//     if (this->FindRecoupmentTime() > 0)
-//         cout<<"Recoupment time is " << this->FindRecoupmentTime()<<endl;
-//     else {
-//         if (this->FindRecoupmentTime() == 0)
-//             cout<<"Investition recoups right away"<<endl;
-//         else
-//             cout<<"Investition doesnt recoup"<<endl;
-//     }
-//     if (this->FindIRR() >= 0)
-//         cout<<"IRR is " << this->FindIRR()<<endl;
-//     bool flag = true;
-//     for (int i = 1; i < YearCount; i++)
-//         if (Expenses[i] != 0)
-//             flag = false;
-//     if (flag)
-//     cout<<"PBIndex is " <<this->FindPBIndex();
-// }

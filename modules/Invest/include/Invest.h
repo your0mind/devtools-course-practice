@@ -34,7 +34,6 @@ class Investition{
     double FindIRR() const;
     int FindRecoupmentTime() const;
     double FindPBIndex() const;
-//    void Print() const;
 };
 
 #endif  //  MODULES_INVEST_INCLUDE_INVEST_H_
