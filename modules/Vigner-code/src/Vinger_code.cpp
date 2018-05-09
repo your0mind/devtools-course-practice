@@ -1,14 +1,15 @@
 #include "include/Vinger_code.h"
+
 string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 unsigned int i, j;
 int c, sum;
-Vinger_code::Vinger_code()
-{
+
+Vinger_code::Vinger_code() {
 }
-Vinger_code::~Vinger_code()
-{
+
+Vinger_code::~Vinger_code() {
 }
-//Функция получения кода символа
+
 int Vinger_code::Keycode(char s)
 {
     for (unsigned int k = 0; k < symbols.length(); k++)
@@ -16,7 +17,7 @@ int Vinger_code::Keycode(char s)
         c = k;
     return c;
 }
-//Функция шифрования
+
 string Vinger_code::Encode(string Text, string Key)
 {
     string result;
@@ -36,7 +37,7 @@ string Vinger_code::Encode(string Text, string Key)
     j = 0;
     return result;
 }
-//Функция дешифрования
+
 string Vinger_code::Decode(string Text, string Key)
 {
     string result;
