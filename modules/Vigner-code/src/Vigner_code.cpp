@@ -1,20 +1,20 @@
-#include "include/Vinger_code.h"
+#include "include/Vigner_code.h"
 
 std::string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 unsigned int i, j;
 int c, sum;
 
-Vinger_code::Vinger_code() {
+Vigner_code::Vigner_code() {
 }
 
-int Vinger_code::Keycode(char s) {
+int Vigner_code::Keycode(char s) {
     for (unsigned int k = 0; k < symbols.length(); k++)
     if (s == symbols[k])
         c = k;
     return c;
 }
 
-std::string Vinger_code::Encode(std::string Text, std::string Key) {
+std::string Vigner_code::Encode(std::string Text, std::string Key) {
 	std::string result;
 	for (i = 0; i < Text.length(); i++)
 	{
@@ -33,7 +33,7 @@ std::string Vinger_code::Encode(std::string Text, std::string Key) {
     return result;
 }
 
-std::string Vinger_code::Decode(std::string Text, std::string Key) {
+std::string Vigner_code::Decode(std::string Text, std::string Key) {
 	std::string result;
     for (i = 0; i < Text.length(); i++)
     {
