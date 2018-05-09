@@ -41,6 +41,7 @@ TEST(Churakov_Sergey_Investition, cant_create_investition_with_negative_year ) {
     Income_vector[0] = Income_vector[1] = 10;
     Expense_vector[0] = Expense_vector[1] = 10;
 
+    //  Assert
     ASSERT_ANY_THROW(Investition inv(years, Income_vector,
                      Expense_vector, rate));
 }
