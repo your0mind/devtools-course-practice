@@ -13,4 +13,4 @@ public:
     std::string Decode(std::string Text, std::string Key);
 };
 
-#endif. // MODULES_VIGNER_CODE_INCLUDE_VIGNER_CODE_H_
+#endif // MODULES_VIGNER_CODE_INCLUDE_VIGNER_CODE_H_
