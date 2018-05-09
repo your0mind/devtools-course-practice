@@ -166,6 +166,49 @@ TEST(Game_Of_Life_Tests, Can_Do_Right_Next_Step_And_Get_Grid2) {
     ASSERT_TRUE(test);
 }
 
+TEST(Game_Of_Life_Tests, Test_For_20_steps_Game_And_Full_Destroy) {
+    // Arrange
+    char start[4][8] = {
+        { '.', '.', '.', '.', '.', '.', '.', '.' },
+        { '.', '.', '*', '.', '.', '.', '*', '.' },
+        { '.', '*', '.', '*', '*', '.', '.', '.' },
+        { '.', '.', '.', '.', '*', '*', '*', '.' } };
+
+    char res_grid[4][8] = {
+        { '.', '.', '.', '.', '.', '.', '.', '.' },
+        { '.', '.', '.', '.', '.', '.', '.', '.' },
+        { '.', '.', '.', '.', '.', '.', '.', '.' },
+        { '.', '.', '.', '.', '.', '.', '.', '.' } };
+
+    char** grid = new char*[4];
+    char** test_grid = new char*[4];
+
+    for (int i = 0; i < 4; ++i) {
+        grid[i] = new char[8];
+        test_grid[i] = new char[8];
+
+        for (int j = 0; j < 8; ++j)
+            grid[i][j] = start[i][j];
+    }
+
+    // Act
+    game_of_life gol(grid, 4, 8);
+    for (int i = 0; i < 20; ++i)
+        gol.next_step();
+    gol.get_grid(test_grid);
+
+    bool test = true;
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 8; ++j)
+            if (test_grid[i][j] != res_grid[i][j])
+                test = false;
+    }
+
+    // Assert
+    ASSERT_TRUE(test);
+}
+
+
 TEST(Game_Of_Life_Tests, Throw_When_Get_Grid_To_nullptr) {
     // Arrange
     char start[4][8] = {
