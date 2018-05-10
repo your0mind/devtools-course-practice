@@ -14,7 +14,7 @@ class SearchTree {
  public:
     SearchTree(Tree * pRoot = nullptr) : pRoot(pRoot) {}
     Tree * pRoot;
-    void AddTree(int val, Tree** tr);
+    void AddTree(int val, Tree * tr);
     Tree * Search(Tree * tr, int key);
     void DestroyBTree(Tree * tr);
 };
