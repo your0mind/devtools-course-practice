@@ -17,9 +17,9 @@ inline double orientedArea(Point a, Point b, Point c) {
 
 inline bool checkProjection(double startLine1_coord, double endLine1_coord,
     double startLine2_coord, double endLine2_coord) {
-    if (startLine1_coord > endLine1_coord) 
+    if (startLine1_coord > endLine1_coord)
         swap(startLine1_coord, endLine1_coord);
-    if (startLine2_coord > endLine2_coord) 
+    if (startLine2_coord > endLine2_coord)
         swap(startLine2_coord, endLine2_coord);
     return (max(startLine1_coord, startLine2_coord)
         <= min(endLine1_coord, endLine2_coord));
