@@ -13,14 +13,6 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_delete_empty_tree) {
     ASSERT_NO_THROW(delete tree);
 }
 
-TEST(Gorelova_Ksenia_SearchTree_Test, can_delete_not_empty_tree) {
-    SearchTree * tree = new SearchTree();
-    Tree * tr = nullptr;
-    double key = 11.0;
-    tree->AddTree(key, &tr);
-    ASSERT_NO_THROW(delete tree);
-}
-
 TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_empty_tree) {
     SearchTree * tree = new SearchTree();
     double key = 11.0;
