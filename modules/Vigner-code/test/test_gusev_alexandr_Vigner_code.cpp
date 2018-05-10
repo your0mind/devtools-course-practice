@@ -1,7 +1,7 @@
 // Copyright 2018 Gusev Alexandr 
 
-#include <gtest\gtest.h>
-#include "include\Vigner_code.h"
+#include <gtest/gtest.h>
+#include "include/Vigner_code.h"
 
 TEST(Gusev_Alexandr_VignerCodeTest, Can_Get_Symbol)
 {
