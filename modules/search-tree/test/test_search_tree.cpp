@@ -52,7 +52,7 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_not_equal) {
     tr2.value = 10;
     tree->AddTree(tr1.value, tree->pRoot);
     tree->AddTree(tr2.value, tree->pRoot);
-    ASSERT_TRUE(tr1.value!=tr2.value);
+    ASSERT_TRUE(tr1.value != tr2.value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_minimal_value) {
@@ -62,7 +62,7 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_minimal_value) {
     tr2.value = 10;
     tree->AddTree(tr1.value, tree->pRoot);
     tree->AddTree(tr2.value, tree->pRoot);
-    ASSERT_TRUE(tr1.value<tr2.value);
+    ASSERT_TRUE(tr1.value < tr2.value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_left) {
@@ -70,7 +70,8 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_left) {
     Tree tr;
     tr.value = 7;
     int key = 3;
-    EXPECT_LE(tree->Search(tree->pRoot, key), tree->Search(tree->pRoot, tr.value));
+    EXPECT_LE(tree->Search(tree->pRoot, key),
+              tree->Search(tree->pRoot, tr.value));
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_right) {
@@ -78,14 +79,15 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_right) {
     Tree tr;
     tr.value = 7;
     int key = 10;
-    EXPECT_GE(tree->Search(tree->pRoot, key), tree->Search(tree->pRoot, tr.value));
+    EXPECT_GE(tree->Search(tree->pRoot, key),
+              tree->Search(tree->pRoot, tr.value));
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_zero) {
     SearchTree * tree = new SearchTree();
     Tree tr;
     tr.value = 0;
-    ASSERT_TRUE(tr.value == 0);
+    ASSERT_EQ(0, tr.value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_destroy) {
