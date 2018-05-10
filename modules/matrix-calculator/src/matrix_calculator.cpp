@@ -166,7 +166,7 @@ MatrixCalculator MatrixCalculator::InverseMatrix() const {
 }
 
 MatrixCalculator MatrixCalculator::Prepare_for_minores(int n,
-	matrix_type _matr, int indRow, int indCol) const {
+    matrix_type _matr, int indRow, int indCol) const {
     MatrixCalculator temp(n, n);
     int ki = 0;
     for (size_t i = 0; i < (size_t)n+1; i++) {
