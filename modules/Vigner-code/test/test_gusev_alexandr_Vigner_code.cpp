@@ -1,10 +1,9 @@
-// Copyright 2018 Gusev Alexandr 
+// Copyright 2018 Gusev Alexandr
 
 #include <gtest/gtest.h>
 #include "include/Vigner_code.h"
 
-TEST(Gusev_Alexandr_VignerCodeTest, Can_Get_Symbol)
-{
+TEST(Gusev_Alexandr_VignerCodeTest, Can_Get_Symbol) {
     // Arrange
     Vigner_code vigner;
     char sym = 'e';
@@ -14,8 +13,7 @@ TEST(Gusev_Alexandr_VignerCodeTest, Can_Get_Symbol)
     int ans = 4;
     EXPECT_EQ(res, ans);
 }
-TEST(Gusev_Alexandr_VignerCodeTest, Can_Encode_Symbol)
-{
+TEST(Gusev_Alexandr_VignerCodeTest, Can_Encode_Symbol) {
     // Arrange
     Vigner_code vigner;
 	std::string Text = "abcABC";
@@ -26,8 +24,7 @@ TEST(Gusev_Alexandr_VignerCodeTest, Can_Encode_Symbol)
 	std::string ans = "bdfBDF";
     EXPECT_EQ(res, ans);
 }
-TEST(Gusev_Alexandr_VignerCodeTest, Can_Decode_Symbol)
-{
+TEST(Gusev_Alexandr_VignerCodeTest, Can_Decode_Symbol) {
     // Arrange
     Vigner_code vigner;
 	std::string Text = "bdfBDF";
@@ -38,6 +35,3 @@ TEST(Gusev_Alexandr_VignerCodeTest, Can_Decode_Symbol)
 	std::string ans = "abcABC";
     EXPECT_EQ(res, ans);
 }
-
-
-
