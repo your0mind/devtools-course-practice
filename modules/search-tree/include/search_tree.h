@@ -12,7 +12,7 @@ struct Tree {
 
 class SearchTree {
  public:
-    SearchTree(Tree * pRoot = nullptr) : pRoot(pRoot) {}
+    SearchTree(Tree * pRoot = nullptr);
     Tree * pRoot;
     void AddTree(int val, Tree * tr);
     Tree * Search(Tree * tr, int key);
