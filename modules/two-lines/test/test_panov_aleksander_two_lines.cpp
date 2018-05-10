@@ -3,12 +3,24 @@
 #include <gtest/gtest.h>
 #include "include/two_lines.h"
 
-TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
+TEST(Panov_Aleksander_LinesTest, Can_Create_Default_Points) {
     // Arrange
     double x = 0, y = 0;
 
     // Act
-    Point point1, point2(x, y);
+    Point point;
+
+    // Assert
+    EXPECT_DOUBLE_EQ(point.x, x);
+    EXPECT_DOUBLE_EQ(point.y, y);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
+    // Arrange
+    double x = 1, y = -1;
+
+    // Act
+    Point point1(x, y), point2(x, y);
 
     // Assert
     EXPECT_DOUBLE_EQ(point1.x, point2.x);
@@ -39,10 +51,22 @@ TEST(Panov_Aleksander_LinesTest, Equal_Points_Intersect) {
     EXPECT_TRUE(isIntersect);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect) {
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect1) {
     // Arrange
     Point startLine1(0, 0), endLine1(1, 1);
     Point startLine2(0, 1), endLine2(1, 0);
+
+    // Act
+    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+
+    // Assert
+    EXPECT_TRUE(isIntersect);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect2) {
+    // Arrange
+    Point startLine1(0, 0), endLine1(-1, -1);
+    Point startLine2(0, -1), endLine2(-1, 0);
 
     // Act
     bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
