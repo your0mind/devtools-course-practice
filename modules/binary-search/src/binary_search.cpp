@@ -7,9 +7,9 @@
 BinarySearch::BinarySearch(int mas[], int size) {
          if (mas != nullptr) {
              if (size > 0) {
-                 masiv = new int[size];
+                 pMem = new int[size];
                  for (int i = 0; i < size; i++)
-                     masiv[i] = mas[i];
+                     pMem[i] = mas[i];
                  center = size / 2;
                  this->size = size;
              } else {
@@ -20,25 +20,25 @@ BinarySearch::BinarySearch(int mas[], int size) {
          }
 }
 BinarySearch::~BinarySearch() {
-         if (masiv!= nullptr)
-          delete[] masiv;
+         if (pMem!= nullptr)
+          delete[] pMem;
 }
 int BinarySearch::Search(int num) {
-     std::sort(masiv, masiv + size);
-     int resalt = -1;
+     std::sort(pMem, pMem + size);
+     int result = -1;
      int right = size;
      int left = 0;
 
      while ((left <= right)) {
           center = (left + right) / 2;
-     if (masiv[center] == num) {
-          resalt = center;
+     if (pMem[center] == num) {
+          result = center;
           break;
      }
-     if (masiv[center] > num)
+     if (pMem[center] > num)
            right = center - 1;
      else
            left = center + 1;
      }
-     return resalt;
+     return result;
 }
