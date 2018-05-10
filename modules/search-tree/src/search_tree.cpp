@@ -2,17 +2,17 @@
 
 #include "include/search_tree.h"
 
-void SearchTree::AddTree(int val, Tree ** tr) {
-    if (*tr == nullptr) {
-        (*tr) = new Tree;
-        (*tr)->value = val;
-        (*tr)->left = (*tr)->right = nullptr;
+void SearchTree::AddTree(int val, Tree * tr) {
+    if (tr == nullptr) {
+        tr = new Tree;
+        tr->value = val;
+        tr->left = tr->right = nullptr;
         return;
     }
-    if (val > (*tr)->value)
-        AddTree(val, &(*tr)->right);
+    if (val > tr->value)
+        AddTree(val, tr->right);
     else
-        AddTree(val, &(*tr)->left);
+        AddTree(val, tr->left);
 }
 
 Tree * SearchTree::Search(Tree * tr, int key) {
