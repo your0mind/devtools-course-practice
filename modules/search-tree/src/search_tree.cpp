@@ -2,6 +2,10 @@
 
 #include "include/search_tree.h"
 
+SearchTree::SearchTree(Tree * pRoot) {
+    this->pRoot = pRoot;
+}
+
 void SearchTree::AddTree(int val, Tree * tr) {
     if (tr == nullptr) {
         tr = new Tree;
