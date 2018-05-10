@@ -5,6 +5,7 @@
 #include <cmath>
 #include <cstddef>
 #include <vector>
+using matrix_type = std::vector<std::vector<double>>;
 
 MatrixCalculator::MatrixCalculator() {
     matrix = std::vector<std::vector<double > >
@@ -24,7 +25,7 @@ MatrixCalculator::MatrixCalculator(const MatrixCalculator& _matrix) {
     matrix = _matrix.matrix;
 }
 
-void MatrixCalculator::SetMatrix(std::vector<std::vector<double>> &_vector) {
+void MatrixCalculator::SetMatrix(matrix_type &_vector) {
     for (size_t i = 1; i < _vector.size(); i++) {
         if (_vector[i - 1].size() != _vector[i].size()) {
             throw "Size of columns should be the same";
@@ -34,7 +35,7 @@ void MatrixCalculator::SetMatrix(std::vector<std::vector<double>> &_vector) {
     matrix = _vector;
 }
 
-bool MatrixCalculator::operator ==(const MatrixCalculator& _matrix) const {
+bool MatrixCalculator::operator==(const MatrixCalculator& _matrix) const {
     return matrix == _matrix.matrix;
 }
 
@@ -49,14 +50,14 @@ bool MatrixCalculator::AreSizesEqual(const MatrixCalculator& _matrix) const {
     return result;
 }
 
-MatrixCalculator& MatrixCalculator::operator =
+MatrixCalculator& MatrixCalculator::operator=
     (const MatrixCalculator& _matrix) {
     matrix = _matrix.matrix;
 
     return *this;
 }
 
-MatrixCalculator MatrixCalculator::operator +
+MatrixCalculator MatrixCalculator::operator+
     (const MatrixCalculator& _matrix) const {
     MatrixCalculator result(*this);
 
@@ -72,7 +73,7 @@ MatrixCalculator MatrixCalculator::operator +
     return result;
 }
 
-MatrixCalculator MatrixCalculator::operator -
+MatrixCalculator MatrixCalculator::operator-
     (const MatrixCalculator& _matrix) const {
     MatrixCalculator result(*this);
 
@@ -89,7 +90,7 @@ MatrixCalculator MatrixCalculator::operator -
     return result;
 }
 
-MatrixCalculator MatrixCalculator::operator *
+MatrixCalculator MatrixCalculator::operator*
            (const MatrixCalculator& _matrix) const {
     if (matrix[0].size() != _matrix.matrix.size()) {
         throw "Size of rows should be equal to size of columns";
@@ -165,7 +166,7 @@ MatrixCalculator MatrixCalculator::InverseMatrix() const {
 }
 
 MatrixCalculator MatrixCalculator::Prepare_for_minores(int n,
-    std::vector<std::vector<double > > _matr, int indRow, int indCol) const {
+	matrix_type _matr, int indRow, int indCol) const {
     MatrixCalculator temp(n, n);
     int ki = 0;
     for (size_t i = 0; i < (size_t)n+1; i++) {
