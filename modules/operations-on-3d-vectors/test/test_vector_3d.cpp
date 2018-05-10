@@ -11,9 +11,9 @@ TEST(Gracheva_Elena_TestVector3d, can_create_not_zero_vector) {
     Vector3d vector(component0, component1, component2);
 
     // Assert
-    EXPECT_DOUBLE_EQ(component0, vector.GetComponent(0));
-    EXPECT_DOUBLE_EQ(component1, vector.GetComponent(1));
-    EXPECT_DOUBLE_EQ(component2, vector.GetComponent(2));
+    EXPECT_DOUBLE_EQ(component0, vector.x);
+    EXPECT_DOUBLE_EQ(component1, vector.y);
+    EXPECT_DOUBLE_EQ(component2, vector.z);
 }
 
 TEST(Gracheva_Elena_TestVector3d, can_create_zero_vector) {
@@ -25,115 +25,6 @@ TEST(Gracheva_Elena_TestVector3d, can_create_zero_vector) {
 
     // Assert
     EXPECT_EQ(expectedResult, result);
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_get_component_0) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act
-    double data1 = vector.GetComponent(0);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(1, data1);
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_set_component_0) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-    double setValue = 1;
-
-    // Act
-    vector.SetComponent(0, setValue);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(setValue, vector.GetComponent(0));
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_get_component_1) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act
-    double data1 = vector.GetComponent(1);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(2, data1);
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_set_component_1) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-    double setValue = 1;
-
-    // Act
-    vector.SetComponent(1, setValue);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(setValue, vector.GetComponent(1));
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_get_component_2) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act
-    double data1 = vector.GetComponent(2);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(3, data1);
-}
-
-TEST(Gracheva_Elena_TestVector3d, can_set_component_2) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-    double setValue = 1;
-
-    // Act
-    vector.SetComponent(2, setValue);
-
-    // Assert
-    EXPECT_DOUBLE_EQ(setValue, vector.GetComponent(2));
-}
-
-TEST(Gracheva_Elena_TestVector3d,
-    cant_set_component_if_index_less_than_0) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act
-
-    // Assert
-    EXPECT_ANY_THROW(vector.SetComponent(-1, 1));
-}
-
-TEST(Gracheva_Elena_TestVector3d,
-    cant_set_component_if_index_more_than_2) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act, Assert
-    EXPECT_ANY_THROW(vector.SetComponent(3, 1));
-}
-
-TEST(Gracheva_Elena_TestVector3d,
-    cant_get_component_if_index_less_than_0) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act
-
-    // Assert
-    EXPECT_ANY_THROW(vector.GetComponent(-1));
-}
-
-TEST(Gracheva_Elena_TestVector3d,
-    cant_get_component_if_index_more_than_2) {
-    // Arrange
-    Vector3d vector(1, 2, 3);
-
-    // Act, Assert
-    EXPECT_ANY_THROW(vector.GetComponent(3));
 }
 
 TEST(Gracheva_Elena_TestVector3d, can_compare_equals_vector) {

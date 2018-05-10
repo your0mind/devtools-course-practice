@@ -9,20 +9,20 @@ double OperationsOn3dVectors::GetNorm(const Vector3d& vector) {
 
 double OperationsOn3dVectors::DotProduct(const Vector3d& vector1,
     const Vector3d& vector2) {
-    return vector1.GetComponent(0) * vector2.GetComponent(0) +
-        vector1.GetComponent(1) * vector2.GetComponent(1) +
-        vector1.GetComponent(2) * vector2.GetComponent(2);
+    return vector1.x * vector2.x +
+        vector1.y * vector2.y +
+        vector1.z * vector2.z;
 }
 
 Vector3d OperationsOn3dVectors::CrossProduct(const Vector3d& vector1,
     const Vector3d& vector2) {
     Vector3d result;
-    result.x = vector1.GetComponent(1)*vector2.GetComponent(2) -
-        vector1.GetComponent(2)*vector2.GetComponent(1);
-    result.y = vector1.GetComponent(2)*vector2.GetComponent(0) -
-        vector1.GetComponent(0)*vector2.GetComponent(2);
-    result.z = vector1.GetComponent(0)*vector2.GetComponent(1) -
-        vector1.GetComponent(1)*vector2.GetComponent(0);
+    result.x = vector1.y*vector2.z -
+        vector1.z*vector2.y;
+    result.y = vector1.z*vector2.x -
+        vector1.x*vector2.z;
+    result.z = vector1.x*vector2.y -
+        vector1.y*vector2.x;
     return result;
 }
 
