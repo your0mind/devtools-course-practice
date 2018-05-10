@@ -1,7 +1,7 @@
 // Copyright 2018 Panov Aleksander
 
-#include "include/two_lines.h"
 #include <algorithm>
+#include "include/two_lines.h"
 
 using std::swap;
 using std::max;
