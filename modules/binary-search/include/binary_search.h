@@ -7,7 +7,7 @@
 
 class BinarySearch {
  private:
-     int* masiv;
+     int* pMem;
      int size;
      int center;
  public:
