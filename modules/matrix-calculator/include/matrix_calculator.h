@@ -24,7 +24,7 @@ class MatrixCalculator {
 
     bool operator==(const MatrixCalculator&) const;
     bool AreSizesEqual(const MatrixCalculator&) const;
-	matrix_type matrix;
+    matrix_type matrix;
     MatrixCalculator Prepare_for_minores(int, matrix_type, int, int) const;
     MatrixCalculator Transpon(int a) const;
 };
