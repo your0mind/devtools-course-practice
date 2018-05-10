@@ -2,6 +2,7 @@
 
 #include <gtest/gtest.h>
 #include "include/Vigner_code.h"
+#include <string>
 
 TEST(Gusev_Alexandr_VignerCodeTest, Can_Get_Symbol) {
     // Arrange
