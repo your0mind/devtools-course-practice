@@ -36,3 +36,14 @@ TEST(Gusev_Alexandr_VignerCodeTest, Can_Decode_Symbol) {
     std::string ans = "abcABC";
     EXPECT_EQ(res, ans);
 }
+TEST(Gusev_Alexandr_VignerCodeTest, Encode_and_Decode_Symbol) {
+    // Arrange
+    Vigner_code vigner;
+    std::string Text = "abcfAZBtC";
+    std::string Key = "abcZs";
+    // Act
+    std::string res = vigner.Encode(Text, Key);
+    std::string res2 = vigner.Decode(res, Key);
+    // Assert
+    EXPECT_EQ(res2, Text);
+}
