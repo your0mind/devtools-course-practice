@@ -18,4 +18,4 @@ class DebtService {
     // virtual ~DebtService ();
 };
 
-#endif // MODULES_DEBTSERVICECOSTS_INCLUDE_DEBTSERVICE_H_
+#endif  // MODULES_DEBTSERVICECOSTS_INCLUDE_DEBTSERVICE_H_
