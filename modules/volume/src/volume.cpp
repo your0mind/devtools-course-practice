@@ -64,12 +64,10 @@ bool Cube::negativeNumbers(const double _L) {
 Cylinder::Cylinder() : Radius(0), Height(0) {}
 
 Cylinder::Cylinder(const double _R, const double _h) {
-    if (!negativeNumbers(_R,_h))
-    {
+    if (!negativeNumbers(_R, _h)) {
         Radius = _R;
         Height = _h;
-    }
-    else
+    } else
         throw std::string("Number can't be less then zero");
 }
 
