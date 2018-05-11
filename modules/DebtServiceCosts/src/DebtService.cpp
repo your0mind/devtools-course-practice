@@ -2,7 +2,7 @@
 
 #include "../modules/DebtServiceCosts/include/DebtService.h"
 
-DebtService::DebtService(int loan_amount, int loan_term, int loan_rate){
+DebtService::DebtService(int loan_amount, int loan_term, int loan_rate) {
     if (loan_amount < 0)
         throw "Incorrect amount";
     else
