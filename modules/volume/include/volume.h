@@ -6,43 +6,46 @@
 
 class Sphere {
  private:
-    double R;
+    double Radius;
+    bool negativeNumbers(const double _rad);
 
  public:
     Sphere(const Sphere& sphere);
     explicit Sphere(const double _R);
     Sphere();
-    double getR() const;
-    void setR(const double _R);
+    double getRadius() const;
+    void setRadius(const double _R);
     double Volume();
 };
 
 class Cube {
  private:
-    double A;
+    double SideLength;
+    bool negativeNumbers(const double _L);
 
  public:
     Cube(const Cube& cube);
-    explicit Cube(const double _A);
+    explicit Cube(const double _L);
     Cube();
-    double getA() const;
-    void setA(const double _A);
+    double getL() const;
+    void setL(const double _L);
     double Volume();
 };
 
 class Cylinder {
  private:
-    double R;
-    double h;
+    double Radius;
+    double Height;
+    bool negativeNumbers(const double _rad, const double _h);
 
  public:
     Cylinder(const Cylinder& cylinder);
     Cylinder(const double _R, const double _h);
     Cylinder();
-    double getR() const;
-    double geth() const;
-    void setR(const double _R);
-    void seth(const double _h);
+    double getRadius() const;
+    double getHeight() const;
+    void setRadius(const double _R);
+    void setHeight(const double _H);
     double Volume();
 };
 

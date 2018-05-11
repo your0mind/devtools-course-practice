@@ -4,69 +4,99 @@
 
 #define _USE_MATH_DEFINES
 #include <math.h>
+#include <string>
 
-Sphere::Sphere() : R(0) {}
+Sphere::Sphere() : Radius(0) {}
 
-Sphere::Sphere(const double _R) : R(_R) {}
-
-Sphere::Sphere(const Sphere& sphere) : R(sphere.getR()) {}
-
-double Sphere::getR() const {
-    return R;
+Sphere::Sphere(const double _R) {
+    if (!negativeNumbers(_R))
+        Radius = _R;
+    else
+        throw std::string("Number can't be less then zero");
 }
 
-void Sphere::setR(const double _R) {
-    R = _R;
+Sphere::Sphere(const Sphere& sphere) : Radius(sphere.getRadius()) {}
+
+double Sphere::getRadius() const {
+    return Radius;
+}
+
+void Sphere::setRadius(const double _R) {
+    Radius = _R;
 }
 
 double Sphere::Volume() {
-    return M_PI * R * R * R;
+    return M_PI * Radius * Radius * Radius;
 }
 
-
-Cube::Cube() : A(0) {}
-
-Cube::Cube(const double _A) : A(_A) {}
-
-Cube::Cube(const Cube& Cube) : A(Cube.getA()) {}
-
-double Cube::getA() const {
-    return A;
+bool Sphere::negativeNumbers(const double _rad) {
+    return _rad < 0;
 }
 
-void Cube::setA(const double _A) {
-    A = _A;
+Cube::Cube() : SideLength(0) {}
+
+Cube::Cube(const double _L) {
+    if (!negativeNumbers(_L))
+        SideLength = _L;
+    else
+        throw std::string("Number can't be less then zero");
+}
+
+Cube::Cube(const Cube& Cube) : SideLength(Cube.getL()) {}
+
+double Cube::getL() const {
+    return SideLength;
+}
+
+void Cube::setL(const double _A) {
+    SideLength = _A;
 }
 
 
 double Cube::Volume() {
-    return A * A * A;
+    return SideLength * SideLength * SideLength;
 }
 
-Cylinder::Cylinder() : R(0), h(0) {}
+bool Cube::negativeNumbers(const double _L) {
+    return _L < 0;
+}
 
-Cylinder::Cylinder(const double _R, const double _h) : R(_R), h(_h) {}
+Cylinder::Cylinder() : Radius(0), Height(0) {}
+
+Cylinder::Cylinder(const double _R, const double _h) {
+    if (!negativeNumbers(_R,_h))
+    {
+        Radius = _R;
+        Height = _h;
+    }
+    else
+        throw std::string("Number can't be less then zero");
+}
 
 Cylinder::Cylinder(const Cylinder& cylinder)
-         : R(cylinder.getR()), h(cylinder.geth()) {}
+         : Radius(cylinder.getRadius()), Height(cylinder.getHeight()) {}
 
-double Cylinder::getR() const {
-    return R;
+double Cylinder::getRadius() const {
+    return Radius;
 }
 
-void Cylinder::setR(const double _R) {
-    R = _R;
+void Cylinder::setRadius(const double _R) {
+    Radius = _R;
 }
 
-void Cylinder::seth(const double _h) {
-    h = _h;
+void Cylinder::setHeight(const double _h) {
+    Height = _h;
 }
 
 
-double Cylinder::geth() const {
-    return h;
+double Cylinder::getHeight() const {
+    return Height;
 }
 
 double Cylinder::Volume() {
-    return M_PI * R * R * h;
+    return M_PI * Radius * Radius * Height;
+}
+
+bool Cylinder::negativeNumbers(const double _rad, const double _h) {
+    return _rad < 0 || _h < 0;
 }
