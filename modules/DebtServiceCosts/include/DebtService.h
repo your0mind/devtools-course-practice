@@ -10,12 +10,12 @@ private:
     int loan_rate_;
 
 public:
-    DebtService ():loan_amount_(0), loan_term_(0), loan_rate_(0) {};
+    //DebtService ():loan_amount_(0), loan_term_(0), loan_rate_(0) {}
     // DebtService& operator= (const DebtService& ds);
     // DebtService& operator= (const DebtService&& ds);
     DebtService (int loan_amount, int loan_term, int loan_rate);
 
-    virtual ~DebtService ();
+    //virtual ~DebtService ();
 };
 
 #endif

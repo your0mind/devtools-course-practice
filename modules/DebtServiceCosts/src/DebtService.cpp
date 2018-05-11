@@ -1,6 +1,6 @@
 //Copyright 2018 Vyunov Roman
 
-#include "include/DebtService.h"
+#include "../modules/DebtServiceCosts/include/DebtService.h"
 
 DebtService::DebtService (int loan_amount, int loan_term, int loan_rate)
 {
