@@ -3,19 +3,24 @@
 #ifndef MODULES_DEBTSERVICECOSTS_INCLUDE_DEBTSERVICE_H_
 #define MODULES_DEBTSERVICECOSTS_INCLUDE_DEBTSERVICE_H_
 
+enum DebtServiceType {ONE_PAYMENT_AT_THE_END, PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END};
+
 class DebtService {
  private:
-    int loan_amount_;
-    int loan_term_;
-    int loan_rate_;
-
+    float loan_amount_;  // Сумма займа
+    float loan_term_;  // Срок займа в единицах времени
+    float loan_rate_;  // Процент займа за единицу времени
+    float loan_balance_;  // Остаток по займу
+    DebtServiceType service_type_;  //тип обслуживания займа
  public:
-    // DebtService ():loan_amount_(0), loan_term_(0), loan_rate_(0) {}
-    // DebtService& operator= (const DebtService& ds);
-    // DebtService& operator= (const DebtService&& ds);
-    DebtService(int loan_amount, int loan_term, int loan_rate);
+    DebtService():loan_amount_(0), loan_term_(0), loan_rate_(0),
+        loan_balance_(0), service_type_(ONE_PAYMENT_AT_THE_END) {}
+    DebtService(float loan_amount, float loan_term, float loan_rate, DebtServiceType dt);
+    DebtService(const DebtService& ds);
+    DebtService& operator= (const DebtService& ds);
 
-    // virtual ~DebtService ();
+
+    ~DebtService() {}
 };
 
 #endif  // MODULES_DEBTSERVICECOSTS_INCLUDE_DEBTSERVICE_H_
