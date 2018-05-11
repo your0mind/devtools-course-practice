@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/DebtService.h"
+#include "../modules/DebtServiceCosts/include/DebtService.h"
 
 TEST(Vyunov_Roman_DebtService_test, Can_Create_Zero) {
     // Arrange
