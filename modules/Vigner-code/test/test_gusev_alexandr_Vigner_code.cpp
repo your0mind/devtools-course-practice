@@ -39,7 +39,7 @@ TEST(Gusev_Alexandr_VignerCodeTest, Can_Decode_Symbol) {
 TEST(Gusev_Alexandr_VignerCodeTest, Encode_and_Decode_Symbol) {
     // Arrange
     Vigner_code vigner;
-    std::string Text = "abcfAZBtC";
+    std::string Text = "abffAZBtC";
     std::string Key = "abcZs";
     // Act
     std::string res = vigner.Encode(Text, Key);
