@@ -15,15 +15,16 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
         throw std::logic_error("Right bound of array > array size");
     if (last - first == 0)
         return;
-    else {
+    else 
+    {
         int i = first;
         int j = last;
-        srand(time(0));
-        int mid = (*array)[(rand_r() % (last - first)) + first];
+        int seed = 12345;
+        int base = (*array)[(rand_r(&seed) % (last - first)) + first];
 
         do {
-            while ((*array)[i] < mid) i++;
-            while ((*array)[j] > mid) j--;
+            while ((*array)[i] < base) i++;
+            while ((*array)[j] > base) j--;
 
             if (i <= j) {
                 if ((*array)[i] > (*array)[j])
