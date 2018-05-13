@@ -37,15 +37,15 @@ class Huffman {
     vector<CNode*> frequency;
 
  private:
-    void BuildTree();
+    void BuildTree();  // Builds Huffam tree
 
  public:
     Huffman() {
       H_tree = nullptr;
     }
-    explicit Huffman(char* text);
+    explicit Huffman(char* text);  // constructor fills frequency array
     ~Huffman();
-    map<char, char*> Encode();
+    map<char, char*> Encode();  // Encode function
 };
 
 #endif  // MODULES_HUFFMAN_INCLUDE_HUFFMAN_H_

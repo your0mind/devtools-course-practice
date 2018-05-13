@@ -21,7 +21,7 @@ Huffman::Huffman(char* text) {
   H_tree = nullptr;
 
   int i = 0;
-  while (text[i] != '\0') {
+  while (text[i] != '\0') {  // gets the number of each letter is text
     bool f = true;
     char* val = new char[2];
     val[0] = text[i];
@@ -32,6 +32,7 @@ Huffman::Huffman(char* text) {
       if (strcmp(frequency[j]->value, val) == 0) {
         frequency[j]->count += 1;
         f = false;
+        break;
       }
     }
     if (f == true) {
@@ -68,7 +69,7 @@ void Huffman::BuildTree() {
 
   priority_queue<CNode*, vector<CNode*>, CNode> q;
   int size = frequency.size();
-  if (size == 1) {
+  if (size == 1) {  // if only 1 letter in text
     H_tree = new CNode(frequency[0]->value, frequency[0]->count,
                         0, 0, const_cast<char*>("1"));
   }
@@ -78,11 +79,13 @@ void Huffman::BuildTree() {
   }
 
   while (q.size() != 1) {
+    // get 2 least frequent letters
     auto leaf1 = q.top();
     q.pop();
     auto leaf2 = q.top();
     q.pop();
 
+    // merge letters
     size_t len = strlen(leaf1->value) + strlen(leaf2->value) + 1;
     char* vals = new char[len];
     snprintf(vals, len, "%s%s", leaf1->value, leaf2->value);
@@ -106,6 +109,7 @@ map<char, char*> Huffman::Encode() {
     auto root = q.front();
     q.pop();
 
+    // tree traversal and encode
     int i = 0;
     while (root->value[i] != '\0') {
       char letter = root->value[i];
