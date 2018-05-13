@@ -8,7 +8,8 @@ std::string symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 Vigner_code::Vigner_code() {
 }
 
-int res;
+int Vigner_code::Keycode(char s) {
+    int res;
     for (unsigned int k = 0; k < symbols.length(); k++)
         if (s == symbols[k])
             res = k;
@@ -39,6 +40,7 @@ std::string Vigner_code::Decode(std::string Text, std::string Key) {
     for (i = 0; i < Text.length(); i++) {
         if (j >= Key.length())
             j = 0;
+
         sum = Keycode(Text[i]) - Keycode(Key[j]) - 1;
         if (sum < 0)
             sum = sum + 52;
