@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <ctime>
+#include <cstdlib>
 
 void sort::quickSort(std::vector<int> *array, int first, int last) {
     if (array->empty())
@@ -18,8 +19,9 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
     } else {
         int i = first;
         int j = last;
+        srand(time(0));
         auto random = rand;
-		int randElem = random();
+        int randElem = random();
         int base = (*array)[(randElem % (last - first)) + first];
 
         do {
