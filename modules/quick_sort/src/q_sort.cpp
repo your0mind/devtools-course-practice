@@ -19,7 +19,6 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
         int i = first;
         int j = last;
         srand(time(0));
-        auto Rand = rand;
         int mid = (*array)[(rand() % (last - first)) + first];
 
         do {
