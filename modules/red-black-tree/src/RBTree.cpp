@@ -1,7 +1,7 @@
 // Copyright 2018 Chernenko Valery
 #include "include/RBTree.h"
 
-Node *RBTree::NIL = new Node(RBTree::NIL, RBTree::NIL, nullptr, BLACK, 0);
+Node *RBTree::NIL = new Node(RBTree::NIL, RBTree::NIL, nullptr, BLACK, 0, 0);
 
 RBTree::RBTree() {
     root = NIL;

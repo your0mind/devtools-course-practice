@@ -12,8 +12,8 @@ struct Node {
     T data;  /*Stored data*/
     int count;  /*Count of Elements*/
 
-    Node(Node* _l, Node* _r, Node* _p, nColor _c, T _d) {
-        left = _l; right = _r; parent = _p; color = _c; data = _d; count = 1;
+    Node(Node* _l, Node* _r, Node* _p, nColor _c, T _d, int _count = 1) {
+        left = _l; right = _r; parent = _p; color = _c; data = _d; count = _count;
     }
 };
 
