@@ -21,6 +21,22 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_empty_tree) {
     delete tree;
 }
 
+TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_left_branch) {
+    Tree * tree = new Tree();
+    SearchTree tr;
+    tr.AddTree(7, tree);
+    tr.AddTree(10, tr.pRoot);
+    ASSERT_LE(tree->left, tr.pRoot);
+}
+
+TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_right_branch) {
+    Tree * tree = new Tree();
+    SearchTree tr;
+    tr.AddTree(17, tree);
+    tr.AddTree(10, tr.pRoot);
+    ASSERT_GE(tree->right, tr.pRoot);
+}
+
 TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element) {
     SearchTree * tree = new SearchTree();
     int key = 11;
