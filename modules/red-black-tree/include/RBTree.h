@@ -13,7 +13,7 @@ struct Node {
     int count;  /*Count of Elements*/
 
     Node(Node* _l, Node* _r, Node* _p, nColor _c, T _d, int _count = 1) {
-        left = _l; right = _r; parent = _p; 
+        left = _l; right = _r; parent = _p;
         color = _c; data = _d; count = _count;
     }
 };
