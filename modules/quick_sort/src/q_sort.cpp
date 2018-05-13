@@ -13,13 +13,14 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
         throw std::logic_error("Array index can't be < 0");
     if (static_cast<int>(array->size()) < last)
         throw std::logic_error("Right bound of array > array size");
-    if (last - first == 0)
+    if (last - first == 0) {
         return;
+    }
     else {
         int i = first;
         int j = last;
-        unsigned int seed = 12345;
-        int base = (*array)[(rand_r(&seed) % (last - first)) + first];
+        auto random = rand;
+        int base = (*array)[(random() % (last - first)) + first];
 
         do {
             while ((*array)[i] < base) i++;
