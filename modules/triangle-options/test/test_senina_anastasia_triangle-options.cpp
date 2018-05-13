@@ -246,9 +246,7 @@ TEST(senina_anastasia_triangle_optionsTest, Throw_When_Uncorrected_points) {
   Vertex b(6, 2);
   Vertex c(4, 3);
 
-  // Act
-
-  // Assert
+  // Act & Assert
   ASSERT_ANY_THROW(Triangles(a, b, c));
 }
 
