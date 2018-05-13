@@ -23,8 +23,8 @@ std::string Vigner_code::Encode(std::string Text, std::string Key) {
         if (j >= Key.length())
             j = 0;
         int sum = Keycode(Text[i]) + Keycode(Key[j]) + 1;
-        if (sum > 51)
-            sum = sum - 52;
+        if (sum > symbols.length() - 1)
+            sum = sum - symbols.length();
         result += symbols[sum];
         j++;
     }
@@ -41,7 +41,7 @@ std::string Vigner_code::Decode(std::string Text, std::string Key) {
 
         int sum = Keycode(Text[i]) - Keycode(Key[j]) - 1;
         if (sum < 0)
-            sum = sum + 52;
+            sum = sum + symbols.length();
         result += symbols[sum];
         j++;
     }
