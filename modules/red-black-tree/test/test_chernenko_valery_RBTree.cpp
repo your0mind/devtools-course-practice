@@ -126,13 +126,13 @@ TEST(RBTree, correctly_working_insertFixup) {
         T.insertNode(i * 3);
     for (int i = 1; i < 10; i++)
         T.insertNode(i * 2);
-    for(int i = 1; i < 10; i++)
+    for (int i = 1; i < 10; i++)
         if (T.findNode(i * 5) == RBTree::NIL) check = false;
-    for(int i = 1; i < 20; i++)
+    for (int i = 1; i < 20; i++)
         if (T.findNode(i * 4) == RBTree::NIL) check = false;
-    for(int i = 1; i < 10; i++)
+    for (int i = 1; i < 10; i++)
         if (T.findNode(i * 3) == RBTree::NIL) check = false;
-    for(int i = 1; i < 10; i++)
+    for (int i = 1; i < 10; i++)
         if (T.findNode(i * 2) == RBTree::NIL) check = false;
 
     EXPECT_TRUE(check);
