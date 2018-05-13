@@ -83,7 +83,7 @@ TEST(Kamelina_Julia_Huffman_Tests, Throws_When_Create_Nullptr) {
   //  Arrange
   char* text = nullptr;
 
-  //  Assert
+  //  Act & Assert
   EXPECT_ANY_THROW(Huffman huff(text););
 }
 
@@ -91,7 +91,7 @@ TEST(Kamelina_Julia_Huffman_Tests, Throws_When_Encode_Nullptr) {
   //  Arrange
   Huffman huff;
 
-  //  Assert
+  //  Act & Assert
   EXPECT_ANY_THROW(huff.Encode());
 }
 
