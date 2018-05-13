@@ -12,20 +12,20 @@ DescretePD::DescretePD() {}
 void DescretePD::setData(const std::vector<double> &values,
   const std::vector<double> &probabilities) {
     if (values.size() != probabilities.size()) {
-        throw std::logic_error("sizes of vectors do not match");
+        throw std::logic_error("Sizes of vectors do not match");
     } else {
         if (verifyProbabilities(probabilities)) {
             values_ = values;
             probabilities_ = probabilities;
         } else {
-            throw std::logic_error("invalid probabilities values");
+            throw std::logic_error("Invalid probabilities values");
         }
     }
   }
 
 double DescretePD::expectedValue() const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     double expectedValue = 0.0;
@@ -39,7 +39,7 @@ double DescretePD::expectedValue() const {
 
 double DescretePD::variance() const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     double variance = 0.0;
@@ -54,7 +54,7 @@ double DescretePD::variance() const {
 
 double DescretePD::rawMoment(const unsigned char k) const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     double rawMoment = 0.0;
@@ -80,7 +80,7 @@ double DescretePD::rawMoment(const unsigned char k) const {
 
 double DescretePD::centralMoment(const unsigned char k) const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     double centralMoment = 0.0;
@@ -111,7 +111,7 @@ double DescretePD::centralMoment(const unsigned char k) const {
 
 std::vector<double> DescretePD::getValues() const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     return values_;
@@ -119,7 +119,7 @@ std::vector<double> DescretePD::getValues() const {
 
 std::vector<double> DescretePD::getProbabilities() const {
     if (values_.empty()) {
-        throw std::logic_error("no data");
+        throw std::logic_error("No data");
     }
 
     return probabilities_;
