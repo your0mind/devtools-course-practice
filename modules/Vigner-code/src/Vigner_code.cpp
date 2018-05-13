@@ -19,7 +19,7 @@ int Vigner_code::Keycode(char s) {
 std::string Vigner_code::Encode(std::string Text, std::string Key) {
     std::string result;
     unsigned int i, j = 0;
-    int sum = 0;
+    short int sum = 0;
     for (i = 0; i < Text.length(); i++) {
         if (j >= Key.length())
             j = 0;
@@ -36,7 +36,7 @@ std::string Vigner_code::Encode(std::string Text, std::string Key) {
 std::string Vigner_code::Decode(std::string Text, std::string Key) {
     std::string result;
     unsigned int i, j = 0;
-    int sum = 0;
+    short int sum = 0;
     for (i = 0; i < Text.length(); i++) {
         if (j >= Key.length())
             j = 0;
