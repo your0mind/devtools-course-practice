@@ -18,12 +18,12 @@ int Vigner_code::Keycode(char s) {
 
 std::string Vigner_code::Encode(std::string Text, std::string Key) {
     std::string result;
-    int i, j = 0;
+    unsigned int i, j = 0;
     for (i = 0; i < Text.length(); i++) {
         if (j >= Key.length())
             j = 0;
         int sum = Keycode(Text[i]) + Keycode(Key[j]) + 1;
-        if (sum > symbols.length() - 1)
+        if (sum >= symbols.length())
             sum = sum - symbols.length();
         result += symbols[sum];
         j++;
@@ -34,11 +34,10 @@ std::string Vigner_code::Encode(std::string Text, std::string Key) {
 
 std::string Vigner_code::Decode(std::string Text, std::string Key) {
     std::string result;
-    int i, j = 0;
+    unsigned int i, j = 0;
     for (i = 0; i < Text.length(); i++) {
         if (j >= Key.length())
             j = 0;
-
         int sum = Keycode(Text[i]) - Keycode(Key[j]) - 1;
         if (sum < 0)
             sum = sum + symbols.length();
