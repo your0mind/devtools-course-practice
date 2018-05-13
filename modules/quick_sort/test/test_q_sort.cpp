@@ -47,7 +47,7 @@ TEST(QuickSortTest, Can_Sort_one_elem) {
     sort::quickSort(&arr, 1, 1);
 
     // Assert
-    EXPECT_EQ(arr[0], 2);
+    EXPECT_EQ(arr[1], 1);
 }
 
 TEST(QuickSortTest, Can_Sort_large_arr) {
