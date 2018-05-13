@@ -15,11 +15,10 @@ void sort::quickSort(std::vector<int> *array, int first, int last) {
         throw std::logic_error("Right bound of array > array size");
     if (last - first == 0)
         return;
-    else 
-    {
+    else {
         int i = first;
         int j = last;
-        int seed = 12345;
+        unsigned int seed = 12345;
         int base = (*array)[(rand_r(&seed) % (last - first)) + first];
 
         do {
