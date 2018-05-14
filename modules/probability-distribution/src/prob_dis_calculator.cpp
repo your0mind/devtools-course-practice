@@ -69,11 +69,11 @@ char parseOperation(const char* arg) {
     else if (strcmp(arg, "CentralMoment") == 0) {
         op = '2';
     }
-    else if (strcmp(arg, "*") == 0) {
-        op = '*';
+    else if (strcmp(arg, "Variance") == 0) {
+        op = '3';
     }
-    else if (strcmp(arg, "/") == 0) {
-        op = '/';
+    else if (strcmp(arg, "Expected") == 0) {
+        op = '4';
     }
     else {
         throw std::string("Wrong operation format!");
@@ -84,8 +84,6 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
 
     Arguments args;
     args.n = parseDouble(argv[1]);
-    //args.values = new std::vector<double>[args.n];
-    //args.probabilities = new std::vector<double>[args.n];
     if (!validateNumberOfArguments(argc, argv, args.n)) {
         return message_;
     }
@@ -103,39 +101,27 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
         return str;
     }
     DescretePD dpd;
-   // double rawMoment = 1.0;  // zeroth row moment equals 1
+
     unsigned char k = args.level;
 
-    // Act
     dpd.setData(args.values, args.probabilities);
-
 
     std::ostringstream stream;
     switch (args.operation) {
     case '1':
-        stream << "RawMoment =" << dpd.rawMoment(k);        
+        stream << "RawMoment = " << dpd.rawMoment(k);        
         break;
     case '2':
-        stream << "CentralMoment =" << dpd.centralMoment(k);
+        stream << "CentralMoment = " << dpd.centralMoment(k);
         break;
-    //case '*':
-    //    z = z1 * z2;
-    //    stream << "real = " << z.getre() << " "
-    //        << "imaginary = " << z.getim();
-    //    break;
-    //case '/':
-    //    try {
-    //        z = z1 / z2;
-    //        stream << "real = " << z.getre() << " "
-    //            << "imaginary = " << z.getim();
-    //        break;
-    //    }
-    //    catch (std::string& str) {
-    //        return str;
-    //    }
+    case '3':
+        stream << "Variance = " << dpd.variance();
+        break;
+    case '4':
+        stream << "Expected = " << dpd.expectedValue();
+        break;
     }
 
-    //std::ostringstream stream;
     message_ = stream.str();
 
     return message_;

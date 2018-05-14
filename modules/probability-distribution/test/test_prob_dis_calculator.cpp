@@ -58,7 +58,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
 
     Act(args);
    
-    Assert("RawMoment =1");
+    Assert("RawMoment = 1");
 }
 TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
     vector<string> args = { "3",
@@ -68,7 +68,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
 
     Act(args);
 
-    Assert("RawMoment =12.2");
+    Assert("RawMoment = 12.2");
 }
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
     vector<string> args = { "3",
@@ -78,7 +78,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
 
     Act(args);
 
-    Assert("CentralMoment =1");
+    Assert("CentralMoment = 1");
 }
 TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
     vector<string> args = { "3",
@@ -88,16 +88,29 @@ TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
 
     Act(args);
 
-    Assert("CentralMoment =0");
+    Assert("CentralMoment = 0");
 }
-//TEST_F(ProbDisCalculatorTest, Is_Checking_Number_Of_Arguments) {
-//    vector<string> args = { "1", "2","0.2","+" };
-//
-//    Act(args);
-//
-//    Assert("ERROR: Should be n arguments\\..*");
-//}
+TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
+    vector<string> args = { "3",
+        "1", "3","5",
+        "0.2", "0.5", "0.3",
+        "Variance","1" };
 
+    Act(args);
+
+    Assert("Variance = 1.96");
+}
+
+TEST_F(ProbDisCalculatorTest, Can_Get_Expected_Value) {
+    vector<string> args = { "3",
+        "1", "3","5",
+        "0.2", "0.5", "0.3",
+        "Expected","1" };
+
+    Act(args);
+
+    Assert("Expected = 3.2");
+}
 //TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
 //    vector<string> args = { "1", "pi", "2", "4", "1", "6","+" };
 //
