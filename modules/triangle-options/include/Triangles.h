@@ -24,7 +24,7 @@ typedef enum {  // for name of vertex
   first = 1, second, third
 } num_of_ver;
 
-class Triangles {
+class Triangles {  // class of calculation of parameters of triangle
  private:
   Vertex first, second, third;
   double Length(Vertex, Vertex);
