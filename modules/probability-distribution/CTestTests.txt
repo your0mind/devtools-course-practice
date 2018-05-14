@@ -48,7 +48,7 @@ add_test(
     COMMAND ${APPLICATION} 2 1 3 0.2 0.8 RawMoment Baga
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Level_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong operation format!"
+    PASS_REGULAR_EXPRESSION "Wrong level format!"
     LABELS "${MODULE}")	
 	
 add_test(
