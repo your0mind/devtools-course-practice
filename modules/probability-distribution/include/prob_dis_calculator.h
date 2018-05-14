@@ -6,12 +6,11 @@
 #include <string>
 
 class ProbDisCalculator {
-public:
-public:
+ public:
     ProbDisCalculator();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
@@ -24,5 +23,4 @@ private:
     } Arguments;
 };
 
-#endif  //MODULES_PROB_DIS_CALCULATOR_INCLUDE_PROB_DIS_CALCULATOR_H_
-#pragma once
+#endif  // MODULES_PROB_DIS_CALCULATOR_INCLUDE_PROB_DIS_CALCULATOR_H_

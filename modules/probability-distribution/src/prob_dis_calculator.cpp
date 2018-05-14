@@ -1,12 +1,14 @@
+// Copyright 2018 Lalykin Oleg
+
+#include "include/probability_distribution.h"
+#include "include/prob_dis_calculator.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <string>
 #include <sstream>
-
-#include "include/probability_distribution.h"
-#include "include/prob_dis_calculator.h"
 
 ProbDisCalculator::ProbDisCalculator() : message_("") {}
 
@@ -27,30 +29,59 @@ bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 6) {
+    } else if (argc != 6) {
         help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
     }
     return true;
 }
 
+double parseDouble(const char* arg) {
+    char* end;
+    double value = strtod(arg, &end);
+
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
+
+    return value;
+}
+
+char parseOperation(const char* arg) {
+    char op;
+    if (strcmp(arg, "+") == 0) {
+        op = '+';
+    }
+    else if (strcmp(arg, "-") == 0) {
+        op = '-';
+    }
+    else if (strcmp(arg, "*") == 0) {
+        op = '*';
+    }
+    else if (strcmp(arg, "/") == 0) {
+        op = '/';
+    }
+    else {
+        throw std::string("Wrong operation format!");
+    }
+    return op;
+}
 std::string ProbDisCalculator::operator()(int argc, const char** argv) {
-    //Arguments args;
+    Arguments args;
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
 
-    //try {
-    //	args.z1_real = parseDouble(argv[1]);
-    //	args.z1_imaginary = parseDouble(argv[2]);
-    //	args.z2_real = parseDouble(argv[3]);
-    //	args.z2_imaginary = parseDouble(argv[4]);
-    //	args.operation = parseOperation(argv[5]);
-    //}
-    //catch (std::string& str) {
-    //	return str;
-    //}
+    try {
+        args.z1_real = parseDouble(argv[1]);
+        args.z1_imaginary = parseDouble(argv[2]);
+        args.z2_real = parseDouble(argv[3]);
+        args.z2_imaginary = parseDouble(argv[4]);
+        args.operation = parseOperation(argv[5]);
+    }
+    catch (std::string& str) {
+        return str;
+    }
 
     //ComplexNumber z1;
     //ComplexNumber z2;
@@ -90,8 +121,8 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
     //	}
     //}
 
-    std::ostringstream stream;
-    message_ = stream.str();
+    //std::ostringstream stream;
+    //message_ = stream.str();
 
     return message_;
 }

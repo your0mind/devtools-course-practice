@@ -1,6 +1,6 @@
 // Copyright 2017 Korniakov Kirill
 
-#include "include/complex_number.h"
+//#include "include/complex_number.h"
 #include "include/complex_calculator.h"
 
 #include <stdio.h>
