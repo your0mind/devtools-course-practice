@@ -31,9 +31,7 @@ TEST(Gracheva_Elena_TestVector3d, can_compare_equals_vector) {
     // Arrange
     Vector3d vector1(1, 2, 3), vector2(1, 2, 3);
 
-    // Act
-
-    // Assert
+    // Act, Assert
     EXPECT_TRUE(vector1 == vector2);
 }
 
@@ -41,8 +39,6 @@ TEST(Gracheva_Elena_TestVector3d, can_compare_not_equals_vector) {
     // Arrange
     Vector3d vector1(1, 2, 3), vector2(1, 2, 4);
 
-    // Act
-
-    // Assert
+    // Act, Assert
     EXPECT_TRUE(vector1 != vector2);
 }
