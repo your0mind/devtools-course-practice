@@ -14,6 +14,7 @@ class ProbDisCalculator {
  private:
     void help(const char* appname, const char* message = "");
     bool validateNumberOfArguments(int argc, const char** argv, int n);
+    bool HaveArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
         int n;

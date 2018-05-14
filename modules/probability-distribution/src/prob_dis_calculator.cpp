@@ -1,6 +1,6 @@
 // Copyright 2018 Lalykin Oleg
 
-#include "include/probability_distribution.h"
+
 #include "include/prob_dis_calculator.h"
 
 #include <stdio.h>
@@ -10,6 +10,8 @@
 #include <string>
 #include <sstream>
 
+#include "include/probability_distribution.h"
+
 ProbDisCalculator::ProbDisCalculator() : message_("") {}
 
 void ProbDisCalculator::help(const char* appname, const char* message) {
@@ -18,21 +20,26 @@ void ProbDisCalculator::help(const char* appname, const char* message) {
         "This is a probability distribution calculator application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <z1_real> <z1_imaginary> " +
-        "<z2_real> <z2_imaginary> <operation>\n\n" +
+        "  $ " + appname +
+        " <sample_size> <array_values> <array_probabilities> " +
+        "<characteristic> <level> \n\n" +
 
         "Where all arguments are double-precision numbers, " +
-        "and <operation> is one of '+', '-', '*', '/'.\n";
+        "and <characteristic> is one of" +
+        "'RawMoment', 'CentralMoment', 'Variance', 'Expected'.\n";
 }
 
-
-bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv, int n) {
+bool ProbDisCalculator::HaveArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
     }
-    else if (argc != 2 * n + 4) {
-        help(argv[0], "ERROR: Should be nn3 arguments.\n\n");
+    return true;
+}
+bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv, int n) {
+
+    if (argc != 2 * n + 4) {
+        help(argv[0], "ERROR: Should be other number arguments.\n\n");
         return false;
     }
     return true;
@@ -80,9 +87,13 @@ char parseOperation(const char* arg) {
     }
     return op;
 }
+
 std::string ProbDisCalculator::operator()(int argc, const char** argv) {
 
     Arguments args;
+    if (!HaveArguments(argc, argv)) {
+        return message_;
+    }
     args.n = parseDouble(argv[1]);
     if (!validateNumberOfArguments(argc, argv, args.n)) {
         return message_;
@@ -109,7 +120,7 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
     std::ostringstream stream;
     switch (args.operation) {
     case '1':
-        stream << "RawMoment = " << dpd.rawMoment(k);        
+        stream << "RawMoment = " << dpd.rawMoment(k);
         break;
     case '2':
         stream << "CentralMoment = " << dpd.centralMoment(k);
