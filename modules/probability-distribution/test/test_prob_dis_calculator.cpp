@@ -81,12 +81,12 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
         "RawMoment", "0"};
 
     Act(args);
-   
+
     Assert("RawMoment = 1");
 }
 TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
     vector<string> args = { "3",
-        "1", "3","5",
+        "1", "3", "5",
         "0.2", "0.5", "0.3",
         "RawMoment", "2"};
 
@@ -97,7 +97,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
 
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
     vector<string> args = { "3",
-        "1", "3","5",
+        "1", "3", "5",
         "0.2", "0.5", "0.3",
         "CentralMoment", "0" };
 
@@ -108,7 +108,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
 
 TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
     vector<string> args = { "3",
-        "1", "3","5",
+        "1", "3", "5",
         "0.2", "0.5", "0.3",
         "CentralMoment", "1" };
 
@@ -119,7 +119,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
 
 TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
     vector<string> args = { "3",
-        "1", "3","5",
+        "1", "3", "5",
         "0.2", "0.5", "0.3",
         "Variance", "1" };
 
@@ -130,7 +130,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
 
 TEST_F(ProbDisCalculatorTest, Can_Get_Expected_Value) {
     vector<string> args = { "3",
-        "1", "3","5",
+        "1", "3", "5",
         "0.2", "0.5", "0.3",
         "Expected", "1" };
 
