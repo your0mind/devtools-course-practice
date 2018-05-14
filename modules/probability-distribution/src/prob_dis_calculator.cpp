@@ -36,8 +36,8 @@ bool ProbDisCalculator::HaveArguments(int argc, const char** argv) {
     }
     return true;
 }
-bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv, int n) {
-
+bool ProbDisCalculator::validateNumberOfArguments(int argc,
+    const char** argv, int n) {
     if (argc != 2 * n + 4) {
         help(argv[0], "ERROR: Should be other number arguments.\n\n");
         return false;
@@ -72,24 +72,19 @@ char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "RawMoment") == 0) {
         op = '1';
-    }
-    else if (strcmp(arg, "CentralMoment") == 0) {
+    } else if (strcmp(arg, "CentralMoment") == 0) {
         op = '2';
-    }
-    else if (strcmp(arg, "Variance") == 0) {
+    } else if (strcmp(arg, "Variance") == 0) {
         op = '3';
-    }
-    else if (strcmp(arg, "Expected") == 0) {
+    } else if (strcmp(arg, "Expected") == 0) {
         op = '4';
-    }
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;
 }
 
 std::string ProbDisCalculator::operator()(int argc, const char** argv) {
-
     Arguments args;
     if (!HaveArguments(argc, argv)) {
         return message_;
@@ -112,11 +107,8 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
         return str;
     }
     DescretePD dpd;
-
     unsigned char k = args.level;
-
     dpd.setData(args.values, args.probabilities);
-
     std::ostringstream stream;
     switch (args.operation) {
     case '1':
@@ -132,8 +124,6 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
         stream << "Expected = " << dpd.expectedValue();
         break;
     }
-
     message_ = stream.str();
-
     return message_;
 }

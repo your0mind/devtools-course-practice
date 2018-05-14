@@ -37,7 +37,7 @@ class ProbDisCalculatorTest : public ::testing::Test {
          EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
      }
 
-private:
+ private:
     ProbDisCalculator app_;
     string output_;
 };
@@ -51,15 +51,15 @@ TEST_F(ProbDisCalculatorTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(ProbDisCalculatorTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = {"2", "4", "0.2", "RawMoment","0"};
+    vector<string> args = {"2", "4", "0.2", "RawMoment", "0"};
 
     Act(args);
-   
+
     Assert("ERROR: Should be other number arguments\\..*");
 }
 
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = { "1", "Baga", "0.2", "RawMoment","0" };
+    vector<string> args = { "1", "Baga", "0.2", "RawMoment", "0" };
 
     Act(args);
 
@@ -67,7 +67,7 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
 }
 
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = { "1", "4", "0.2", "Baga","0" };
+    vector<string> args = { "1", "4", "0.2", "Baga", "0" };
 
     Act(args);
 
@@ -76,9 +76,9 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
     vector<string> args = {"2",
-        "1", "3", 
-        "0.2", "0.8", 
-        "RawMoment","0"};
+        "1", "3",
+        "0.2", "0.8",
+        "RawMoment", "0"};
 
     Act(args);
    
@@ -86,9 +86,9 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
 }
 TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
     vector<string> args = { "3",
-        "1", "3","5", 
+        "1", "3","5",
         "0.2", "0.5", "0.3",
-        "RawMoment","2"};
+        "RawMoment", "2"};
 
     Act(args);
 
@@ -99,7 +99,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
     vector<string> args = { "3",
         "1", "3","5",
         "0.2", "0.5", "0.3",
-        "CentralMoment","0" };
+        "CentralMoment", "0" };
 
     Act(args);
 
@@ -110,7 +110,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
     vector<string> args = { "3",
         "1", "3","5",
         "0.2", "0.5", "0.3",
-        "CentralMoment","1" };
+        "CentralMoment", "1" };
 
     Act(args);
 
@@ -121,7 +121,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
     vector<string> args = { "3",
         "1", "3","5",
         "0.2", "0.5", "0.3",
-        "Variance","1" };
+        "Variance", "1" };
 
     Act(args);
 
@@ -132,7 +132,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Expected_Value) {
     vector<string> args = { "3",
         "1", "3","5",
         "0.2", "0.5", "0.3",
-        "Expected","1" };
+        "Expected", "1" };
 
     Act(args);
 
