@@ -74,6 +74,17 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Operation_Format) {
     Assert("Wrong operation format!");
 }
 
+TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Level_Format) {
+    vector<string> args = { "2",
+        "1", "3",
+        "0.2", "0.8",
+        "RawMoment", "Baga" };
+
+    Act(args);
+
+    Assert("Wrong level format!");
+}
+
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
     vector<string> args = {"2",
         "1", "3",

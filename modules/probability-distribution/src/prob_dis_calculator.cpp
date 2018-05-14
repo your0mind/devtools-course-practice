@@ -61,7 +61,7 @@ unsigned char parseChar(const char* arg) {
     unsigned char value = strtod(arg, &end);
 
     if (end[0]) {
-        throw std::string("Wrong number format!");
+        throw std::string("Wrong level format!");
     }
 
     return value;
