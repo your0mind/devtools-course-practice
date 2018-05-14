@@ -42,3 +42,11 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong operation format!"
     LABELS "${MODULE}")
+	
+add_test(
+    NAME ${prefix}_can_Get_Zeroth_Raw_Moment
+    COMMAND ${APPLICATION} 2 1 3 0.2 0.8 RawMoment 0
+)
+set_tests_properties (${prefix}_can_Get_Zeroth_Raw_Moment PROPERTIES
+    PASS_REGULAR_EXPRESSION "RawMoment = 1"
+    LABELS "${MODULE}")
