@@ -4,23 +4,26 @@
 #define MODULES_PROB_DIS_CALCULATOR_INCLUDE_PROB_DIS_CALCULATOR_H_
 
 #include <string>
+#include <vector>
 
 class ProbDisCalculator {
  public:
     ProbDisCalculator();
     std::string operator()(int argc, const char** argv);
 
+    
  private:
     void help(const char* appname, const char* message = "");
-    bool validateNumberOfArguments(int argc, const char** argv);
+    bool validateNumberOfArguments(int argc, const char** argv,int n);
     std::string message_;
     typedef struct {
-        double z1_real;
-        double z1_imaginary;
-        double z2_real;
-        double z2_imaginary;
+        int n;
+        std::vector<double> values ;
+        std::vector<double> probabilities ;
         char operation;
+        unsigned char level;
     } Arguments;
+
 };
 
 #endif  // MODULES_PROB_DIS_CALCULATOR_INCLUDE_PROB_DIS_CALCULATOR_H_

@@ -15,7 +15,7 @@ ProbDisCalculator::ProbDisCalculator() : message_("") {}
 void ProbDisCalculator::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-        "This is a complex number calculator application.\n\n" +
+        "This is a probability distribution calculator application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
         "  $ " + appname + " <z1_real> <z1_imaginary> " +
@@ -25,12 +25,14 @@ void ProbDisCalculator::help(const char* appname, const char* message) {
         "and <operation> is one of '+', '-', '*', '/'.\n";
 }
 
-bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv) {
+
+bool ProbDisCalculator::validateNumberOfArguments(int argc, const char** argv, int n) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    } else if (argc != 6) {
-        help(argv[0], "ERROR: Should be 5 arguments.\n\n");
+    }
+    else if (argc != 2 * n + 4) {
+        help(argv[0], "ERROR: Should be nn3 arguments.\n\n");
         return false;
     }
     return true;
@@ -47,13 +49,25 @@ double parseDouble(const char* arg) {
     return value;
 }
 
+unsigned char parseChar(const char* arg) {
+    char* end;
+    unsigned char value = strtod(arg, &end);
+
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
+
+    return value;
+}
+
+
 char parseOperation(const char* arg) {
     char op;
-    if (strcmp(arg, "+") == 0) {
-        op = '+';
+    if (strcmp(arg, "RawMoment") == 0) {
+        op = '1';
     }
-    else if (strcmp(arg, "-") == 0) {
-        op = '-';
+    else if (strcmp(arg, "CentralMoment") == 0) {
+        op = '2';
     }
     else if (strcmp(arg, "*") == 0) {
         op = '*';
@@ -67,62 +81,62 @@ char parseOperation(const char* arg) {
     return op;
 }
 std::string ProbDisCalculator::operator()(int argc, const char** argv) {
+
     Arguments args;
-    if (!validateNumberOfArguments(argc, argv)) {
+    args.n = parseDouble(argv[1]);
+    //args.values = new std::vector<double>[args.n];
+    //args.probabilities = new std::vector<double>[args.n];
+    if (!validateNumberOfArguments(argc, argv, args.n)) {
         return message_;
     }
-
     try {
-        args.z1_real = parseDouble(argv[1]);
-        args.z1_imaginary = parseDouble(argv[2]);
-        args.z2_real = parseDouble(argv[3]);
-        args.z2_imaginary = parseDouble(argv[4]);
-        args.operation = parseOperation(argv[5]);
+
+        for (int i = 0; i < args.n; i++)
+        {
+            args.values.push_back(parseDouble(argv[i + 2]));
+            args.probabilities.push_back(parseDouble(argv[i + 2 + args.n]));
+        }
+        args.operation = parseOperation(argv[2 * args.n + 2]);
+        args.level = parseChar(argv[2 * args.n + 3]);
     }
     catch (std::string& str) {
         return str;
     }
+    DescretePD dpd;
+   // double rawMoment = 1.0;  // zeroth row moment equals 1
+    unsigned char k = args.level;
 
-    //ComplexNumber z1;
-    //ComplexNumber z2;
+    // Act
+    dpd.setData(args.values, args.probabilities);
 
-    //z1.setRe(args.z1_real);
-    //z1.setIm(args.z1_imaginary);
-    //z2.setRe(args.z2_real);
-    //z2.setIm(args.z2_imaginary);
 
-    //ComplexNumber z;
-    //std::ostringstream stream;
-    //switch (args.operation) {
-    //case '+':
-    //	z = z1 + z2;
-    //	stream << "Real = " << z.getRe() << " "
-    //		<< "Imaginary = " << z.getIm();
-    //	break;
-    //case '-':
-    //	z = z1 - z2;
-    //	stream << "Real = " << z.getRe() << " "
-    //		<< "Imaginary = " << z.getIm();
-    //	break;
+    std::ostringstream stream;
+    switch (args.operation) {
+    case '1':
+        stream << "RawMoment =" << dpd.rawMoment(k);        
+        break;
+    case '2':
+        stream << "CentralMoment =" << dpd.centralMoment(k);
+        break;
     //case '*':
-    //	z = z1 * z2;
-    //	stream << "Real = " << z.getRe() << " "
-    //		<< "Imaginary = " << z.getIm();
-    //	break;
+    //    z = z1 * z2;
+    //    stream << "real = " << z.getre() << " "
+    //        << "imaginary = " << z.getim();
+    //    break;
     //case '/':
-    //	try {
-    //		z = z1 / z2;
-    //		stream << "Real = " << z.getRe() << " "
-    //			<< "Imaginary = " << z.getIm();
-    //		break;
-    //	}
-    //	catch (std::string& str) {
-    //		return str;
-    //	}
-    //}
+    //    try {
+    //        z = z1 / z2;
+    //        stream << "real = " << z.getre() << " "
+    //            << "imaginary = " << z.getim();
+    //        break;
+    //    }
+    //    catch (std::string& str) {
+    //        return str;
+    //    }
+    }
 
     //std::ostringstream stream;
-    //message_ = stream.str();
+    message_ = stream.str();
 
     return message_;
 }
