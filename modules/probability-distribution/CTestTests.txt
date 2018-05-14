@@ -68,6 +68,22 @@ set_tests_properties (${prefix}_can_Get_Second_Raw_Moment PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Get_Get_Zeroth_Central_Moment
+    COMMAND ${APPLICATION} 2 1 3 5 0.2 0.5 0.3 CentralMoment 0
+)
+set_tests_properties (${prefix}_can_Get_Get_Zeroth_Central_Moment PROPERTIES
+    PASS_REGULAR_EXPRESSION "CentralMoment = 1"
+    LABELS "${MODULE}")	
+
+add_test(
+    NAME ${prefix}_can_Get_First_Central_Moment
+    COMMAND ${APPLICATION} 2 1 3 5 0.2 0.5 0.3 CentralMoment 1
+)
+set_tests_properties (${prefix}_can_Get_First_Central_Moment PROPERTIES
+    PASS_REGULAR_EXPRESSION "CentralMoment = 0"
+    LABELS "${MODULE}")	
+
+add_test(
     NAME ${prefix}_can_Get_Variance
     COMMAND ${APPLICATION} 2 1 3 5 0.2 0.5 0.3 Variance 1
 )
