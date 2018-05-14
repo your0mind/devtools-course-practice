@@ -94,9 +94,7 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-
-        for (int i = 0; i < args.n; i++)
-        {
+        for (int i = 0; i < args.n; i++){
             args.values.push_back(parseDouble(argv[i + 2]));
             args.probabilities.push_back(parseDouble(argv[i + 2 + args.n]));
         }
