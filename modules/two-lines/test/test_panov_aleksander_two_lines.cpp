@@ -64,8 +64,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Copy_Line_Segment) {
     EXPECT_EQ(line1.getPoint2(), line2.getPoint2());
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments1)
-{
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments1) {
     // Arrange
     Point point1(1, -1), point2(-1, 1);
     LineSegment line1(point1, point2);
@@ -75,8 +74,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments1)
     EXPECT_TRUE(line1 == line2);
 }
 
-TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2)
-{
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2) {
     // Arrange
     Point point1(1, -1), point2(1.01, -1);
     LineSegment line1(point1, point1);
