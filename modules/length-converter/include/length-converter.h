@@ -8,8 +8,8 @@
 
 class LengthConverter {
  public:
-    LengthConverter() {}
-    ~LengthConverter() {}
+    LengthConverter() { }
+    ~LengthConverter() { }
 
     // Main methods
     double centimetersToMeters(const double &centimeters) const;
