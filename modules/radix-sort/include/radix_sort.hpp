@@ -21,7 +21,7 @@ class RadixSorter {
   RadixSorter(RadixSorter&& other) : m_data(std::move(other.m_data)) {} // NOLINT
 
   RadixSorter& operator=(const RadixSorter& other) { m_data = other.m_data; }
-  RadixSorter& operator=(const RadixSorter&& other) {
+  RadixSorter& operator=(const RadixSorter&& other) { // NOLINT
     m_data = std::move(other.m_data);
   }
 
