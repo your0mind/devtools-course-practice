@@ -4,7 +4,6 @@
 
 #include "include/temperature_converter.h"
 
-
 TEST(Temperature_Converter_Test, Can_Create_Object) {
     // Assert
     TemperatureConverter temp(-7.0, 'K');
