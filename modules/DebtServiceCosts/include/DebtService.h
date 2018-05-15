@@ -21,7 +21,8 @@ class DebtService {
  public:
     DebtService():loan_amount_(0), loan_term_(0), loan_rate_(0),
         loan_balance_(0), service_type_(ONE_PAYMENT_AT_THE_END) {}
-    DebtService(float loan_amount, int loan_term, float loan_rate, DebtServiceType dt);
+    DebtService(float loan_amount, int loan_term, float loan_rate,
+                DebtServiceType dt);
     DebtService(const DebtService& ds);
     DebtService& operator =(const DebtService& ds);
     bool operator ==(const DebtService& ds) const;

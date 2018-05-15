@@ -70,7 +70,8 @@ TEST(Vyunov_Roman_DebtService_test, GetTotalPayout_for_ONE_PAYMENT_AT_THE_END) {
     ASSERT_EQ(ds1.GetTotalPayout(), 2);
 }
 
-TEST(Vyunov_Roman_DebtService_test, GetTotalPayout_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
+TEST(Vyunov_Roman_DebtService_test,
+     GetTotalPayout_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
     // Arrange
     DebtService ds1(1, 1, 1, PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END);
     // Act
