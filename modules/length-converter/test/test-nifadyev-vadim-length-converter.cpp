@@ -613,3 +613,365 @@ TEST(LengthConverter,
     // Act & Assert
     ASSERT_ANY_THROW(converter.verstsToSpans(versts));
 }
+
+TEST(LengthConverter, Can_Convert_Miles_To_Meters) {
+    // Arrange
+    double miles = 22.013;
+    double expectedResult = 35426.489472;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.milesToMeters(miles), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Miles_To_Meters) {
+    // Arrange
+    double miles = -0.21312489;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.milesToMeters(miles));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Miles_To_Meters) {
+    // Arrange
+    double miles = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.milesToMeters(miles));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Miles) {
+    // Arrange
+    double meters = 579867.114;
+    double expectedResult = 360.31271996540198;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToMiles(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Miles) {
+    // Arrange
+    double meters = -100074.02;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToMiles(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Miles) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToMiles(meters));
+}
+
+TEST(LengthConverter, Can_Convert_Yards_To_Meters) {
+    // Arrange
+    double yards = 90123.991;
+    double expectedResult = 887047.15551181103;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.yardsToMeters(yards), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Yards_To_Meters) {
+    // Arrange
+    double yards = -987412.8;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.yardsToMeters(yards));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Yards_To_Meters) {
+    // Arrange
+    double yards = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.yardsToMeters(yards));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Yards) {
+    // Arrange
+    double meters = 8227.7;
+    double expectedResult = 835.93432000334383;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToYards(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Yards) {
+    // Arrange
+    double meters = -79.774;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToYards(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Yards) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToYards(meters));
+}
+
+TEST(LengthConverter, Can_Convert_Inches_To_Meters) {
+    // Arrange
+    double inches = 6514412.1;
+    double expectedResult = 165466.06734;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.inchesToMeters(inches), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Inches_To_Meters) {
+    // Arrange
+    double inches = -773.124;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.inchesToMeters(inches));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Inches_To_Meters) {
+    // Arrange
+    double inches = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.inchesToMeters(inches));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Inches) {
+    // Arrange
+    double meters = 8547.901;
+    double expectedResult = 336531.535433071;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToInches(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Inches) {
+    // Arrange
+    double meters = -6848;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToInches(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Inches) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToInches(meters));
+}
+
+TEST(LengthConverter, Can_Convert_Astronomical_Units_To_Meters) {
+    // Arrange
+    double astronomicalUnits = 0.42352623;
+    double expectedResult = 63358622193.598461;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.astronomicalUnitsToMeters(astronomicalUnits),
+                    expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Converting_Negative_Value_From_Astronomical_Units_To_Meters) {
+    // Arrange
+    double astronomicalUnits = -0.0034213;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.astronomicalUnitsToMeters(astronomicalUnits));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Astronomical_Units_To_Meters) {
+    // Arrange
+    double astronomicalUnits = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.astronomicalUnitsToMeters(astronomicalUnits));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Astronomical_Units) {
+    // Arrange
+    double meters = 745745982395.1;
+    double expectedResult = 4.985003990401716;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToAstronomicalUnits(meters),
+                    expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Converting_Negative_Value_From_Meters_To_Astronomical_Units) {
+    // Arrange
+    double meters = -890471204.12;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToAstronomicalUnits(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Astronomical_Units) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToAstronomicalUnits(meters));
+}
+
+TEST(LengthConverter, Can_Convert_Spans_To_Meters) {
+    // Arrange
+    double spans = 9670346.23;
+    double expectedResult = 1719387.559694;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.spansToMeters(spans), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Spans_To_Meters) {
+    // Arrange
+    double spans = -3593.041240;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.spansToMeters(spans));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Spans_To_Meters) {
+    // Arrange
+    double spans = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.spansToMeters(spans));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Spans) {
+    // Arrange
+    double meters = 890412.7;
+    double expectedResult = 5007945.44431946;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToSpans(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Spans) {
+    // Arrange
+    double meters = -801241;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToSpans(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Spans) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToSpans(meters));
+}
+
+TEST(LengthConverter, Can_Convert_Versts_To_Meters) {
+    // Arrange
+    double versts = 856.041;
+    double expectedResult = 913224.5388;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.verstsToMeters(versts), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Versts_To_Meters) {
+    // Arrange
+    double versts = -41240.12;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.verstsToMeters(versts));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Versts_To_Meters) {
+    // Arrange
+    double versts = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.verstsToMeters(versts));
+}
+
+TEST(LengthConverter, Can_Convert_Meters_To_Versts) {
+    // Arrange
+    double meters = 890481.067;
+    double expectedResult = 834.721660104987;
+    LengthConverter converter;
+
+    // Act & Assert
+    EXPECT_DOUBLE_EQ(converter.metersToVersts(meters), expectedResult);
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Negative_Value_From_Meters_To_Versts) {
+    // Arrange
+    double meters = -1402;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToVersts(meters));
+}
+
+TEST(LengthConverter,
+    Throw_When_Trying_To_Convert_Zero_Value_From_Meters_To_Versts) {
+    // Arrange
+    double meters = 0;
+    LengthConverter converter;
+
+    // Act & Assert
+    ASSERT_ANY_THROW(converter.metersToVersts(meters));
+}
