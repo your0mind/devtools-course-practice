@@ -7,18 +7,18 @@
 
 class LMetricsFloat {
  public:
-    static float linf_vec_distance(const std::vector<float>& vec1,
+    static float LinfVecDistance(const std::vector<float>& vec1,
                                    const std::vector<float>& vec2);
-    static float l1_vec_distance(const std::vector<float>& vec1,
+    static float L1VecDistance(const std::vector<float>& vec1,
                                  const std::vector<float>& vec2);
-    static float l2_vec_distance(const std::vector<float>& vec1,
+    static float L2VecDistance(const std::vector<float>& vec1,
                                  const std::vector<float>& vec2);
-    static float l3_vec_distance(const std::vector<float>& vec1,
+    static float L3VecDistance(const std::vector<float>& vec1,
                                  const std::vector<float>& vec2);
-    static float l4_vec_distance(const std::vector<float>& vec1,
+    static float L4VecDistance(const std::vector<float>& vec1,
                                  const std::vector<float>& vec2);
  private:
-    static std::vector<float> vec_substract_mod(const std::vector<float> vec1,
+    static std::vector<float> VecSubstractMod(const std::vector<float> vec1,
                                                 const std::vector<float> vec2);
 };
 

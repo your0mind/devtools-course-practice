@@ -15,7 +15,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, Linf_Dist_IsCorrect) {
     std::vector<float> vec2 = { -9.2f, -1.5f, 8.0f };
 
     // Act
-    float res = LMetricsFloat::linf_vec_distance(vec1, vec2);
+    float res = LMetricsFloat::LinfVecDistance(vec1, vec2);
 
     // Assert
     float expected_res = 11.6f;
@@ -28,7 +28,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L1_Dist_IsCorrect) {
     std::vector<float> vec2 = { -4.0f, -5.1f, 3.8f, 0.0f };
 
     // Act
-    float res = LMetricsFloat::l1_vec_distance(vec1, vec2);
+    float res = LMetricsFloat::L1VecDistance(vec1, vec2);
 
     // Assert
     float expected_res = 19.0f;
@@ -41,7 +41,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L2_Dist_IsCorrect) {
     std::vector<float> vec2 = { 4.0f, 5.0f };
 
     // Act
-    float res = LMetricsFloat::l2_vec_distance(vec1, vec2);
+    float res = LMetricsFloat::L2VecDistance(vec1, vec2);
 
     // Assert
     float expected_res = 5.0f;
@@ -54,7 +54,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L3_Dist_IsCorrect) {
     std::vector<float> vec2 = { 0.0f, -2.075f, 0.0f };
 
     // Act
-    float res = LMetricsFloat::l3_vec_distance(vec1, vec2);
+    float res = LMetricsFloat::L3VecDistance(vec1, vec2);
 
     // Assert
     float expected_res = 3.3f;
@@ -67,7 +67,7 @@ TEST(Gribov_Pavel_LMetricsFloatTest, L4_Dist_IsCorrect) {
     std::vector<float> vec2 = { -4.4f, 5.5f, -6.6f };
 
     // Act
-    float res = LMetricsFloat::l4_vec_distance(vec1, vec2);
+    float res = LMetricsFloat::L4VecDistance(vec1, vec2);
 
     // Assert
     float expected_res = 10.156f;
@@ -82,8 +82,8 @@ std::vector<float> vec3 = { -2.3f, 0.0f };
 std::vector<float> vec4 = { 0.0f, 0.0f, 0.0f };
 
 // Act
-float res1 = LMetricsFloat::l2_vec_distance(vec1, vec2);
-float res2 = LMetricsFloat::l2_vec_distance(vec3, vec4);
+float res1 = LMetricsFloat::L2VecDistance(vec1, vec2);
+float res2 = LMetricsFloat::L2VecDistance(vec3, vec4);
 
 // Assert
 EXPECT_NEAR(res1, res2, MyEpsilon::eps);

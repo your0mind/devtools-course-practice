@@ -7,7 +7,7 @@
 
 #include "include/l-metrics-float.h"
 
-std::vector<float> LMetricsFloat::vec_substract_mod(std::vector<float> vec1,
+std::vector<float> LMetricsFloat::VecSubstractMod(std::vector<float> vec1,
                                                     std::vector<float> vec2) {
     size_t size = std::max(vec1.size(), vec2.size());
     std::vector<float> vec3(size);
@@ -23,36 +23,36 @@ std::vector<float> LMetricsFloat::vec_substract_mod(std::vector<float> vec1,
     return vec3;
 }
 
-float LMetricsFloat::linf_vec_distance(const std::vector<float>& vec1,
+float LMetricsFloat::LinfVecDistance(const std::vector<float>& vec1,
                                        const std::vector<float>& vec2) {
     float linf_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = vec_substract_mod(vec1, vec2);
+    vec3 = VecSubstractMod(vec1, vec2);
 
     linf_vec_dist = *std::max_element(vec3.cbegin(), vec3.cend());
 
     return linf_vec_dist;
 }
 
-float LMetricsFloat::l1_vec_distance(const std::vector<float>& vec1,
+float LMetricsFloat::L1VecDistance(const std::vector<float>& vec1,
                                      const std::vector<float>& vec2) {
     float l1_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = vec_substract_mod(vec1, vec2);
+    vec3 = VecSubstractMod(vec1, vec2);
 
     l1_vec_dist = std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f);
 
     return l1_vec_dist;
 }
 
-float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1,
+float LMetricsFloat::L2VecDistance(const std::vector<float>& vec1,
                                      const std::vector<float>& vec2) {
     float l2_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = vec_substract_mod(vec1, vec2);
+    vec3 = VecSubstractMod(vec1, vec2);
 
     l2_vec_dist = sqrtf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
@@ -62,12 +62,12 @@ float LMetricsFloat::l2_vec_distance(const std::vector<float>& vec1,
     return l2_vec_dist;
 }
 
-float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1,
+float LMetricsFloat::L3VecDistance(const std::vector<float>& vec1,
                                      const std::vector<float>& vec2) {
     float l3_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = vec_substract_mod(vec1, vec2);
+    vec3 = VecSubstractMod(vec1, vec2);
 
     l3_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
@@ -77,12 +77,12 @@ float LMetricsFloat::l3_vec_distance(const std::vector<float>& vec1,
     return l3_vec_dist;
 }
 
-float LMetricsFloat::l4_vec_distance(const std::vector<float>& vec1,
+float LMetricsFloat::L4VecDistance(const std::vector<float>& vec1,
                                      const std::vector<float>& vec2) {
     float l4_vec_dist;
     std::vector<float> vec3;
 
-    vec3 = vec_substract_mod(vec1, vec2);
+    vec3 = VecSubstractMod(vec1, vec2);
 
     l4_vec_dist = powf(std::accumulate(vec3.cbegin(), vec3.cend(), 0.0f,
         [](const float& elem1, const float& elem2) {
