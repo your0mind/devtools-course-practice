@@ -68,17 +68,26 @@ TStack<ValType>::TStack(const TStack<ValType> &S) {
 
 template <class ValType>
 void TStack<ValType>::Push(ValType var) {
-    pMem[sp++] = var;
+    if (IsFull())
+        throw std::logic_error("Stack overflow");
+    else
+        pMem[sp++] = var;
 }
 
 template <class ValType>
 ValType TStack<ValType>::Pop(void) {
-    return pMem[--sp];
+    if (IsEmpty())
+        throw std::logic_error("Stack is empty");
+    else
+        return pMem[--sp];
 }
 
 template <class ValType>
 ValType TStack<ValType>::Top(void) {
-    return pMem[sp - 1];
+    if (IsEmpty())
+        throw std::logic_error("Stack is empty");
+    else
+        return pMem[sp - 1];
 }
 
 template <class ValType>

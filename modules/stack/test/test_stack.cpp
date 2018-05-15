@@ -124,3 +124,29 @@ TEST(Gladyshev_Alexey_StackTest, Can_Assign_Stack) {
     // Assert
     EXPECT_TRUE(stack1 == stack2);
 }
+
+TEST(Gladyshev_Alexey_StackTest, Cant_push_into_overflow_5e2shAra) {
+    // Arrange
+    TStack<int> stack(5);
+    for (int i = 0; i < 5; i++)
+        stack.Push(i);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(stack.Push(47));
+}
+
+TEST(Gladyshev_Alexey_StackTest, Cant_pop_from_empty_5e2shAra) {
+    // Arrange
+    TStack<int> stack(5);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(stack.Pop());
+}
+
+TEST(Gladyshev_Alexey_StackTest, Cant_Top_from_empty_5e2shAra) {
+    // Arrange
+    TStack<int> stack(5);
+
+    // Act & Assert
+    EXPECT_ANY_THROW(stack.Top());
+}
