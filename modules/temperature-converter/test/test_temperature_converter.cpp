@@ -21,7 +21,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Celsius) {
     TemperatureConverter result(0, 'C');
 
     // Act
-    result=temp.convert(temp, 'C');
+    result = temp.convert(temp, 'C');
 
     // Assert
     EXPECT_EQ(-263.15, result.getCurrentTemperature());
@@ -29,7 +29,7 @@ TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Celsius) {
 
 TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Fahrenheit) {
     // Arrange
-    TemperatureConverter temp(273,'K');
+    TemperatureConverter temp(273, 'K');
     TemperatureConverter result(0, 'C');
 
     // Act
