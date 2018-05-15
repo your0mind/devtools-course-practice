@@ -42,10 +42,8 @@ std::string Digits::getLineOfNumber(int line, int* arr) {
     return LineOfNumber;
 }
 
-std::string Digits::getNumber(int number)
-{
+std::string Digits::getNumber(int number){
     int* numberIntoArray = getNumberIntoArray(number);
-    
     return getLineOfNumber(0, numberIntoArray) + "\n" +
     getLineOfNumber(1, numberIntoArray) +
     "\n" + getLineOfNumber(2, numberIntoArray);
