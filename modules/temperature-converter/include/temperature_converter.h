@@ -15,7 +15,7 @@ class TemperatureConverter {
   TemperatureConverter convert(TemperatureConverter temperature,
       char new_scale);
   double getCurrentTemperature();
-  //void setCurrentTemperature(double current_temperature_);
+  // void setCurrentTemperature(double current_temperature_);
     
  private:
   double current_temperature;

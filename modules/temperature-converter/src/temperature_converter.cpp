@@ -15,11 +15,11 @@ TemperatureConverter::TemperatureConverter(double current_temperature_,
 double TemperatureConverter::getCurrentTemperature() {
     return this->current_temperature;
 }
-
-//void TemperatureConverter::setCurrentTemperature(double current_temperature_) {
-//    current_temperature = current_temperature_;
-//}
-
+/*
+void TemperatureConverter::setCurrentTemperature(double current_temperature_) {
+    current_temperature = current_temperature_;
+}
+*/
 TemperatureConverter TemperatureConverter::convert(TemperatureConverter temperature, char new_scale) {
     TemperatureConverter temp = temperature;
     if(temperature.current_scale=='K') {
@@ -97,4 +97,5 @@ TemperatureConverter TemperatureConverter::convert(TemperatureConverter temperat
         temperature.current_scale = new_scale;
         return temperature;
     }
+    return temperature;
 }
