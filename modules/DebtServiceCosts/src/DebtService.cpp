@@ -46,17 +46,20 @@ DebtService& DebtService::operator=(const DebtService& dt) {
 }
 
 float DebtService::GetTotalPayout() {
+    float tmp = -1;
     switch (service_type_) {
     case ONE_PAYMENT_AT_THE_END:
-        return loan_amount_ * pow(1 + loan_rate_, loan_term_);
+        tmp = loan_amount_ * pow(1 + loan_rate_, loan_term_);
         break;
     case PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END:
-        return loan_amount_ * (1 + loan_term_ * loan_rate_);
+        tmp = loan_amount_ * (1 + loan_term_ * loan_rate_);
         break;
     case EQUAL_ANNUAL_PAYMENTS:
-        return loan_amount_ * (1 + loan_term_ * loan_rate_) - loan_amount_ * (loan_rate_ * (loan_term_ - 1)/2);
+        tmp = loan_amount_ * (1 + loan_term_ * loan_rate_) - loan_amount_ * (loan_rate_ * (loan_term_ - 1)/2);
         break;
     }
+
+    return tmp;
 }
 
 void DebtService::MakingPayment(float pay_amnt) {
