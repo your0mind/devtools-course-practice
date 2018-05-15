@@ -676,8 +676,8 @@ TEST(LengthConverter,
 
 TEST(LengthConverter, Can_Convert_Yards_To_Meters) {
     // Arrange
-    double yards = 90123.991;
-    double expectedResult = 887047.15551181103;
+    double yards = 90123.9;
+    double expectedResult = 887046.25983897143;
     LengthConverter converter;
 
     // Act & Assert
