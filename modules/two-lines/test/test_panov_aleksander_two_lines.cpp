@@ -72,7 +72,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments1)
     LineSegment line2(point2, point1);
 
     // Assert
-    EXPECT_EQ(line1, line2);
+    EXPECT_TRUE(line1 == line2);
 }
 
 TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2)
@@ -83,7 +83,7 @@ TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2)
     LineSegment line2(point1, point2);
 
     // Assert
-    EXPECT_NE(line1, line2);
+    EXPECT_TRUE(line1 != line2);
 }
 
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
