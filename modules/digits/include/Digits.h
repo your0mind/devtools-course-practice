@@ -13,6 +13,7 @@ class Digits {
     ~Digits();
     std::string getLineOfNumeral(int line, int numeral);
     std::string getLineOfNumber(int line, int* arr);
+    std::string getNumber(int number);
     int* getNumberIntoArray(int n);
  private:
     std::string** digits;
