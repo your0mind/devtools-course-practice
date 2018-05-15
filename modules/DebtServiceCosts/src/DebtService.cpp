@@ -91,16 +91,18 @@ void DebtService::MakingPayment(float pay_amnt) {
                 pay_amnt == loan_amount_ * (1 + loan_rate_)) {
             loan_balance_ -= pay_amnt;
             curr_term_ += 1;
-        } else
+        } else {
             throw "Must pay another amount";
+        }
         break;
     case EQUAL_ANNUAL_PAYMENTS:
         if (pay_amnt == loan_amount_ *
                 (1 + loan_rate_ * (loan_term_ - curr_term_))/loan_term_) {
             loan_balance_ -= pay_amnt;
             curr_term_ += 1;
-        } else
+        } else {
             throw "Must pay another amount";
+        }
         break;
     }
 }
