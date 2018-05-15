@@ -13,7 +13,7 @@ Books::~Books() {
     delete arr;
 }
 
-double Books::calculatePayForCurrentCollection(int * arr, int collection) {
+double Books::CalculatePayForCurrentCollection(int * arr, int collection) {
     double sum = 0.0;
     int arraySize = this->n;
     for (int i = 0; i < arraySize; i++)
@@ -27,7 +27,7 @@ double Books::calculatePayForCurrentCollection(int * arr, int collection) {
     return sum;
 }
 
-int Books::curentCollectionSize(int * arr) {
+int Books::CurentCollectionSize(int * arr) {
     int CollectionSize = 0;
     int arraySize = this->n;
     for (int i = 0; i < arraySize; i++)
@@ -35,7 +35,7 @@ int Books::curentCollectionSize(int * arr) {
     return CollectionSize;
 }
 
-double Books::calculateAllPayment(int * arr) {
+double Books::CalculateAllPayment(int * arr) {
     double payment = 0.0;
     int cur_collection = 0;
     while ((cur_collection = curentCollectionSize(arr)) != 0)
