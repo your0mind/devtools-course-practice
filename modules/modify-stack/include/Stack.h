@@ -78,6 +78,7 @@ template <typename T>
 void Stack<T>::Pop() {
     Node<T> *node = currentTop;
     currentTop = currentTop->next;
+    sizeOfStack--;
     delete node;
 }
 
