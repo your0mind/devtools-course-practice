@@ -21,21 +21,21 @@ class PriorityQueue {
 
     PriorityQueue<T>& operator=(const PriorityQueue<T> & pq);
 
-    T extract_max() const;
-    void delete_max();
-    void push(const T& v, int priority = 0);
-    void swap(PriorityQueue<T>& pq);
+    T ExtractMax() const;
+    void DeleteMax();
+    void Push(const T& v, int priority = 0);
+    void Swap(PriorityQueue<T>& pq);
 
-    bool empty()  const;
-    std::size_t size() const;
-    int get_max_priority() const;
-    int get_min_priority() const;
+    bool Empty()  const;
+    std::size_t Size() const;
+    int GetMaxPriority() const;
+    int GetMinPriority() const;
 
     bool operator == (const PriorityQueue<T>& pq) const;
     bool operator != (const PriorityQueue<T>& pq) const;
 
  private:
-    void delete_queue();
+    void DeleteQueue();
 
     struct Node {
         T value;
@@ -75,7 +75,7 @@ PriorityQueue<T>::PriorityQueue(T v, int priority) {
 
 template<typename T>
 PriorityQueue<T>::PriorityQueue(const PriorityQueue<T>& pq) {
-    if (pq.empty()) {
+    if (pq.Empty()) {
         elements.head = elements.tail = elements.current = nullptr;
         element_count = 0;
     } else {
@@ -99,14 +99,14 @@ PriorityQueue<T>::PriorityQueue(const PriorityQueue<T>& pq) {
 
 template<typename T>
 PriorityQueue<T>::~PriorityQueue() {
-    delete_queue();
+    DeleteQueue();
 }
 
 template<typename T>
 PriorityQueue<T>& PriorityQueue<T>::operator=(const PriorityQueue<T>& pq) {
     if (this != &pq) {
-        delete_queue();
-        if (pq.empty()) {
+        DeleteQueue();
+        if (pq.Empty()) {
             elements.head = elements.tail = elements.current = nullptr;
             element_count = 0;
         } else {
@@ -131,15 +131,15 @@ PriorityQueue<T>& PriorityQueue<T>::operator=(const PriorityQueue<T>& pq) {
 }
 
 template<typename T>
-T PriorityQueue<T>::extract_max() const {
-    if (empty())
+T PriorityQueue<T>::ExtractMax() const {
+    if (Empty())
         throw std::runtime_error("Queue is empty");
     return elements.head->value;
 }
 
 template<typename T>
-void PriorityQueue<T>::delete_max() {
-    if (!empty()) {
+void PriorityQueue<T>::DeleteMax() {
+    if (!Empty()) {
         Node* tmp_head = elements.head;
         elements.head = elements.head->next;
         delete tmp_head;
@@ -150,10 +150,10 @@ void PriorityQueue<T>::delete_max() {
 }
 
 template<typename T>
-void PriorityQueue<T>::push(const T & v, int priority) {
+void PriorityQueue<T>::Push(const T & v, int priority) {
     if (priority < 0)
         throw std::invalid_argument("Priority is negstive");
-    if (empty()) {
+    if (Empty()) {
      elements.head = elements.tail = elements.current = new Node(v, priority);
     } else if (priority <= elements.tail->priority) {
         elements.tail->next = new Node(v, priority);
@@ -176,7 +176,7 @@ void PriorityQueue<T>::push(const T & v, int priority) {
 }
 
 template<typename T>
-void PriorityQueue<T>::swap(PriorityQueue<T>& pq) {
+void PriorityQueue<T>::Swap(PriorityQueue<T>& pq) {
     using std::swap;
     swap(element_count, pq.element_count);
     swap(elements.head, pq.elements.head);
@@ -185,22 +185,22 @@ void PriorityQueue<T>::swap(PriorityQueue<T>& pq) {
 }
 
 template<typename T>
-bool PriorityQueue<T>::empty() const {
+bool PriorityQueue<T>::Empty() const {
     return elements.head == nullptr;
 }
 
 template<typename T>
-std::size_t PriorityQueue<T>::size() const {
+std::size_t PriorityQueue<T>::Size() const {
     return element_count;
 }
 
 template<typename T>
-int PriorityQueue<T>::get_max_priority() const {
+int PriorityQueue<T>::GetMaxPriority() const {
     return elements.head->priority;
 }
 
 template<typename T>
-int PriorityQueue<T>::get_min_priority() const {
+int PriorityQueue<T>::GetMinPriority() const {
     return elements.tail->priority;
 }
 
@@ -241,8 +241,8 @@ bool PriorityQueue<T>::operator!=(const PriorityQueue<T>& pq) const {
 }
 
 template<typename T>
-void PriorityQueue<T>::delete_queue() {
-    if (!empty()) {
+void PriorityQueue<T>::DeleteQueue() {
+    if (!Empty()) {
         elements.current = elements.head;
         while (elements.current != nullptr) {
             Node* tmp_current = elements.current;
