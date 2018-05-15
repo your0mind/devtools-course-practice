@@ -4,151 +4,160 @@
 
 #include "include/temperature_converter.h"
 
+
 TEST(Temperature_Converter_Test, Can_Create_Object) {
     // Assert
-    ASSERT_NO_THROW(TemperatureConverter temp);
+    TemperatureConverter temp(-7.0, 'K');
+    ASSERT_NO_THROW(TemperatureConverter temp(-7.0, 'K'));
+}
+
+TEST(Temperature_Converter_Test, Cannot_Create_Object_With_Wrong_Scale) {
+    // Assert
+    ASSERT_ANY_THROW(TemperatureConverter temp(-7, 'p'));
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Celsius) {
     // Arrange
-    double kelvin = 10;
-    TemperatureConverter temp;
+    TemperatureConverter temp(10, 'K');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.kelvinToCelsius(kelvin);
+    result=temp.convert(temp, 'C');
 
     // Assert
-    EXPECT_EQ(-263.15, result);
+    EXPECT_EQ(-263.15, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Fahrenheit) {
     // Arrange
-    double kelvin = 273;
-    TemperatureConverter temp;
+    TemperatureConverter temp(273,'K');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.kelvinToFahrenheit(kelvin);
+    result = temp.convert(temp, 'F');
 
     // Assert
-    EXPECT_EQ((int)31.73, (int)result);
+    EXPECT_EQ((int)31.73, (int)result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Kelvin_To_Newton) {
     // Arrange
-    double kelvin = 400;
-    TemperatureConverter temp;
+    TemperatureConverter temp(400, 'K');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.kelvinToNewton(kelvin);
+    result = temp.convert(temp, 'N');
 
     // Assert
-    EXPECT_EQ((int)41.8605, (int)result);
+    EXPECT_EQ((int)41.8605, (int)result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Kelvin) {
     // Arrange
     double celsius = -273.15;
-    TemperatureConverter temp;
+    TemperatureConverter temp(-273.15, 'C');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.celsiusToKelvin(celsius);
+    result = temp.convert(temp, 'K');
 
     // Assert
-    EXPECT_EQ(0, result);
+    EXPECT_EQ(0, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Fahrenheit) {
     // Arrange
-    double celsius = -40;
-    TemperatureConverter temp;
+    TemperatureConverter temp(-40, 'C');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.celsiusToFahrenheit(celsius);
+    result = temp.convert(temp, 'F');
 
     // Assert
-    EXPECT_EQ(-40, result);
+    EXPECT_EQ(-40, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Celsius_To_Newton) {
     // Arrange
-    double celsius = 3;
-    TemperatureConverter temp;
+    TemperatureConverter temp(3, 'C');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.celsiusToNewton(celsius);
+    result = temp.convert(temp, 'N');
 
     // Assert
-    EXPECT_EQ(0.99, result);
+    EXPECT_EQ(0.99, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Celsius) {
     // Arrange
-    double fahrenheit = 5;
-    TemperatureConverter temp;
+    TemperatureConverter temp(5, 'F');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.fahrenheitToCelsius(fahrenheit);
+    result = temp.convert(temp, 'C');
 
     // Assert
-    EXPECT_EQ(-15, result);
+    EXPECT_EQ(-15, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Kelvin) {
     // Arrange
-    double fahrenheit = -211;
-    TemperatureConverter temp;
+    TemperatureConverter temp(-211, 'F');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.fahrenheitToKelvin(fahrenheit);
+    result = temp.convert(temp, 'K');
 
     // Assert
-    EXPECT_EQ((int)138.15, (int)result);
+    EXPECT_EQ((int)138.15, (int)result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Fahrenheit_To_Newton) {
     // Arrange
-    double fahrenheit = 2;
-    TemperatureConverter temp;
+    TemperatureConverter temp(2, 'F');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.fahrenheitToNewton(fahrenheit);
+    result = temp.convert(temp, 'N');
 
     // Assert
-    EXPECT_EQ((int)-5.49, (int)result);
+    EXPECT_EQ((int)-5.49, (int)result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Celsius) {
     // Arrange
-    double newton = 3;
-    TemperatureConverter temp;
+    TemperatureConverter temp(3, 'N');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.newtonToCelsius(newton);
+    result = temp.convert(temp, 'C');
 
     // Assert
-    EXPECT_EQ(9.090909, result);
+    EXPECT_EQ(9.090909, result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Kelvin) {
     // Arrange
     double newton = -100;
-    TemperatureConverter temp;
+    TemperatureConverter temp(-100, 'N');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.newtonToKelvin(newton);
+    result = temp.convert(temp, 'K');
 
     // Assert
-    EXPECT_EQ((int)-29.8803, (int)result);
+    EXPECT_EQ((int)-29.8803, (int)result.getCurrentTemperature());
 }
 
 TEST(Temperature_Converter_Test, Can_Convert_Newton_To_Fahrenheit) {
     // Arrange
-    double newton = 2;
-    TemperatureConverter temp;
+    TemperatureConverter temp(2, 'N');
+    TemperatureConverter result(0, 'C');
 
     // Act
-    double result = temp.newtonToFahrenheit(newton);
+    result = temp.convert(temp, 'F');
 
     // Assert
-    EXPECT_EQ(42.90909, result);
+    EXPECT_EQ(42.90909, result.getCurrentTemperature());
 }
