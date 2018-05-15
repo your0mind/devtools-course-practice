@@ -38,7 +38,7 @@ int Books::CurentCollectionSize(int * arr) {
 double Books::CalculateAllPayment(int * arr) {
     double payment = 0.0;
     int cur_collection = 0;
-    while ((cur_collection = curentCollectionSize(arr)) != 0)
-        payment += calculatePayForCurrentCollection(arr, cur_collection);
+    while ((cur_collection = CurentCollectionSize(arr)) != 0)
+        payment += CalculatePayForCurrentCollection(arr, cur_collection);
     return payment;
 }
