@@ -2,8 +2,7 @@
 
 #include <gtest/gtest.h>
 
-//#include "include/temperature_converter.h"
-#include "temperature_converter.h"
+#include "include/temperature_converter.h"
 
 TEST(Temperature_Converter_Test, Can_Create_Object) {
     // Assert
