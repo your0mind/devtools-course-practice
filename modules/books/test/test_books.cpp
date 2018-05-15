@@ -4,7 +4,7 @@
 
 #include "include/Books.h"
 
-TEST(Bolshakov_Konstantin_BooksTest, canCreateBooks) {
+TEST(Bolshakov_Konstantin_BooksTest, CanCreateBooks) {
     // Arrange
     int arr[5] = { 1, 2, 3, 4, 5 };
 
@@ -18,7 +18,7 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveSameBooks) {
     Books coll(5, arr);
 
     // Act
-    double pay = coll.calculateAllPayment(arr);
+    double pay = coll.CalculateAllPayment(arr);
 
     // Assert
     EXPECT_EQ(pay, 40.0);
@@ -30,7 +30,7 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveDifferentBooks) {
     Books coll(5, arr);
 
     // Act
-    double pay = coll.calculateAllPayment(arr);
+    double pay = coll.CalculateAllPayment(arr);
 
     // Assert
     EXPECT_EQ(pay, 30.0);
@@ -42,7 +42,7 @@ TEST(Bolshakov_Konstantin_BooksTest, FiveDiffCollection) {
     Books coll(5, arr);
 
     // Act
-    double pay = coll.calculateAllPayment(arr);
+    double pay = coll.CalculateAllPayment(arr);
 
     // Assert
     EXPECT_EQ(pay, 100.4);
