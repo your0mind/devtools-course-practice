@@ -45,8 +45,18 @@ DebtService& DebtService::operator=(const DebtService& dt) {
     return *this;
 }
 
+bool DebtService::operator==(const DebtService& ds) const {
+    return loan_amount_ == ds.loan_amount_ &&
+            loan_balance_ == ds.loan_balance_ &&
+            loan_rate_ == ds.loan_rate_ &&
+            loan_term_ == ds.loan_term_ &&
+            curr_term_ == ds.curr_term_ &&
+            service_type_ == ds.service_type_;
+}
+
 float DebtService::GetTotalPayout() {
     float tmp = -1;
+
     switch (service_type_) {
     case ONE_PAYMENT_AT_THE_END:
         tmp = loan_amount_ * pow(1 + loan_rate_, loan_term_);
@@ -91,7 +101,6 @@ void DebtService::MakingPayment(float pay_amnt) {
             throw "Must pay another amount";
         break;
     }
-
 }
 
 float DebtService::GetBalance() {

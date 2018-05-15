@@ -23,7 +23,8 @@ class DebtService {
         loan_balance_(0), service_type_(ONE_PAYMENT_AT_THE_END) {}
     DebtService(float loan_amount, int loan_term, float loan_rate, DebtServiceType dt);
     DebtService(const DebtService& ds);
-    DebtService& operator= (const DebtService& ds);
+    DebtService& operator =(const DebtService& ds);
+    bool operator ==(const DebtService& ds) const;
 
     float GetTotalPayout();  // рассчитать сумму выплат за весь срок займа
     void MakingPayment(float pay_amnt);  // погасить часть остатка
