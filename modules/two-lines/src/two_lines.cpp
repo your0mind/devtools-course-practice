@@ -40,22 +40,6 @@ inline bool checkProjection(double startLine1_coord, double endLine1_coord,
         <= min(endLine1_coord, endLine2_coord));
 }
 
-bool intersect(Point startLine1, Point endLine1,
-    Point startLine2, Point endLine2) {
-    bool isX, isY;
-    isX = checkProjection(startLine1.x, endLine1.x, startLine2.x, endLine2.x);
-    isY = checkProjection(startLine1.y, endLine1.y, startLine2.y, endLine2.y);
-    double orientedArea1, orientedArea2, orientedArea3, orientedArea4;
-    orientedArea1 = orientedArea(startLine1, endLine1, startLine2);
-    orientedArea2 = orientedArea(startLine1, endLine1, endLine2);
-    orientedArea3 = orientedArea(startLine2, endLine2, startLine1);
-    orientedArea4 = orientedArea(startLine2, endLine2, endLine1);
-    return
-        (isX && isY
-         && orientedArea1 * orientedArea2 <= 0
-         && orientedArea3 * orientedArea4 <= 0);
-}
-
 LineSegment::LineSegment(): point1(), point2() {}
 
 LineSegment::LineSegment(Point _point1, Point _point2):

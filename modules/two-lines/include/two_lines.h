@@ -29,7 +29,4 @@ public:
     bool operator != (const LineSegment& line) const;
 };
 
-bool intersect(Point startLine1, Point endLine1,
-    Point startLine2, Point endLine2);
-
 #endif  // MODULES_TWO_LINES_INCLUDE_TWO_LINES_H_

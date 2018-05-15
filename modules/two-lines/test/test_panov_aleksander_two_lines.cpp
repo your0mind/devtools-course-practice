@@ -64,13 +64,36 @@ TEST(Panov_Aleksander_LinesTest, Can_Copy_Line_Segment) {
     EXPECT_EQ(line1.getPoint2(), line2.getPoint2());
 }
 
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments1)
+{
+    // Arrange
+    Point point1(1, -1), point2(-1, 1);
+    LineSegment line1(point1, point2);
+    LineSegment line2(point2, point1);
+
+    // Assert
+    EXPECT_EQ(line1, line2);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2)
+{
+    // Arrange
+    Point point1(1, -1), point2(1.01, -1);
+    LineSegment line1(point1, point1);
+    LineSegment line2(point1, point2);
+
+    // Assert
+    EXPECT_NE(line1, line2);
+}
+
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
     Point startLine1(0, 0), endLine1(0, 0);
     Point startLine2(1, 1), endLine2(1, 1);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
@@ -80,9 +103,10 @@ TEST(Panov_Aleksander_LinesTest, Equal_Points_Intersect) {
     // Arrange
     Point startLine1(0, 0), endLine1(0, 0);
     Point startLine2(0, 0), endLine2(0, 0);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_TRUE(isIntersect);
@@ -92,9 +116,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect1) {
     // Arrange
     Point startLine1(0, 0), endLine1(1, 1);
     Point startLine2(0, 1), endLine2(1, 0);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_TRUE(isIntersect);
@@ -104,9 +129,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Simle_Intersect2) {
     // Arrange
     Point startLine1(0, 0), endLine1(-1, -1);
     Point startLine2(0, -1), endLine2(-1, 0);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_TRUE(isIntersect);
@@ -116,9 +142,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines) {
     // Arrange
     Point startLine1(0, 0), endLine1(0, 1);
     Point startLine2(0.1, 0), endLine2(0.1, 1);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
@@ -127,9 +154,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Parallel_Lines) {
 TEST(Panov_Aleksander_LinesTest, Can_Detect_Coverage) {
     Point startLine1(0, -1), endLine1(0, 1);
     Point startLine2(0, 0.01), endLine2(0, 0.02);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_TRUE(isIntersect);
@@ -139,9 +167,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Tangent_Lines) {
     // Arrange
     Point startLine1(0, 0), endLine1(1000, 1000);
     Point startLine2(0, 1000), endLine2(500, 500);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_TRUE(isIntersect);
@@ -151,9 +180,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines1) {
     // Arrange
     Point startLine1(0, 0), endLine1(1000, 1000);
     Point startLine2(0, 1000), endLine2(499.5, 500);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
@@ -163,9 +193,10 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines2) {
     // Arrange
     Point startLine1, endLine1(101, 0.1);
     Point startLine2(-100, 0.1), endLine2(100, 0.1);
+    LineSegment line1(startLine1, endLine1), line2(startLine2, endLine2);
 
     // Act
-    bool isIntersect = intersect(startLine1, endLine1, startLine2, endLine2);
+    bool isIntersect = line1.intersect(line2);
 
     // Assert
     EXPECT_FALSE(isIntersect);
