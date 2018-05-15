@@ -10,6 +10,17 @@ struct Point {
     Point(double _x, double _y);
 };
 
+class LineSegment {
+private:
+    Point point1;
+    Point point2;
+public:
+    LineSegment();
+    LineSegment(Point _point1, Point _point2);
+    LineSegment(const LineSegment &line);
+    bool intersect(const LineSegment &line);
+};
+
 bool intersect(Point startLine1, Point endLine1,
     Point startLine2, Point endLine2);
 

@@ -40,3 +40,25 @@ bool intersect(Point startLine1, Point endLine1,
          && orientedArea1 * orientedArea2 <= 0
          && orientedArea3 * orientedArea4 <= 0);
 }
+
+LineSegment::LineSegment(): point1(), point2() {}
+
+LineSegment::LineSegment(Point _point1, Point _point2): point1(_point1), point2(_point2) {}
+
+LineSegment::LineSegment(const LineSegment & line): point1(line.point1), point2(line.point2) {}
+
+bool LineSegment::intersect(const LineSegment & line) {
+    bool isX, isY;
+    isX = checkProjection(point1.x, point2.x, line.point1.x, line.point2.x);
+    isY = checkProjection(point1.y, point2.y, line.point1.y, line.point2.y);
+    double orientedArea1, orientedArea2, orientedArea3, orientedArea4;
+    orientedArea1 = orientedArea(point1, point2, line.point1);
+    orientedArea2 = orientedArea(point1, point2, line.point2);
+    orientedArea3 = orientedArea(line.point1, line.point2, point1);
+    orientedArea4 = orientedArea(line.point1, line.point2, point2);
+    return
+        (isX && isY
+            && orientedArea1 * orientedArea2 <= 0
+            && orientedArea3 * orientedArea4 <= 0);
+}
+
