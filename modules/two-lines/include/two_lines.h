@@ -8,6 +8,8 @@ struct Point {
     double y;
     Point();
     Point(double _x, double _y);
+    bool operator == (const Point& point) const;
+    bool operator != (const Point& point) const;
 };
 
 class LineSegment {
@@ -18,7 +20,13 @@ public:
     LineSegment();
     LineSegment(Point _point1, Point _point2);
     LineSegment(const LineSegment &line);
-    bool intersect(const LineSegment &line);
+
+    Point getPoint1() const;
+    Point getPoint2() const;
+    bool intersect(const LineSegment &line) const;
+
+    bool operator == (const LineSegment& line) const;
+    bool operator != (const LineSegment& line) const;
 };
 
 bool intersect(Point startLine1, Point endLine1,

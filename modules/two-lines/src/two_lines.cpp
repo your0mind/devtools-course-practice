@@ -1,15 +1,30 @@
 // Copyright 2018 Panov Aleksander
 
 #include <algorithm>
+#include <limits>
 #include "include/two_lines.h"
 
 using std::swap;
 using std::max;
 using std::min;
 
+const double eps = std::numeric_limits<double>::epsilon();
+
+bool equalsZero(double x) {
+    return std::abs(x) < eps;
+}
+
 Point::Point() : x(0), y(0) {}
 
 Point::Point(double _x, double _y) : x(_x), y(_y) {}
+
+bool Point::operator==(const Point & point) const {
+    return (equalsZero(x - point.x) && equalsZero(y - point.y));
+}
+
+bool Point::operator!=(const Point & point) const {
+    return !(*this == point);
+}
 
 inline double orientedArea(Point a, Point b, Point c) {
     return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
@@ -43,11 +58,21 @@ bool intersect(Point startLine1, Point endLine1,
 
 LineSegment::LineSegment(): point1(), point2() {}
 
-LineSegment::LineSegment(Point _point1, Point _point2): point1(_point1), point2(_point2) {}
+LineSegment::LineSegment(Point _point1, Point _point2):
+    point1(_point1), point2(_point2) {}
 
-LineSegment::LineSegment(const LineSegment & line): point1(line.point1), point2(line.point2) {}
+LineSegment::LineSegment(const LineSegment & line):
+    point1(line.point1), point2(line.point2) {}
 
-bool LineSegment::intersect(const LineSegment & line) {
+Point LineSegment::getPoint1() const {
+    return point1;
+}
+
+Point LineSegment::getPoint2() const {
+    return point2;
+}
+
+bool LineSegment::intersect(const LineSegment & line) const {
     bool isX, isY;
     isX = checkProjection(point1.x, point2.x, line.point1.x, line.point2.x);
     isY = checkProjection(point1.y, point2.y, line.point1.y, line.point2.y);
@@ -62,3 +87,11 @@ bool LineSegment::intersect(const LineSegment & line) {
             && orientedArea3 * orientedArea4 <= 0);
 }
 
+bool LineSegment::operator==(const LineSegment & line) const {
+    return (point1 == line.point1 && point2 == line.point2 ||
+        point2 == line.point1 && point1 == line.point2);
+}
+
+bool LineSegment::operator!=(const LineSegment & line) const {
+    return !(*this == line);
+}

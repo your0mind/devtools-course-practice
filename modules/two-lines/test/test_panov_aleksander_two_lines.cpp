@@ -27,6 +27,43 @@ TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
     EXPECT_DOUBLE_EQ(point1.y, point2.y);
 }
 
+TEST(Panov_Aleksander_LinesTest, Can_Create_Default_Line_Segment) {
+    // Arrange
+    Point point(0, 0);
+
+    // Act
+    LineSegment line;
+
+    // Assert
+    EXPECT_EQ(line.getPoint1(), point);
+    EXPECT_EQ(line.getPoint2(), point);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Create_Line_Segment) {
+    // Arrange
+    Point point1(1, -1), point2(-1, 1);
+
+    // Act
+    LineSegment line(point1, point2);
+
+    // Assert
+    EXPECT_EQ(line.getPoint1(), point1);
+    EXPECT_EQ(line.getPoint2(), point2);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Copy_Line_Segment) {
+    // Arrange
+    Point point1(1, -1), point2(-1, 1);
+    LineSegment line1(point1, point2);
+
+    // Act
+    LineSegment line2(line1);
+
+    // Assert
+    EXPECT_EQ(line1.getPoint1(), line2.getPoint1());
+    EXPECT_EQ(line1.getPoint2(), line2.getPoint2());
+}
+
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
     // Arrange
     Point startLine1(0, 0), endLine1(0, 0);
