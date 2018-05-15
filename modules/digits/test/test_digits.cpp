@@ -62,20 +62,20 @@ TEST(Kozorez_Alex_DigitsTest, DigitFirstLineStringIsEqualToThis) {
         EXPECT_EQ(Init.getLineOfNumeral(0, arr[i]), first_line[i]);
 }
 
-TEST(Kozorez_Alex_DigitsTest, GetFullNumberIntoString)
-{
-	// Arrange
-	Digits Init;
-	std::string line[3];
-	std::string number;
-	int n = 910;
+TEST(Kozorez_Alex_DigitsTest, GetFullNumberIntoString) {
+    // Arrange
+    Digits Init;
+    std::string line[3];
+    std::string number;
+    int n = 910;
 
-	// Act
-	line[0] = "._. ... ._. ";
-	line[1] = "|_| ..| |.| ";
-	line[2] = "..| ..| |_| ";
-	number = line[0] + '\n' + line[1] + '\n' + line[2];
-	std::string numb = Init.getNumber(n);
-	// Assert
-	EXPECT_EQ(numb, number);
+    // Act
+    line[0] = "._. ... ._. ";
+    line[1] = "|_| ..| |.| ";
+    line[2] = "..| ..| |_| ";
+    number = line[0] + '\n' + line[1] + '\n' + line[2];
+    std::string numb = Init.getNumber(n);
+
+    // Assert
+    EXPECT_EQ(numb, number);
 }
