@@ -9,9 +9,9 @@ class Books {
  public:
   Books(int n, int* arr);
   ~Books();
-  double calculatePayForCurrentCollection(int*arr, int collection);
-  int curentCollectionSize(int*arr);
-  double calculateAllPayment(int*arr);
+  double CalculatePayForCurrentCollection(int*arr, int collection);
+  int CurentCollectionSize(int*arr);
+  double CalculateAllPayment(int*arr);
  private:
   int* arr;
   int n;
