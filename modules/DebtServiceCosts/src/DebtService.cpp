@@ -55,7 +55,7 @@ bool DebtService::operator==(const DebtService& ds) const {
             service_type_ == ds.service_type_;
 }
 
-float DebtService::GetTotalPayout() {
+float DebtService::GetTotalPayout() const {
     float tmp = -1;
 
     switch (service_type_) {
@@ -77,10 +77,10 @@ float DebtService::GetTotalPayout() {
 void DebtService::MakingPayment(float pay_amnt) {
     switch (service_type_) {
     case ONE_PAYMENT_AT_THE_END:
-        if (pay_amnt > loan_balance_)
+        if (pay_amnt == loan_balance_)
             loan_balance_ -= pay_amnt;
         else
-            throw "The payment is too big";
+            throw "Must pay another amount";
         break;
     case PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END:
         if (curr_term_ < loan_term_ - 1 &&

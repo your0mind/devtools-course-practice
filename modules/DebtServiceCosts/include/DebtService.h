@@ -27,7 +27,7 @@ class DebtService {
     DebtService& operator =(const DebtService& ds);
     bool operator ==(const DebtService& ds) const;
 
-    float GetTotalPayout();  // рассчитать сумму выплат за весь срок займа
+    float GetTotalPayout() const;  // рассчитать сумму выплат за весь срок займа
     void MakingPayment(float pay_amnt);  // погасить часть остатка
     float GetBalance();  // получить остаток по долгу
 
