@@ -5,7 +5,7 @@
 #ifndef MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
 #define MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
 
-struct dot {
+struct Dot {
     double x, y, z;
 };
 
@@ -13,18 +13,18 @@ class LinePlaneIntersection {
  public:
     LinePlaneIntersection();
 
-    dot PlaneIntersectLine(dot A, dot B, dot C, dot X, dot Y);
+    dot PlaneIntersectLine(Dot A, Dot B, Dot C, Dot X, Dot Y);
     bool GetNotIntersectPlaneLine();
 
  private:
     bool NotIntersectPlaneLine;
 
-    dot CreateVector(dot A, dot B);
-    dot VectorProduct(dot A, dot B);
-    double DotProduct(dot A, dot B);
-    bool IncorrectLine(dot A, dot B);
-    bool IncorrectPlane(dot A, dot B, dot C);
-    void Normalize(dot A);
+    Dot CreateVector(Dot A, Dot B);
+    Dot VectorProduct(Dot A, Dot B);
+    double DotProduct(Dot A, Dot B);
+    bool IncorrectLine(Dot A, Dot B);
+    bool IncorrectPlane(Dot A, Dot B, Dot C);
+    void Normalize(Dot A);
 };
 
 #endif  // MODULES_LINE_PLANE_INTERSECTION_INCLUDE_LINE_PLANE_INTERSECTION_H_
