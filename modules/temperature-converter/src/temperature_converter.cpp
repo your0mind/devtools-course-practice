@@ -32,7 +32,6 @@ void TemperatureConverter::setCurrentTemperature(double current_temperature_) {
 */
 TemperatureConverter TemperatureConverter::convert
 (TemperatureConverter temperature, char new_scale) {
-    TemperatureConverter temp = temperature;
     if (temperature.current_scale == 'K') {
         switch (new_scale) {
             case 'C':
