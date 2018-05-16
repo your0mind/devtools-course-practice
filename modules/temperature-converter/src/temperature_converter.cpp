@@ -12,7 +12,7 @@ TemperatureConverter::TemperatureConverter(double current_temperature_,
         throw("Incorrect temperature scale");
 }
 
-TemperatureConverter & TemperatureConverter::operator=(TemperatureConverter &temp)
+TemperatureConverter & TemperatureConverter::operator=(const TemperatureConverter &temp)
 {
     if (current_scale != temp.current_scale || current_temperature != temp.current_temperature)
     {

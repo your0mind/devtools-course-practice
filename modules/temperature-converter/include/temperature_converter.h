@@ -16,7 +16,7 @@ class TemperatureConverter {
       char new_scale);
   double getCurrentTemperature();
   // void setCurrentTemperature(double current_temperature_);
-  TemperatureConverter & operator=(TemperatureConverter &temp);
+  TemperatureConverter & operator=(const TemperatureConverter &temp);
 
  private:
   double current_temperature;
