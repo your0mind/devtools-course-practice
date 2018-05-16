@@ -81,7 +81,7 @@ TemperatureConverter TemperatureConverter::convert
         }
         temperature.current_scale = new_scale;
         return temperature;
-    } else if (temperature.current_scale == 'N') {
+    } else {
         switch (new_scale) {
         case 'K':
             temperature.current_temperature =
@@ -101,5 +101,4 @@ TemperatureConverter TemperatureConverter::convert
         temperature.current_scale = new_scale;
         return temperature;
     }
-    return temperature;
 }
