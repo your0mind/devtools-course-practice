@@ -4,40 +4,40 @@
 #include <vector>
 #include "include/PrimeNumbers.h"
 
-TEST(primeNumbers, can_create_without_error_empty) {
+TEST(PrimeNumbers, can_create_without_error_empty) {
     // AAA
-    ASSERT_NO_THROW(primeNumbers tmp);
+    ASSERT_NO_THROW(PrimeNumbers tmp);
 }
 
-TEST(primeNumbers, can_create_without_error_not_empty) {
+TEST(PrimeNumbers, can_create_without_error_not_empty) {
     // AAA
-    ASSERT_NO_THROW(primeNumbers tmp(2, 5));
+    ASSERT_NO_THROW(PrimeNumbers tmp(2, 5));
 }
 
-TEST(primeNumbers, error_if_min_is_less_than_zero) {
+TEST(PrimeNumbers, error_if_min_is_less_than_zero) {
     // AAA
-    ASSERT_ANY_THROW(primeNumbers tmp(-6, 6));
+    ASSERT_ANY_THROW(PrimeNumbers tmp(-6, 6));
 }
 
-TEST(primeNumbers, error_if_max_is_less_than_min) {
+TEST(PrimeNumbers, error_if_max_is_less_than_min) {
     // AAA
-    ASSERT_ANY_THROW(primeNumbers tmp(6, 5));
+    ASSERT_ANY_THROW(PrimeNumbers tmp(6, 5));
 }
 
-TEST(primeNumbers, find_prime_numbers_without_errors) {
+TEST(PrimeNumbers, find_prime_numbers_without_errors) {
     // Arrange
-    primeNumbers tmp(6, 8);
+    PrimeNumbers tmp(6, 8);
 
     // Act and assert
-    ASSERT_NO_THROW(tmp.findPrimeNums());
+    ASSERT_NO_THROW(tmp.FindPrimeNums());
 }
 
-TEST(primeNumbers, check_result_array) {
+TEST(PrimeNumbers, check_result_array) {
     // Arrange
     int min = 3, max = 5;
     std::vector<int> resArr = { 3, 5 };
-    primeNumbers tmp(min, max);
+    PrimeNumbers tmp(min, max);
 
     // Act and assert
-    EXPECT_EQ(resArr, tmp.findPrimeNums());
+    EXPECT_EQ(resArr, tmp.FindPrimeNums());
 }
