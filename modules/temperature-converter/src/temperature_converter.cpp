@@ -15,8 +15,7 @@ TemperatureConverter::TemperatureConverter(double current_temperature_,
 TemperatureConverter & TemperatureConverter::operator=
 (const TemperatureConverter &temp) {
     if (current_scale != temp.current_scale ||
-    current_temperature != temp.current_temperature)
-    {
+    current_temperature != temp.current_temperature) {
         current_scale = temp.current_scale;
         current_temperature = temp.current_temperature;
     }
