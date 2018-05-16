@@ -12,6 +12,16 @@ TemperatureConverter::TemperatureConverter(double current_temperature_,
         throw("Incorrect temperature scale");
 }
 
+TemperatureConverter & TemperatureConverter::operator=(TemperatureConverter &temp)
+{
+    if (this.current_scale != temp.current_scale || this.current_temperature != temp.current_temperature)
+    {
+        current_scale = temp.current_scale;
+        current_temperature = temp.current_temperature;
+    }
+    return *this;
+}
+
 double TemperatureConverter::getCurrentTemperature() {
     return this->current_temperature;
 }

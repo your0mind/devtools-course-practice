@@ -15,12 +15,13 @@ TEST(Temperature_Converter_Test, Cannot_Create_Object_With_Wrong_Scale) {
     ASSERT_ANY_THROW(TemperatureConverter temp(-7, 'p'));
 }
 
-TEST(Temperature_Converter_Test, Can_Create_Copy) {
+TEST(Temperature_Converter_Test, Can_Equalize) {
     // Arrange
-    TemperatureConverter temp(10, 'K');
+    TemperatureConverter temp1(10, 'K');
+    TemperatureConverter temp2(2, 'C');
 
     // Act & Assert
-    ASSERT_NO_THROW(TemperatureConverter result(temp));
+    ASSERT_NO_THROW(temp1 = temp2);
 }
 
 TEST(Temperature_Converter_Test, Can_Convert) {
