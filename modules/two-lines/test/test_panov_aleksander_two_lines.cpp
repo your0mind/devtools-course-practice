@@ -199,5 +199,3 @@ TEST(Panov_Aleksander_LinesTest, Can_Detect_Not_Tangent_Lines2) {
     // Assert
     EXPECT_FALSE(isIntersect);
 }
-
-

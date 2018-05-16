@@ -1,5 +1,6 @@
 // Copyright 2018 Panov Aleksander
 
+#include <stdbool.h>
 #include <algorithm>
 #include <limits>
 #include "include/two_lines.h"
