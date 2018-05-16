@@ -10,6 +10,27 @@
 
 class PolynomTest : public ::testing::Test {};
 
+TEST_F(PolynomTest, Empty_Poly_Equals_Test) {
+    // Arrange
+    Polynom p1;
+    Polynom p2;
+
+    // Act & Assert
+    EXPECT_EQ(p1, p2);
+}
+
+TEST_F(PolynomTest, Poly_And_Monom_Def_Cnstrctr_Test) {
+    // Arrange
+    Polynom p1(1.0);
+    Polynom p2;
+    Monom m;
+
+    p2.AddMonom(m);
+
+    // Act & Assert
+    EXPECT_EQ(p1, p2);
+}
+
 TEST_F(PolynomTest, Can_Create_With_Int_Coefs) {
     // Arrange
     Polynom p1("2x + 2y");
