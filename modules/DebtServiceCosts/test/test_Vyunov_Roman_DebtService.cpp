@@ -57,7 +57,7 @@ TEST(Vyunov_Roman_DebtService_test, Equal_operator_return_correct_value) {
     DebtService ds2(1, 2, 3, EQUAL_ANNUAL_PAYMENTS);
     // Act
 
-    // Asserta
+    // Assert
     ASSERT_EQ(&ds1, &(ds1 = ds2));
 }
 
@@ -66,7 +66,7 @@ TEST(Vyunov_Roman_DebtService_test, GetTotalPayout_for_ONE_PAYMENT_AT_THE_END) {
     DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
     // Act
 
-    // Asserta
+    // Assert
     ASSERT_EQ(ds1.GetTotalPayout(), 2);
 }
 
@@ -76,7 +76,7 @@ TEST(Vyunov_Roman_DebtService_test,
     DebtService ds1(1, 1, 1, PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END);
     // Act
 
-    // Asserta
+    // Assert
     ASSERT_EQ(ds1.GetTotalPayout(), 2);
 }
 
@@ -85,6 +85,65 @@ TEST(Vyunov_Roman_DebtService_test, GetTotalPayout_for_EQUAL_ANNUAL_PAYMENTS) {
     DebtService ds1(1, 1, 1, EQUAL_ANNUAL_PAYMENTS);
     // Act
 
-    // Asserta
+    // Assert
     ASSERT_EQ(ds1.GetTotalPayout(), 2);
+}
+
+TEST(Vyunov_Roman_DebtService_test, MakingPayment_for_ONE_PAYMENT_AT_THE_END) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+    ds1.MakingPayment(2);
+    // Assert
+    ASSERT_EQ(ds1.GetBalance(), 0);
+}
+
+TEST(Vyunov_Roman_DebtService_test,
+     MakingPayment_throw_exception_for_ONE_PAYMENT_AT_THE_END) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(ds1.MakingPayment(1));
+}
+
+TEST(Vyunov_Roman_DebtService_test,
+     MakingPayment_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+    ds1.MakingPayment(2);
+    // Assert
+    ASSERT_EQ(ds1.GetBalance(), 0);
+}
+
+TEST(Vyunov_Roman_DebtService_test,
+     MakingPayment_throw_exception_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(ds1.MakingPayment(1));
+}
+
+TEST(Vyunov_Roman_DebtService_test,
+     MakingPayment_for_EQUAL_ANNUAL_PAYMENTS) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+    ds1.MakingPayment(2);
+    // Assert
+    ASSERT_EQ(ds1.GetBalance(), 0);
+}
+
+TEST(Vyunov_Roman_DebtService_test,
+     MakingPayment_throw_exception_for_EQUAL_ANNUAL_PAYMENTS) {
+    // Arrange
+    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    // Act
+
+    // Assert
+    ASSERT_ANY_THROW(ds1.MakingPayment(1));
 }
