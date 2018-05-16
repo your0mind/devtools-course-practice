@@ -25,9 +25,10 @@ TEST_F(PolynomTest, Poly_And_Monom_Def_Cnstrctr_Test) {
     Polynom p2;
     Monom m;
 
+    // Act
     p2.AddMonom(m);
 
-    // Act & Assert
+    // Assert
     EXPECT_EQ(p1, p2);
 }
 
