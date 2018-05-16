@@ -7,11 +7,11 @@
 #include <cmath>
 #include <vector>
 
-class primeNumbers {
+class PrimeNumbers {
  public:
-     explicit primeNumbers(int _min = 0, int _max = 0);
-     ~primeNumbers();
-     std::vector<int> findPrimeNums();
+     explicit PrimeNumbers(int _min = 0, int _max = 0);
+     ~PrimeNumbers();
+     std::vector<int> FindPrimeNums();
  private:
      int min, max, size;
      std::vector<int> arr;
