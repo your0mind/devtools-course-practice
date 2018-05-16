@@ -111,7 +111,7 @@ TEST(Vyunov_Roman_DebtService_test,
 TEST(Vyunov_Roman_DebtService_test,
      MakingPayment_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
     // Arrange
-    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    DebtService ds1(1, 1, 1, PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END);
     // Act
     ds1.MakingPayment(2);
     // Assert
@@ -121,7 +121,7 @@ TEST(Vyunov_Roman_DebtService_test,
 TEST(Vyunov_Roman_DebtService_test,
      MakingPayment_throw_exception_for_PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END) {
     // Arrange
-    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    DebtService ds1(1, 1, 1, PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END);
     // Act
 
     // Assert
@@ -131,7 +131,7 @@ TEST(Vyunov_Roman_DebtService_test,
 TEST(Vyunov_Roman_DebtService_test,
      MakingPayment_for_EQUAL_ANNUAL_PAYMENTS) {
     // Arrange
-    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    DebtService ds1(1, 1, 1, EQUAL_ANNUAL_PAYMENTS);
     // Act
     ds1.MakingPayment(2);
     // Assert
@@ -141,7 +141,7 @@ TEST(Vyunov_Roman_DebtService_test,
 TEST(Vyunov_Roman_DebtService_test,
      MakingPayment_throw_exception_for_EQUAL_ANNUAL_PAYMENTS) {
     // Arrange
-    DebtService ds1(1, 1, 1, ONE_PAYMENT_AT_THE_END);
+    DebtService ds1(1, 1, 1, EQUAL_ANNUAL_PAYMENTS);
     // Act
 
     // Assert
