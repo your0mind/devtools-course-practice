@@ -13,7 +13,7 @@ class LinePlaneIntersection {
  public:
     LinePlaneIntersection();
 
-    dot PlaneIntersectLine(Dot A, Dot B, Dot C, Dot X, Dot Y);
+    Dot PlaneIntersectLine(Dot A, Dot B, Dot C, Dot X, Dot Y);
     bool GetNotIntersectPlaneLine();
 
  private:
