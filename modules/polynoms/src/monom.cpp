@@ -30,7 +30,7 @@ Monom::Monom(const string & str_monom) {
             s += c;
     }
     if (s.empty()) return;
-    str_parse_symbols(str_emplace_spaces(s));
+    StrParseSymbols(StrEmplaceSpaces(s));
 }
 
 Monom & Monom::operator=(const Monom & z) {
@@ -39,7 +39,7 @@ Monom & Monom::operator=(const Monom & z) {
     return *this;
 }
 
-string Monom::toString() {
+string Monom::ToString() {
     stringstream ss;
     ss << m_coff;
     for (auto& v : m_variabels) {
@@ -54,7 +54,7 @@ string Monom::toString() {
 
 bool Monom::operator==(const Monom & rhs) const {
     if (std::abs(m_coff - rhs.m_coff) > 1.0e-05) return false;
-    return equals_variabels(rhs);
+    return EqualsVariabels(rhs);
 }
 
 bool Monom::operator!=(const Monom & rhs) const {
@@ -63,7 +63,7 @@ bool Monom::operator!=(const Monom & rhs) const {
 
 Monom Monom::operator+(const Monom & rhs) {
     Monom tmp(*this);
-    if (equals_variabels(rhs)) {
+    if (EqualsVariabels(rhs)) {
         tmp.m_coff += rhs.m_coff;
     }
     return tmp;
@@ -71,7 +71,7 @@ Monom Monom::operator+(const Monom & rhs) {
 
 Monom Monom::operator-(const Monom & rhs) {
     Monom tmp(*this);
-    if (equals_variabels(rhs)) {
+    if (EqualsVariabels(rhs)) {
         tmp.m_coff -= rhs.m_coff;
     }
     return tmp;
@@ -113,7 +113,7 @@ Monom Monom::operator/(const Monom & rhs) {
     return ret;
 }
 
-string Monom::str_emplace_spaces(const string& s_in) {
+string Monom::StrEmplaceSpaces(const string& s_in) {
     if (s_in.empty()) return "";
     auto s(s_in);
     for (size_t i = 0; i < s.size(); ++i) {
@@ -131,7 +131,7 @@ string Monom::str_emplace_spaces(const string& s_in) {
     return s;
 }
 
-void Monom::str_parse_symbols(const string & s) {
+void Monom::StrParseSymbols(const string & s) {
     if (s.empty()) return;
     stringstream ss(s);
     string temp;
@@ -165,7 +165,7 @@ void Monom::str_parse_symbols(const string & s) {
         m_coff = 0.0;
 }
 
-bool Monom::equals_variabels(const Monom& r) const {
+bool Monom::EqualsVariabels(const Monom& r) const {
     for (auto& var : m_variabels) {
         auto rv = r.m_variabels.find(var.first);
         if (rv == r.m_variabels.end() || (*rv).second != var.second) {

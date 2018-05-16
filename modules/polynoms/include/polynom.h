@@ -23,8 +23,8 @@ class Polynom {
 
      Polynom& operator=(const Polynom& z);
 
-     void add_monom(const Monom& m);
-     string toString();
+     void AddMonom(const Monom& m);
+     string ToString();
 
      bool operator==(const Polynom& rhs) const;
      bool operator!=(const Polynom& rhs) const;
@@ -35,13 +35,13 @@ class Polynom {
      Polynom operator/(const Monom& m);
 
      // Returns the map, where key is name, value should to fill user
-     map<char, double> get_vars_list();
+     map<char, double> GetVarsList();
 
      // Accept map with filled values
-     double calc_result(const map<char, double>& in_params);
+     double CalculateResult(const map<char, double>& in_params);
 
  private:
-     int contains(const monom_vec& vec, const Monom& m) const;
+     int Contains(const monom_vec& vec, const Monom& m) const;
 
  private:
      monom_vec m_monoms;

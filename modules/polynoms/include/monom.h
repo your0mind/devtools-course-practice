@@ -22,7 +22,7 @@ class Monom {
 
     Monom& operator=(const Monom& z);
 
-    string toString();
+    string ToString();
 
     bool operator==(const Monom& rhs) const;
     bool operator!=(const Monom& rhs) const;
@@ -34,9 +34,9 @@ class Monom {
     Monom operator*(const Monom& rhs);
     Monom operator/(const Monom& rhs);
 
-    string str_emplace_spaces(const string& s);
-    void str_parse_symbols(const string& s);
-    bool equals_variabels(const Monom& r) const;
+    string StrEmplaceSpaces(const string& s);
+    void StrParseSymbols(const string& s);
+    bool EqualsVariabels(const Monom& r) const;
 
  private:
     var_map m_variabels;

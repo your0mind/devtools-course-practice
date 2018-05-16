@@ -46,7 +46,7 @@ Polynom & Polynom::operator=(const Polynom & z) {
     return *this;
 }
 
-void Polynom::add_monom(const Monom & m) {
+void Polynom::AddMonom(const Monom & m) {
     for (auto& mm : m_monoms) {
         if (mm.m_variabels == m.m_variabels) {
             mm.m_coff += m.m_coff;
@@ -56,12 +56,12 @@ void Polynom::add_monom(const Monom & m) {
     m_monoms.push_back(m);
 }
 
-string Polynom::toString() {
+string Polynom::ToString() {
     stringstream ss;
     for (size_t i = 0; i < m_monoms.size() - 1; ++i)
-        ss << "(" << m_monoms[i].toString() << ") + ";
+        ss << "(" << m_monoms[i].ToString() << ") + ";
     if (m_monoms.size() > 0)
-        ss << "(" << m_monoms[m_monoms.size() - 1].toString() << ")";
+        ss << "(" << m_monoms[m_monoms.size() - 1].ToString() << ")";
     return ss.str();
 }
 
@@ -88,7 +88,7 @@ bool Polynom::operator!=(const Polynom & rhs) const {
 Polynom Polynom::operator+(const Polynom & rhs) {
     Polynom tmp(*this);
     for (size_t j = 0; j < rhs.m_monoms.size(); j++) {
-        int ind = contains(tmp.m_monoms, rhs.m_monoms[j]);
+        int ind = Contains(tmp.m_monoms, rhs.m_monoms[j]);
         if (ind > -1)
             tmp.m_monoms[ind] = (tmp.m_monoms[ind] + rhs.m_monoms[j]);
         else
@@ -100,7 +100,7 @@ Polynom Polynom::operator+(const Polynom & rhs) {
 Polynom Polynom::operator-(const Polynom & rhs) {
     Polynom tmp(*this);
     for (size_t j = 0; j < rhs.m_monoms.size(); j++) {
-        int ind = contains(tmp.m_monoms, rhs.m_monoms[j]);
+        int ind = Contains(tmp.m_monoms, rhs.m_monoms[j]);
         if (ind > -1) {
             auto t = (tmp.m_monoms[ind] - rhs.m_monoms[j]);
             if (t.m_coff != 0.0)
@@ -136,7 +136,7 @@ Polynom Polynom::operator/(const Monom & m) {
     return tmp;
 }
 
-map<char, double> Polynom::get_vars_list() {
+map<char, double> Polynom::GetVarsList() {
     std::set<char> tmp;
     for (const auto& m : m_monoms) {
         for (const auto& v : m.m_variabels) {
@@ -150,7 +150,7 @@ map<char, double> Polynom::get_vars_list() {
     return ret;
 }
 
-double Polynom::calc_result(const map<char, double>& in_params) {
+double Polynom::CalculateResult(const map<char, double>& in_params) {
     double res = 0.0;
     for (const auto& m : m_monoms) {
         double tmp = m.m_coff;
@@ -165,7 +165,7 @@ double Polynom::calc_result(const map<char, double>& in_params) {
     return res;
 }
 
-int Polynom::contains(const monom_vec& vec, const Monom & m) const {
+int Polynom::Contains(const monom_vec& vec, const Monom & m) const {
     for (size_t i = 0; i < vec.size(); i++)
         if (vec[i].m_variabels == m.m_variabels) return i;
     return -1;

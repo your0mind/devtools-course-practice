@@ -180,7 +180,7 @@ TEST_F(PolynomTest, To_String_Test) {
 
     // Act & Assert
     EXPECT_EQ(std::string("(-4a^4b^24c^-4s^8z^8) + (8a^2b^12c^-"
-        "2s^4x^1z^4) + (-4a^2b^12c^-2s^4z^4)"), p.toString());
+        "2s^4x^1z^4) + (-4a^2b^12c^-2s^4z^4)"), p.ToString());
 }
 
 TEST_F(PolynomTest, Copy_Operator_Test) {
@@ -256,12 +256,12 @@ TEST_F(PolynomTest, Check_Calculate) {
     Polynom p2("3y^10");
     // Act
     Polynom p = p1 + p2;
-    auto vars = p.get_vars_list();
+    auto vars = p.GetVarsList();
     for (auto& v : vars)
         v.second = 2.0;
 
     // Assert
-    EXPECT_NEAR(p.calc_result(vars), 4608.0, 0.00001);
+    EXPECT_NEAR(p.CalculateResult(vars), 4608.0, 0.00001);
 }
 
 TEST_F(PolynomTest, Add_Different_Monom) {
@@ -272,7 +272,7 @@ TEST_F(PolynomTest, Add_Different_Monom) {
 
     // Act
     Polynom p = p1 + p2;
-    p1.add_monom(m);
+    p1.AddMonom(m);
 
     // Assert
     EXPECT_EQ(p, p1);
@@ -285,7 +285,7 @@ TEST_F(PolynomTest, Add_Same_Monom) {
     Monom m("3x^10");
 
     // Act
-    p1.add_monom(m);
+    p1.AddMonom(m);
 
     // Assert
     Polynom p2("6x^10");
