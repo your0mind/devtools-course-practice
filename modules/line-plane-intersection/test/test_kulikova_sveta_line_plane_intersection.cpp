@@ -6,13 +6,13 @@
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
     // Arrange
-    dot Line1 = { 0, 9, -11 };
-    dot Line2 = { 1, 12, -14 };
-    dot Plane1 = { 0, 0, 3 };
-    dot Plane2 = { 0, 1, 1 };
-    dot Plane3 = { -3, 0, 0 };
-    dot EQ = { -2, 3, -5 };
-    dot res;
+    Dot Line1 = { 0, 9, -11 };
+    Dot Line2 = { 1, 12, -14 };
+    Dot Plane1 = { 0, 0, 3 };
+    Dot Plane2 = { 0, 1, 1 };
+    Dot Plane3 = { -3, 0, 0 };
+    Dot EQ = { -2, 3, -5 };
+    Dot res;
     double epsilon = 1e-6;
     LinePlaneIntersection F;
 
@@ -27,13 +27,13 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect1) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
     // Arrange
-    dot Line1 = { 0, 3, -4 };
-    dot Line2 = { -3, 0, 3.5 };
-    dot Plane1 = { 0, 1, 7 };
-    dot Plane2 = { -1, 5, 4 };
-    dot Plane3 = { -2, 3, 1 };
-    dot EQ = { -2, 1, 1 };
-    dot res;
+    Dot Line1 = { 0, 3, -4 };
+    Dot Line2 = { -3, 0, 3.5 };
+    Dot Plane1 = { 0, 1, 7 };
+    Dot Plane2 = { -1, 5, 4 };
+    Dot Plane3 = { -2, 3, 1 };
+    Dot EQ = { -2, 1, 1 };
+    Dot res;
     double epsilon = 1e-6;
     LinePlaneIntersection F;
 
@@ -48,12 +48,12 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, Intersect2) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotIntersect) {
     // Arrange
-    dot Line1 = { 0, -2, 1 };
-    dot Line2 = { 1, 0, 1 };
-    dot Plane1 = { 0, 1, 0 };
-    dot Plane2 = { -0.5, 0, 0 };
-    dot Plane3 = { 1, 0, 1 };
-    dot res;
+    Dot Line1 = { 0, -2, 1 };
+    Dot Line2 = { 1, 0, 1 };
+    Dot Plane1 = { 0, 1, 0 };
+    Dot Plane2 = { -0.5, 0, 0 };
+    Dot Plane3 = { 1, 0, 1 };
+    Dot res;
     LinePlaneIntersection F;
 
     // Act
@@ -65,11 +65,11 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, NotIntersect) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectLine) {
     // Arrange
-    dot Line1 = { 0, 0, 0 };
-    dot Line2 = { 0, 0, 0 };
-    dot Plane1 = { 0, 1, 0 };
-    dot Plane2 = { -0.5, 0, 0 };
-    dot Plane3 = { 1, 0, 1 };
+    Dot Line1 = { 0, 0, 0 };
+    Dot Line2 = { 0, 0, 0 };
+    Dot Plane1 = { 0, 1, 0 };
+    Dot Plane2 = { -0.5, 0, 0 };
+    Dot Plane3 = { 1, 0, 1 };
     LinePlaneIntersection F;
 
     // Act & Assert
@@ -79,11 +79,11 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectLine) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
     // Arrange
-    dot Line1 = { 0, 0, 0 };
-    dot Line2 = { 0, 1, 0 };
-    dot Plane1 = { 0, 0, 0 };
-    dot Plane2 = { 0, 0, 0 };
-    dot Plane3 = { 0, 1, 0 };
+    Dot Line1 = { 0, 0, 0 };
+    Dot Line2 = { 0, 1, 0 };
+    Dot Plane1 = { 0, 0, 0 };
+    Dot Plane2 = { 0, 0, 0 };
+    Dot Plane3 = { 0, 1, 0 };
     LinePlaneIntersection F;
 
     // Act & Assert
@@ -93,11 +93,11 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneA) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
     // Arrange
-    dot Line1 = { 0, 0, 0 };
-    dot Line2 = { 0, 1, 0 };
-    dot Plane1 = { 0, 0, 0 };
-    dot Plane2 = { 0, 1, 0 };
-    dot Plane3 = { 0, 0, 0 };
+    Dot Line1 = { 0, 0, 0 };
+    Dot Line2 = { 0, 1, 0 };
+    Dot Plane1 = { 0, 0, 0 };
+    Dot Plane2 = { 0, 1, 0 };
+    Dot Plane3 = { 0, 0, 0 };
     LinePlaneIntersection F;
 
     // Act & Assert
@@ -107,12 +107,12 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneB) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
     // Arrange
-    dot Line1 = { 0, 0, 0 };
-    dot Line2 = { 0, 1, 0 };
-    dot Plane1 = { 0, 1, 0 };
-    dot Plane2 = { 0, 0, 0 };
-    dot Plane3 = { 0, 0, 0 };
-    dot res;
+    Dot Line1 = { 0, 0, 0 };
+    Dot Line2 = { 0, 1, 0 };
+    Dot Plane1 = { 0, 1, 0 };
+    Dot Plane2 = { 0, 0, 0 };
+    Dot Plane3 = { 0, 0, 0 };
+    Dot res;
     LinePlaneIntersection F;
 
     // Act & Assert
@@ -122,13 +122,13 @@ TEST(Kulikova_Sveta_LinePlaneIntersection_Test, IncorrectPlaneC) {
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, VariableDeclaration) {
     // Act & Assert
-    ASSERT_NO_THROW(dot A);
+    ASSERT_NO_THROW(Dot A);
 }
 
 TEST(Kulikova_Sveta_LinePlaneIntersection_Test, CopyConstractor) {
     // Arrange
-    dot A = { 0, 0, 0 };
+    Dot A = { 0, 0, 0 };
 
     // Act & Assert
-    ASSERT_NO_THROW(dot B(A));
+    ASSERT_NO_THROW(Dot B(A));
 }
