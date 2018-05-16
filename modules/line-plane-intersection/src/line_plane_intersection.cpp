@@ -5,8 +5,8 @@
 LinePlaneIntersection::LinePlaneIntersection() :
     NotIntersectPlaneLine(true) {}
 
-dot LinePlaneIntersection::CreateVector(dot A, dot B) {
-    dot CreateVector;
+Dot LinePlaneIntersection::CreateVector(Dot A, Dot B) {
+    Dot CreateVector;
 
     CreateVector.x = B.x - A.x;
     CreateVector.y = B.y - A.y;
@@ -15,8 +15,8 @@ dot LinePlaneIntersection::CreateVector(dot A, dot B) {
     return CreateVector;
 }
 
-dot LinePlaneIntersection::VectorProduct(dot A, dot B) {
-    dot VP;
+Dot LinePlaneIntersection::VectorProduct(Dot A, Dot B) {
+    Dot VP;
 
     VP.x = A.y * B.z - B.y * A.z;
     VP.y = A.z * B.x - B.z * A.x;
@@ -25,7 +25,7 @@ dot LinePlaneIntersection::VectorProduct(dot A, dot B) {
     return VP;
 }
 
-double LinePlaneIntersection::DotProduct(dot A, dot B) {
+double LinePlaneIntersection::DotProduct(Dot A, Dot B) {
     double SP;
 
     SP = A.x * B.x + A.y * B.y + A.z * B.z;
@@ -33,7 +33,7 @@ double LinePlaneIntersection::DotProduct(dot A, dot B) {
     return SP;
 }
 
-void LinePlaneIntersection::Normalize(dot A) {
+void LinePlaneIntersection::Normalize(Dot A) {
     double mlr;
 
     mlr = sqrt(A.x * A.x + A.y * A.y + A.z * A.z);
@@ -42,13 +42,13 @@ void LinePlaneIntersection::Normalize(dot A) {
     A.z = A.z / mlr;
 }
 
-bool LinePlaneIntersection::IncorrectLine(dot A, dot B) {
+bool LinePlaneIntersection::IncorrectLine(Dot A, Dot B) {
     if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
     return false;
 }
 
-bool LinePlaneIntersection::IncorrectPlane(dot A, dot B, dot C) {
+bool LinePlaneIntersection::IncorrectPlane(Dot A, Dot B, Dot C) {
     if (A.x == B.x && A.y == B.y && A.z == B.z)
         return true;
     if (A.x == C.x && A.y == C.y && A.z == C.z)
@@ -58,9 +58,9 @@ bool LinePlaneIntersection::IncorrectPlane(dot A, dot B, dot C) {
     return false;
 }
 
-dot LinePlaneIntersection::PlaneIntersectLine(dot A,
-    dot B, dot C, dot X, dot Y) {
-    dot N, V, W, PlaneIntersectLine = { 0, 0, 0 };
+Dot LinePlaneIntersection::PlaneIntersectLine(Dot A,
+    Dot B, Dot C, Dot X, Dot Y) {
+    Dot N, V, W, PlaneIntersectLine = { 0, 0, 0 };
     double e, d;
 
     NotIntersectPlaneLine = true;
