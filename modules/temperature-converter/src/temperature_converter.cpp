@@ -11,7 +11,7 @@ TemperatureConverter::TemperatureConverter(double current_temperature_,
     else
         throw("Incorrect temperature scale");
 }
-    
+
 double TemperatureConverter::getCurrentTemperature() {
     return this->current_temperature;
 }
