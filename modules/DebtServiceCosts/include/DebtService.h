@@ -24,6 +24,7 @@ class DebtService {
     DebtService(float loan_amount, int loan_term, float loan_rate,
                 DebtServiceType dt);
     DebtService(const DebtService& ds);
+
     DebtService& operator =(const DebtService& ds);
     bool operator ==(const DebtService& ds) const;
 
