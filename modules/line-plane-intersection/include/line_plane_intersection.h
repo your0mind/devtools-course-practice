@@ -9,9 +9,9 @@ struct dot {
     double x, y, z;
 };
 
-class line_plane_intersection {
+class LinePlaneIntersection {
  public:
-    line_plane_intersection();
+    LinePlaneIntersection();
 
     dot PlaneIntersectLine(dot A, dot B, dot C, dot X, dot Y);
     bool GetNotIntersectPlaneLine();
