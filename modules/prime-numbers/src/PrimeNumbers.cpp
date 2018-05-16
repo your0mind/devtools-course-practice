@@ -3,7 +3,7 @@
 #include <vector>
 #include "include/PrimeNumbers.h"
 
-primeNumbers::primeNumbers(int _min, int _max) {
+PrimeNumbers::PrimeNumbers(int _min, int _max) {
     min = _min;
     max = _max;
     if (min < 0)
@@ -18,12 +18,12 @@ primeNumbers::primeNumbers(int _min, int _max) {
     }
 }
 
-primeNumbers::~primeNumbers() {
+PrimeNumbers::~PrimeNumbers() {
     min = max = size = 0;
     arr.clear();
 }
 
-std::vector<int> primeNumbers::findPrimeNums() {
+std::vector<int> PrimeNumbers::FindPrimeNums() {
     for (int i = 0; i < size; i++) {
         for (int j = 2; j <= sqrt(static_cast<double>(arr[i])); j++)
             if (arr[i] % j == 0 && arr[i] != j && arr[i] != 1) {
