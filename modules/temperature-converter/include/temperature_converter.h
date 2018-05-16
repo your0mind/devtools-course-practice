@@ -7,7 +7,9 @@ class TemperatureConverter {
  public:
   TemperatureConverter(double current_temperature_ = 0,
        char current_scale_ = 'C');
-  TemperatureConverter(TemperatureConverter temp);
+  TemperatureConverter(const TemperatureConverter& temp) :
+      current_temperature(temp.current_temperature),
+      current_scale(temp.current_scale) {}
   ~TemperatureConverter() {}
 
   TemperatureConverter convert(TemperatureConverter temperature,
