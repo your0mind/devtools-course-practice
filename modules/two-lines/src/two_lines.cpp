@@ -1,6 +1,5 @@
 // Copyright 2018 Panov Aleksander
 
-#include <stdbool.h>
 #include <algorithm>
 #include <limits>
 #include "include/two_lines.h"
@@ -11,13 +10,21 @@ using std::min;
 
 const double eps = std::numeric_limits<double>::epsilon();
 
-bool equalsZero(double x) {
-    return std::abs(x) < eps;
+bool inline equalsZero(double x) {
+    if (x < 0)
+        x *= -1.0;
+    return x < eps;
 }
 
 Point::Point() : x(0), y(0) {}
 
 Point::Point(double _x, double _y) : x(_x), y(_y) {}
+
+Point & Point::operator=(const Point & point) {
+    x = point.x;
+    y = point.y;
+    return *this;
+}
 
 bool Point::operator==(const Point & point) const {
     return (equalsZero(x - point.x) && equalsZero(y - point.y));
@@ -72,9 +79,15 @@ bool LineSegment::intersect(const LineSegment & line) const {
             && orientedArea3 * orientedArea4 <= 0);
 }
 
+LineSegment & LineSegment::operator=(const LineSegment & line) {
+    point1 = line.point1;
+    point2 = line.point2;
+    return *this;
+}
+
 bool LineSegment::operator==(const LineSegment & line) const {
-    return (point1 == line.point1 && point2 == line.point2 ||
-        point2 == line.point1 && point1 == line.point2);
+    return ((point1 == line.point1 && point2 == line.point2) ||
+        (point2 == line.point1 && point1 == line.point2));
 }
 
 bool LineSegment::operator!=(const LineSegment & line) const {

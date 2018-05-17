@@ -27,6 +27,35 @@ TEST(Panov_Aleksander_LinesTest, Can_Create_Points) {
     EXPECT_DOUBLE_EQ(point1.y, point2.y);
 }
 
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Point1) {
+    // Arrange
+    Point point1(1, -1), point2(1, -1);
+
+    // Assert
+    EXPECT_TRUE(point1 == point2);
+}
+
+TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Point2) {
+    // Arrange
+    Point point1(1, -1), point2(1.1, -1);
+
+    // Assert
+    EXPECT_TRUE(point1 != point2);
+}
+
+TEST(Panov_Aleksander_LinesTest, Point_Equality_Operator_Works) {
+    // Arrange
+    double x = 1, y = -1;
+    Point point1(x, y), point2;
+
+    // Act
+    point2 = point1;
+
+    // Assert
+    EXPECT_DOUBLE_EQ(point1.x, point2.x);
+    EXPECT_DOUBLE_EQ(point1.y, point2.y);
+}
+
 TEST(Panov_Aleksander_LinesTest, Can_Create_Default_Line_Segment) {
     // Arrange
     Point point(0, 0);
@@ -82,6 +111,18 @@ TEST(Panov_Aleksander_LinesTest, Can_Compare_Line_Segments2) {
 
     // Assert
     EXPECT_TRUE(line1 != line2);
+}
+
+TEST(Panov_Aleksander_LinesTest, Line_Segment_Equality_Operator_Works) {
+    // Arrange
+    Point point1(1, -1), point2(-1, 1);
+    LineSegment line1(point1, point2), line2;
+
+    // Act
+    line2 = line1;
+
+    // Assert
+    EXPECT_EQ(line1, line2);
 }
 
 TEST(Panov_Aleksander_LinesTest, Different_Points_Not_Intersect) {
