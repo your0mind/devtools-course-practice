@@ -14,9 +14,9 @@ class SearchTree {
  public:
     explicit SearchTree(Tree * pRoot = nullptr);
     Tree * pRoot;
-    void AddTree(int val, Tree * tr);
-    Tree * Search(Tree * tr, int key);
-    void DestroyBTree(Tree * tr);
+    void AddTree(int val, Tree * pRoot);
+    Tree * Search(Tree * pRoot, int key);
+    void DestroyBTree(Tree * pRoot);
 };
 
 #endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
