@@ -53,6 +53,15 @@ TEST(InterpolationalSearchTest,
   // Assert
   EXPECT_EQ(search_result, 8);
 }
+TEST(InterpolationalSearchTest,
+     Can_Find_Existing_Element_In_Not_Uniform_Array_From_Left) {
+  // Arrange
+  std::vector<int> arr = {1, 2, 3, 4, 5, 60, 70, 90, 98, 100};
+  // Act
+  int search_result = xab::interpSearch(arr, arr[7]);
+  // Assert
+  EXPECT_EQ(search_result, 7);
+}
 
 TEST(InterpolationalSearchTest,
      Cant_Find_Not_Existing_Element_In_Not_Uniform_Array) {
