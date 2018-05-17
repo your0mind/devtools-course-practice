@@ -10,7 +10,7 @@ template <class ValType>
 class TStack {
  private:
     ValType* pMem;                      // Array for data
-    int size;                           // Size of stack
+    int size;                           // Size of the stack
     int sp;                             // Pointer to the top of the stack
  public:
     explicit TStack(int _size = 1);     // Initializer constructor
