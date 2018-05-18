@@ -21,6 +21,7 @@ class DebtService {
     void Making1PaymentEnd(float pay_amnt);
     void MakingPrincipal1PaymentEnd(float pay_amnt);
     void MakingEqualAnnualPayments(float pay_amnt);
+
  public:
     DebtService():loan_amount_(0), loan_term_(0), loan_rate_(0),
         loan_balance_(0), service_type_(ONE_PAYMENT_AT_THE_END) {}
