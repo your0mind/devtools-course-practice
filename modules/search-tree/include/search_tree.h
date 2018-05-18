@@ -11,12 +11,17 @@ struct Tree {
 };
 
 class SearchTree {
+ private:
+    Tree * pRoot;
+    void DestroyBTree(Tree * pRoot);
+    void AddTree(int val, Tree** pRoot);
+    Tree * SearchNode(Tree * pRoot, int key);
  public:
     explicit SearchTree(Tree * pRoot = nullptr);
-    Tree * pRoot;
-    void AddTree(int val, Tree * pRoot);
-    Tree * Search(Tree * pRoot, int key);
-    void DestroyBTree(Tree * pRoot);
+    ~SearchTree() { DestroyBTree(pRoot); }
+
+    void Insert(int val);
+    Tree * Search(int val);
 };
 
 #endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
