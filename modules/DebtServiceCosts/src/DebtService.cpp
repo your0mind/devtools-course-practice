@@ -77,36 +77,48 @@ float DebtService::GetTotalPayout() const {
 void DebtService::MakingPayment(float pay_amnt) {
     switch (service_type_) {
     case ONE_PAYMENT_AT_THE_END:
-        if (pay_amnt == loan_balance_)
-            loan_balance_ -= pay_amnt;
-        else
-            throw "Must pay another amount";
+        Making1PaymentEnd(pay_amnt);
         break;
     case PRINCIPAL_DEBT_ONE_PAYMENT_AT_THE_END:
-        if (curr_term_ < loan_term_ - 1 &&
-                pay_amnt == loan_amount_ * loan_rate_) {
-            loan_balance_ -= pay_amnt;
-            curr_term_ += 1;
-        } else if (curr_term_ == loan_rate_ - 1 &&
-                pay_amnt == loan_amount_ * (1 + loan_rate_)) {
-            loan_balance_ -= pay_amnt;
-            curr_term_ += 1;
-        } else {
-            throw "Must pay another amount";
-        }
+        MakingPrincipal1PaymentEnd(pay_amnt);
         break;
     case EQUAL_ANNUAL_PAYMENTS:
-        if (pay_amnt == loan_amount_ *
-                (1 + loan_rate_ * (loan_term_ - curr_term_))/loan_term_) {
-            loan_balance_ -= pay_amnt;
-            curr_term_ += 1;
-        } else {
-            throw "Must pay another amount";
-        }
+        MakingEqualAnnualPayments(pay_amnt);
         break;
     }
 }
 
 float DebtService::GetBalance() {
     return loan_balance_;
+}
+
+void DebtService::Making1PaymentEnd(float pay_amnt) {
+    if (pay_amnt == loan_balance_)
+        loan_balance_ -= pay_amnt;
+    else
+        throw "Must pay another amount";
+}
+
+void DebtService::MakingPrincipal1PaymentEnd(float pay_amnt) {
+    if (curr_term_ < loan_term_ - 1 &&
+            pay_amnt == loan_amount_ * loan_rate_) {
+        loan_balance_ -= pay_amnt;
+        curr_term_ += 1;
+    } else if (curr_term_ == loan_rate_ - 1 &&
+            pay_amnt == loan_amount_ * (1 + loan_rate_)) {
+        loan_balance_ -= pay_amnt;
+        curr_term_ += 1;
+    } else {
+        throw "Must pay another amount";
+    }
+}
+
+void DebtService::MakingEqualAnnualPayments(float pay_amnt) {
+    if (pay_amnt == loan_amount_ *
+            (1 + loan_rate_ * (loan_term_ - curr_term_))/loan_term_) {
+        loan_balance_ -= pay_amnt;
+        curr_term_ += 1;
+    } else {
+        throw "Must pay another amount";
+    }
 }
