@@ -120,9 +120,6 @@ int NumericalConverter::ConvertRomanNumToArabicNumRefac(std::string inputStr) {
                 if (inputStr[i + 1] != 'I') {
                     ArabicNumberOutput -= 1;
                 }
-                    // else {
-                    // ArabicNumberOutput += 1;
-                    // }
             }
             if (inputStr[i] == static_cast<char>('V')) {
                 ArabicNumberOutput += 5;
