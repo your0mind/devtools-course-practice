@@ -13,127 +13,80 @@ TEST(Gorelova_Ksenia_SearchTree_Test, can_delete_empty_tree) {
     ASSERT_NO_THROW(delete tree);
 }
 
+
 TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_empty_tree) {
-    SearchTree * tree = new SearchTree();
+    SearchTree tree;
     int key = 11;
-    Tree * tr = nullptr;
-    ASSERT_NO_THROW(tree->AddTree(key, tr));
-    delete tree;
+
+    ASSERT_NO_THROW(tree.Insert(key));
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_left_branch) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    tr.AddTree(7, tree);
-    tr.AddTree(10, tr.pRoot);
-    ASSERT_LE(tree->left, tr.pRoot);
-    tr.DestroyBTree(tr.pRoot);
+    SearchTree tree;
+
+    tree.Insert(10);
+    tree.Insert(7);
+
+    ASSERT_EQ(nullptr, tree.Search(7)->left);
+    ASSERT_EQ(nullptr, tree.Search(7)->right);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_insert_element_in_right_branch) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    tr.AddTree(17, tree);
-    tr.AddTree(10, tr.pRoot);
-    ASSERT_GE(tree->right, tr.pRoot);
-    tr.DestroyBTree(tr.pRoot);
+    SearchTree tree;
+
+    tree.Insert(10);
+    tree.Insert(17);
+
+    ASSERT_EQ(nullptr, tree.Search(17)->left);
+    ASSERT_EQ(nullptr, tree.Search(17)->right);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_search_empty_element) {
-    SearchTree * tree = new SearchTree();
+    SearchTree tree;
     int key = 11;
-    Tree * tr = nullptr;
-    tree->AddTree(key, tr);
-    ASSERT_NO_THROW(tree->Search(tr, key));
-    delete tree;
+
+    ASSERT_EQ(nullptr, tree.Search(key));
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    tree->value = 5;
+    SearchTree tree;
     int key = 5;
-    tr.AddTree(key, tree);
-    tr.AddTree(tree->value, tr.pRoot);
-    ASSERT_EQ(tr.Search(tree, key), tr.Search(tree, tree->value));
-    tr.DestroyBTree(tree);
+
+    tree.Insert(key + 5);
+    tree.Insert(key + 10);
+    tree.Insert(key);
+    tree.Insert(key - 1);
+
+    ASSERT_EQ(key, tree.Search(key)->value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element_in_right_branch) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    tree->value = 15;
+    SearchTree tree;
     int key = 25;
-    tr.AddTree(20, tree);
-    tr.AddTree(10, tree);
-    tr.AddTree(1, tree);
-    tr.AddTree(key, tree);
-    EXPECT_EQ(tree->right, tr.Search(tree, key));
-    tr.DestroyBTree(tree);
+
+    tree.Insert(20);
+    tree.Insert(10);
+    tree.Insert(1);
+    tree.Insert(key);
+
+    EXPECT_EQ(key, tree.Search(key)->value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_search_element_in_left_branch) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    tree->value = 15;
+    SearchTree tree;
     int key = 1;
-    tr.AddTree(20, tree);
-    tr.AddTree(10, tree);
-    tr.AddTree(5, tree);
-    tr.AddTree(key, tree);
-    EXPECT_EQ(tree->left, tr.Search(tree, key));
-    tr.DestroyBTree(tree);
+
+    tree.Insert(20);
+    tree.Insert(10);
+    tree.Insert(5);
+    tree.Insert(key);
+
+    EXPECT_EQ(key, tree.Search(key)->value);
 }
 
 TEST(Gorelova_Ksenia_SearchTree_Test, can_destroy_empty_tree) {
     SearchTree * tree = new SearchTree();
-    Tree * tr = nullptr;
-    ASSERT_NO_THROW(tree->DestroyBTree(tr));
-    delete tree;
-}
 
-TEST(Gorelova_Ksenia_SearchTree_Test, can_not_equal) {
-    Tree tr1, tr2;
-    SearchTree * tree = new SearchTree();
-    tr1.value = 5;
-    tr2.value = 10;
-    tree->AddTree(tr1.value, tree->pRoot);
-    tree->AddTree(tr2.value, tree->pRoot);
-    ASSERT_TRUE(tr1.value != tr2.value);
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, can_minimal_value) {
-    Tree tr1, tr2;
-    SearchTree * tree = new SearchTree();
-    tr1.value = 5;
-    tr2.value = 10;
-    tree->AddTree(tr1.value, tree->pRoot);
-    tree->AddTree(tr2.value, tree->pRoot);
-    ASSERT_TRUE(tr1.value < tr2.value);
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, can_left) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    EXPECT_LE(tr.Search(tr.pRoot, 7), tr.Search(tree, 3));
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, can_right) {
-    Tree * tree = new Tree();
-    SearchTree tr;
-    EXPECT_GE(tr.Search(tr.pRoot, 3), tr.Search(tree, 7));
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, can_zero) {
-    SearchTree * tree = new SearchTree();
-    Tree tr;
-    tr.value = 0;
-    ASSERT_EQ(0, tr.value);
-}
-
-TEST(Gorelova_Ksenia_SearchTree_Test, can_destroy) {
-    SearchTree * tree = new SearchTree();
-    Tree * tr = tree->pRoot;
-    ASSERT_NO_THROW(tree->DestroyBTree(tr));
+    ASSERT_NO_THROW(tree->~SearchTree());
     delete tree;
 }
