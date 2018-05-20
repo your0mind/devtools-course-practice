@@ -34,12 +34,10 @@ bool TriangleOptions::validateNumberOfArguments(int argc, const char** argv) {
         message_ = std::string("Usage:  triangles-options.exe ") +
             "-[hAlarRspbc] [x1 y1 x2 y2 x3 y3]\n";
         return false;
-    }
-    else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
+    } else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
         help("This is a triangle options application.");
         return false;
-    }
-    else if (argc != 8) {
+    } else if (argc != 8) {
         help(std::string("ERROR: Should be 7 arguments.\n\n"));
         return false;
     }
@@ -79,7 +77,7 @@ std::string TriangleOptions::operator()(int argc, const char** argv) {
             Vertex(args.x_3, args.y_3));
 
         Vertex A;
-        if (argv[1][0] == '-')
+        if (argv[1][0] == '-') {
             switch (argv[1][1]) {
             case('A'):
                 stream << "length 1_2 = " << T.Get_Length_side(first, second)
@@ -152,7 +150,7 @@ std::string TriangleOptions::operator()(int argc, const char** argv) {
                 help(std::string("Unknown option ") + argv[1] + "\n\n");
                 return message_;
             }
-        else {
+        } else {
             help();
             return message_;
         }
