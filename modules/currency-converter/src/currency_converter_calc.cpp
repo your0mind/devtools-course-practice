@@ -117,7 +117,6 @@ std::string parseOperation(const char* arg) {
         stream << in << " EUR" << " = " << out << " USD" <<std::endl;
         break;
     }
-        break;
     }
     message_ = stream.str();
 
