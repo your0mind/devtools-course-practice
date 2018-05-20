@@ -5,16 +5,6 @@
 
 #include <string>
 
-typedef enum {
-    Lengths,
-    Angles,
-    Radius_Inscribed,
-    Radius_Circumscribed,
-    Square,
-    Perimeter,
-    Barycenter,
-    Center_Inscribed
-} Option;
 
 class TriangleOptions {
  public:
@@ -22,7 +12,7 @@ class TriangleOptions {
     std::string operator()(int argc, const char** argv);
 
  private:
-    void help(const char* appname, const char* message = "");
+    void help(const std::string message = "");
     bool validateNumberOfArguments(int argc, const char** argv);
     std::string message_;
     typedef struct {
@@ -32,7 +22,6 @@ class TriangleOptions {
         double y_2;
         double x_3;
         double y_3;
-        Option option;
     } Arguments;
 };
 

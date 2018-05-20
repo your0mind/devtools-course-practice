@@ -41,8 +41,8 @@ class TriangleOptionsTest : public ::testing::Test {
     string output_;
 };
 
-TEST_F(TriangleOptionsTest, Do_Print_Help_Without_Arguments) {
-    vector<string> args = {};
+TEST_F(TriangleOptionsTest, Do_Print_Help) {
+    vector<string> args = {"-h"};
 
     Act(args);
 
@@ -50,32 +50,40 @@ TEST_F(TriangleOptionsTest, Do_Print_Help_Without_Arguments) {
 }
 
 TEST_F(TriangleOptionsTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = {"1", "2"};
+    vector<string> args = {"-l", "1", "2"};
 
     Act(args);
 
-    Assert("ERROR: Should be 7 or 8 arguments\\..*");
+    Assert("ERROR: Should be 7 arguments\\..*");
 }
 
 TEST_F(TriangleOptionsTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "2", "1", "3", "pi", "8"};
+    vector<string> args = {"-l", "1", "2", "1", "3", "pi", "8"};
 
     Act(args);
 
     Assert("Wrong number format!.*");
 }
 
-TEST_F(TriangleOptionsTest, Can_Detect_Wrong_Option_Format) {
-    vector<string> args = { "1", "2", "1", "3", "4", "8", "garbage" };
+TEST_F(TriangleOptionsTest, Can_Detect_Unknown_Option) {
+    vector<string> args = { "-garbage", "1", "2", "1", "3", "4", "8" };
 
     Act(args);
 
-    Assert("Wrong option format!.*");
+    Assert("Unknown option.*");
+}
+
+TEST_F(TriangleOptionsTest, Can_Detect_Wrong_Option) {
+    vector<string> args = { "garbage", "1", "2", "1", "3", "4", "8" };
+
+    Act(args);
+
+    Assert("Usage:.*");
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Angles) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Angles" };
+    vector<string> args = { "-a", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -85,8 +93,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Angles) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Lengths) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Lengths" };
+    vector<string> args = { "-l", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -96,8 +104,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Lengths) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Inscribed_Radius) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Radius_Inscribed" };
+    vector<string> args = { "-r", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -105,8 +113,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Inscribed_Radius) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Circumscribed_Radius) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Radius_Circumscribed" };
+    vector<string> args = { "-R", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -114,8 +122,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Circumscribed_Radius) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Square) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Square" };
+    vector<string> args = { "-s", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8"};
 
     Act(args);
 
@@ -123,8 +131,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Square) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Perimeter) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Perimeter" };
+    vector<string> args = { "-p", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -132,8 +140,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Perimeter) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Barycenter) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Barycenter" };
+    vector<string> args = { "-b", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -141,8 +149,8 @@ TEST_F(TriangleOptionsTest, Can_Find_Barycenter) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_Center_Inscribed) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
-        "1.6", "1.8", "Center_Inscribed" };
+    vector<string> args = { "-c", "1.2", "1.3", "1.4", "1.5",
+        "1.6", "1.8" };
 
     Act(args);
 
@@ -150,7 +158,7 @@ TEST_F(TriangleOptionsTest, Can_Find_Center_Inscribed) {
 }
 
 TEST_F(TriangleOptionsTest, Can_Find_All_Options) {
-    vector<string> args = { "1.2", "1.3", "1.4", "1.5",
+    vector<string> args = { "-A", "1.2", "1.3", "1.4", "1.5",
         "1.6", "1.8"};
 
     Act(args);
