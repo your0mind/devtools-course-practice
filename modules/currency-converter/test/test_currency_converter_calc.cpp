@@ -106,8 +106,8 @@ TEST_F(CurrencyConverterCalcTest, Can_Dollar_To_Euro) {
 }
 TEST_F(CurrencyConverterCalcTest, Can_Euro_To_Dollar) {
     vector<string> args = {"1", "euroToDollar"};
-    
+
     Act(args);
-    
+
     Assert("1 EUR = 1.25 USD");
 }
