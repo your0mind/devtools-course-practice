@@ -13,11 +13,11 @@ class AreaCalculation {
     ~AreaCalculation();
     
  private:
-
     int FindStart();
     int FindEnd();
     void Transposition();
-    double AreaTrapetion(double _first_x, double _second_x, double _first_y, double _second_y);
+    double AreaTrapetion(double _first_x, double 
+	_second_x, double _first_y, double _second_y);
     int size;
     double* x_coordinate;
     double* y_coordinate;
