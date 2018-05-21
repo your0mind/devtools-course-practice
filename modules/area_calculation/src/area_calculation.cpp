@@ -125,7 +125,7 @@ void AreaCalculation::Transposition()
 	if (y_min < 0)
 	{
 		y_shift = fabs(y_min);
-		for (int i = 0; i++; i < size)
+		for (int i = 0;i < size;i++)
 		{
 			y_coordinate[i] += y_shift;
 		}

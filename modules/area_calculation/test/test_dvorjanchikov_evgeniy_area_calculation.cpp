@@ -2,6 +2,8 @@
 
 #include <gtest/gtest.h>
 
+#include <math.h>
+
 #include "include/area_calculation.h"
 
 TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Constructor_test_1) {
