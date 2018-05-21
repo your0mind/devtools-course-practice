@@ -19,8 +19,7 @@ bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
                "list of integers and number," +
                "which possition you want to find there.\n";
        return false;
-    }
-    else if (argc < 3) {
+    } else if (argc < 3) {
         msg = std::string("There should be 2 arguments:\n") +
                           "list of integers and number," +
                           "which possition you want to find there.\n";
