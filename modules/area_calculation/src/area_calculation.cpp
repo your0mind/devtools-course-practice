@@ -1,3 +1,4 @@
+// Copyright 2018 Dvorjanchikov Evgeniy
 #include <math.h>
 #include "include/area_calculation.h"
 
@@ -10,12 +11,11 @@ AreaCalculation::AreaCalculation(int _size, double * x_mas, double * y_mas) {
         x_coordinate[i] = x_mas[i];
         y_coordinate[i] = y_mas[i];
     }
-
 }
 
 double AreaCalculation::GetArea() {
-    if(area > 0 )
-    return area;
+    if(area > 0 ) {
+    return area;}
     else {
         Transposition();
         double up_area =0;
@@ -27,7 +27,8 @@ double AreaCalculation::GetArea() {
                 cur_step++;
             else
                 cur_step = 0;
-            up_area += AreaTrapetion(x_coordinate[tmp], x_coordinate[cur_step], y_coordinate[tmp], y_coordinate[cur_step]);
+            up_area += AreaTrapetion(x_coordinate[tmp], x_coordinate[cur_step],
+            y_coordinate[tmp], y_coordinate[cur_step]);
         }
         cur_step = last;
         while (cur_step != first) {
@@ -36,7 +37,8 @@ double AreaCalculation::GetArea() {
                 cur_step++;
             else
                 cur_step = 0;
-            down_area += AreaTrapetion(x_coordinate[tmp], x_coordinate[cur_step], y_coordinate[tmp], y_coordinate[cur_step]);
+            down_area += AreaTrapetion(x_coordinate[tmp], x_coordinate[cur_step],
+            y_coordinate[tmp], y_coordinate[cur_step]);
         }
         area = fabs(up_area - down_area);
         return area;
