@@ -26,4 +26,3 @@ class AreaCalculation {
 };
 
 #endif  // MODULES_AREA_CALCULATION_INCLUDE_AREA_CALCULATION_H_
-}
