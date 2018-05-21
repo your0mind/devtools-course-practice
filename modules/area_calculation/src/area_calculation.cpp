@@ -104,9 +104,10 @@ void AreaCalculation::Transposition()
 {
 	first = FindStart();
 	last = FindEnd();
+	double x_shift;
 	if (x_coordinate[first] < 0)
 	{
-		double x_shift = fabs(x_coordinate[first]);
+		x_shift = fabs(x_coordinate[first]);
 		for (int i = 0; i++; i < size)
 		{
 			x_coordinate[i] += x_shift;
@@ -120,9 +121,10 @@ void AreaCalculation::Transposition()
 			y_min = y_coordinate[i];
 		}
 	}
+	double y_shift;
 	if (y_min < 0)
 	{
-		double y_shift = fabs(y_min);
+		y_shift = fabs(y_min);
 		for (int i = 0; i++; i < size)
 		{
 			y_coordinate[i] += y_shift;
