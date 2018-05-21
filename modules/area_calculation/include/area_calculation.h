@@ -11,12 +11,11 @@ class AreaCalculation {
     double * GetY();
     int GetSize();
     ~AreaCalculation();
-    
  private:
     int FindStart();
     int FindEnd();
     void Transposition();
-    double AreaTrapetion(double _first_x, double 
+    double AreaTrapetion(double _first_x, double
 	_second_x, double _first_y, double _second_y);
     int size;
     double* x_coordinate;
@@ -27,3 +26,4 @@ class AreaCalculation {
 };
 
 #endif  // MODULES_AREA_CALCULATION_INCLUDE_AREA_CALCULATION_H_
+}
