@@ -108,7 +108,7 @@ void AreaCalculation::Transposition()
 	if (x_coordinate[first] < 0)
 	{
 		x_shift = fabs(x_coordinate[first]);
-		for (int i = 0; i++; i < size)
+		for (int i = 0;i < size;i++)
 		{
 			x_coordinate[i] += x_shift;
 		}
