@@ -1,5 +1,5 @@
 #include <math.h>
-#include "area_calculation.h"
+#include "include/area_calculation.h"
 
 AreaCalculation::AreaCalculation(int _size, double * x_mas, double * y_mas)
 {
