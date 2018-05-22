@@ -52,22 +52,6 @@ double parseDouble(const char* arg) {
 
     return value;
 }
-/*
-char parseOperation(const char* arg) {
-    char op;
-    if (strcmp(arg, "+") == 0) {
-        op = '+';
-    } else if (strcmp(arg, "-") == 0) {
-        op = '-';
-    } else if (strcmp(arg, "*") == 0) {
-        op = '*';
-    } else if (strcmp(arg, "/") == 0) {
-        op = '/';
-    } else {
-        throw std::string("Wrong operation format!");
-    }
-    return op;
-}*/
 
 std::string SearchTreeOptions::operator()(int argc, const char** argv) {
     Arguments args;
@@ -84,55 +68,21 @@ std::string SearchTreeOptions::operator()(int argc, const char** argv) {
         if (argv[1][0] == '-') {
                 switch (argv[1][1]) {
                 case('i'):
-                    tree.Insert(args.value);
+                    if (tree.Insert(args.value))
+                        stream << "Insert was successful!";
+                    else
+                        stream << "Out of memory...";
                     break;
                 case('f'):
-                    tree.Search(args.value);
+                    Tree* searchResulrt = tree.Search(args.value);
+                    if (searchResulrt == nullptr)
+                        stream << "Tree hasn't node with this value";
+                    else
+                        stream << "Search was successful! Found value: " + std::to_string((searchResulrt->value));
                     break;
-                /*case('l'):
-                    stream << "length 1_2 = " << T.Get_Length_side(first, second)
-                        << std::endl
-                        << "length 1_3 = " << T.Get_Length_side(first, third)
-                        << std::endl
-                        << "length 2_3 = " << T.Get_Length_side(second, third)
-                        << std::endl;
-                    break;
-                case('a'):
-                    stream << "angle 1 = " << T.Get_Angle(first)
-                        << std::endl
-                        << "angle 2 = " << T.Get_Angle(second)
-                        << std::endl
-                        << "angle 3 = " << T.Get_Angle(third)
-                        << std::endl;
-                    break;
-                case('r'):
-                    stream << "Radius Inscribed Circle = "
-                        << T.Get_Radius_Of_Inscribed_Circle() << std::endl;
-                    break;
-                case('R'):
-                    stream << "Radius Circumscribed Circle = "
-                        << T.Get_Radius_Of_Circumscribed_Circle() << std::endl;
-                    break;
-                case('s'):
-                    stream << "Square = " << T.Get_Square() << std::endl;
-                    break;
-                case('p'):
-                    stream << "Perimeter = " << T.Get_Perimeter() << std::endl;
-                    break;
-                case('b'):
-                    A = T.Get_Barycenter();
-                    stream << "Barycenter = <"
-                        << A.x << ", " << A.y << ">" << std::endl;
-                    A = T.Get_Center_Of_Inscribed_Circle();
-                    break;
-                case('c'):
-                    A = T.Get_Center_Of_Inscribed_Circle();
-                    stream << "Center Inscribed Circle = <"
-                        << A.x << ", " << A.y << ">" << std::endl;
-                    break;*/
-                default:
-                    help(std::string("Unknown option ") + argv[1] + "\n\n");
-                    return message_;
+                //default:
+                  //  help(std::string("Unknown option ") + argv[1] + "\n\n");
+                    //return message_;
                 }
             } else {
                 help();
