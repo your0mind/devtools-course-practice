@@ -42,7 +42,7 @@ set_tests_properties (${prefix}_If_Wrong_Number_Format PROPERTIES
 
 add_test(
   NAME ${prefix}_Cant_Find_Not_Excisting
-  COMMAND ${APPLICATION} 1234
+  COMMAND ${APPLICATION} 1 2 3 4
 )
 set_tests_properties (${prefix}_Cant_Find_Not_Excisting PROPERTIES
   PASS_REGULAR_EXPRESSION "Element 4 hasn't been found.*"

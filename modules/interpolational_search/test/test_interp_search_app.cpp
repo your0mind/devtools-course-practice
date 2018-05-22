@@ -19,8 +19,8 @@ class InterpSearchAppTest : public ::testing::Test {
         for (size_t i = 0; i < _args.size(); ++i) {
              args.push_back(_args[i].c_str());
         }
-		const char** argv = { 0 };
-        if(_args.size())
+        const char** argv = { 0 };
+        if (_args.size())
             argv = &args.front();
         int argc = static_cast<int>(_args.size()) + 1;
 
