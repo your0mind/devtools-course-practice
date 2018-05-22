@@ -5,7 +5,7 @@
 #include <string>
 #include <stdexcept>
 
-ConverterNumbersInWords::ConverterNumbersInWords() : number(0.0) {}
+ConverterNumbersInWords::ConverterNumbersInWords() : number(0) {}
 
 ConverterNumbersInWords::ConverterNumbersInWords(const int number_)
   : number(number_) {}
@@ -25,12 +25,12 @@ std::string ConverterNumbersInWords::ConvertToWords() {
   int million = GetMillion(number);
 
   std::string result = "";
-  if (number < 0.0) {
+  if (number < 0) {
     return GetWorldForElementaryNumber(-1);
   } else {
-    if (number == 0.0) {
+    if (number == 0) {
       result = "zero";
-    } else if (number <= 999999999.0) {
+    } else if (number <= 999999999) {
       if (million != 0) {
         result = GetWordsForNumberFrom_1_To_999(million) + " million";
         number = number % 1000000;
