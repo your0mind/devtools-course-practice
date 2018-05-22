@@ -30,8 +30,7 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Constructor_test_2) {
     // Assert
     bool flag = true;
     double* x_res = A.GetX();
-    for (int i = 0; i < _size; i++)
-    {
+    for (int i = 0; i < _size; i++) {
         if (fabs(x_mas[i] - x_res[i]) > 0.0001)
             flag = false;
     }
@@ -49,8 +48,7 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Constructor_test_3) {
     // Assert
     bool flag = true;
     double* y_res = A.GetY();
-    for (int i = 0; i < _size; i++)
-    {
+    for (int i = 0; i < _size; i++) {
         if (fabs(y_mas[i] - y_res[i]) > 0.0001)
             flag = false;
     }
@@ -67,7 +65,7 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Area_test_1) {
     AreaCalculation A(_size, x_mas, y_mas);
 
     // Assert
-    EXPECT_EQ(res,A.GetArea());
+    EXPECT_EQ(res, A.GetArea());
 }
 TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Area_test_2) {
     // Arrange
