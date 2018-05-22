@@ -20,7 +20,7 @@ class SearchTree {
     explicit SearchTree(Tree * pRoot = nullptr);
     ~SearchTree() { DestroyBTree(pRoot); }
 
-    void Insert(int val);
+    bool Insert(int val);
     Tree * Search(int val);
 };
 

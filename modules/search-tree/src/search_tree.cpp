@@ -38,8 +38,15 @@ void SearchTree::DestroyBTree(Tree * pRoot) {
     }
 }
 
-void SearchTree::Insert(int val) {
+bool SearchTree::Insert(int val) {
+    bool resultOfInsert = false;
+    Tree* tmp = nullptr;
+    tmp = new Tree;
+    if (tmp != nullptr) resultOfInsert = true;
+    delete tmp;
+
     AddTree(val, &pRoot);
+    return resultOfInsert;
 }
 
 Tree* SearchTree::Search(int val) {

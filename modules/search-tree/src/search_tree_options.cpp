@@ -10,29 +10,35 @@
 #include <string>
 #include <sstream>
 
-ComplexCalculator::ComplexCalculator() : message_("") {}
+SearchTreeOptions::SearchTreeOptions() : message_("") {}
 
-void ComplexCalculator::help(const char* appname, const char* message) {
+void SearchTreeOptions::help(const std::string message) {
     message_ =
-        std::string(message) +
-          "This is a complex number calculator application.\n\n" +
-          "Please provide arguments in the following format:\n\n"+
-
-          "  $ " + appname + " <z1_real> <z1_imaginary> " +
-          "<z2_real> <z2_imaginary> <operation>\n\n" +
-
-          "Where all arguments are double-precision numbers, " +
-          "and <operation> is one of '+', '-', '*', '/'.\n";
+        message +
+        "Usage:  search-tree-options.exe -[hif] [value]\n" +
+        "\t-h       shows this help message\n" +
+        "\t-i       insert node in the tree" +
+        "\t-f       find node in the tree" +
+        "Examples :\n" +
+        "\ttopt -i 47\n" +
+        "\ttopt -f 47\n";
 }
 
-bool ComplexCalculator::validateNumberOfArguments(int argc, const char** argv) {
+bool SearchTreeOptions::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
-        return false;
-    } else if (argc != 6) {
-        help(argv[0], "ERROR: Should be 5 arguments.\n\n");
+        message_ = std::string("Usage:  search-tree-options.exe ") +
+            "-[hif] [value]\n";
         return false;
     }
+    else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
+        help("This is a search tree application.");
+        return false;
+    }
+    else if (argc != 3) {
+        help(std::string("ERROR: Should be 2 arguments.\n\n"));
+        return false;
+    }
+
     return true;
 }
 
@@ -46,7 +52,7 @@ double parseDouble(const char* arg) {
 
     return value;
 }
-
+/*
 char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "+") == 0) {
@@ -61,61 +67,80 @@ char parseOperation(const char* arg) {
         throw std::string("Wrong operation format!");
     }
     return op;
-}
+}*/
 
-std::string ComplexCalculator::operator()(int argc, const char** argv) {
+std::string SearchTreeOptions::operator()(int argc, const char** argv) {
     Arguments args;
+    std::ostringstream stream;
 
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
     try {
-        args.z1_real      = parseDouble(argv[1]);
-        args.z1_imaginary = parseDouble(argv[2]);
-        args.z2_real      = parseDouble(argv[3]);
-        args.z2_imaginary = parseDouble(argv[4]);
-        args.operation    = parseOperation(argv[5]);
+        args.value = parseDouble(argv[2]);
+    
+        SearchTree tree;
+
+        if (argv[1][0] == '-') {
+                switch (argv[1][1]) {
+                case('i'):
+                    tree.Insert(args.value);
+                    break;
+                case('f'):
+                    tree.Search(args.value);
+                    break;
+                /*case('l'):
+                    stream << "length 1_2 = " << T.Get_Length_side(first, second)
+                        << std::endl
+                        << "length 1_3 = " << T.Get_Length_side(first, third)
+                        << std::endl
+                        << "length 2_3 = " << T.Get_Length_side(second, third)
+                        << std::endl;
+                    break;
+                case('a'):
+                    stream << "angle 1 = " << T.Get_Angle(first)
+                        << std::endl
+                        << "angle 2 = " << T.Get_Angle(second)
+                        << std::endl
+                        << "angle 3 = " << T.Get_Angle(third)
+                        << std::endl;
+                    break;
+                case('r'):
+                    stream << "Radius Inscribed Circle = "
+                        << T.Get_Radius_Of_Inscribed_Circle() << std::endl;
+                    break;
+                case('R'):
+                    stream << "Radius Circumscribed Circle = "
+                        << T.Get_Radius_Of_Circumscribed_Circle() << std::endl;
+                    break;
+                case('s'):
+                    stream << "Square = " << T.Get_Square() << std::endl;
+                    break;
+                case('p'):
+                    stream << "Perimeter = " << T.Get_Perimeter() << std::endl;
+                    break;
+                case('b'):
+                    A = T.Get_Barycenter();
+                    stream << "Barycenter = <"
+                        << A.x << ", " << A.y << ">" << std::endl;
+                    A = T.Get_Center_Of_Inscribed_Circle();
+                    break;
+                case('c'):
+                    A = T.Get_Center_Of_Inscribed_Circle();
+                    stream << "Center Inscribed Circle = <"
+                        << A.x << ", " << A.y << ">" << std::endl;
+                    break;*/
+                default:
+                    help(std::string("Unknown option ") + argv[1] + "\n\n");
+                    return message_;
+                }
+            } else {
+                help();
+                return message_;
+            }
     }
-    catch(std::string& str) {
+    catch (std::string& str) {
         return str;
-    }
-
-    ComplexNumber z1;
-    ComplexNumber z2;
-
-    z1.setRe(args.z1_real);
-    z1.setIm(args.z1_imaginary);
-    z2.setRe(args.z2_real);
-    z2.setIm(args.z2_imaginary);
-
-    ComplexNumber z;
-    std::ostringstream stream;
-    switch (args.operation) {
-     case '+':
-        z = z1 + z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
-        break;
-     case '-':
-        z = z1 - z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
-        break;
-     case '*':
-        z = z1 * z2;
-        stream << "Real = " << z.getRe() << " "
-               << "Imaginary = " << z.getIm();
-        break;
-     case '/':
-        try {
-            z = z1 / z2;
-            stream << "Real = " << z.getRe() << " "
-                   << "Imaginary = " << z.getIm();
-            break;
-        }
-        catch(std::string& str) {
-            return str;
-        }
     }
 
     message_ = stream.str();
