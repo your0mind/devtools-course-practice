@@ -64,7 +64,7 @@ std::string InterpSearchApp::operator()(int argc, const char** argv) {
         msg = "Element " + std::to_string(value) + " hasn't been found.\n";
     else
         msg = "Element " + std::to_string(value) + " is at "
-               + std::to_string(result) + "place.\n";
+               + std::to_string(result) + " place.\n";
 
     return msg;
 }
