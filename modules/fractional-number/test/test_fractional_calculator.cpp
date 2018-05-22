@@ -72,7 +72,7 @@ TEST_F(FractionalCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 }
 
 TEST_F(FractionalCalculatorTest, Can_Add_Fractional) {
-    vector<string> args = { "1.0", "5.0", "12.0", "43.0", "+" };
+    vector<string> args = { "1", "5", "12", "43", "+" };
 
     Act(args);
 
@@ -88,7 +88,7 @@ TEST_F(FractionalCalculatorTest, Can_Diff_Fractional) {
 }
 
 TEST_F(FractionalCalculatorTest, Can_Mult_Fractional) {
-    vector<string> args = { "0", "-3.6", "17.4", "21", "*" };
+    vector<string> args = { "0", "-3", "17", "21", "*" };
 
     Act(args);
 
