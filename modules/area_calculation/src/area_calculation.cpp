@@ -90,11 +90,11 @@ int AreaCalculation::FindEnd() {
 void AreaCalculation::Transposition() {
     first = FindStart();
     last = FindEnd();
-    double x_shift;
+    double xshift;
     if (x_coordinate[first] < 0) {
-        x_shift = fabs(x_coordinate[first]);
+        xshift = fabs(x_coordinate[first]);
         for (int i = 0; i < size; i++) {
-            x_coordinate[i] += x_shift;
+            x_coordinate[i] += xshift;
         }
     }
     double y_min = y_coordinate[0];
@@ -103,11 +103,11 @@ void AreaCalculation::Transposition() {
             y_min = y_coordinate[i];
         }
     }
-    double y_shift;
+    double yshift;
     if (y_min < 0) {
-        y_shift = fabs(y_min);
+        yshift = fabs(y_min);
         for (int i = 0; i < size; i++) {
-            y_coordinate[i] += y_shift;
+            y_coordinate[i] += yshift;
         }
     }
 }
