@@ -320,7 +320,7 @@ TEST_F(ConverterNumbersInWordsTest, Can_Convert_Number_From_9999999) {
 TEST_F(ConverterNumbersInWordsTest, No_Throw_When_Large_Number) {
   // Arrange
   ConverterNumbersInWords converter;
-  converter.SetNumber(9999999991);
+  converter.SetNumber(1241242121);
 
   // Act & Assert
   EXPECT_ANY_THROW(converter.ConvertToWords());
