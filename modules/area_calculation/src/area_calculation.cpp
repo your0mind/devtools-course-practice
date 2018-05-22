@@ -14,11 +14,11 @@ AreaCalculation::AreaCalculation(int _size, double * x_mas, double * y_mas) {
 }
 
 double AreaCalculation::GetArea() {
-    if(area > 0 ) {
+    if (area > 0) {
     return area;}
     else {
         Transposition();
-        double up_area =0;
+        double up_area = 0;
         double down_area = 0;
         int cur_step = first;
         while (cur_step != last) {
@@ -37,7 +37,8 @@ double AreaCalculation::GetArea() {
                 cur_step++;
             else
                 cur_step = 0;
-            down_area += AreaTrapetion(x_coordinate[tmp], x_coordinate[cur_step],
+            down_area += AreaTrapetion(x_coordinate[tmp],
+            x_coordinate[cur_step],
             y_coordinate[tmp], y_coordinate[cur_step]);
         }
         area = fabs(up_area - down_area);
@@ -78,8 +79,7 @@ int AreaCalculation::FindEnd() {
     int end = 0;
     int max = x_coordinate[0];
     for (int i = 1; i < size; i++) {
-        if (x_coordinate[i] > max)
-         {
+        if (x_coordinate[i] > max) {
             end = i;
             max = x_coordinate[i];
         }
@@ -112,7 +112,7 @@ void AreaCalculation::Transposition() {
     }
 
 }
-
-double AreaCalculation::AreaTrapetion(double _first_x, double _second_x, double _first_y, double _second_y) {
+double AreaCalculation::AreaTrapetion(double _first_x, 
+double _second_x, double _first_y, double _second_y) {
     return (_first_y + _second_y)*(fabs(_first_x - _second_x)/2);
 }
