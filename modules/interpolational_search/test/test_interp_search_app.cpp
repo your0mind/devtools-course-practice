@@ -64,7 +64,7 @@ TEST_F(InterpSearchAppTest, Cant_Find_Not_Excisting) {
 
     ToDo(args);
 
-    Assert("*hasn't been found.*");
+    Assert("Element 4 hasn't been found.*");
 }
 
 TEST_F(InterpSearchAppTest, Can_Find_Element) {
@@ -72,7 +72,7 @@ TEST_F(InterpSearchAppTest, Can_Find_Element) {
 
     ToDo(args);
 
-    Assert("* is at 2 place.*");
+    Assert("Element 2 is at 2 place.*");
 }
 
 TEST_F(InterpSearchAppTest, Can_Find_Element_Ifonly_1element_Array) {
@@ -80,5 +80,5 @@ TEST_F(InterpSearchAppTest, Can_Find_Element_Ifonly_1element_Array) {
 
     ToDo(args);
 
-    Assert("* is at 0 place.*");
+    Assert("Element 3 is at 0 place.*");
 }
