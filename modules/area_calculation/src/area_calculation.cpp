@@ -90,9 +90,8 @@ int AreaCalculation::FindEnd() {
 void AreaCalculation::Transposition() {
     first = FindStart();
     last = FindEnd();
-    double x;
     if (x_coordinate[first] < 0) {
-        x = fabs(x_coordinate[first]);
+        double x = fabs(x_coordinate[first]);
         for (int i = 0; i < size; i++) {
             x_coordinate[i] += x;
         }
@@ -103,9 +102,8 @@ void AreaCalculation::Transposition() {
             y_min = y_coordinate[i];
         }
     }
-    double y;
     if (y_min < 0) {
-        y = fabs(y_min);
+        double y = fabs(y_min);
         for (int i = 0; i < size; i++) {
             y_coordinate[i] += y;
         }
