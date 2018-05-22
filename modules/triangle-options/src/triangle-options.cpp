@@ -13,7 +13,7 @@ TriangleOptions::TriangleOptions() : message_("") {}
 void TriangleOptions::help(const std::string message) {
     message_ =
         message +
-        "Usage:  triangles-options.exe -[hAlarRspbc] [x1 y1 x2 y2 x3 y3]\n" +
+        "Usage:  triangles-options -[hAlarRspbc] [x1 y1 x2 y2 x3 y3]\n" +
         "\t-h       shows this help message\n" +
         "\t-A       computes all triangle values\n" +
         "\t-l       computes length of each pair of edges\n" +
@@ -31,7 +31,7 @@ void TriangleOptions::help(const std::string message) {
 
 bool TriangleOptions::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        message_ = std::string("Usage:  triangles-options.exe ") +
+        message_ = std::string("Usage:  triangles-options ") +
             "-[hAlarRspbc] [x1 y1 x2 y2 x3 y3]\n";
         return false;
     } else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
