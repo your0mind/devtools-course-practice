@@ -16,8 +16,7 @@ AreaCalculation::AreaCalculation(int _size, double * x_mas, double * y_mas) {
 double AreaCalculation::GetArea() {
     if (area > 0) {
     return area;
-    }
-    else {
+    } else {
         Transposition();
         double up_area = 0;
         double down_area = 0;
@@ -94,7 +93,7 @@ void AreaCalculation::Transposition() {
     double x_shift;
     if (x_coordinate[first] < 0) {
         x_shift = fabs(x_coordinate[first]);
-        for (int i = 0;i < size; i++) {
+        for (int i = 0; i < size; i++) {
             x_coordinate[i] += x_shift;
         }
     }
@@ -107,7 +106,7 @@ void AreaCalculation::Transposition() {
     double y_shift;
     if (y_min < 0) {
         y_shift = fabs(y_min);
-        for (int i = 0;i < size; i++) {
+        for (int i = 0; i < size; i++) {
             y_coordinate[i] += y_shift;
         }
     }
