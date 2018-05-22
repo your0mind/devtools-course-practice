@@ -94,6 +94,19 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Area_test_3) {
     // Assert
     EXPECT_EQ(res, A.GetArea());
 }
+TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Area_test_4) {
+    // Arrange
+    int _size = 4;
+    double x_mas[4]{ 5, 5, 4, 4};
+    double y_mas[4]{ 6, 5, 5, 6};
+    double res = 1;
+
+    // Act
+    AreaCalculation A(_size, x_mas, y_mas);
+
+    // Assert
+    EXPECT_EQ(res, A.GetArea());
+}
 TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Zero_area_test_1) {
     // Arrange
     int _size = 4;
