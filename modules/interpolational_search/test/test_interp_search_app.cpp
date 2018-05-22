@@ -19,8 +19,9 @@ class InterpSearchAppTest : public ::testing::Test {
         for (size_t i = 0; i < _args.size(); ++i) {
              args.push_back(_args[i].c_str());
         }
-
-        const char** argv = &args.front();
+		const char** argv = { 0 };
+        if(_args.size())
+            argv = &args.front();
         int argc = static_cast<int>(_args.size()) + 1;
 
         msg_out = app(argc, argv);
@@ -72,7 +73,7 @@ TEST_F(InterpSearchAppTest, Can_Find_Element) {
 
     ToDo(args);
 
-    Assert("Element 2 is at 2 place.*");
+    Assert("Element 2 is at 1 place.*");
 }
 
 TEST_F(InterpSearchAppTest, Can_Find_Element_Ifonly_1element_Array) {

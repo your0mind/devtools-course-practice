@@ -51,9 +51,9 @@ std::string InterpSearchApp::operator()(int argc, const char** argv) {
     std::vector<int> vect(length);
     try {
        for (int i = 0; i < length; i++)
-            vect[i] = MyToInt(argv[i + 1]);
+            vect[i] = MyToInt(argv[i]);
 
-        value = MyToInt(argv[length + 1]);
+        value = MyToInt(argv[length]);
     }
     catch (std::string& str) {
         return str;
