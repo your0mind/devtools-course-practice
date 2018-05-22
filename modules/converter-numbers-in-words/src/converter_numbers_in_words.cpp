@@ -19,7 +19,6 @@ double ConverterNumbersInWords::GetNumber() {
 }
 
 std::string ConverterNumbersInWords::ConvertToWords() {
-  
   int hundred = GetRemainderOfDivisionBy1000(number);
   int thousand = GetThousand(number);
   int million = GetMillion(number);

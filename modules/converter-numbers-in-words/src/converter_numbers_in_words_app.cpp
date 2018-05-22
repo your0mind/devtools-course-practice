@@ -65,9 +65,8 @@ std::string NumberInWords::operator()(int argc, const char** argv) {
     ConverterNumbersInWords niw;
 
     niw.SetNumber(argument);
-
     std::ostringstream stream;
-   
+
     std::string result;
     try {
         result = niw.ConvertToWords();
