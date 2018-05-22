@@ -7,10 +7,10 @@
 
 ConverterNumbersInWords::ConverterNumbersInWords() : number(0.0) {}
 
-ConverterNumbersInWords::ConverterNumbersInWords(const double number_)
+ConverterNumbersInWords::ConverterNumbersInWords(const int number_)
   : number(number_) {}
 
-void ConverterNumbersInWords::SetNumber(const double number_) {
+void ConverterNumbersInWords::SetNumber(const int number_) {
   number = number_;
 }
 
@@ -19,10 +19,10 @@ double ConverterNumbersInWords::GetNumber() {
 }
 
 std::string ConverterNumbersInWords::ConvertToWords() {
-  int number_ = static_cast<int>(number);
-  int hundred = GetRemainderOfDivisionBy1000(number_);
-  int thousand = GetThousand(number_);
-  int million = GetMillion(number_);
+  
+  int hundred = GetRemainderOfDivisionBy1000(number);
+  int thousand = GetThousand(number);
+  int million = GetMillion(number);
 
   std::string result = "";
   if (number < 0.0) {
@@ -33,14 +33,14 @@ std::string ConverterNumbersInWords::ConvertToWords() {
     } else if (number <= 999999999.0) {
       if (million != 0) {
         result = GetWordsForNumberFrom_1_To_999(million) + " million";
-        number_ = number_ % 1000000;
-        if (number_ != 0)
+        number = number % 1000000;
+        if (number != 0)
           result += " ";
       }
       if (thousand != 0) {
         result += GetWordsForNumberFrom_1_To_999(thousand) + " thousand";
-        number_ = number_ % 1000;
-        if (number_ != 0)
+        number = number % 1000;
+        if (number != 0)
           result += " ";
       }
       if (hundred != 0) {
