@@ -1,6 +1,7 @@
 // Copyright 2018 Lalykin Oleg
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
+
 #include <string>
 
 #include "include/prob_dis_calculator.h"
