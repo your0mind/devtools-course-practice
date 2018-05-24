@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2017 Khomenko Aleksei
 
 #include "include/currency_converter.h"
 #include "include/currency_converter_calc.h"
