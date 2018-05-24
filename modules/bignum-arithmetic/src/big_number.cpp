@@ -1,13 +1,12 @@
 // Copyright 2018 Usova Marina
 
-#include "include/big_number.h"
-
 #include <stdbool.h>
 #include <string>
 #include <vector>
-#include <limits>
 #include <algorithm>
 #include <sstream>
+
+#include "include/big_number.h"
 
 BigNumber::BigNumber() : number({ 0 }) {}
 
@@ -299,14 +298,14 @@ const BigNumber BigNumber::operator/(const int & z) const {
 
 std::vector<int> BigNumber::getNumber() const {
     std::vector<int> result = number;
-    reverse(result.begin(), result.end());
+    std::reverse(result.begin(), result.end());
     return result;
 }
 
 std::string BigNumber::getResultInString() const {
     std::string result;
     std::vector<int> tmp = number;
-    reverse(tmp.begin(), tmp.end());
+    std::reverse(tmp.begin(), tmp.end());
 
     if (tmp[0] < 0) {
       result += "-";
@@ -323,7 +322,7 @@ std::string BigNumber::getResultInString() const {
 
 void BigNumber::setNumber(const std::vector<int> z) {
     std::vector<int> number_ = z;
-    reverse(number_.begin(), number_.end());
+    std::reverse(number_.begin(), number_.end());
     number = number_;
 }
 
