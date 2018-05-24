@@ -17,9 +17,9 @@ void SearchTreeOptions::help(const std::string message) {
         message +
         "Usage:  search-tree-options.exe -[hif] [value]\n" +
         "\t-h       shows this help message\n" +
-        "\t-i       insert node in the tree" +
-        "\t-f       find node in the tree" +
-        "Examples :\n" +
+        "\t-i       insert node in the tree\n" +
+        "\t-f       find node in the tree\n" +
+        "Examples: \n" +
         "\ttopt -i 47\n" +
         "\ttopt -f 47\n";
 }
@@ -27,11 +27,11 @@ void SearchTreeOptions::help(const std::string message) {
 bool SearchTreeOptions::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         message_ = std::string("Usage:  search-tree-options.exe ") +
-            "-[hif] [value]\n";
+            "-[hif] [value]\n\n";
         return false;
     }
     else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
-        help("This is a search tree application.");
+        help("This is a search tree application.\n\n");
         return false;
     }
     else if (argc != 3) {

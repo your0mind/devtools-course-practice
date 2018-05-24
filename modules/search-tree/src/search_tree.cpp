@@ -52,3 +52,21 @@ bool SearchTree::Insert(int val) {
 Tree* SearchTree::Search(int val) {
     return SearchNode(pRoot, val);
 }
+
+void SearchTree::Draw(std::ostringstream &os) {
+    DrawTree(pRoot, 0, os);
+}
+
+//ѕечать с €русами
+void SearchTree::DrawTree(Tree* pNode, int Level, std::ostringstream &os)
+{
+    if (pNode != nullptr)
+    {
+        DrawTree(pNode->right, Level + 1, os);
+        for (int i = 0; i < 2 * Level; i++)
+            os << " ";
+        pNode->Print(os);
+        os << std::endl;
+        DrawTree(pNode->left, Level + 1, os);
+    }
+}
