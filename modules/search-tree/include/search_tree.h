@@ -28,7 +28,7 @@ class SearchTree {
     bool Insert(int val);
     Tree * Search(int val);
 
-    void Draw(std::ostringstream &os);
+    void PrintTree(std::ostringstream &os);
 };
 
 #endif   // MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
