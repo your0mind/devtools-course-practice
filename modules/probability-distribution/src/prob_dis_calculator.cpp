@@ -38,7 +38,7 @@ bool ProbDisCalculator::HaveArguments(int argc, const char** argv) {
 }
 bool ProbDisCalculator::validateNumberOfArguments(int argc,
     const char** argv, int n) {
-    if (argc != 2 * n + 4) {
+    if ((argc != 2 * n + 4)&& (argc != 2 * n + 3)) {
         help(argv[0], "ERROR: Should be other number arguments.\n\n");
         return false;
     }
@@ -85,28 +85,48 @@ char parseOperation(const char* arg) {
 }
 
 std::string ProbDisCalculator::operator()(int argc, const char** argv) {
+    bool needLevel = true;
+
     Arguments args;
+    DescretePD dpd;
+
+
     if (!HaveArguments(argc, argv)) {
         return message_;
     }
+    try {
     args.n = parseDouble(argv[1]);
-    if (!validateNumberOfArguments(argc, argv, args.n)) {
-        return message_;
     }
+    catch (std::string& str) {
+        return str;
+    }
+        if (!validateNumberOfArguments(argc, argv, args.n)) {
+            return message_;
+        }
+
     try {
         for (int i = 0; i < args.n; i++) {
             args.values.push_back(parseDouble(argv[i + 2]));
             args.probabilities.push_back(parseDouble(argv[i + 2 + args.n]));
         }
         args.operation = parseOperation(argv[2 * args.n + 2]);
-        args.level = parseChar(argv[2 * args.n + 3]);
+        if ((args.operation != '3') && (args.operation != '4'))
+        {
+            args.level = parseChar(argv[2 * args.n + 3]);
+        }
+        
+        dpd.setData(args.values, args.probabilities);
+    }
+
+    catch (std::logic_error& logic_error) {
+        return logic_error.what();
     }
     catch (std::string& str) {
         return str;
     }
-    DescretePD dpd;
+    
     unsigned char k = args.level;
-    dpd.setData(args.values, args.probabilities);
+    
     std::ostringstream stream;
     switch (args.operation) {
     case '1':

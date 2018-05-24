@@ -17,7 +17,7 @@ using std::string;
 
 class ProbDisCalculatorTest : public ::testing::Test {
  protected:
-     // virtual void SetUp() {}
+ 
 
      void Act(vector<string> args_) {
          vector<const char*> options;
@@ -58,6 +58,14 @@ TEST_F(ProbDisCalculatorTest, Is_Checking_Number_Of_Arguments) {
     Assert("ERROR: Should be other number arguments\\..*");
 }
 
+TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Of_Arguments_Format) {
+    vector<string> args = { "Baga", "4", "0.2", "RawMoment", "0" };
+
+    Act(args);
+
+    Assert("Wrong number format!.*");
+}
+
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = { "1", "Baga", "0.2", "RawMoment", "0" };
 
@@ -85,6 +93,17 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Level_Format) {
     Assert("Wrong level format!");
 }
 
+TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Probabilities) {
+    vector<string> args = { "2",
+        "1", "3",
+        "0.3", "-12341",
+        "RawMoment", "1" };
+
+    Act(args);
+
+    Assert("Invalid probabilities values");
+}
+
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
     vector<string> args = {"2",
         "1", "3",
@@ -95,6 +114,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
 
     Assert("RawMoment = 1");
 }
+
 TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
     vector<string> args = { "3",
         "1", "3", "5",
@@ -132,7 +152,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
     vector<string> args = { "3",
         "1", "3", "5",
         "0.2", "0.5", "0.3",
-        "Variance", "1" };
+        "Variance"};
 
     Act(args);
 
@@ -143,7 +163,7 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Expected_Value) {
     vector<string> args = { "3",
         "1", "3", "5",
         "0.2", "0.5", "0.3",
-        "Expected", "1" };
+        "Expected"};
 
     Act(args);
 
