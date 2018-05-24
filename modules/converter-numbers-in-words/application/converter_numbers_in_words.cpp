@@ -1,7 +1,7 @@
 // Copyright 2018 Grishin Anton
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string>
 
 #include "include/converter_numbers_in_words_app.h"

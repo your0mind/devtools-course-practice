@@ -3,10 +3,10 @@
 #include "include/converter_numbers_in_words.h"
 #include "include/converter_numbers_in_words_app.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstring>
 #include <string>
 #include <sstream>
 
