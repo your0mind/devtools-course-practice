@@ -106,7 +106,7 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
             args.probabilities.push_back(parseDouble(argv[i + 2 + args.n]));
         }
         args.operation = parseOperation(argv[2 * args.n + 2]);
-        if ((args.operation != '3') && (args.operation != '4')){
+        if ((args.operation != '3') && (args.operation != '4')) {
             args.level = parseChar(argv[2 * args.n + 3]);
         }
     }
@@ -117,7 +117,7 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
     try {
         dpd.setData(args.values, args.probabilities);
     }
-    catch (std::logic_error& logic) {
+    catch (std::logic_error logic) {
         return logic.what();
     }
     unsigned char k = args.level;
