@@ -1,7 +1,5 @@
 // Copyright 2018 Usova Marina
 
-#include "include/bignum_calculator.h"
-
 #include <gtest/gtest.h>
 
 #include <string>
@@ -9,6 +7,8 @@
 #include <functional>
 #include <algorithm>
 #include <iterator>
+
+#include "include/bignum_calculator.h"
 
 using ::testing::internal::RE;
 using std::vector;
