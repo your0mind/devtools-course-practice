@@ -10,7 +10,6 @@
 
 #include "include/prob_dis_calculator.h"
 
-
 using ::testing::internal::RE;
 using std::vector;
 using std::string;
@@ -47,7 +46,6 @@ TEST_F(ProbDisCalculatorTest, Do_Print_Help_Without_Arguments) {
 
     Assert("This is a probability distribution calculator application\\..*");
 }
-
 TEST_F(ProbDisCalculatorTest, Is_Checking_Number_Of_Arguments) {
     vector<string> args = {"2", "4", "0.2", "RawMoment", "0"};
 
@@ -55,7 +53,6 @@ TEST_F(ProbDisCalculatorTest, Is_Checking_Number_Of_Arguments) {
 
     Assert("ERROR: Should be other number arguments\\..*");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Of_Arguments_Format) {
     vector<string> args = { "Baga", "4", "0.2", "RawMoment", "0" };
 
@@ -63,7 +60,6 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Of_Arguments_Format) {
 
     Assert("Wrong number format!.*");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = { "1", "Baga", "0.2", "RawMoment", "0" };
 
@@ -71,7 +67,6 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Number_Format) {
 
     Assert("Wrong number format!.*");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Operation_Format) {
     vector<string> args = { "1", "4", "0.2", "Baga", "0" };
 
@@ -79,7 +74,6 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Operation_Format) {
 
     Assert("Wrong operation format!");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Level_Format) {
     vector<string> args = { "2",
         "1", "3",
@@ -90,7 +84,6 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Level_Format) {
 
     Assert("Wrong level format!");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Probabilities) {
     vector<string> args = { "2",
         "1", "3",
@@ -101,7 +94,6 @@ TEST_F(ProbDisCalculatorTest, Can_Detect_Wrong_Probabilities) {
 
     Assert("Invalid probabilities values");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
     vector<string> args = {"2",
         "1", "3",
@@ -112,7 +104,6 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Raw_Moment) {
 
     Assert("RawMoment = 1");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
     vector<string> args = { "3",
         "1", "3", "5",
@@ -123,7 +114,6 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Second_Raw_Moment) {
 
     Assert("RawMoment = 12.2");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
     vector<string> args = { "3",
         "1", "3", "5",
@@ -134,7 +124,6 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Zeroth_Central_Moment) {
 
     Assert("CentralMoment = 1");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
     vector<string> args = { "3",
         "1", "3", "5",
@@ -145,7 +134,6 @@ TEST_F(ProbDisCalculatorTest, Can_Get_First_Central_Moment) {
 
     Assert("CentralMoment = 0");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
     vector<string> args = { "3",
         "1", "3", "5",
@@ -156,7 +144,6 @@ TEST_F(ProbDisCalculatorTest, Can_Get_Variance) {
 
     Assert("Variance = 1.96");
 }
-
 TEST_F(ProbDisCalculatorTest, Can_Get_Expected_Value) {
     vector<string> args = { "3",
         "1", "3", "5",
