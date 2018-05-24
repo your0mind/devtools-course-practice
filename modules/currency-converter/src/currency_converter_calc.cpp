@@ -3,10 +3,10 @@
 #include "include/currency_converter.h"
 #include "include/currency_converter_calc.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
+#include <cstring>
 #include <string>
 #include <sstream>
 
