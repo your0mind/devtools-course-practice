@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <sstream>
 
 #include "include/big_number.h"
@@ -54,7 +53,13 @@ const BigNumber BigNumber::operator+(const BigNumber& z) const {
       return x - y;                                       // x+(-y)
     }
 
-    int size = std::max((*this).number.size(), z.number.size());
+    int size;
+    if ((*this).number.size() > z.number.size()) {
+      size = (*this).number.size();
+    } else {
+      size = z.number.size();
+    }
+
     std::string str_for_res;
     int k = 0;
 
@@ -110,7 +115,14 @@ const BigNumber BigNumber::operator-(const BigNumber& z) const {
       isPositive = false;
     }
 
-    int size = std::max((*this).number.size(), z.number.size());
+    int size;
+    if ((*this).number.size() > z.number.size()) {
+      size = (*this).number.size();
+    }
+    else {
+      size = z.number.size();
+    }
+
     std::string str_for_res;
 
     for (int i = 0; i <= size + 1; ++i) str_for_res += '0';
@@ -296,16 +308,14 @@ const BigNumber BigNumber::operator/(const int & z) const {
     return (*result);
 }
 
-std::vector<int> BigNumber::getNumber() const {
-    std::vector<int> result = number;
-    std::reverse(result.begin(), result.end());
+std::vector<int> BigNumber::getNumber() {
+    std::vector<int> result = reverseVector(number);
     return result;
 }
 
-std::string BigNumber::getResultInString() const {
+std::string BigNumber::getResultInString() {
     std::string result;
-    std::vector<int> tmp = number;
-    std::reverse(tmp.begin(), tmp.end());
+    std::vector<int> tmp = reverseVector(number);
 
     if (tmp[0] < 0) {
       result += "-";
@@ -321,8 +331,7 @@ std::string BigNumber::getResultInString() const {
 }
 
 void BigNumber::setNumber(const std::vector<int> z) {
-    std::vector<int> number_ = z;
-    std::reverse(number_.begin(), number_.end());
+    std::vector<int> number_ = reverseVector(z);
     number = number_;
 }
 
@@ -332,4 +341,16 @@ bool BigNumber::operator == (const BigNumber& z) const {
 
 bool BigNumber::operator != (const BigNumber& z) const {
     return !((*this).number == z.number);
+}
+
+std::vector<int> BigNumber::reverseVector(std::vector<int> z) {
+    std::vector<int> result = z;
+
+    int size = z.size();
+
+    for (int i = 0; i != size; i++) {
+      result[size - 1 - i] = z[i];
+    }
+
+    return result;
 }

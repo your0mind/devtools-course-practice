@@ -8,7 +8,6 @@
 #include <vector>
 #include <string>
 #include <sstream>
-#include <algorithm>
 
 #include "include/big_number.h"
 #include "include/bignum_calculator.h"
@@ -63,7 +62,8 @@ std::vector <int> parseNumber(const char* arg) {
       number.push_back(static_cast<int>(arg[0]) - 48);
     }
 
-    std::reverse(number.begin(), number.end());
+    BigNumber z;
+    number = z.reverseVector(number);
 
     return number;
 }

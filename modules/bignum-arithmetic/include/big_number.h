@@ -25,9 +25,10 @@ class BigNumber {
     bool operator == (const BigNumber& z) const;
     bool operator != (const BigNumber& z) const;
 
-    std::vector<int> getNumber() const;
-    std::string getResultInString() const;
+    std::vector<int> getNumber();
+    std::string getResultInString();
     void setNumber(const std::vector<int> number_);
+    std::vector<int> reverseVector(std::vector<int> z);
 
  private:
     std::vector<int> number;
