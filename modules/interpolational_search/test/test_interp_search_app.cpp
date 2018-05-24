@@ -16,6 +16,7 @@ class InterpSearchAppTest : public ::testing::Test {
     void ToDo(vector<string> _args) {
        vector<const char*> args;
 
+	   args.push_back("app_name");
         for (size_t i = 0; i < _args.size(); ++i) {
              args.push_back(_args[i].c_str());
         }

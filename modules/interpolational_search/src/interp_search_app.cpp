@@ -50,10 +50,10 @@ std::string InterpSearchApp::operator()(int argc, const char** argv) {
     int length = argc - 2;
     std::vector<int> vect(length);
     try {
-       for (int i = 0; i < length; i++)
-            vect[i] = MyToInt(argv[i]);
+       for (int i = 0; i < length ; i++)
+            vect[i] = MyToInt(argv[i+1]);
 
-        value = MyToInt(argv[length]);
+        value = MyToInt(argv[length+1]);
     }
     catch (std::string& str) {
         return str;
