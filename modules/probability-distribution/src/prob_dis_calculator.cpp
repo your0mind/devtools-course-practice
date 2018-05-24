@@ -109,17 +109,12 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
         if ((args.operation != '3') && (args.operation != '4')) {
             args.level = parseChar(argv[2 * args.n + 3]);
         }
+        dpd.setData(args.values, args.probabilities);
     }
     catch (std::string& str) {
         return str;
     }
 
-    try {
-        dpd.setData(args.values, args.probabilities);
-    }
-    catch (std::string& logic) {
-        return logic;
-    }
     unsigned char k = args.level;
 
     std::ostringstream stream;
