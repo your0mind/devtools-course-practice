@@ -17,8 +17,6 @@ using std::string;
 
 class ProbDisCalculatorTest : public ::testing::Test {
  protected:
- 
-
      void Act(vector<string> args_) {
          vector<const char*> options;
 
