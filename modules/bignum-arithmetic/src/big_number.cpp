@@ -118,8 +118,7 @@ const BigNumber BigNumber::operator-(const BigNumber& z) const {
     int size;
     if ((*this).number.size() > z.number.size()) {
       size = (*this).number.size();
-    }
-    else {
+    } else {
       size = z.number.size();
     }
 
