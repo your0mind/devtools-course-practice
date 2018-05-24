@@ -4,10 +4,9 @@
 
 #include <string>
 #include <vector>
-#include <algorithm>
 #include <functional>
+#include <algorithm>
 #include <iterator>
-#include <cstdio>
 
 #include "include/bignum_calculator.h"
 
@@ -32,7 +31,6 @@ class BigNumCalculatorTest : public ::testing::Test {
     }
 
     void Assert(std::string expected) {
-        // std::cout << "\n" + output_ + "\n";
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
