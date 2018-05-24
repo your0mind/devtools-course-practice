@@ -1,11 +1,11 @@
 // Copyright 2018 Usova Marina
 
-#include "include/big_number.h"
-
 #include <gtest/gtest.h>
 
 #include <string>
 #include <vector>
+
+#include "include/big_number.h"
 
 class BigNumberTest : public ::testing::Test {
  protected:

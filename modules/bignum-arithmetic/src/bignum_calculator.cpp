@@ -1,8 +1,5 @@
 // Copyright 2018 Usova Marina
 
-#include "include/big_number.h"
-#include "include/bignum_calculator.h"
-
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>
@@ -11,6 +8,9 @@
 #include <vector>
 #include <string>
 #include <sstream>
+
+#include "include/big_number.h"
+#include "include/bignum_calculator.h"
 
 BigNumCalculator::BigNumCalculator() : message_("") {}
 
