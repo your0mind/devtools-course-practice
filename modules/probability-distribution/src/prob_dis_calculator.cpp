@@ -117,8 +117,8 @@ std::string ProbDisCalculator::operator()(int argc, const char** argv) {
     try {
         dpd.setData(args.values, args.probabilities);
     }
-    catch (std::logic_error logic) {
-        return logic.what();
+    catch (std::string& logic) {
+        return logic;
     }
     unsigned char k = args.level;
 
