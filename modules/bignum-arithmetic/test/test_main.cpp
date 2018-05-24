@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2018 Usova Marina
 
 #include <gtest/gtest.h>
 

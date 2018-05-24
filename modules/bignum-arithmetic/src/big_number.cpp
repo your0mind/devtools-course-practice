@@ -1,11 +1,12 @@
 // Copyright 2018 Usova Marina
 
-#include <stdbool.h>
+#include "include/big_number.h"
+
+#include <cstdbool>
+
 #include <string>
 #include <vector>
 #include <sstream>
-
-#include "include/big_number.h"
 
 BigNumber::BigNumber() : number({ 0 }) {}
 
@@ -344,12 +345,9 @@ bool BigNumber::operator != (const BigNumber& z) const {
 
 std::vector<int> BigNumber::reverseVector(std::vector<int> z) {
     std::vector<int> result = z;
-
     int size = z.size();
-
     for (int i = 0; i != size; i++) {
       result[size - 1 - i] = z[i];
     }
-
     return result;
 }
