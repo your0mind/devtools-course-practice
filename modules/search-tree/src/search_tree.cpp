@@ -53,8 +53,15 @@ Tree* SearchTree::Search(int val) {
     return SearchNode(pRoot, val);
 }
 
-void SearchTree::PrintTree(std::ostringstream &os) {
-    DrawTree(pRoot, 0, os);
+std::string SearchTree::PrintTree() {
+    std::ostringstream os;
+
+    if (pRoot != nullptr) {
+        os << "\nElements of the tree:\n";
+        DrawTree(pRoot, 0, os);
+    }
+
+    return os.str();
 }
 
 void SearchTree::DrawTree(Tree* pNode, int Level, std::ostringstream &os) {
