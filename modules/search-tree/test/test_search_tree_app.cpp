@@ -56,59 +56,35 @@ TEST_F(SearchTreeAppTest, Is_Checking_Number_Of_Arguments) {
 
     Assert("ERROR: Should be 2 arguments\\..*");
 }
-/*
-TEST_F(ComplexCalculatorTest, Can_Detect_Wrong_Number_Format) {
-    vector<string> args = {"1", "pi", "2", "4", "+"};
+
+TEST_F(SearchTreeAppTest, Can_Detect_Wrong_Number_Format) {
+    vector<string> args = {"-i", "pi"};
 
     Act(args);
 
     Assert("Wrong number format!.*");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Detect_Wrong_Operation_Format) {
-    vector<string> args = {"1", "1", "1", "1", "garbage"};
+TEST_F(SearchTreeAppTest, Can_Detect_Wrong_Operation_Format) {
+    vector<string> args = {"-trash", "1"};
 
     Act(args);
 
-    Assert("Wrong operation format!");
+    Assert("Unknown option.*");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Add_Complexs) {
-    vector<string> args = {"2.0", "3.5", "1.5", "4.0", "+"};
+TEST_F(SearchTreeAppTest, Can_Insert_Node) {
+    vector<string> args = {"-i", "3"};
 
     Act(args);
 
-    Assert("Real = 3.5 Imaginary = 7.5");
+    Assert("Insert was successful!.*");
 }
 
-TEST_F(ComplexCalculatorTest, Can_Diff_Complexs) {
-    vector<string> args = {"13", "7.6", "26", "-14", "-"};
+TEST_F(SearchTreeAppTest, Can_Find_Node) {
+    vector<string> args = {"-f", "7"};
 
     Act(args);
 
-    Assert("Real = -13 Imaginary = 21.6");
+    Assert("Tree hasn't node with this value.");
 }
-
-TEST_F(ComplexCalculatorTest, Can_Mult_Complexs) {
-    vector<string> args = {"0", "-3.6", "17.4", "21", "*"};
-
-    Act(args);
-
-    Assert("Real = 75.6 Imaginary = -62.64");
-}
-
-TEST_F(ComplexCalculatorTest, Can_Divide_Complexs) {
-    vector<string> args = {"27", "30", "15", "20", "/"};
-
-    Act(args);
-
-    Assert("Real = 1.608 Imaginary = -0.144");
-}
-
-TEST_F(ComplexCalculatorTest, Can_Detect_Divide_By_Zero) {
-    vector<string> args = {"27", "30", "0", "0", "/"};
-
-    Act(args);
-
-    Assert("Can't divide by zero");
-}*/
