@@ -1,5 +1,6 @@
 // Copyright 2018 Gorelova Ksenia
 
+#include <string>
 #include "include/search_tree.h"
 
 SearchTree::SearchTree(Tree * pRoot) {
@@ -51,19 +52,19 @@ std::string SearchTree::PrintTree() {
 
     if (pRoot != nullptr) {
         os << "\nElements of the tree:\n";
-        DrawTree(pRoot, 0, os);
+        DrawTree(pRoot, 0, &os);
     }
 
     return os.str();
 }
 
-void SearchTree::DrawTree(Tree* pNode, int Level, std::ostringstream &os) {
+void SearchTree::DrawTree(Tree* pNode, int Level, std::ostringstream * os) {
     if (pNode != nullptr) {
         DrawTree(pNode->right, Level + 1, os);
         for (int i = 0; i < 2 * Level; i++)
-            os << " ";
+            *os << " ";
         pNode->Print(os);
-        os << std::endl;
+        *os << std::endl;
         DrawTree(pNode->left, Level + 1, os);
     }
 }

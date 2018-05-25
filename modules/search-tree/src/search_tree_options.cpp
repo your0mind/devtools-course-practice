@@ -29,12 +29,10 @@ bool SearchTreeOptions::validateNumberOfArguments(int argc, const char** argv) {
         message_ = std::string("Usage:  search-tree-options.exe ") +
             "-[hif] [value]\n\n";
         return false;
-    }
-    else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
+    } else if (argc == 2 && argv[1][0] == '-' && argv[1][1] == 'h') {
         help("This is a search tree application.\n\n");
         return false;
-    }
-    else if (argc != 3) {
+    } else if (argc != 3) {
         help(std::string("ERROR: Should be 2 arguments.\n\n"));
         return false;
     }
@@ -80,7 +78,8 @@ std::string SearchTreeOptions::operator()(int argc, const char** argv) {
                     if (searchResulrt == nullptr)
                         stream << "Tree hasn't node with this value.";
                     else
-                        stream << "Search was successful! Found value: " + std::to_string((searchResulrt->value));
+                        stream << "Search was successful! Found value: " +
+                                    std::to_string((searchResulrt->value));
                     break;
                 default:
                     help(std::string("Unknown option ") + argv[1] + "\n\n");

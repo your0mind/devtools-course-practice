@@ -3,6 +3,7 @@
 #ifndef MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
 #define MODULES_SEARCH_TREE_INCLUDE_SEARCH_TREE_H_
 
+#include <string>
 #include <sstream>
 
 struct Tree {
@@ -11,7 +12,7 @@ struct Tree {
     Tree * left;
     Tree * right;
 
-    void Print(std::ostringstream &os) { os << std::endl << value; }
+    void Print(std::ostringstream * os) { *os << std::endl << value; }
 };
 
 class SearchTree {
@@ -20,7 +21,7 @@ class SearchTree {
     void DestroyBTree(Tree * pRoot);
     void AddTree(int val, Tree** pRoot);
     Tree * SearchNode(Tree * pRoot, int key);
-    void DrawTree(Tree* pNode, int Level, std::ostringstream &os);
+    void DrawTree(Tree* pNode, int Level, std::ostringstream * os);
  public:
     explicit SearchTree(Tree * pRoot = nullptr);
     ~SearchTree() { DestroyBTree(pRoot); }
