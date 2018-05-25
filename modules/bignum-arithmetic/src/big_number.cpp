@@ -162,7 +162,6 @@ const BigNumber BigNumber::operator*(const BigNumber& z) const {
     int size_1 = z.number.size();
     int size_2 = (*this).number.size();
     std::string str_for_res;
-    int k = 0;
 
     if (number[number.size() - 1] < 0) {
       if (z.number[z.number.size() - 1] < 0) {
@@ -188,7 +187,7 @@ const BigNumber BigNumber::operator*(const BigNumber& z) const {
     BigNumber *result = new BigNumber(str_for_res);
 
     int i = 0;
-    for (int j = 0; j < size_1; j++) {
+    for (int k = 0, int j = 0; j < size_1; j++) {
       k = 0;
       if (z.number[j] == 0) {
         (*result).number[j + size_2] = 0;
