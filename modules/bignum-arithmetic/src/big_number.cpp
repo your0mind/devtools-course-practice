@@ -187,7 +187,7 @@ const BigNumber BigNumber::operator*(const BigNumber& z) const {
     BigNumber *result = new BigNumber(str_for_res);
 
     int i = 0;
-    for (int k = 0, int j = 0; j < size_1; j++) {
+    for (int k = 0, j = 0; j < size_1; j++) {
       k = 0;
       if (z.number[j] == 0) {
         (*result).number[j + size_2] = 0;
