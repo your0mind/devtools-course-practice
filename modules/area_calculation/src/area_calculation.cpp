@@ -91,9 +91,9 @@ void AreaCalculation::Transposition() {
     first = FindStart();
     last = FindEnd();
     if (x_coordinate[first] < 0) {
-        double x = fabs(x_coordinate[first]);
+        double x_shift = fabs(x_coordinate[first]);
         for (int i = 0; i < size; i++) {
-            x_coordinate[i] += x;
+            x_coordinate[i] += x_shift;
         }
     }
     double y_min = y_coordinate[0];
@@ -103,9 +103,9 @@ void AreaCalculation::Transposition() {
         }
     }
     if (y_min < 0) {
-        double y = fabs(y_min);
+        double y_shift = fabs(y_min);
         for (int i = 0; i < size; i++) {
-            y_coordinate[i] += y;
+            y_coordinate[i] += y_shift;
         }
     }
 }
