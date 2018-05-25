@@ -20,8 +20,8 @@ void SearchTreeOptions::help(const std::string message) {
         "\t-i       insert node in the tree\n" +
         "\t-f       find node in the tree\n" +
         "Examples: \n" +
-        "\$ -i 47\n" +
-        "\$ -f 47\n";
+        "\tapp -i 47\n" +
+        "\tapp -f 47\n";
 }
 
 bool SearchTreeOptions::validateNumberOfArguments(int argc, const char** argv) {
