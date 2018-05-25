@@ -3,11 +3,12 @@
 #include "include/interp_search.h"
 #include "include/interp_search_app.h"
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <cstdint>
 #include <limits>
 #include <string>
 #include <vector>
+#include <cerrno>
 
 InterpSearchApp::InterpSearchApp() {
     msg = "";
@@ -32,9 +33,7 @@ bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
 int MyToInt(const char* arg) {
     char* end = 0;
     int64_t value = strtol(arg, &end, 10);
-    if (end[0] != 0 ||
-        value < std::numeric_limits<int>::min() ||
-        value > std::numeric_limits<int>::max()) {
+    if (end[0] != 0) {
         throw std::string("ERROR: Wrong number format! ") + arg;
     }
 
