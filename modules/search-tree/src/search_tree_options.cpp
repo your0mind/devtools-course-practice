@@ -54,12 +54,13 @@ double parseDouble(const char* arg) {
 std::string SearchTreeOptions::operator()(int argc, const char** argv) {
     Arguments args;
     SearchTree tree;
+
     tree.Insert(47);
     tree.Insert(48);
     tree.Insert(46);
     tree.Insert(45);
     std::ostringstream stream;
-
+    Tree * searchResulrt;
     if (!validateNumberOfArguments(argc, argv)) {
         return message_;
     }
@@ -73,7 +74,6 @@ std::string SearchTreeOptions::operator()(int argc, const char** argv) {
                     stream << "Insert was successful!" << tree.PrintTree();
                     break;
                 case('f'):
-                    Tree * searchResulrt = nullptr;
                     searchResulrt = tree.Search(args.value);
                     if (searchResulrt == nullptr)
                         stream << "Tree hasn't node with this value.";
