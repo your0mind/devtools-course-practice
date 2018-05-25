@@ -81,10 +81,18 @@ TEST_F(SearchTreeAppTest, Can_Insert_Node) {
     Assert("Insert was successful!.*");
 }
 
-TEST_F(SearchTreeAppTest, Can_Find_Node) {
+TEST_F(SearchTreeAppTest, Cant_Find_Node) {
     vector<string> args = {"-f", "7"};
 
     Act(args);
 
     Assert("Tree hasn't node with this value.");
+}
+
+TEST_F(SearchTreeAppTest, Can_Find_Node) {
+    vector<string> args = { "-f", "47" };
+
+    Act(args);
+
+    Assert("Search was successful! Found value:.*");
 }

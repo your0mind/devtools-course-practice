@@ -25,7 +25,7 @@ class SearchTree {
     explicit SearchTree(Tree * pRoot = nullptr);
     ~SearchTree() { DestroyBTree(pRoot); }
 
-    bool Insert(int val);
+    void Insert(int val);
     Tree * Search(int val);
 
     std::string PrintTree(void);
