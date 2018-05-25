@@ -1,4 +1,4 @@
-// Copyright 2017 Korniakov Kirill
+// Copyright 2018 Gladyshev Alexey
 
 #include <gtest/gtest.h>
 
@@ -14,7 +14,7 @@ using ::testing::internal::RE;
 using std::vector;
 using std::string;
 
-class ComplexCalculatorTest : public ::testing::Test {
+class SearchTreeAppTest : public ::testing::Test {
  protected:
     // virtual void SetUp() {}
 
@@ -37,26 +37,26 @@ class ComplexCalculatorTest : public ::testing::Test {
     }
 
  private:
-    SearchTree app_;
+    SearchTreeOptions app_;
     string output_;
 };
 
-TEST_F(ComplexCalculatorTest, Do_Print_Help_Without_Arguments) {
+TEST_F(SearchTreeAppTest, Do_Print_Help_Without_Arguments) {
     vector<string> args = {};
 
     Act(args);
 
-    Assert("This is a complex number calculator application\\..*");
+    Assert("Usage:  search-tree-options\\..*");
 }
 
-TEST_F(ComplexCalculatorTest, Is_Checking_Number_Of_Arguments) {
-    vector<string> args = {"1", "2"};
+TEST_F(SearchTreeAppTest, Is_Checking_Number_Of_Arguments) {
+    vector<string> args = {"1", "2", "3"};
 
     Act(args);
 
-    Assert("ERROR: Should be 5 arguments\\..*");
+    Assert("ERROR: Should be 2 arguments\\..*");
 }
-
+/*
 TEST_F(ComplexCalculatorTest, Can_Detect_Wrong_Number_Format) {
     vector<string> args = {"1", "pi", "2", "4", "+"};
 
@@ -111,4 +111,4 @@ TEST_F(ComplexCalculatorTest, Can_Detect_Divide_By_Zero) {
     Act(args);
 
     Assert("Can't divide by zero");
-}
+}*/
