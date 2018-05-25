@@ -129,8 +129,6 @@ const BigNumber BigNumber::operator-(const BigNumber& z) const {
 
     BigNumber *result = new BigNumber(str_for_res);
 
-    if (x.number.size() < y.number.size())
-      while (x.number.size() != y.number.size()) x.number.push_back(0);
     if (x.number.size() > y.number.size())
       while (y.number.size() != x.number.size()) y.number.push_back(0);
 
