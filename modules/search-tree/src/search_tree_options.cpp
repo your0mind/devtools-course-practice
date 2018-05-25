@@ -58,7 +58,6 @@ std::string SearchTreeOptions::operator()(int argc, const char** argv) {
     tree.Insert(48);
     tree.Insert(46);
     tree.Insert(45);
-    Tree* searchResulrt = nullptr;
     std::ostringstream stream;
 
     if (!validateNumberOfArguments(argc, argv)) {
@@ -74,6 +73,7 @@ std::string SearchTreeOptions::operator()(int argc, const char** argv) {
                     stream << "Insert was successful!" << tree.PrintTree();
                     break;
                 case('f'):
+                    Tree * searchResulrt = nullptr;
                     searchResulrt = tree.Search(args.value);
                     if (searchResulrt == nullptr)
                         stream << "Tree hasn't node with this value.";
