@@ -23,13 +23,14 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Constructor_test_2) {
     int _size = 3;
     double x_mas[3]{ 1, 2, 3 };
     double y_mas[3]{ 1, 2, 1 };
+    bool flag = true;
+    double* x_res;
 
     // Act
     AreaCalculation A(_size, x_mas, y_mas);
 
     // Assert
-    bool flag = true;
-    double* x_res = A.GetX();
+    x_res = A.GetX();
     for (int i = 0; i < _size; i++) {
         if (fabs(x_mas[i] - x_res[i]) > 0.0001)
             flag = false;
@@ -41,13 +42,14 @@ TEST(Dvorjanchikov_Evgeniy_Area_Calculation_Test, Constructor_test_3) {
     int _size = 3;
     double x_mas[3]{ 1, 2, 3 };
     double y_mas[3]{ 1, 2, 1 };
+    bool flag = true;
+    double* y_res;
 
     // Act
     AreaCalculation A(_size, x_mas, y_mas);
 
     // Assert
-    bool flag = true;
-    double* y_res = A.GetY();
+    y_res = A.GetY();
     for (int i = 0; i < _size; i++) {
         if (fabs(y_mas[i] - y_res[i]) > 0.0001)
             flag = false;
