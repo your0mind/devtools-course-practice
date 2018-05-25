@@ -96,3 +96,19 @@ TEST_F(SearchTreeAppTest, Can_Find_Node) {
 
     Assert("Search was successful! Found value:.*");
 }
+
+TEST_F(SearchTreeAppTest, Can_Print_Help) {
+    vector<string> args = {"-h"};
+
+    Act(args);
+
+    Assert("This is a search tree application.*");
+}
+
+TEST_F(SearchTreeAppTest, Incorrect_Input) {
+    vector<string> args = { "+i", "2" };
+
+    Act(args);
+
+    Assert("Usage.*");
+}
