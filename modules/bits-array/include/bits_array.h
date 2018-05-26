@@ -7,7 +7,7 @@
 
 class BitsArray {
  public:
-    BitsArray(int len);
+    explicit BitsArray(int len);
     BitsArray(const BitsArray &bf);
     ~BitsArray();
 
