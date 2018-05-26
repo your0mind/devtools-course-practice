@@ -3,8 +3,6 @@
 #ifndef MODULES_BITS_ARRAY_INCLUDE_BITS_ARRAY_H_
 #define MODULES_BITS_ARRAY_INCLUDE_BITS_ARRAY_H_
 
-#include <iostream>
-
 class BitsArray {
  public:
     explicit BitsArray(int len);
@@ -24,9 +22,6 @@ class BitsArray {
     BitsArray  operator|(const BitsArray &bf);  // операция "или"
     BitsArray  operator&(const BitsArray &bf);  // операция "и"
     BitsArray  operator~(void);                // отрицание
-
-    friend std::istream &operator >> (std::istream &istr, BitsArray &bf);
-    friend std::ostream &operator << (std::ostream &ostr, const BitsArray &bf);
 
  private:
     int  BitLen;  // длина битового поля - макс. к-во битов
