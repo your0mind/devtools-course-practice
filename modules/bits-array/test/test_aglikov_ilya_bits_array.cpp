@@ -5,11 +5,12 @@
 #include "include/bits_array.h"
 
 TEST(Aglikov_Ilya_BitsArray, can_create_BitsArray_with_positive_length) {
-  // Assert
+    // Assert
     ASSERT_NO_THROW(BitsArray bf(3));
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_get_length) {
+    // Arrange
     BitsArray bf(3);
 
     // Assert

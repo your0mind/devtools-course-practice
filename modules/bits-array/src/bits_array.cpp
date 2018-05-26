@@ -1,4 +1,9 @@
-#include "bits_array.h"
+// Copyright 2018 Aglikov Ilya
+
+#include "include/bits_array.h"
+
+#include <stdexcept>
+
 
 int bitSize = sizeof(unsigned int) * 8;    //bitSize = unsigned intbitSize
 
