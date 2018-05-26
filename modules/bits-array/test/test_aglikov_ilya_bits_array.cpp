@@ -115,7 +115,7 @@ TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_not_equal_size_1) {
     BitsArray bf1(1), bf2(2);
 
     // Assert
-    EXPECT_EQ(1, bf1 != bf2);
+    EXPECT_EQ(true, bf1 != bf2);
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_not_equal_size_2) {
@@ -123,7 +123,7 @@ TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_not_equal_size_2) {
     BitsArray bf1(1), bf2(2);
 
     // Assert
-    EXPECT_EQ(0, bf1 == bf2);
+    EXPECT_EQ(false, bf1 == bf2);
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_1) {
@@ -135,7 +135,7 @@ TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_1) {
     bf2.SetBit(1);
 
     // Assert
-    EXPECT_EQ(0, bf1 != bf2);
+    EXPECT_EQ(false, bf1 != bf2);
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_2) {
@@ -147,7 +147,7 @@ TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_2) {
     bf2.SetBit(2);
 
     // Assert
-    EXPECT_EQ(0, bf1 == bf2);
+    EXPECT_EQ(false, bf1 == bf2);
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_assign_BitsArray_of_equal_size) {
