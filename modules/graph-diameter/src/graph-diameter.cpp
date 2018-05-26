@@ -1,7 +1,6 @@
 // Copyright 2018 Makarin Kirill
 
 #include "include/graph-diameter.h"
-// #include "graph-diameter.h"
 
 GraphDiameter::GraphDiameter(int vertexes, int** matrix) {
     if (vertexes < 0) {
@@ -44,7 +43,7 @@ int GraphDiameter::GetDiameter() {
         for (int j = 0; j < vertexNumber; j++) {
             edges[i][j] = graph[i][j];
             if (!edges[i][j]) {
-                edges[i][j] = 10000;  // 10000 - if vertexes are connected
+                edges[i][j] = CONNECTED;
             }
             // edges[i][j] = (!edges[i][j]) ? 10000 : graph[i][j]
         }
@@ -63,8 +62,8 @@ int GraphDiameter::GetDiameter() {
 
     for (int i = 0; i < vertexNumber; i++) {
         for (int j = 0; j < vertexNumber; j++) {
-            if (edges[i][j] == 10000) {
-                edges[i][j] = 0;  // Make 10000 constant
+            if (edges[i][j] == CONNECTED) {
+                edges[i][j] = 0;
             }
         }
     }

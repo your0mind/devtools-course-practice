@@ -7,6 +7,7 @@
 
 class GraphDiameter {
  private:
+    const int CONNECTED = 1000;
     int vertexNumber;
     int ** graph;
  public:
@@ -15,6 +16,5 @@ class GraphDiameter {
 
     int GetDiameter();
 };
-
 
 #endif  // MODULES_GRAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_H_

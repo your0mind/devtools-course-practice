@@ -2,7 +2,6 @@
 
 #include <gtest/gtest.h>
 #include "include/graph-diameter.h"
-// #include "graph-diameter.h"
 
 TEST(GraphDiameter, Can_Create_Default_Graph) {
     // Arrange & Act & Assert
