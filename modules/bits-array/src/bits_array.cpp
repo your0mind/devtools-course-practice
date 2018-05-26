@@ -15,9 +15,9 @@ BitsArray::BitsArray(int len) {
         pMem = new unsigned int[MemLen];
         for (int i = 0; i < MemLen; i++)
             pMem[i] = 0;
-    }
-    else
+    } else {
         throw std::invalid_argument("Invalid argument in constructor!");
+    }
 }
 
 BitsArray::BitsArray(const BitsArray &bf) {  // конструктор копирования
@@ -33,20 +33,13 @@ BitsArray::~BitsArray() {
 }
 
 int BitsArray::GetMemIndex(const int n) const {  // индекс Мем для бита n
-    if (n > -1 && n < BitLen)
-        return (n / bitSize);
-    else
-        throw std::out_of_range("Out of range in \"GetMemIndex\"");
+    return (n / bitSize);
 }
 
 // битовая маска для бита n
 unsigned int BitsArray::GetMemMask(const int n) const {
-    if (n > -1 && n < BitLen) {
-        unsigned int mask = 1 << n % bitSize;
-        return mask;
-    } else {
-        throw std::out_of_range("Out of range in \"GetMemMask\"");
-    }
+    unsigned int mask = 1 << n % bitSize;
+    return mask;
 }
 
 // доступ к битам битового поля
@@ -58,22 +51,25 @@ int BitsArray::GetLength(void) const {  // получить длину (к-во 
 void BitsArray::SetBit(const int n) {  // установить бит
     if (n > -1 && n < BitLen) {
         pMem[GetMemIndex(n)] |= GetMemMask(n);
-    } else
+    } else {
         throw std::out_of_range("Out of range in \"SetBit\"");
+    }
 }
 
 void BitsArray::ClrBit(const int n) {  // очистить бит
     if (n > -1 && n < BitLen) {
         pMem[GetMemIndex(n)] &= ~GetMemMask(n);
-    } else
+    } else {
         throw std::out_of_range("Out of range in \"ClrBit\"");
+    }
 }
 
 int BitsArray::GetBit(const int n) const {  // получить значение бита
     if (n > -1 && n < BitLen) {
         return (pMem[GetMemIndex(n)] & GetMemMask(n)) ? 1 : 0;
-    } else
+    } else {
         throw std::out_of_range("Out of range in \"GetBit\"");
+    }
 }
 
 // битовые операции
