@@ -16,8 +16,8 @@ class BitsArray {
     int  GetBit(const int n) const;  // получить значение бита
 
                                     // битовые операции
-    int operator==(const BitsArray &bf);  // сравнение
-    int operator!=(const BitsArray &bf);  // сравнение
+    bool operator==(const BitsArray &bf) const;  // сравнение
+    bool operator!=(const BitsArray &bf) const;  // сравнение
     BitsArray& operator=(const BitsArray &bf);  // присваивание
     BitsArray  operator|(const BitsArray &bf);  // операция "или"
     BitsArray  operator&(const BitsArray &bf);  // операция "и"

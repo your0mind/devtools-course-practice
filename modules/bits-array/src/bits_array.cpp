@@ -84,26 +84,26 @@ BitsArray& BitsArray::operator=(const BitsArray &bf) {  // присваиван�
     return *this;
 }
 
-int BitsArray::operator==(const BitsArray &bf) const {  // сравнение
+bool BitsArray::operator==(const BitsArray &bf) const {  // сравнение
     if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
-        return 0;
+        return false;
     } else {
         for (int i = 0; i < MemLen; i++)
             if (pMem[i] != bf.pMem[i])
-                return 0;
+                return false;
     }
-    return 1;
+    return true;
 }
 
-int BitsArray::operator!=(const BitsArray &bf) const {  // сравнение
+bool BitsArray::operator!=(const BitsArray &bf) const {  // сравнение
     if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
-            return 1;
+            return true;
     } else {
         for (int i = 0; i < MemLen; i++)
             if (pMem[i] != bf.pMem[i])
-                return 1;
+                return true;
     }
-    return 0;
+    return false;
 }
 
 BitsArray BitsArray::operator|(const BitsArray &bf) {  // операция "или"
