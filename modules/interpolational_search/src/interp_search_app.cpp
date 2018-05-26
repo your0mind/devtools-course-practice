@@ -8,18 +8,16 @@
 #include <limits>
 #include <string>
 #include <vector>
-#include <cerrno>
 
 InterpSearchApp::InterpSearchApp() {
-    msg = "";
 }
 
 bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
     if (argc == 1) {
-       msg = std::string("Input following arguments:\n") +
+        msg = std::string("Input following arguments:\n") +
                "list of integers and number," +
                "which possition you want to find there.\n";
-       return false;
+        return false;
     } else if (argc < 3) {
         msg = std::string("There should be 2 arguments:\n") +
                           "list of integers and number," +
@@ -32,10 +30,7 @@ bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
 
 int MyToInt(const char* arg) {
     char* end = 0;
-    int64_t value = strtol(arg, &end, 10);
-    if (end[0] != 0) {
-        throw std::string("ERROR: Wrong number format! ") + arg;
-    }
+    int64_t value = std::stoi(arg);
 
     return static_cast<int>(value);
 }
@@ -54,16 +49,15 @@ std::string InterpSearchApp::operator()(int argc, const char** argv) {
 
         value = MyToInt(argv[length+1]);
     }
-    catch (std::string& str) {
-        return str;
+    catch (const std::invalid_argument& ia) {
+        return std::string("ERROR: Wrong number format!\n") + ia.what() + "\n";
     }
 
-    int result = xab::interpSearch(vect, value);
-    if (result == -1)
+    if (xab::interpSearch(vect, value) == -1)
         msg = "Element " + std::to_string(value) + " hasn't been found.\n";
     else
         msg = "Element " + std::to_string(value) + " is at "
-               + std::to_string(result) + " place.\n";
+               + std::to_string(xab::interpSearch(vect, value)) + " place.\n";
 
     return msg;
 }
