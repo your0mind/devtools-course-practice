@@ -6,14 +6,6 @@
 #include <iostream>
 
 class BitsArray {
- private:
-    int  BitLen;  // длина битового поля - макс. к-во битов
-    unsigned int *pMem;  // память для представления битового поля
-    int  MemLen;  // к-во эл-тов Мем для представления бит.поля
-
-                 // методы реализации
-    int   GetMemIndex(const int n) const;  // индекс в pМем для бита n
-    unsigned int GetMemMask(const int n) const;  // битовая маска для бита n
  public:
     BitsArray(int len);
     BitsArray(const BitsArray &bf);
@@ -35,6 +27,15 @@ class BitsArray {
 
     friend std::istream &operator >> (std::istream &istr, BitsArray &bf);
     friend std::ostream &operator << (std::ostream &ostr, const BitsArray &bf);
+
+ private:
+    int  BitLen;  // длина битового поля - макс. к-во битов
+    unsigned int *pMem;  // память для представления битового поля
+    int  MemLen;  // к-во эл-тов Мем для представления бит.поля
+
+                 // методы реализации
+    int   GetMemIndex(const int n) const;  // индекс в pМем для бита n
+    unsigned int GetMemMask(const int n) const;  // битовая маска для бита n
 };
 
-#endif  //MODULES_BITS_ARRAY_INCLUDE_BITS_ARRAY_H_
+#endif  // MODULES_BITS_ARRAY_INCLUDE_BITS_ARRAY_H_
