@@ -2,8 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include "include/bits_array.h"
 #include <vector>
+
+#include "include/bits_array.h"
 
 TEST(Aglikov_Ilya_BitsArray, can_create_BitsArray_with_positive_length) {
     // Assert
