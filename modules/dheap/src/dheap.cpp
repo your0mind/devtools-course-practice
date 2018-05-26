@@ -4,17 +4,18 @@
 #include <iostream>
 #include <algorithm>
 #include "include/dheap.h"
+#include <utility>
 
 #define EMPTY (-1)
 
-typedef std::pair<int, int> Vertex; //vertex number and path length
+typedef std::pair<int, int> Vertex;  // vertex number and path length
 
 
 Dheap::Dheap(int d, int elemCount) {
     this->elemCount = elemCount;
     this->d = d;
     points.resize(2 * elemCount + 2, EMPTY);
-    //storage.resize(elemCount);
+    // storage.resize(elemCount);
 }
 
 bool Dheap::isEmpty() {
@@ -23,8 +24,8 @@ bool Dheap::isEmpty() {
 
 
 Vertex Dheap::pop() {
-    if(isEmpty())
-        return Vertex(-1,-1);
+    if( isEmpty())
+        return Vertex(-1, -1);
     Vertex v = std::make_pair(storage[0], points[2 * storage[0]]);
     del(0);
     return v;
@@ -50,7 +51,7 @@ int Dheap::getVal(int vNum) {
 
 
 int Dheap::key(int i) {
-    //return length val
+    // return length val
     return points[2 * storage[i]];
 }
 
@@ -99,8 +100,9 @@ int Dheap::down(int i) {
 
 int Dheap::minChail(int i) {
     if (storage.size() == 1) return 0;
-    if ((i * d + 1) >= elemCount) return 0;
-    else {
+    if ((i * d + 1) >= elemCount) {
+        return 0;
+    } else {
         int s = i * d + 1;
         int minKey = key(s);
         int last = (i + 1) * d;
