@@ -22,5 +22,5 @@ TEST(Lipatov_Igor_DHeapTest, CantUseEmpty) {
     Dheap dh(3, 10);
     // Act
     // Assert
-    EXPECT_EQ(dh.pop(),Vertex(-1, -1));
+    EXPECT_EQ(dh.pop(), Vertex(-1, -1));
 }
