@@ -1,9 +1,9 @@
 // Copyright 2018 Lipatov Igor
 
+#include "include/dheap.h"
 #include <vector>
 #include <iostream>
 #include <algorithm>
-#include "include/dheap.h"
 #include <utility>
 
 #define EMPTY (-1)
@@ -24,7 +24,7 @@ bool Dheap::isEmpty() {
 
 
 Vertex Dheap::pop() {
-    if( isEmpty())
+    if ( isEmpty() )
         return Vertex(-1, -1);
     Vertex v = std::make_pair(storage[0], points[2 * storage[0]]);
     del(0);
