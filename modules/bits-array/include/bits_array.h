@@ -16,8 +16,8 @@ class BitsArray {
     int  GetBit(const int n) const;  // получить значение бита
 
                                     // битовые операции
-    int operator==(const BitsArray &bf) const;  // сравнение
-    int operator!=(const BitsArray &bf) const;  // сравнение
+    int operator==(const BitsArray &bf);  // сравнение
+    int operator!=(const BitsArray &bf);  // сравнение
     BitsArray& operator=(const BitsArray &bf);  // присваивание
     BitsArray  operator|(const BitsArray &bf);  // операция "или"
     BitsArray  operator&(const BitsArray &bf);  // операция "и"
@@ -29,8 +29,8 @@ class BitsArray {
     int  MemLen;  // к-во эл-тов Мем для представления бит.поля
 
                  // методы реализации
-    int   GetMemIndex(const int n) const;  // индекс в pМем для бита n
-    unsigned int GetMemMask(const int n) const;  // битовая маска для бита n
+    int   GetMemIndex(int n);  // индекс в pМем для бита n
+    unsigned int GetMemMask(int n);  // битовая маска для бита n
 };
 
 #endif  // MODULES_BITS_ARRAY_INCLUDE_BITS_ARRAY_H_

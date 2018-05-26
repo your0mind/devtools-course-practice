@@ -4,7 +4,6 @@
 
 #include <stdexcept>
 
-
 int bitSize = sizeof(unsigned int) * 8;  // bitSize = unsigned intbitSize
 
 BitsArray::BitsArray(int len) {
