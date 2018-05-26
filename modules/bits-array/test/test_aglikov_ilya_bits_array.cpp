@@ -260,10 +260,10 @@ TEST(Aglikov_Ilya_BitsArray, can_invert_BitsArray) {
     BitsArray bf(size), negBf(size), expNegBf(size);
 
     // Act
-    bf.SetBit(1); // bf = 01
+    bf.SetBit(1);  // bf = 01
     negBf = ~bf;
 
-    expNegBf.SetBit(0); // expNegBf = 10
+    expNegBf.SetBit(0);  // expNegBf = 10
 
     // Assert
     EXPECT_EQ(expNegBf, negBf);
@@ -333,12 +333,12 @@ TEST(Aglikov_Ilya_BitsArray, can_clear_a_bit_twice) {
     // Arrange
     const int size = 3;
     BitsArray bf1(3);
-    BitsArray bf2(bf1);		//bf2 = 000
+    BitsArray bf2(bf1);  // bf2 = 000
 
     // Act
-    bf1.SetBit(1);			//bf1 = 010
+    bf1.SetBit(1);  // bf1 = 010
     bf1.ClrBit(1);
-    bf1.ClrBit(1);			//bf1 = 000
+    bf1.ClrBit(1);  // bf1 = 000
 
     // Assert
     EXPECT_EQ(bf1, bf2);

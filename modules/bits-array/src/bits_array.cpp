@@ -16,8 +16,7 @@ BitsArray::BitsArray(int len) {
         for (int i = 0; i < MemLen; i++)
             pMem[i] = 0;
     }
-    else
-        throw std::invalid_argument("Invalid argument in constructor!");
+    else throw std::invalid_argument("Invalid argument in constructor!");
 }
 
 BitsArray::BitsArray(const BitsArray &bf) {  // конструктор копирования
@@ -44,8 +43,9 @@ unsigned int BitsArray::GetMemMask(const int n) const {
     if (n > -1 && n < BitLen) {
         unsigned int mask = 1 << n % bitSize;
         return mask;
-    } else
+    } else {
         throw std::out_of_range("Out of range in \"GetMemMask\"");
+    }
 }
 
 // доступ к битам битового поля
@@ -94,24 +94,26 @@ BitsArray& BitsArray::operator=(const BitsArray &bf) {  // присваиван�
 }
 
 int BitsArray::operator==(const BitsArray &bf) const {  // сравнение
-    if (BitLen != bf.BitLen || MemLen != bf.MemLen)
+    if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
         return 0;
+    }
     else {
-            for (int i = 0; i < MemLen; i++)
-                if (pMem[i] != bf.pMem[i])
-                    return 0;
-        }
+        for (int i = 0; i < MemLen; i++)
+            if (pMem[i] != bf.pMem[i])
+                return 0;
+    }
     return 1;
 }
 
 int BitsArray::operator!=(const BitsArray &bf) const {  // сравнение
-    if (BitLen != bf.BitLen || MemLen != bf.MemLen)
-        return 1;
+    if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
+            return 1;
+    }
     else {
-            for (int i = 0; i < MemLen; i++)
-                if (pMem[i] != bf.pMem[i])
-                    return 1;
-        }                
+        for (int i = 0; i < MemLen; i++)
+            if (pMem[i] != bf.pMem[i])
+                return 1;
+    }
     return 0;
 }
 
