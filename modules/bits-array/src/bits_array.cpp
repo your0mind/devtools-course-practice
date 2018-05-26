@@ -16,7 +16,8 @@ BitsArray::BitsArray(int len) {
         for (int i = 0; i < MemLen; i++)
             pMem[i] = 0;
     }
-    else throw std::invalid_argument("Invalid argument in constructor!");
+    else
+        throw std::invalid_argument("Invalid argument in constructor!");
 }
 
 BitsArray::BitsArray(const BitsArray &bf) {  // конструктор копирования
@@ -57,24 +58,21 @@ int BitsArray::GetLength(void) const {  // получить длину (к-во 
 void BitsArray::SetBit(const int n) {  // установить бит
     if (n > -1 && n < BitLen) {
         pMem[GetMemIndex(n)] |= GetMemMask(n);
-    }
-    else
+    } else
         throw std::out_of_range("Out of range in \"SetBit\"");
 }
 
 void BitsArray::ClrBit(const int n) {  // очистить бит
     if (n > -1 && n < BitLen) {
         pMem[GetMemIndex(n)] &= ~GetMemMask(n);
-    }
-    else
+    } else
         throw std::out_of_range("Out of range in \"ClrBit\"");
 }
 
 int BitsArray::GetBit(const int n) const {  // получить значение бита
     if (n > -1 && n < BitLen) {
         return (pMem[GetMemIndex(n)] & GetMemMask(n)) ? 1 : 0;
-    }
-    else
+    } else
         throw std::out_of_range("Out of range in \"GetBit\"");
 }
 
@@ -83,10 +81,8 @@ int BitsArray::GetBit(const int n) const {  // получить значение
 BitsArray& BitsArray::operator=(const BitsArray &bf) {  // присваивание
     if (this != &bf) {
         BitLen = bf.BitLen;
-        if (MemLen != bf.MemLen) {
-            MemLen = bf.MemLen;
-            pMem = new unsigned int[MemLen];
-        }
+        MemLen = bf.MemLen;
+        pMem = new unsigned int[MemLen];
         for (int i = 0; i < MemLen; i++)
             pMem[i] = bf.pMem[i];
     }
@@ -96,8 +92,7 @@ BitsArray& BitsArray::operator=(const BitsArray &bf) {  // присваиван�
 int BitsArray::operator==(const BitsArray &bf) const {  // сравнение
     if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
         return 0;
-    }
-    else {
+    } else {
         for (int i = 0; i < MemLen; i++)
             if (pMem[i] != bf.pMem[i])
                 return 0;
@@ -108,8 +103,7 @@ int BitsArray::operator==(const BitsArray &bf) const {  // сравнение
 int BitsArray::operator!=(const BitsArray &bf) const {  // сравнение
     if (BitLen != bf.BitLen || MemLen != bf.MemLen) {
             return 1;
-    }
-    else {
+    } else {
         for (int i = 0; i < MemLen; i++)
             if (pMem[i] != bf.pMem[i])
                 return 1;

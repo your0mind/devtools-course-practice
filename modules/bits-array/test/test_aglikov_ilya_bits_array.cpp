@@ -24,8 +24,7 @@ TEST(Aglikov_Ilya_BitsArray, new_BitsArray_is_set_to_zero) {
     int sum = 0;
 
     // Act
-    for (int i = 0; i < bf.GetLength(); i++)
-    {
+    for (int i = 0; i < bf.GetLength(); i++) {
         sum += bf.GetBit(i);
     }
 
@@ -103,11 +102,51 @@ TEST(Aglikov_Ilya_BitsArray, throws_when_clear_bit_with_negative_index) {
 }
 
 TEST(Aglikov_Ilya_BitsArray, throws_when_clear_bit_with_too_large_index) {
-    //Arrange
+    // Arrange
     BitsArray bf(10);
 
     // Assert
     ASSERT_ANY_THROW(bf.ClrBit(11));
+}
+
+TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_not_equal_size_1) {
+    // Arrange
+    BitsArray bf1(1), bf2(2);
+
+    // Assert
+    EXPECT_EQ(1, bf1 != bf2);
+}
+
+TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_not_equal_size_2) {
+    // Arrange
+    BitsArray bf1(1), bf2(2);
+
+    // Assert
+    EXPECT_EQ(0, bf1 == bf2);
+}
+
+TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_1) {
+    // Arrange
+    BitsArray bf1(2), bf2(2);
+
+    // Act
+    bf1.SetBit(1);
+    bf2.SetBit(1);
+
+    // Assert
+    EXPECT_EQ(0, bf1 != bf2);
+}
+
+TEST(Aglikov_Ilya_BitsArray, can_compare_BitsArray_with_equal_size_2) {
+    // Arrange
+    BitsArray bf1(3), bf2(3);
+
+    // Act
+    bf1.SetBit(1);
+    bf2.SetBit(2);
+
+    // Assert
+    EXPECT_EQ(0, bf1 == bf2);
 }
 
 TEST(Aglikov_Ilya_BitsArray, can_assign_BitsArray_of_equal_size) {
@@ -116,8 +155,7 @@ TEST(Aglikov_Ilya_BitsArray, can_assign_BitsArray_of_equal_size) {
     BitsArray bf1(size), bf2(size);
 
     // Act
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++) {
         bf1.SetBit(i);
     }
     bf2 = bf1;
@@ -133,8 +171,7 @@ TEST(Aglikov_Ilya_BitsArray, assign_operator_changes_BitsArray_size) {
     BitsArray bf1(size1), bf2(size2);
 
     // Act
-    for (int i = 0; i < size1; i++)
-    {
+    for (int i = 0; i < size1; i++) {
         bf1.SetBit(i);
     }
     bf2 = bf1;
@@ -148,9 +185,8 @@ TEST(Aglikov_Ilya_BitsArray, can_assign_BitsArray_of_non_equal_size) {
     const int size1 = 2, size2 = 5;
     BitsArray bf1(size1), bf2(size2);
 
-    //Act
-    for (int i = 0; i < size1; i++)
-    {
+    // Act
+    for (int i = 0; i < size1; i++) {
         bf1.SetBit(i);
     }
     bf2 = bf1;
@@ -165,9 +201,8 @@ TEST(Aglikov_Ilya_BitsArray, compare_equal_BitsArray_of_equal_size) {
     const int size = 2;
     BitsArray bf1(size), bf2(size);
 
-    //Act
-    for (int i = 0; i < size; i++)
-    {
+    // Act
+    for (int i = 0; i < size; i++) {
         bf1.SetBit(i);
     }
     bf2 = bf1;
@@ -196,7 +231,7 @@ TEST(Aglikov_Ilya_BitsArray, or_operator_applied_to_BitsArray_of_equal_size) {
     EXPECT_EQ(expBf, bf1 | bf2);
 }
 
-TEST(Aglikov_Ilya_BitsArray, or_operator_applied_to_BitsArray_of_non_equal_size) {
+TEST(Aglikov_Ilya_BitsArray, or_operator_applied_BitsArray_non_equal_size) {
     // Arrange
     const int size1 = 4, size2 = 5;
     BitsArray bf1(size1), bf2(size2), expBf(size2);
@@ -234,7 +269,7 @@ TEST(Aglikov_Ilya_BitsArray, and_operator_applied_to_BitsArray_of_equal_size) {
     EXPECT_EQ(expBf, bf1 & bf2);
 }
 
-TEST(Aglikov_Ilya_BitsArray, and_operator_applied_to_BitsArray_of_non_equal_size) {
+TEST(Aglikov_Ilya_BitsArray, and_operator_applied_size_BitsArray) {
     // Arrange
     const int size1 = 4, size2 = 5;
     BitsArray bf1(size1), bf2(size2), expBf(size2);
