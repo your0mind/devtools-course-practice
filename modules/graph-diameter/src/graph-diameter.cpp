@@ -45,7 +45,6 @@ int GraphDiameter::GetDiameter() {
             if (!edges[i][j]) {
                 edges[i][j] = CONNECTED;
             }
-            // edges[i][j] = (!edges[i][j]) ? 10000 : graph[i][j]
         }
     }
 
