@@ -29,12 +29,6 @@ bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
     return true;
 }
 
-int MyToInt(const char* arg) {
-    int64_t value = std::stoi(arg);
-
-    return static_cast<int>(value);
-}
-
 std::string InterpSearchApp::operator()(int argc, const char** argv) {
     if (!AreArgumentsValid(argc, argv)) {
          return msg;
@@ -45,9 +39,9 @@ std::string InterpSearchApp::operator()(int argc, const char** argv) {
     std::vector<int> vect(length);
     try {
        for (int i = 0; i < length ; i++)
-            vect[i] = MyToInt(argv[i+1]);
+            vect[i] = std::stoi(argv[i+1]);
 
-        value = MyToInt(argv[length+1]);
+        value = std::stoi(argv[length+1]);
     }
     catch (const std::invalid_argument& ia) {
         return std::string("ERROR: Wrong number format!\n") + ia.what() + "\n";
