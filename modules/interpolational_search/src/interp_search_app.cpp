@@ -30,7 +30,6 @@ bool InterpSearchApp::AreArgumentsValid(int argc, const char** argv) {
 }
 
 int MyToInt(const char* arg) {
-    char* end = 0;
     int64_t value = std::stoi(arg);
 
     return static_cast<int>(value);
