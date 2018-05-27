@@ -8,7 +8,7 @@
 #include <limits>
 #include <string>
 #include <vector>
-#include <stdexcept>
+#include <exception>
 
 InterpSearchApp::InterpSearchApp() {
 }
