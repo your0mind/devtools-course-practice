@@ -66,3 +66,11 @@ add_test(
 set_tests_properties (${prefix}_can_Find_Node PROPERTIES
     PASS_REGULAR_EXPRESSION "Search was successful!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_incorrect_Input
+    COMMAND ${APPLICATION} +i 47
+)
+set_tests_properties (${prefix}_can_Find_Node PROPERTIES
+    PASS_REGULAR_EXPRESSION "Usage"
+    LABELS "${MODULE}")

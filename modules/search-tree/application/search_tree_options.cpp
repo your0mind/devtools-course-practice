@@ -1,7 +1,7 @@
 // Copyright 2018 Gladyshev Alexey
 
-#include <stdlib.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cstdio>
 #include <string>
 #include <sstream>
 

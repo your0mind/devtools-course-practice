@@ -1,14 +1,13 @@
 // Copyright 2018 Gladyshev Alexey
 
-#include "include/search_tree.h"
-#include "include/search_tree_options.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstdint>
 #include <string>
 #include <sstream>
+
+#include "include/search_tree.h"
+#include "include/search_tree_options.h"
 
 SearchTreeOptions::SearchTreeOptions() : message_("") {}
 
