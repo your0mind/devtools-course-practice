@@ -55,7 +55,7 @@ BitsArray* parseBits(const char* arg) {
 
 char parseOperation(const char* arg) {
     char op;
-    
+
     if (arg[1] != '\0') {
         throw std::string("Wrong operation format!");
     } else {
