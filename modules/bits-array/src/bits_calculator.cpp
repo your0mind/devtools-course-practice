@@ -1,6 +1,7 @@
 // Copyright 2018 Kiselev Denis
 
 #include <sstream>
+#include <string>
 
 #include "include/bits_calculator.h"
 
@@ -22,8 +23,7 @@ bool BitsCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc != 4) {
+    } else if (argc != 4) {
         help(argv[0], "ERROR: Should be 3 arguments.\n\n");
         return false;
     }
@@ -40,7 +40,7 @@ BitsArray* parseBits(const char* arg) {
         switch (arg[size]) {
             case '0' :
                 break;
-                
+
             case '1' :
                 array->SetBit(size);
                 break;
@@ -58,8 +58,7 @@ char parseOperation(const char* arg) {
     
     if (arg[1] != '\0') {
         throw std::string("Wrong operation format!");
-    }
-    else {
+    } else {
         switch (arg[0]) {
             case '&' :
                 op = '&';
