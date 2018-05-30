@@ -73,6 +73,14 @@ TEST_F(BitsCalculatorTest, Can_Detect_Wrong_Operation_Format) {
     Assert("Wrong operation format!");
 }
 
+TEST_F(BitsCalculatorTest, Can_Detect_Wrong_Operation_Format2) {
+    vector<string> args = {"0100", "0110", "or"};
+
+    Act(args);
+
+    Assert("Wrong operation format!");
+}
+
 TEST_F(BitsCalculatorTest, And_Operation_Is_Correct) {
     vector<string> args = {"01001", "0110", "&"};
 
