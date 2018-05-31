@@ -16,7 +16,7 @@ void BitsCalculator::help(const char* appname, const char* message) {
           "  $ " + appname + " <bits1> <bits2> <operation>\n\n" +
 
           "Where all arguments are bit sequences, " +
-          "and <operation> is one of '&', '|'.\n";
+          "and <operation> is one of '&', '|', '^'.\n";
 }
 
 bool BitsCalculator::validateNumberOfArguments(int argc, const char** argv) {
@@ -68,6 +68,10 @@ char parseOperation(const char* arg) {
                 op = '|';
                 break;
 
+            case '^' :
+                op = '^';
+                break;
+
             default :
                 throw std::string("Wrong operation format!");
         }
@@ -97,8 +101,14 @@ std::string BitsCalculator::operator()(int argc, const char** argv) {
         case '&':
             result = BitsArray(*args.bits_first & *args.bits_second);
             break;
+
         case '|' :
             result = BitsArray(*args.bits_first | *args.bits_second);
+            break;
+
+        case '^' :
+            result = BitsArray((~*args.bits_first & *args.bits_second) |
+                               (*args.bits_first & ~*args.bits_second));
             break;
     }
 
