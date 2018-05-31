@@ -96,3 +96,11 @@ TEST_F(BitsCalculatorTest, Or_Operation_Is_Correct) {
 
     Assert("Result: 01101");
 }
+
+TEST_F(BitsCalculatorTest, Xor_Operation_Is_Correct) {
+    vector<string> args = {"0101", "0011", "^"};
+
+    Act(args);
+
+    Assert("Result: 0110");
+}
